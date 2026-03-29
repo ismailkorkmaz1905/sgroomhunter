@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+presence_log.txt
+.playwright-profile/
+artifacts/
+automation/propertyguru/.propertyguru_monitor_state.json
+automation/propertyguru/propertyguru_monitor.log
+automation/propertyguru/propertyguru_monitor_config.local.json

@@ -1,0 +1,8 @@
+Hi {agent_name},
+
+I found your PropertyGuru listing for {title} in {location}.
+Is it still available? I am interested in arranging a viewing.
+
+Listing: {listing_url}
+
+Thanks.
