@@ -6,3 +6,6 @@ artifacts/
 automation/propertyguru/.propertyguru_monitor_state.json
 automation/propertyguru/propertyguru_monitor.log
 automation/propertyguru/propertyguru_monitor_config.local.json
+automation/propertyguru/propertyguru_stdout.log
+automation/propertyguru/propertyguru_stderr.log
+automation/propertyguru/listings.txt
