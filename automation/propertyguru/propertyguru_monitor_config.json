@@ -56,6 +56,7 @@
   "telegram_chat_id": "",
   "poll_interval_seconds": 1800,
   "send_mode": "preview",
+  "post_send_wait_seconds": 12,
   "browser_channel": "chrome",
   "profile_dir": ".playwright-profile/propertyguru-helper",
   "chrome_executable": "chrome.exe",

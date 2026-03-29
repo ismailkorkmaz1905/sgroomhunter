@@ -264,6 +264,7 @@ def load_config(path: Path) -> dict[str, Any]:
             "telegram_chat_id": "",
             "poll_interval_seconds": 3600,
             "send_mode": "preview",
+            "post_send_wait_seconds": 12,
             "browser_channel": "chrome",
             "profile_dir": ".playwright-profile/propertyguru-helper",
             "chrome_executable": "chrome.exe",
@@ -608,7 +609,7 @@ def auto_send_whatsapp(details: ListingDetails, message: str, config: dict[str, 
                     continue
             if not clicked:
                 raise RuntimeError("Could not find WhatsApp send button in the controlled profile.")
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(int(config.get("post_send_wait_seconds", 12)) * 1000)
             return f"WhatsApp message sent to {details.agent_name or details.agent_phone_pretty}."
         finally:
             context.close()
