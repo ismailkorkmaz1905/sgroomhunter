@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ app_summary.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">{{ app_summary.name }}</div>
+      <div class="tagline">{{ app_summary.tagline }}</div>
+      <nav class="nav">
+        <a href="{{ url_for('index') }}">Dashboard</a>
+        <a href="{{ url_for('profile_detail', profile_id='ismail-singapore') }}">Search Profile</a>
+        <a href="{{ url_for('create_profile') }}">New Profile</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        <a href="{{ url_for('about') }}">About</a>
+      </nav>
+    </aside>
+    <main class="main">
+      {% block content %}{% endblock %}
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a href="{{ url_for('about') }}">About</a>
+          <a href="{{ url_for('pricing') }}">Pricing</a>
+          <a href="{{ url_for('privacy') }}">Privacy</a>
+          <a href="{{ url_for('terms') }}">Terms</a>
+        </div>
+        <div class="footer-note">
+          RoomRadar may earn revenue from subscriptions, partner referrals, and future ad placements.
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

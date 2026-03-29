@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero compact">
+  <div class="eyebrow">Listing Review</div>
+  <h1>{{ listing.title }}</h1>
+  <p>{{ listing.summary }}</p>
+  {% if action %}
+  <div class="flash-banner">{{ action|capitalize }} for this listing.</div>
+  {% endif %}
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Listing Details</h2>
+    </div>
+    <div class="detail-list">
+      <div><span>Price</span><strong>{{ listing.price }}</strong></div>
+      <div><span>Posted</span><strong>{{ listing.posted }}</strong></div>
+      <div><span>Agent</span><strong>{{ listing.agent }}</strong></div>
+      <div><span>Phone</span><strong>{{ listing.phone }}</strong></div>
+      <div><span>Status</span><strong>{{ listing.status }}</strong></div>
+      <div><span>Profile</span><strong>{{ profile.name }}</strong></div>
+      <div><span>Source</span><strong><a class="text-link" href="{{ listing.url }}" target="_blank">Open listing</a></strong></div>
+    </div>
+    {% if listing.positive %}
+    <div class="pill-row">
+      {% for item in listing.positive %}
+      <span class="pill pill-ok">{{ item }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if listing.risks %}
+    <div class="pill-row">
+      {% for item in listing.risks %}
+      <span class="pill pill-warn">{{ item }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if listing.reasons %}
+    <div class="reason-list block">
+      {% for reason in listing.reasons %}
+      <span>{{ reason }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ url_for('approve_listing', listing_id=listing.id) }}">Approve</a>
+      <a class="btn btn-secondary" href="{{ url_for('reject_listing', listing_id=listing.id) }}">Reject</a>
+      <a class="btn btn-whatsapp" href="{{ url_for('open_whatsapp', listing_id=listing.id) }}" target="_blank">Open WhatsApp</a>
+    </div>
+  </article>
+
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Draft Outreach</h2>
+    </div>
+    <div class="message-box">{{ listing.draft }}</div>
+  </article>
+</section>
+{% endblock %}

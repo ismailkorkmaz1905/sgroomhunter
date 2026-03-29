@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero compact">
+  <div class="eyebrow">Search Profile</div>
+  <h1>{{ profile.name }}</h1>
+  <p>{{ profile.notes }}</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="{{ url_for('edit_profile', profile_id=profile.id) }}">Edit profile</a>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="detail-list">
+    <div><span>Budget</span><strong>{{ profile.budget }}</strong></div>
+    <div><span>Areas</span><strong>{{ profile.areas|join(", ") }}</strong></div>
+    <div><span>Move-in</span><strong>{{ profile.move_in }}</strong></div>
+    <div><span>Lease term</span><strong>{{ profile.lease_term }}</strong></div>
+    <div><span>Room type</span><strong>{{ profile.room_type }}</strong></div>
+    <div><span>Property type</span><strong>{{ profile.property_type }}</strong></div>
+    <div><span>Bathroom</span><strong>{{ profile.bathroom }}</strong></div>
+    <div><span>Bathroom sharing</span><strong>{{ profile.bathroom_sharing }}</strong></div>
+    <div><span>Cooking</span><strong>{{ profile.cooking }}</strong></div>
+    <div><span>Kitchen access</span><strong>{{ profile.kitchen_access }}</strong></div>
+    <div><span>Visitors</span><strong>{{ profile.visitors }}</strong></div>
+    <div><span>Owner stay</span><strong>{{ profile.owner_stay }}</strong></div>
+    <div><span>Furnishing</span><strong>{{ profile.furnishing }}</strong></div>
+    <div><span>Aircon</span><strong>{{ profile.aircon }}</strong></div>
+    <div><span>Laundry</span><strong>{{ profile.laundry }}</strong></div>
+    <div><span>Wi-Fi</span><strong>{{ profile.wifi }}</strong></div>
+    <div><span>Household size</span><strong>{{ profile.household_size }}</strong></div>
+    <div><span>Nationality rule</span><strong>{{ profile.nationality_rule }}</strong></div>
+    <div><span>MRT walk</span><strong>{{ profile.mrt_walk }}</strong></div>
+    <div><span>Gender rule</span><strong>{{ profile.gender_rule }}</strong></div>
+    <div><span>1 pax only</span><strong>{{ profile.allow_one_pax_only }}</strong></div>
+    <div><span>Listing age</span><strong>{{ profile.max_listing_age_days }} days</strong></div>
+    <div><span>Contact name</span><strong>{{ profile.contact_name }}</strong></div>
+    <div><span>Occupation</span><strong>{{ profile.occupation }}</strong></div>
+    <div><span>Message tone</span><strong>{{ profile.message_tone }}</strong></div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-header">
+    <h2>Current Feed</h2>
+  </div>
+  <div class="stack">
+    {% for listing in listings %}
+    <a class="listing-card" href="{{ url_for('listing_detail', listing_id=listing.id) }}">
+      <div class="card-top">
+        <h3>{{ listing.title }}</h3>
+        <span class="pill {% if listing.status == 'qualified' %}pill-ok{% elif listing.status == 'rejected' %}pill-bad{% else %}pill-warn{% endif %}">
+          {{ listing.status }}
+        </span>
+      </div>
+      <p>{{ listing.summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero compact">
+  <div class="eyebrow">Pricing</div>
+  <h1>Monetize with a simple free-to-paid funnel.</h1>
+  <p>Start with a generous free plan, then convert heavy users into premium subscribers as they get closer to moving.</p>
+</section>
+
+<section class="pricing-grid">
+  <article class="panel pricing-card">
+    <div class="pill pill-ok">Free</div>
+    <h2>S$0</h2>
+    <p>For casual renters testing a few areas.</p>
+    <div class="stack">
+      <div>1 active profile</div>
+      <div>Basic match feed</div>
+      <div>Manual WhatsApp open</div>
+      <div>Ad-supported experience</div>
+    </div>
+  </article>
+
+  <article class="panel pricing-card featured-plan">
+    <div class="pill pill-warn">Pro</div>
+    <h2>S$19 / month</h2>
+    <p>For users actively hunting and messaging every week.</p>
+    <div class="stack">
+      <div>5 active profiles</div>
+      <div>Priority alerts</div>
+      <div>Advanced keyword filters</div>
+      <div>Better outreach templates</div>
+    </div>
+  </article>
+
+  <article class="panel pricing-card">
+    <div class="pill pill-bad">Concierge</div>
+    <h2>S$79 / month</h2>
+    <p>For renters who want a white-glove shortlist and follow-up flow.</p>
+    <div class="stack">
+      <div>Unlimited profiles</div>
+      <div>Human-reviewed shortlist</div>
+      <div>Priority support</div>
+      <div>Partner perks and credits</div>
+    </div>
+  </article>
+</section>
+
+<section class="panel">
+  <div class="panel-header">
+    <h2>Advertising Notes</h2>
+  </div>
+  <p class="muted-copy">A free tier can show ad units in the dashboard feed, profile pages, and post-match setup journey. AdSense is a later integration; for now, the app uses ad placeholders and sponsor modules.</p>
+</section>
+{% endblock %}

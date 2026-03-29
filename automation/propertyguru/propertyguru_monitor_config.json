@@ -52,6 +52,7 @@
   ],
   "message_template_file": "propertyguru_outreach_template.txt",
   "state_file": ".propertyguru_monitor_state.json",
+  "notify_rejections": true,
   "telegram_bot_token": "",
   "telegram_chat_id": "",
   "poll_interval_seconds": 1800,

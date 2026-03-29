@@ -49,6 +49,18 @@ WhatsApp helper:
 python automation/propertyguru/propertyguru_whatsapp_helper.py
 ```
 
+Product app skeleton:
+
+```powershell
+python product/app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5050
+```
+
 ## Notes
 
 - Secrets are intentionally not included in the tracked config.

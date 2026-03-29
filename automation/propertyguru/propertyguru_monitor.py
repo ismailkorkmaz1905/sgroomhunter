@@ -260,6 +260,7 @@ def load_config(path: Path) -> dict[str, Any]:
             ],
             "message_template_file": "propertyguru_outreach_template.txt",
             "state_file": ".propertyguru_monitor_state.json",
+            "notify_rejections": True,
             "telegram_bot_token": "",
             "telegram_chat_id": "",
             "poll_interval_seconds": 3600,
@@ -518,6 +519,36 @@ def format_listing_summary(details: ListingDetails) -> str:
     return "\n".join(lines)
 
 
+def send_rejected_candidates_to_telegram(
+    candidates: list[ListingDetails],
+    template: str,
+    state: dict[str, Any],
+    telegram: TelegramClient,
+    config: dict[str, Any],
+) -> None:
+    if not telegram.enabled or not config.get("notify_rejections", True):
+        return
+    pending_ids = set(state.get("pending_listing_ids", []))
+    pending_candidates = state.setdefault("pending_candidates", {})
+    for details in candidates:
+        if details.listing_id in pending_ids:
+            continue
+        message = build_outreach_message(details, template)
+        pending_candidates[details.listing_id] = {"details": asdict(details), "message": message}
+        text = (
+            "Rejected PropertyGuru listing\n\n"
+            f"{format_listing_summary(details)}\n\n"
+            "Draft message:\n"
+            f"{message}"
+        )
+        keyboard = [[
+            {"text": "Approve", "callback_data": f"approve:{details.listing_id}"},
+            {"text": "Reject", "callback_data": f"reject:{details.listing_id}"},
+        ]]
+        telegram.send_message(text, inline_keyboard=keyboard)
+        state["pending_listing_ids"].append(details.listing_id)
+
+
 class TelegramClient:
     def __init__(self, token: str, chat_id: str) -> None:
         self.token = token
@@ -688,9 +719,10 @@ def shortlist_candidates(
     config: dict[str, Any],
     state: dict[str, Any],
     template: str,
-) -> tuple[list[ListingDetails], dict[str, dict[str, Any]]]:
+) -> tuple[list[ListingDetails], dict[str, dict[str, Any]], list[ListingDetails]]:
     pending_lookup: dict[str, dict[str, Any]] = {}
     shortlisted: list[ListingDetails] = []
+    rejected: list[ListingDetails] = []
     seen_ids = set(state.get("seen_listing_ids", []))
     blocked_ids = set(state.get("approved_listing_ids", [])) | set(state.get("rejected_listing_ids", []))
     for listing in fetch_search_results(session, config):
@@ -705,6 +737,7 @@ def shortlist_candidates(
         if listing.listing_id in seen_ids and listing.listing_id not in state.get("pending_listing_ids", []):
             continue
         if not listing_passes_filters(details, config):
+            rejected.append(details)
             seen_ids.add(listing.listing_id)
             continue
         message = build_outreach_message(details, template)
@@ -712,7 +745,7 @@ def shortlist_candidates(
         pending_lookup[listing.listing_id] = {"details": asdict(details), "message": message}
         seen_ids.add(listing.listing_id)
     state["seen_listing_ids"] = sorted(seen_ids)
-    return shortlisted, pending_lookup
+    return shortlisted, pending_lookup, rejected
 
 
 def send_new_candidates_to_telegram(
@@ -765,7 +798,7 @@ def run_scan_once(config: dict[str, Any], top: int) -> int:
     session = build_session()
     state = load_json(resolve_path(config["state_file"]), DEFAULT_STATE)
     template = load_template(resolve_path(config["message_template_file"]))
-    candidates, _ = shortlist_candidates(session, config, state, template)
+    candidates, _, _ = shortlist_candidates(session, config, state, template)
     print_scan_results(candidates, template, top)
     return 0
 
@@ -779,9 +812,10 @@ def run_monitor_cycle(config: dict[str, Any]) -> int:
     if telegram.enabled:
         process_telegram_updates(state, telegram, config)
         save_json(state_path, state)
-    candidates, pending_lookup = shortlist_candidates(session, config, state, template)
+    candidates, pending_lookup, rejected = shortlist_candidates(session, config, state, template)
     save_json(state_path, state)
     if telegram.enabled:
+        send_rejected_candidates_to_telegram(rejected, template, state, telegram, config)
         send_new_candidates_to_telegram(candidates, pending_lookup, state, telegram)
         save_json(state_path, state)
     else:

@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero compact">
+  <div class="eyebrow">Self-Serve Setup</div>
+  <h1>{{ form_title }}</h1>
+  <p>Use structured criteria so every profile is consistent, searchable, and safe to translate into automation rules.</p>
+</section>
+
+<section class="panel">
+  <form class="criteria-form" method="post">
+    <div class="panel-header compact-head">
+      <h2>Search Criteria</h2>
+    </div>
+
+    <div class="form-grid">
+      <label>
+        <span>Profile name</span>
+        <input type="text" name="name" value="{{ profile.name }}" />
+      </label>
+      <label>
+        <span>Move-in</span>
+        <select name="move_in">
+          {% for option in profile_options.move_in %}
+          <option value="{{ option }}" {% if profile.move_in == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Budget min (SGD)</span>
+        <input type="number" name="budget_min" min="500" step="50" value="{{ profile.budget_min }}" />
+      </label>
+      <label>
+        <span>Budget max (SGD)</span>
+        <input type="number" name="budget_max" min="500" step="50" value="{{ profile.budget_max }}" />
+      </label>
+      <label>
+        <span>Lease term</span>
+        <select name="lease_term">
+          {% for option in profile_options.lease_term %}
+          <option value="{{ option }}" {% if profile.lease_term == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Room type</span>
+        <select name="room_type">
+          {% for option in profile_options.room_type %}
+          <option value="{{ option }}" {% if profile.room_type == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Property type</span>
+        <select name="property_type">
+          {% for option in profile_options.property_type %}
+          <option value="{{ option }}" {% if profile.property_type == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Bathroom</span>
+        <select name="bathroom">
+          {% for option in profile_options.bathroom %}
+          <option value="{{ option }}" {% if profile.bathroom == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Bathroom sharing</span>
+        <select name="bathroom_sharing">
+          {% for option in profile_options.bathroom_sharing %}
+          <option value="{{ option }}" {% if profile.bathroom_sharing == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Cooking</span>
+        <select name="cooking">
+          {% for option in profile_options.cooking %}
+          <option value="{{ option }}" {% if profile.cooking == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Kitchen access</span>
+        <select name="kitchen_access">
+          {% for option in profile_options.kitchen_access %}
+          <option value="{{ option }}" {% if profile.kitchen_access == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Visitors</span>
+        <select name="visitors">
+          {% for option in profile_options.visitors %}
+          <option value="{{ option }}" {% if profile.visitors == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Owner stay</span>
+        <select name="owner_stay">
+          {% for option in profile_options.owner_stay %}
+          <option value="{{ option }}" {% if profile.owner_stay == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Furnishing</span>
+        <select name="furnishing">
+          {% for option in profile_options.furnishing %}
+          <option value="{{ option }}" {% if profile.furnishing == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Aircon</span>
+        <select name="aircon">
+          {% for option in profile_options.aircon %}
+          <option value="{{ option }}" {% if profile.aircon == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Laundry</span>
+        <select name="laundry">
+          {% for option in profile_options.laundry %}
+          <option value="{{ option }}" {% if profile.laundry == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Wi-Fi</span>
+        <select name="wifi">
+          {% for option in profile_options.wifi %}
+          <option value="{{ option }}" {% if profile.wifi == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Household size</span>
+        <select name="household_size">
+          {% for option in profile_options.household_size %}
+          <option value="{{ option }}" {% if profile.household_size == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Nationality rule</span>
+        <select name="nationality_rule">
+          {% for option in profile_options.nationality_rule %}
+          <option value="{{ option }}" {% if profile.nationality_rule == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Walk to MRT</span>
+        <select name="mrt_walk">
+          {% for option in profile_options.mrt_walk %}
+          <option value="{{ option }}" {% if profile.mrt_walk == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>Gender rule</span>
+        <select name="gender_rule">
+          {% for option in profile_options.gender_rule %}
+          <option value="{{ option }}" {% if profile.gender_rule == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>
+        <span>1 pax only listings</span>
+        <select name="allow_one_pax_only">
+          <option value="yes" {% if profile.allow_one_pax_only == "yes" %}selected{% endif %}>Allow</option>
+          <option value="no" {% if profile.allow_one_pax_only == "no" %}selected{% endif %}>Reject</option>
+        </select>
+      </label>
+      <label>
+        <span>Max listing age (days)</span>
+        <input type="number" name="max_listing_age_days" min="1" max="30" value="{{ profile.max_listing_age_days }}" />
+      </label>
+      <label class="full">
+        <span>Areas</span>
+        <div class="area-groups">
+          {% for group_name, group_areas in profile_options.area_groups.items() %}
+          <div class="area-group">
+            <div class="area-group-title">{{ group_name }}</div>
+            <div class="checkbox-grid">
+              {% for area in group_areas %}
+              <label class="check-pill">
+                <input type="checkbox" name="areas" value="{{ area }}" {% if area in profile.areas %}checked{% endif %} />
+                <span>{{ area }}</span>
+              </label>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </label>
+      <label class="full">
+        <span>Must-include keywords</span>
+        <input type="text" name="must_include_keywords" value="{{ profile.must_include_keywords }}" />
+      </label>
+      <label class="full">
+        <span>Blocked keywords</span>
+        <input type="text" name="blocked_keywords" value="{{ profile.blocked_keywords }}" />
+      </label>
+      <label class="full">
+        <span>Internal notes</span>
+        <textarea name="notes" rows="3">{{ profile.notes }}</textarea>
+      </label>
+    </div>
+
+    <div class="panel-header compact-head">
+      <h2>Outreach Settings</h2>
+    </div>
+
+    <div class="form-grid">
+      <label>
+        <span>Contact name</span>
+        <input type="text" name="contact_name" value="{{ profile.contact_name }}" />
+      </label>
+      <label>
+        <span>Occupation</span>
+        <input type="text" name="occupation" value="{{ profile.occupation }}" />
+      </label>
+      <label>
+        <span>Living style</span>
+        <input type="text" name="living_style" value="{{ profile.living_style }}" />
+      </label>
+      <label>
+        <span>Visitor context</span>
+        <input type="text" name="visitor_context" value="{{ profile.visitor_context }}" />
+      </label>
+      <label>
+        <span>Cooking style</span>
+        <input type="text" name="cooking_style" value="{{ profile.cooking_style }}" />
+      </label>
+      <label>
+        <span>Message tone</span>
+        <select name="message_tone">
+          {% for option in profile_options.message_tone %}
+          <option value="{{ option }}" {% if profile.message_tone == option %}selected{% endif %}>{{ option }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="full">
+        <span>Custom message notes</span>
+        <textarea name="custom_message_notes" rows="3">{{ profile.custom_message_notes }}</textarea>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" type="submit">{{ submit_label }}</button>
+      <a class="btn btn-secondary" href="{{ url_for('index') }}">Back</a>
+    </div>
+  </form>
+</section>
+{% endblock %}

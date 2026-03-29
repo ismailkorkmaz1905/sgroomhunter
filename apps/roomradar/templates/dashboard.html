@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="eyebrow">Product Skeleton</div>
+  <h1>RoomRadar turns rental search into a review and outreach pipeline.</h1>
+  <p>Mock data version of the app flow: onboarding, listing triage, rejection reasons, and outreach approvals.</p>
+</section>
+
+<section class="promo-strip">
+  <div class="promo-copy">
+    <strong>RoomRadar Pro</strong>
+    <span>Unlimited profiles, smarter alerts, and priority outreach tools for serious room hunters.</span>
+  </div>
+  <a class="btn btn-primary" href="{{ url_for('pricing') }}">See plans</a>
+</section>
+
+<section class="stats-grid">
+  {% for stat in app_summary.stats %}
+  <article class="stat-card">
+    <div class="stat-label">{{ stat.label }}</div>
+    <div class="stat-value">{{ stat.value }}</div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Search Profile</h2>
+      <a class="text-link" href="{{ url_for('profile_detail', profile_id=profile.id) }}">Open profile</a>
+    </div>
+    <div class="detail-list">
+      <div><span>Budget</span><strong>{{ profile.budget }}</strong></div>
+      <div><span>Areas</span><strong>{{ profile.areas|join(", ") }}</strong></div>
+      <div><span>Move-in</span><strong>{{ profile.move_in }}</strong></div>
+      <div><span>Room type</span><strong>{{ profile.room_type }}</strong></div>
+      <div><span>Property type</span><strong>{{ profile.property_type }}</strong></div>
+      <div><span>Bathroom</span><strong>{{ profile.bathroom }}</strong></div>
+      <div><span>Cooking</span><strong>{{ profile.cooking }}</strong></div>
+      <div><span>MRT walk</span><strong>{{ profile.mrt_walk }}</strong></div>
+      <div><span>Visitors</span><strong>{{ profile.visitors }}</strong></div>
+    </div>
+  </article>
+
+  <article class="panel">
+    <div class="panel-header">
+      <h2>User Profiles</h2>
+      <a class="text-link" href="{{ url_for('create_profile') }}">Create new</a>
+    </div>
+    <div class="stack">
+      {% for item in profiles %}
+      <a class="listing-card" href="{{ url_for('profile_detail', profile_id=item.id) }}">
+        <div class="card-top">
+          <h3>{{ item.name }}</h3>
+          <span class="pill pill-ok">{{ item.budget }}</span>
+        </div>
+        <p>{{ item.areas|join(", ") }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </article>
+</section>
+
+<section class="listing-grid">
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Qualified</h2>
+    </div>
+    {% for listing in accepted %}
+    <a class="listing-card" href="{{ url_for('listing_detail', listing_id=listing.id) }}">
+      <div class="card-top">
+        <h3>{{ listing.title }}</h3>
+        <span class="pill pill-ok">Qualified</span>
+      </div>
+      <p>{{ listing.price }} · {{ listing.posted }}</p>
+      <div class="pill-row">
+        {% for item in listing.positive %}
+        <span class="pill pill-ok">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </article>
+
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Risky</h2>
+    </div>
+    {% for listing in risky %}
+    <a class="listing-card" href="{{ url_for('listing_detail', listing_id=listing.id) }}">
+      <div class="card-top">
+        <h3>{{ listing.title }}</h3>
+        <span class="pill pill-warn">Manual Review</span>
+      </div>
+      <p>{{ listing.price }} · {{ listing.posted }}</p>
+      <div class="pill-row">
+        {% for item in listing.risks %}
+        <span class="pill pill-warn">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </article>
+
+  <article class="panel">
+    <div class="panel-header">
+      <h2>Rejected</h2>
+    </div>
+    {% for listing in rejected %}
+    <a class="listing-card" href="{{ url_for('listing_detail', listing_id=listing.id) }}">
+      <div class="card-top">
+        <h3>{{ listing.title }}</h3>
+        <span class="pill pill-bad">Rejected</span>
+      </div>
+      <p>{{ listing.price }} · {{ listing.posted }}</p>
+      <div class="reason-list">
+        {% for reason in listing.reasons %}
+        <span>{{ reason }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </article>
+</section>
+
+<section class="monetize-grid">
+  <article class="panel ad-panel">
+    <div class="ad-label">Sponsored Slot</div>
+    <h2>Featured Moving Partner</h2>
+    <p>Reserved for relocation services, insurance bundles, SIM cards, or expat-friendly banking offers.</p>
+    <div class="ad-box">Google AdSense / partner creative placeholder</div>
+  </article>
+
+  <article class="panel ad-panel">
+    <div class="ad-label">Affiliate Placement</div>
+    <h2>Set Up Faster</h2>
+    <p>Monetize post-match intent with Wi-Fi, utility setup, home cleaning, storage, and furniture referrals.</p>
+    <div class="ad-box">Affiliate widget placeholder</div>
+  </article>
+
+  <article class="panel ad-panel">
+    <div class="ad-label">Conversion Hook</div>
+    <h2>Need Faster Outreach?</h2>
+    <p>Upsell a concierge tier where RoomRadar drafts, prioritizes, and routes the best matches first.</p>
+    <a class="btn btn-secondary" href="{{ url_for('pricing') }}">Compare plans</a>
+  </article>
+</section>
+{% endblock %}
