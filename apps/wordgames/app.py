@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
+from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
 
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, Response, jsonify, redirect, render_template, request, url_for
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -198,6 +200,36 @@ def get_analytics_summary(days: int = 7) -> dict:
     }
 
 
+def analytics_auth_enabled() -> bool:
+    return bool(os.environ.get("ANALYTICS_USERNAME") and os.environ.get("ANALYTICS_PASSWORD"))
+
+
+def check_basic_auth(auth_header: str | None) -> bool:
+    if not analytics_auth_enabled():
+        return True
+    if not auth_header or not auth_header.startswith("Basic "):
+        return False
+    try:
+        decoded = b64decode(auth_header.split(" ", 1)[1]).decode("utf-8")
+    except Exception:
+        return False
+    username, separator, password = decoded.partition(":")
+    if not separator:
+        return False
+    return (
+        username == os.environ.get("ANALYTICS_USERNAME")
+        and password == os.environ.get("ANALYTICS_PASSWORD")
+    )
+
+
+def analytics_unauthorized_response() -> Response:
+    return Response(
+        "Authentication required.",
+        401,
+        {"WWW-Authenticate": 'Basic realm="WordGames Analytics"'},
+    )
+
+
 def render_localized_page(lang: str, page: str = "home"):
     if lang not in SUPPORTED_LANGUAGES:
         return None
@@ -254,6 +286,8 @@ def create_app() -> Flask:
 
     @app.route("/analytics-summary")
     def analytics_summary():
+        if not check_basic_auth(request.headers.get("Authorization")):
+            return analytics_unauthorized_response()
         return jsonify(get_analytics_summary())
 
     @app.route("/<lang>")

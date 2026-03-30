@@ -44,6 +44,13 @@ WordGames keeps minimal server-side aggregate analytics only.
 - No device fingerprinting
 - Aggregates include route, language, status code, device type, browser family, and referrer domain
 
+To protect `/analytics-summary`, set these environment variables in Render:
+
+- `ANALYTICS_USERNAME`
+- `ANALYTICS_PASSWORD`
+
+When these are set, the analytics endpoint requires HTTP Basic Auth.
+
 ## Render
 
 Render-ready files:
