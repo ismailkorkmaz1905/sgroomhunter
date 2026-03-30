@@ -15,6 +15,8 @@
     "categoryDescription": "Her kategoride doğru kelimeyi hızla seç.",
     "crosswordTitle": "Mini Çengel | WordSprint",
     "crosswordDescription": "Kısa yatay ve dikey ipuçlarıyla küçük bir çengel bulmaca çöz.",
+    "historyTitle": "Geçmiş | WordSprint",
+    "historyDescription": "WordSprint oyunlarında bu cihazdaki son turlarını ve en iyi sonuçlarını gör.",
     "privacyTitle": "Gizlilik | WordSprint",
     "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren.",
     "aboutTitle": "Hakkında | WordSprint",
@@ -71,6 +73,9 @@
     "best": "En iyi",
     "backHome": "Ana sayfaya dön",
     "newRound": "Yeni tur",
+    "shareResult": "Sonucu paylaş",
+    "shareCopied": "Sonuç panoya kopyalandı.",
+    "history": "Geçmiş",
     "privacy": "Gizlilik",
     "terms": "Koşullar",
     "about": "Hakkında"
@@ -83,6 +88,16 @@
     "placeholder": "Bir isim yaz",
     "save": "İsmi kaydet",
     "skip": "Şimdilik geç"
+  },
+  "history": {
+    "title": "Oyun geçmişin",
+    "intro": "Bu cihazda tamamladığın turları hızlıca gör.",
+    "recentTitle": "Son oturumlar",
+    "summaryTitle": "Oyunlara göre",
+    "totalSessions": "Oturum",
+    "sessions": "Oturum",
+    "emptyRecent": "Henüz bitirilmiş tur yok.",
+    "emptySummary": "Geçmiş oluşması için birkaç tur oyna."
   },
   "about": {
     "title": "WordSprint Hakkında",

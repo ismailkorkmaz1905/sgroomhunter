@@ -2,16 +2,17 @@
   const payload = JSON.parse(document.getElementById("app-data").textContent);
   const currentLanguage = payload.lang;
   const currentPage = payload.page;
-  const dictionary = payload.dictionaries[currentLanguage];
-  const words = payload.words[currentLanguage];
-  const typoEntries = payload.typos[currentLanguage];
-  const chainWords = payload.chains[currentLanguage];
-  const categoryRounds = payload.categories[currentLanguage];
-  const crosswordPuzzles = payload.crosswords[currentLanguage];
+  const dictionary = payload.dictionary;
+  const words = payload.words;
+  const typoEntries = payload.typos;
+  const chainWords = payload.chains;
+  const categoryRounds = payload.categories;
+  const crosswordPuzzles = payload.crosswords;
   const appVersion = payload.version || "local";
   const app = document.getElementById("app");
-  const availableLanguages = Object.keys(payload.dictionaries);
+  const availableLanguages = payload.availableLanguages || [currentLanguage];
   const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
+  const engagement = window.WordSprintEngagement;
 
   const DAILY_EPOCH = Date.UTC(2026, 0, 1);
   const TYPO_QUESTIONS = 10;
@@ -44,11 +45,11 @@
   }
 
   function getDailyLadder(date, language) {
-    return payload.ladders[language][getDailyIndex(date, payload.ladders[language].length)];
+    return payload.ladders[getDailyIndex(date, payload.ladders.length)];
   }
 
   function getActiveLadder(language) {
-    const pool = payload.ladders[language];
+    const pool = payload.ladders;
     const baseIndex = getDailyIndex(new Date(), pool.length);
     const bonusOffset = Number(sessionStorage.getItem(getSessionKey("word-game-daily-ladder-bonus", language)) || "0");
     const activeIndex = (baseIndex + bonusOffset) % pool.length;
@@ -71,7 +72,7 @@
   }
 
   function getActiveCrossword(language) {
-    const pool = payload.crosswords[language];
+    const pool = payload.crosswords;
     const baseIndex = getDailyIndex(new Date(), pool.length);
     const offset = Number(sessionStorage.getItem(getSessionKey("word-game-crossword-offset", language)) || "0");
     const activeIndex = (baseIndex + offset) % pool.length;
@@ -341,15 +342,50 @@
     localStorage.setItem("word-game-last-played", JSON.stringify(state));
   }
 
+  function recordHistory(entry) {
+    if (!engagement || !engagement.recordSession) {
+      return entry;
+    }
+    return engagement.recordSession({
+      lang: currentLanguage,
+      version: appVersion,
+      ...entry,
+    });
+  }
+
+  async function shareHistoryEntry(entry) {
+    if (!engagement || !engagement.shareResult) {
+      return;
+    }
+    const result = await engagement.shareResult(dictionary, entry);
+    if (result === "copied") {
+      window.alert(dictionary.common.shareCopied);
+    }
+  }
+
+  function formatHistoryDate(value) {
+    try {
+      return new Date(value).toLocaleString(currentLanguage, {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    } catch {
+      return value;
+    }
+  }
+
   function updateMeta(page) {
     const seoMap = {
       home: ["homeTitle", "homeDescription"],
       "daily-ladder": ["dailyTitle", "dailyDescription"],
       "word-scramble": ["scrambleTitle", "scrambleDescription"],
         "typo-hunt": ["typoTitle", "typoDescription"],
-        "word-chain": ["chainTitle", "chainDescription"],
+      "word-chain": ["chainTitle", "chainDescription"],
         "category-blitz": ["categoryTitle", "categoryDescription"],
         "mini-crossword": ["crosswordTitle", "crosswordDescription"],
+        history: ["historyTitle", "historyDescription"],
         privacy: ["privacyTitle", "privacyDescription"],
       about: ["aboutTitle", "aboutDescription"],
       terms: ["termsTitle", "termsDescription"],
@@ -443,6 +479,7 @@
             ${config.leadContent ? "" : content}
             ${config.leadContent ? `<div class="secondary-page-content">${content}</div>` : ""}
             <footer class="panel site-footer">
+              <a href="${pathFor(currentLanguage, "history")}">${dictionary.common.history}</a>
               <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
               <a href="${pathFor(currentLanguage, "terms")}">${dictionary.common.terms}</a>
               <a href="${pathFor(currentLanguage, "about")}">${dictionary.common.about}</a>
@@ -495,6 +532,7 @@
             flashMessage: "",
             feedbackTone: "",
             shakeTick: 0,
+            recordedAt: "",
       };
     const streak = Number(localStorage.getItem(streakKey) || "0");
     const nextExpected = getNextUnusedPathWord(puzzle.path, state.steps);
@@ -545,6 +583,7 @@
           <h2>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.daily.win}` : dictionary.daily.win}</h2>
           <p>${ladderState.hasNextBonus ? dictionary.daily.bonusBody : dictionary.daily.completed}</p>
           <div class="celebration-actions">
+            <button class="ghost-button" type="button" id="share-ladder-result">${dictionary.common.shareResult}</button>
             ${
               ladderState.hasNextBonus
                 ? `<button class="primary-button" type="button" id="bonus-ladder-button">${dictionary.daily.bonusCta}</button>`
@@ -554,7 +593,7 @@
         </section>
       `
       : "";
-    const switchButtonMarkup = payload.ladders[currentLanguage].length > 1
+    const switchButtonMarkup = payload.ladders.length > 1
       ? `<button class="cta-link ghost-button" type="button" id="switch-ladder-button">${dictionary.daily.switchCta}</button>`
       : "";
 
@@ -619,6 +658,7 @@
     const input = document.getElementById("ladder-guess");
     const boardNode = document.getElementById("ladder-board");
     const bonusButton = document.getElementById("bonus-ladder-button");
+    const shareButton = document.getElementById("share-ladder-result");
     const revealButton = document.getElementById("reveal-ladder-button");
     const switchButton = document.getElementById("switch-ladder-button");
 
@@ -645,6 +685,19 @@
       });
     }
 
+    if (shareButton) {
+      shareButton.addEventListener("click", function () {
+        shareHistoryEntry({
+          game: "daily-ladder",
+          outcome: state.won ? "win" : "lose",
+          score: state.won ? 1 : 0,
+          moves: state.steps.length - 1,
+          start: displayWord(puzzle.start),
+          target: displayWord(puzzle.target),
+        });
+      });
+    }
+
     if (switchButton) {
       switchButton.addEventListener("click", function () {
         switchActiveLadder(currentLanguage);
@@ -661,6 +714,17 @@
         state.flashMessage = dictionary.daily.revealDone;
         state.feedbackTone = "";
         state.puzzleSignature = puzzleSignature;
+        if (state.completed && !state.recordedAt) {
+          const entry = recordHistory({
+            game: "daily-ladder",
+            outcome: state.won ? "win" : "lose",
+            score: state.won ? 1 : 0,
+            moves: state.steps.length - 1,
+            start: displayWord(puzzle.start),
+            target: displayWord(puzzle.target),
+          });
+          state.recordedAt = entry.playedAt;
+        }
         localStorage.setItem(storageKey, JSON.stringify(state));
         pulseDevice([15, 35, 15]);
         renderDailyLadder();
@@ -714,13 +778,24 @@
       state.flashMessage = "";
       state.feedbackTone = "";
       state.puzzleSignature = puzzleSignature;
-      localStorage.setItem(storageKey, JSON.stringify(state));
       saveLastPlayed("daily-ladder");
       pulseDevice(state.won ? [18, 45, 18] : [12]);
 
       if (state.won) {
         localStorage.setItem(streakKey, String(streak + 1));
       }
+      if (state.completed && !state.recordedAt) {
+        const entry = recordHistory({
+          game: "daily-ladder",
+          outcome: state.won ? "win" : "lose",
+          score: state.won ? 1 : 0,
+          moves: state.steps.length - 1,
+          start: displayWord(puzzle.start),
+          target: displayWord(puzzle.target),
+        });
+        state.recordedAt = entry.playedAt;
+      }
+      localStorage.setItem(storageKey, JSON.stringify(state));
       renderDailyLadder();
     });
   }
@@ -833,18 +908,31 @@
 
     function renderEnd() {
       const best = Number(localStorage.getItem(bestKey) || "0");
+      recordHistory({
+        game: "word-scramble",
+        outcome: "complete",
+        score,
+      });
       app.innerHTML = layout(
         `
         <section class="panel end-card">
           <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.scramble.gameOver}` : dictionary.scramble.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="ghost-button" id="share-scramble">${dictionary.common.shareResult}</button>
           <button class="primary-button" id="restart-scramble">${dictionary.common.playAgain}</button>
         </section>
       `,
         dictionary.home.scrambleHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("share-scramble").addEventListener("click", function () {
+        shareHistoryEntry({
+          game: "word-scramble",
+          outcome: "complete",
+          score,
+        });
+      });
       document.getElementById("restart-scramble").addEventListener("click", renderScramble);
     }
 
@@ -947,18 +1035,31 @@
 
     function renderEnd() {
       const best = Number(localStorage.getItem(bestKey) || "0");
+      recordHistory({
+        game: "typo-hunt",
+        outcome: "complete",
+        score,
+      });
       app.innerHTML = layout(
         `
         <section class="panel end-card">
           <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.typo.gameOver}` : dictionary.typo.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="ghost-button" id="share-typo">${dictionary.common.shareResult}</button>
           <button class="primary-button" id="restart-typo">${dictionary.common.playAgain}</button>
         </section>
       `,
         dictionary.home.typoHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("share-typo").addEventListener("click", function () {
+        shareHistoryEntry({
+          game: "typo-hunt",
+          outcome: "complete",
+          score,
+        });
+      });
       document.getElementById("restart-typo").addEventListener("click", renderTypoHunt);
     }
 
@@ -1093,18 +1194,31 @@
 
     function renderEnd() {
       const best = Number(localStorage.getItem(bestKey) || "0");
+      recordHistory({
+        game: "word-chain",
+        outcome: "complete",
+        score,
+      });
       app.innerHTML = layout(
         `
         <section class="panel end-card">
           <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.chain.gameOver}` : dictionary.chain.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="ghost-button" id="share-chain">${dictionary.common.shareResult}</button>
           <button class="primary-button" id="restart-chain">${dictionary.common.playAgain}</button>
         </section>
       `,
         dictionary.home.chainHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("share-chain").addEventListener("click", function () {
+        shareHistoryEntry({
+          game: "word-chain",
+          outcome: "complete",
+          score,
+        });
+      });
       document.getElementById("restart-chain").addEventListener("click", renderWordChain);
     }
 
@@ -1209,18 +1323,31 @@
 
     function renderEnd() {
       const best = Number(localStorage.getItem(bestKey) || "0");
+      recordHistory({
+        game: "category-blitz",
+        outcome: "complete",
+        score,
+      });
       app.innerHTML = layout(
         `
         <section class="panel end-card">
           <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.category.gameOver}` : dictionary.category.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="ghost-button" id="share-category">${dictionary.common.shareResult}</button>
           <button class="primary-button" id="restart-category">${dictionary.common.playAgain}</button>
         </section>
       `,
         dictionary.home.categoryHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("share-category").addEventListener("click", function () {
+        shareHistoryEntry({
+          game: "category-blitz",
+          outcome: "complete",
+          score,
+        });
+      });
       document.getElementById("restart-category").addEventListener("click", renderCategoryBlitz);
     }
 
@@ -1252,6 +1379,7 @@
             message: dictionary.crossword.instruction,
             checked: false,
             completed: false,
+            recordedAt: "",
           };
 
     function persist() {
@@ -1284,6 +1412,14 @@
         state.checked = true;
         state.message = dictionary.crossword.complete;
         saveLastPlayed("mini-crossword");
+        if (!state.recordedAt) {
+          const entry = recordHistory({
+            game: "mini-crossword",
+            outcome: "win",
+            score: builtPuzzle.totalFillable,
+          });
+          state.recordedAt = entry.playedAt;
+        }
         pulseDevice([12, 30, 12]);
         persist();
         return true;
@@ -1382,6 +1518,7 @@
                 <section class="panel ladder-celebration">
                   <p class="card-kicker">${dictionary.crossword.title}</p>
                   <h2>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.crossword.complete}` : dictionary.crossword.complete}</h2>
+                  <button class="ghost-button" type="button" id="share-crossword">${dictionary.common.shareResult}</button>
                 </section>
               `
               : ""
@@ -1477,6 +1614,7 @@
 
       const nextButton = document.getElementById("next-crossword");
       const headerNextButton = document.getElementById("header-next-crossword");
+      const shareCrosswordButton = document.getElementById("share-crossword");
       if (nextButton) {
         nextButton.addEventListener("click", function () {
           switchActiveCrossword(currentLanguage);
@@ -1487,6 +1625,15 @@
         headerNextButton.addEventListener("click", function () {
           switchActiveCrossword(currentLanguage);
           renderMiniCrossword();
+        });
+      }
+      if (shareCrosswordButton) {
+        shareCrosswordButton.addEventListener("click", function () {
+          shareHistoryEntry({
+            game: "mini-crossword",
+            outcome: "win",
+            score: builtPuzzle.totalFillable,
+          });
         });
       }
     }
@@ -1516,6 +1663,62 @@
       </section>
     `;
     app.innerHTML = layout("", dictionary.common.privacy, { leadContent: pageContent });
+    bindLanguageSwitcher();
+  }
+
+  function renderHistory() {
+    const summary = engagement ? engagement.getHistorySummary(currentLanguage) : { totalSessions: 0, recent: [], byGame: {} };
+    const labels = {
+      "daily-ladder": dictionary.nav.dailyWord,
+      "word-scramble": dictionary.nav.wordScramble,
+      "typo-hunt": dictionary.nav.typoHunt,
+      "word-chain": dictionary.nav.wordChain,
+      "category-blitz": dictionary.nav.categoryBlitz,
+      "mini-crossword": dictionary.nav.miniCrossword,
+    };
+    const recentMarkup = summary.recent.length
+      ? summary.recent
+          .map(function (entry) {
+            const gameLabel = labels[entry.game] || entry.game;
+            const scoreMarkup = typeof entry.score === "number" ? ` • ${dictionary.common.score}: ${entry.score}` : "";
+            return `<li><strong>${gameLabel}</strong> • ${formatHistoryDate(entry.playedAt)}${scoreMarkup}</li>`;
+          })
+          .join("")
+      : `<li>${dictionary.history.emptyRecent}</li>`;
+    const gameSummaryMarkup = Object.keys(summary.byGame).length
+      ? Object.entries(summary.byGame)
+          .map(function ([game, stats]) {
+            const gameLabel = labels[game] || game;
+            return `<li><strong>${gameLabel}</strong> • ${dictionary.history.sessions}: ${stats.sessions} • ${dictionary.common.best}: ${stats.bestScore}</li>`;
+          })
+          .join("")
+      : `<li>${dictionary.history.emptySummary}</li>`;
+
+    const pageContent = `
+      <section class="panel game-screen history-screen">
+        <header class="section-header">
+          <div>
+            <h1>${dictionary.history.title}</h1>
+            <p>${dictionary.history.intro}</p>
+          </div>
+          <div class="stats-row">
+            <p class="stat-pill">${dictionary.history.totalSessions}: ${summary.totalSessions}</p>
+          </div>
+        </header>
+        <div class="crossword-layout">
+          <section class="panel crossword-clue-card">
+            <p class="card-kicker">${dictionary.history.recentTitle}</p>
+            <ul class="privacy-list">${recentMarkup}</ul>
+          </section>
+          <section class="panel crossword-clue-card">
+            <p class="card-kicker">${dictionary.history.summaryTitle}</p>
+            <ul class="privacy-list">${gameSummaryMarkup}</ul>
+          </section>
+        </div>
+        <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
+      </section>
+    `;
+    app.innerHTML = layout("", dictionary.common.history, { leadContent: pageContent });
     bindLanguageSwitcher();
   }
 
@@ -1651,6 +1854,8 @@
       renderCategoryBlitz();
     } else if (currentPage === "mini-crossword") {
       renderMiniCrossword();
+    } else if (currentPage === "history") {
+      renderHistory();
     } else if (currentPage === "privacy") {
       renderPrivacy();
     } else if (currentPage === "about") {

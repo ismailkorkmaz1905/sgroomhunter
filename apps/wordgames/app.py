@@ -4,6 +4,7 @@ import json
 import os
 import sqlite3
 import subprocess
+import sys
 from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
@@ -12,9 +13,23 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 
 BASE_DIR = Path(__file__).resolve().parent
-SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
-SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "word-chain", "category-blitz", "mini-crossword", "privacy", "about", "terms"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
+
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
+from wordgames_catalog import (
+    CATEGORIES,
+    CHAINS,
+    CROSSWORDS,
+    DICTIONARIES,
+    LADDERS,
+    SUPPORTED_LANGUAGES,
+    SUPPORTED_PAGES,
+    TYPOS,
+    WORDS,
+)
+from wordgames_validation import validate_all_datasets
 
 
 def detect_app_version() -> str:
@@ -44,97 +59,7 @@ def detect_app_version() -> str:
 
 APP_VERSION = detect_app_version()
 
-
-def load_json(*parts: str):
-    with (BASE_DIR.joinpath(*parts)).open("r", encoding="utf-8") as handle:
-        return json.load(handle)
-
-
-def count_letter_changes(left: str, right: str) -> int:
-    if len(left) != len(right):
-        return -1
-    return sum(1 for left_char, right_char in zip(left, right) if left_char != right_char)
-
-
-DICTIONARIES = {
-    "en": load_json("i18n", "en.json"),
-    "tr": load_json("i18n", "tr.json"),
-    "nl": load_json("i18n", "nl.json"),
-    "id": load_json("i18n", "id.json"),
-    "ms": load_json("i18n", "ms.json"),
-}
-
-WORDS = {
-    "en": load_json("data", "words", "en", "common.json"),
-    "tr": load_json("data", "words", "tr", "common.json"),
-    "nl": load_json("data", "words", "nl", "common.json"),
-    "id": load_json("data", "words", "id", "common.json"),
-    "ms": load_json("data", "words", "ms", "common.json"),
-}
-
-TYPOS = {
-    "en": load_json("data", "typos", "en.json"),
-    "tr": load_json("data", "typos", "tr.json"),
-    "nl": load_json("data", "typos", "nl.json"),
-    "id": load_json("data", "typos", "id.json"),
-    "ms": load_json("data", "typos", "ms.json"),
-}
-
-LADDERS = {
-    "en": load_json("data", "ladders", "en.json"),
-    "tr": load_json("data", "ladders", "tr.json"),
-    "nl": load_json("data", "ladders", "nl.json"),
-    "id": load_json("data", "ladders", "id.json"),
-    "ms": load_json("data", "ladders", "ms.json"),
-}
-
-CHAINS = {
-    "en": load_json("data", "chains", "en.json"),
-    "tr": load_json("data", "chains", "tr.json"),
-    "nl": load_json("data", "chains", "nl.json"),
-    "id": load_json("data", "chains", "id.json"),
-    "ms": load_json("data", "chains", "ms.json"),
-}
-
-CATEGORIES = {
-    "en": load_json("data", "categories", "en.json"),
-    "tr": load_json("data", "categories", "tr.json"),
-    "nl": load_json("data", "categories", "nl.json"),
-    "id": load_json("data", "categories", "id.json"),
-    "ms": load_json("data", "categories", "ms.json"),
-}
-
-CROSSWORDS = {
-    "en": load_json("data", "crosswords", "en.json"),
-    "tr": load_json("data", "crosswords", "tr.json"),
-    "nl": load_json("data", "crosswords", "nl.json"),
-    "id": load_json("data", "crosswords", "id.json"),
-    "ms": load_json("data", "crosswords", "ms.json"),
-}
-
-
-def validate_ladder_pool(language: str, ladders: list[dict]) -> None:
-    for index, puzzle in enumerate(ladders, start=1):
-        path = puzzle["path"]
-        if not path:
-            raise ValueError(f"{language} ladder #{index} has an empty path")
-        if path[0] != puzzle["start"]:
-            raise ValueError(f"{language} ladder #{index} start mismatch: {path[0]} != {puzzle['start']}")
-        if path[-1] != puzzle["target"]:
-            raise ValueError(f"{language} ladder #{index} target mismatch: {path[-1]} != {puzzle['target']}")
-        if len(path) != len(set(path)):
-            raise ValueError(f"{language} ladder #{index} repeats a rung: {' -> '.join(path)}")
-
-        for current_word, next_word in zip(path, path[1:]):
-            difference = count_letter_changes(current_word, next_word)
-            if difference != 1:
-                raise ValueError(
-                    f"{language} ladder #{index} invalid transition: {current_word} -> {next_word} ({difference})"
-                )
-
-
-for language_code, ladder_pool in LADDERS.items():
-    validate_ladder_pool(language_code, ladder_pool)
+validate_all_datasets(WORDS, TYPOS, LADDERS, CHAINS, CATEGORIES, CROSSWORDS)
 
 
 def ensure_analytics_db() -> None:
@@ -198,7 +123,7 @@ def should_log_request(path: str, status_code: int, method: str) -> bool:
         return False
     if path.startswith("/static/"):
         return False
-    if path in {"/healthz", "/analytics-summary"}:
+    if path in {"/healthz", "/analytics", "/analytics-summary"}:
         return False
     return status_code in {200, 404}
 
@@ -285,6 +210,29 @@ def get_analytics_summary(days: int = 7) -> dict:
             """,
             (f"-{days} days",),
         ).fetchall()
+        by_page = connection.execute(
+            """
+            SELECT COALESCE(page, 'unknown') AS page, COUNT(*) AS visits
+            FROM visit_events
+            WHERE created_at >= datetime('now', ?)
+            GROUP BY page
+            ORDER BY visits DESC, page ASC
+            """
+            ,
+            (f"-{days} days",),
+        ).fetchall()
+        daily_visits = connection.execute(
+            """
+            SELECT DATE(created_at) AS day, COUNT(*) AS visits
+            FROM visit_events
+            WHERE created_at >= datetime('now', ?)
+            GROUP BY DATE(created_at)
+            ORDER BY day DESC
+            LIMIT 14
+            """
+            ,
+            (f"-{days} days",),
+        ).fetchall()
         recent_names = connection.execute(
             """
             SELECT display_name, lang, updated_at
@@ -302,6 +250,8 @@ def get_analytics_summary(days: int = 7) -> dict:
         "by_language": [dict(row) for row in by_language],
         "by_device": [dict(row) for row in by_device],
         "by_browser": [dict(row) for row in by_browser],
+        "by_page": [dict(row) for row in by_page],
+        "daily_visits": [dict(row) for row in daily_visits],
         "recent_names": [dict(row) for row in recent_names],
     }
 
@@ -469,7 +419,7 @@ def render_analytics_dashboard(summary: dict) -> str:
             <h2>Top routes</h2>
             <ul>
               {% for row in summary.by_path %}
-              <li><strong>{{ row.path }}</strong> — {{ row.visits }} visits</li>
+              <li><strong>{{ row.path }}</strong> - {{ row.visits }} visits</li>
               {% else %}
               <li>No data yet.</li>
               {% endfor %}
@@ -479,7 +429,17 @@ def render_analytics_dashboard(summary: dict) -> str:
             <h2>Languages</h2>
             <ul>
               {% for row in summary.by_language %}
-              <li><strong>{{ row.lang }}</strong> — {{ row.visits }} visits</li>
+              <li><strong>{{ row.lang }}</strong> - {{ row.visits }} visits</li>
+              {% else %}
+              <li>No data yet.</li>
+              {% endfor %}
+            </ul>
+          </article>
+          <article class="panel">
+            <h2>Pages</h2>
+            <ul>
+              {% for row in summary.by_page %}
+              <li><strong>{{ row.page }}</strong> - {{ row.visits }} visits</li>
               {% else %}
               <li>No data yet.</li>
               {% endfor %}
@@ -489,7 +449,7 @@ def render_analytics_dashboard(summary: dict) -> str:
             <h2>Devices</h2>
             <ul>
               {% for row in summary.by_device %}
-              <li><strong>{{ row.device_type }}</strong> — {{ row.visits }} visits</li>
+              <li><strong>{{ row.device_type }}</strong> - {{ row.visits }} visits</li>
               {% else %}
               <li>No data yet.</li>
               {% endfor %}
@@ -499,7 +459,17 @@ def render_analytics_dashboard(summary: dict) -> str:
             <h2>Browsers</h2>
             <ul>
               {% for row in summary.by_browser %}
-              <li><strong>{{ row.browser_family }}</strong> — {{ row.visits }} visits</li>
+              <li><strong>{{ row.browser_family }}</strong> - {{ row.visits }} visits</li>
+              {% else %}
+              <li>No data yet.</li>
+              {% endfor %}
+            </ul>
+          </article>
+          <article class="panel">
+            <h2>Recent days</h2>
+            <ul>
+              {% for row in summary.daily_visits %}
+              <li><strong>{{ row.day }}</strong> - {{ row.visits }} visits</li>
               {% else %}
               <li>No data yet.</li>
               {% endfor %}
@@ -509,7 +479,7 @@ def render_analytics_dashboard(summary: dict) -> str:
             <h2>Recent names</h2>
             <ul>
               {% for row in summary.recent_names %}
-              <li><strong>{{ row.display_name }}</strong> — {{ row.lang or "unknown" }}</li>
+              <li><strong>{{ row.display_name }}</strong> - {{ row.lang or "unknown" }}</li>
               {% else %}
               <li>No names submitted yet.</li>
               {% endfor %}
@@ -541,6 +511,7 @@ def render_localized_page(lang: str, page: str = "home"):
         "word-chain": ("chainTitle", "chainDescription"),
         "category-blitz": ("categoryTitle", "categoryDescription"),
         "mini-crossword": ("crosswordTitle", "crosswordDescription"),
+        "history": ("historyTitle", "historyDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
         "about": ("aboutTitle", "aboutDescription"),
         "terms": ("termsTitle", "termsDescription"),
@@ -557,13 +528,14 @@ def render_localized_page(lang: str, page: str = "home"):
         app_data={
             "lang": lang,
             "page": normalized_page,
-            "dictionaries": DICTIONARIES,
-            "words": WORDS,
-            "typos": TYPOS,
-            "ladders": LADDERS,
-            "chains": CHAINS,
-            "categories": CATEGORIES,
-            "crosswords": CROSSWORDS,
+            "availableLanguages": list(DICTIONARIES.keys()),
+            "dictionary": dictionary,
+            "words": WORDS[lang],
+            "typos": TYPOS[lang],
+            "ladders": LADDERS[lang],
+            "chains": CHAINS[lang],
+            "categories": CATEGORIES[lang],
+            "crosswords": CROSSWORDS[lang],
             "version": APP_VERSION,
         },
     )
@@ -615,7 +587,7 @@ def create_app() -> Flask:
         urls: list[str] = []
         for lang in sorted(SUPPORTED_LANGUAGES):
             urls.append(url_for("localized_page", lang=lang, _external=True))
-            for page in ("daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"):
+            for page in ("daily-ladder", "word-scramble", "typo-hunt", "history", "privacy", "about", "terms"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
             for page in ("word-chain", "category-blitz", "mini-crossword"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))

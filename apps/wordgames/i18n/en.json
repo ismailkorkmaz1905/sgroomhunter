@@ -15,6 +15,8 @@
     "categoryDescription": "Pick the matching word for each category before the round ends.",
     "crosswordTitle": "Mini Crossword | WordSprint",
     "crosswordDescription": "Fill a compact crossword grid with quick across and down clues.",
+    "historyTitle": "History | WordSprint",
+    "historyDescription": "See your recent rounds and best local results across WordSprint games.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
     "aboutTitle": "About | WordSprint",
@@ -71,6 +73,9 @@
     "best": "Best",
     "backHome": "Back home",
     "newRound": "New round",
+    "shareResult": "Share result",
+    "shareCopied": "Result copied to your clipboard.",
+    "history": "History",
     "privacy": "Privacy",
     "terms": "Terms",
     "about": "About"
@@ -83,6 +88,16 @@
     "placeholder": "Type a name",
     "save": "Save name",
     "skip": "Skip for now"
+  },
+  "history": {
+    "title": "Your history",
+    "intro": "A quick view of the rounds you finished on this device.",
+    "recentTitle": "Recent sessions",
+    "summaryTitle": "By game",
+    "totalSessions": "Sessions",
+    "sessions": "Sessions",
+    "emptyRecent": "No finished rounds yet.",
+    "emptySummary": "Play a few rounds to build your history."
   },
   "about": {
     "title": "About WordSprint",

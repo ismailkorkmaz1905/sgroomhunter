@@ -16,12 +16,13 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}?v={{ app_version }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='wordgames.css') }}?v={{ app_version }}" />
 </head>
-<body>
-  <div id="app"></div>
-  <script id="app-data" type="application/json">{{ app_data|tojson }}</script>
-  <script src="{{ url_for('static', filename='wordgames.js') }}?v={{ app_version }}"></script>
-  <script>
-    if ("serviceWorker" in navigator) {
+  <body>
+    <div id="app"></div>
+    <script id="app-data" type="application/json">{{ app_data|tojson }}</script>
+    <script src="{{ url_for('static', filename='wordgames-engagement.js') }}?v={{ app_version }}"></script>
+    <script src="{{ url_for('static', filename='wordgames.js') }}?v={{ app_version }}"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/service-worker.js?v={{ app_version }}").catch(function () {});
       });

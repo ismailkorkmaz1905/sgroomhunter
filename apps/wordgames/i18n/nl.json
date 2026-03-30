@@ -15,6 +15,8 @@
     "categoryDescription": "Kies snel het woord dat echt bij de categorie past.",
     "crosswordTitle": "Mini Kruiswoord | WordSprint",
     "crosswordDescription": "Vul een compacte kruiswoordraster met korte horizontale en verticale hints.",
+    "historyTitle": "Geschiedenis | WordSprint",
+    "historyDescription": "Bekijk je recente rondes en beste lokale resultaten in WordSprint.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses.",
     "aboutTitle": "Over | WordSprint",
@@ -71,6 +73,9 @@
     "best": "Beste",
     "backHome": "Terug naar start",
     "newRound": "Nieuwe ronde",
+    "shareResult": "Resultaat delen",
+    "shareCopied": "Resultaat is naar je klembord gekopieerd.",
+    "history": "Geschiedenis",
     "privacy": "Privacy",
     "terms": "Voorwaarden",
     "about": "Over"
@@ -83,6 +88,16 @@
     "placeholder": "Typ een naam",
     "save": "Naam opslaan",
     "skip": "Nu overslaan"
+  },
+  "history": {
+    "title": "Jouw geschiedenis",
+    "intro": "Een snel overzicht van de rondes die je op dit apparaat hebt afgerond.",
+    "recentTitle": "Recente sessies",
+    "summaryTitle": "Per spel",
+    "totalSessions": "Sessies",
+    "sessions": "Sessies",
+    "emptyRecent": "Nog geen afgeronde rondes.",
+    "emptySummary": "Speel een paar rondes om geschiedenis op te bouwen."
   },
   "about": {
     "title": "Over WordSprint",

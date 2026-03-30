@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordsprint-v3";
+const CACHE_NAME = "wordsprint-v4";
 const APP_SHELL = [
   "/",
   "/en",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "/nl",
   "/ms",
   "/id",
+  "/en/history",
 ];
 
 self.addEventListener("install", (event) => {

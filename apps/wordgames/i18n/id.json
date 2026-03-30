@@ -15,6 +15,8 @@
     "categoryDescription": "Pilih kata yang benar-benar cocok dengan kategorinya.",
     "crosswordTitle": "TTS Mini | WordSprint",
     "crosswordDescription": "Isi kotak silang ringkas dengan petunjuk mendatar dan menurun yang singkat.",
+    "historyTitle": "Riwayat | WordSprint",
+    "historyDescription": "Lihat ronde terakhirmu dan hasil lokal terbaik di WordSprint.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas.",
     "aboutTitle": "Tentang | WordSprint",
@@ -71,6 +73,9 @@
     "best": "Terbaik",
     "backHome": "Kembali ke beranda",
     "newRound": "Ronde baru",
+    "shareResult": "Bagikan hasil",
+    "shareCopied": "Hasil sudah disalin ke clipboard.",
+    "history": "Riwayat",
     "privacy": "Privasi",
     "terms": "Ketentuan",
     "about": "Tentang"
@@ -83,6 +88,16 @@
     "placeholder": "Tulis nama",
     "save": "Simpan nama",
     "skip": "Lewati dulu"
+  },
+  "history": {
+    "title": "Riwayatmu",
+    "intro": "Lihat cepat ronde yang sudah kamu selesaikan di perangkat ini.",
+    "recentTitle": "Sesi terbaru",
+    "summaryTitle": "Per game",
+    "totalSessions": "Sesi",
+    "sessions": "Sesi",
+    "emptyRecent": "Belum ada ronde yang selesai.",
+    "emptySummary": "Main beberapa ronde dulu untuk membangun riwayat."
   },
   "about": {
     "title": "Tentang WordSprint",

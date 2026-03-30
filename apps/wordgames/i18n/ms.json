@@ -15,6 +15,8 @@
     "categoryDescription": "Pilih perkataan yang betul-betul sesuai dengan kategorinya.",
     "crosswordTitle": "Silang Kata Mini | WordSprint",
     "crosswordDescription": "Isi grid silang kata ringkas dengan petunjuk melintang dan menegak yang pendek.",
+    "historyTitle": "Sejarah | WordSprint",
+    "historyDescription": "Lihat pusingan terbaru anda dan keputusan tempatan terbaik dalam WordSprint.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Cara WordSprint mengendalikan analitik penggunaan tanpa nama yang sangat terhad.",
     "aboutTitle": "Tentang | WordSprint",
@@ -71,6 +73,9 @@
     "best": "Terbaik",
     "backHome": "Kembali ke utama",
     "newRound": "Pusingan baru",
+    "shareResult": "Kongsi keputusan",
+    "shareCopied": "Keputusan sudah disalin ke papan klip.",
+    "history": "Sejarah",
     "privacy": "Privasi",
     "terms": "Terma",
     "about": "Tentang"
@@ -83,6 +88,16 @@
     "placeholder": "Taip nama",
     "save": "Simpan nama",
     "skip": "Lepas dulu"
+  },
+  "history": {
+    "title": "Sejarah anda",
+    "intro": "Lihat dengan cepat pusingan yang sudah anda habiskan pada peranti ini.",
+    "recentTitle": "Sesi terbaru",
+    "summaryTitle": "Mengikut permainan",
+    "totalSessions": "Sesi",
+    "sessions": "Sesi",
+    "emptyRecent": "Belum ada pusingan yang selesai.",
+    "emptySummary": "Main beberapa pusingan dahulu untuk membina sejarah."
   },
   "about": {
     "title": "Tentang WordSprint",
