@@ -200,11 +200,26 @@
 
   function getLanguageFlag(language) {
     const flags = {
-      en: { src: "/static/flags/en.svg", label: "English" },
-      tr: { src: "/static/flags/tr.svg", label: "Türkçe" },
-      nl: { src: "/static/flags/nl.svg", label: "Nederlands" },
-      id: { src: "/static/flags/id.svg", label: "Bahasa Indonesia" },
-      ms: { src: "/static/flags/ms.svg", label: "Bahasa Melayu" },
+      en: {
+        label: "English",
+        markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#012169"/><path d="M0 0l60 40M60 0L0 40" stroke="#FFF" stroke-width="8"/><path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" stroke-width="4"/><path d="M30 0v40M0 20h60" stroke="#FFF" stroke-width="14"/><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"/></svg>',
+      },
+      tr: {
+        label: "Türkçe",
+        markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#E30A17"/><circle cx="24" cy="20" r="10" fill="#FFF"/><circle cx="27" cy="20" r="8" fill="#E30A17"/><polygon points="35,20 43,17 43,23" fill="#FFF"/></svg>',
+      },
+      nl: {
+        label: "Nederlands",
+        markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#21468B"/><rect width="60" height="26.67" rx="6" fill="#FFF"/><path d="M0 0h60v13.33H0z" fill="#AE1C28"/></svg>',
+      },
+      id: {
+        label: "Bahasa Indonesia",
+        markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#FFF"/><path d="M0 0h60v20H0z" fill="#CE1126"/></svg>',
+      },
+      ms: {
+        label: "Bahasa Melayu",
+        markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#FFF"/><g fill="#CC0001"><rect y="0" width="60" height="4"/><rect y="8" width="60" height="4"/><rect y="16" width="60" height="4"/><rect y="24" width="60" height="4"/><rect y="32" width="60" height="4"/></g><rect width="28" height="22" rx="6" fill="#010066"/><circle cx="12" cy="11" r="6" fill="#FFCC00"/><circle cx="14" cy="11" r="5" fill="#010066"/><polygon points="20,11 22.8,12 21,9.5 23.8,8.5 20.5,8.4 20,5.3 19,8.3 15.9,7.3 18.2,9.7 16.1,12 19.2,11.7 19.8,14.8" fill="#FFCC00"/></svg>',
+      },
     };
     return flags[language] || null;
   }
@@ -296,7 +311,7 @@
                 const active = currentLanguage === language ? "active" : "";
                 const flag = getLanguageFlag(language);
                 const content = flag
-                  ? `<img class="flag-icon" src="${flag.src}" alt="${flag.label}" />`
+                  ? flag.markup
                   : language.toUpperCase();
                 return `<button type="button" data-lang="${language}" class="${active}" aria-label="${flag ? flag.label : language.toUpperCase()}" title="${flag ? flag.label : language.toUpperCase()}">${content}</button>`;
               })
