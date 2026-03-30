@@ -1,0 +1,87 @@
+{
+  "brand": "WordSprint",
+  "seo": {
+    "homeTitle": "WordSprint | Fast daily word games in four languages",
+    "homeDescription": "Play Daily Ladder, Word Scramble, and Typo Hunt with instant local gameplay in English, Turkish, Dutch, and Indonesian.",
+    "dailyTitle": "Daily Ladder | WordSprint",
+    "dailyDescription": "Climb from the start word to the target by changing one letter at a time.",
+    "scrambleTitle": "Word Scramble | WordSprint",
+    "scrambleDescription": "Unscramble as many words as you can before the sixty-second timer runs out.",
+    "typoTitle": "Typo Hunt | WordSprint",
+    "typoDescription": "Spot the misspelled word across ten quick rounds."
+  },
+  "nav": {
+    "home": "Home",
+    "dailyWord": "Daily Ladder",
+    "wordScramble": "Word Scramble",
+    "typoHunt": "Typo Hunt"
+  },
+  "home": {
+    "eyebrow": "Quick daily puzzle set",
+    "title": "Quick word games built for short, satisfying rounds.",
+    "subtitle": "Switch languages, jump into a short round, and play instantly on desktop or phone.",
+    "cta": "Play now",
+    "dailyBody": "Move from one word to another by changing one letter at a time.",
+    "scrambleBody": "Race the clock for one minute and solve as many mixed-up words as you can.",
+    "typoBody": "Find the one misspelled option in each quick set.",
+    "metricsLanguages": "Languages",
+    "metricsGames": "Games",
+    "metricsSpeed": "Speed",
+    "metricsGamesValue": "3 live",
+    "metricsSpeedValue": "Instant play",
+    "dailyHero": "Daily ladder challenge",
+    "scrambleHero": "One-minute scramble sprint",
+    "typoHero": "Fast typo detection"
+  },
+  "common": {
+    "score": "Score",
+    "restart": "Restart",
+    "playAgain": "Play again",
+    "submit": "Submit",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "timeLeft": "Time left",
+    "question": "Question",
+    "language": "Language",
+    "adLabel": "Ad placeholder",
+    "topBanner": "Top banner",
+    "sidebar": "Sidebar",
+    "endScreen": "Game end screen",
+    "best": "Best",
+    "backHome": "Back home"
+  },
+  "daily": {
+    "title": "Daily Ladder",
+    "body": "Bridge the start and target words by changing one letter on each move.",
+    "inputLabel": "Enter the next rung",
+    "invalid": "That rung has already been used.",
+    "tooShort": "Use a word with the same length as the ladder.",
+    "win": "Clean solve. Today's ladder is complete.",
+    "lose": "No moves left. Path:",
+    "streak": "Streak",
+    "completed": "Come back tomorrow for a fresh ladder.",
+    "moves": "Moves",
+    "start": "Start",
+    "target": "Target",
+    "rule": "Only one letter can change each turn.",
+    "hintTitle": "Hint unlocked",
+    "hintBody": "Meaning clue for the next rung",
+    "invalidBounce": "That word is outside today's ladder.",
+    "retryHint": "Two off-ladder tries unlocked a clue."
+  },
+  "scramble": {
+    "title": "Word Scramble",
+    "body": "Unscramble each word before the timer hits zero.",
+    "inputLabel": "Your answer",
+    "placeholder": "Type the original word",
+    "gameOver": "Time is up.",
+    "nextWord": "Correct. Next word."
+  },
+  "typo": {
+    "title": "Typo Hunt",
+    "body": "Find the single misspelled word in each round.",
+    "instruction": "Tap the incorrect word.",
+    "gameOver": "You finished all ten questions.",
+    "next": "Next question"
+  }
+}

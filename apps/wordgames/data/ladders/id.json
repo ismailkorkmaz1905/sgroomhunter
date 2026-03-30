@@ -1,0 +1,38 @@
+[
+  {
+    "start": "batas",
+    "target": "kelam",
+    "path": ["batas", "balas", "belas", "gelas", "kelas", "kelam"],
+    "clues": {
+      "balas": "Tanggapan atau jawaban balik.",
+      "belas": "Rasa iba atau bilangan belasan.",
+      "gelas": "Wadah untuk minum.",
+      "kelas": "Ruang belajar atau tingkat.",
+      "kelam": "Gelap atau suram."
+    }
+  },
+  {
+    "start": "tanah",
+    "target": "serah",
+    "path": ["tanah", "panah", "parah", "marah", "merah", "serah"],
+    "clues": {
+      "panah": "Senjata yang ditembakkan dari busur.",
+      "parah": "Berat atau gawat.",
+      "marah": "Perasaan kesal yang kuat.",
+      "merah": "Salah satu warna dasar.",
+      "serah": "Menyerahkan atau pasrah."
+    }
+  },
+  {
+    "start": "dasar",
+    "target": "bakar",
+    "path": ["dasar", "kasar", "pasar", "pagar", "pakar", "bakar"],
+    "clues": {
+      "kasar": "Tidak halus.",
+      "pasar": "Tempat jual beli.",
+      "pagar": "Pembatas halaman atau rumah.",
+      "pakar": "Ahli dalam bidang tertentu.",
+      "bakar": "Membakar atau sesuatu yang dibakar."
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "start": "kamer",
+    "target": "laser",
+    "path": ["kamer", "kaper", "koper", "loper", "loser", "laser"],
+    "clues": {
+      "kaper": "Iemand die een schip of toestel kaapt.",
+      "koper": "Een koper of het metaal koper.",
+      "loper": "Een hardloper of lange mat.",
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel."
+    }
+  },
+  {
+    "start": "wagen",
+    "target": "baken",
+    "path": ["wagen", "waken", "taken", "talen", "balen", "baken"],
+    "clues": {
+      "waken": "Niet slapen en ergens op letten.",
+      "taken": "Werkjes of opdrachten.",
+      "talen": "Meervoud van taal.",
+      "balen": "Er flink van balen of grote pakken.",
+      "baken": "Een herkenningspunt of vuurbaken."
+    }
+  },
+  {
+    "start": "water",
+    "target": "koper",
+    "path": ["water", "later", "laser", "loser", "loper", "koper"],
+    "clues": {
+      "later": "Niet nu maar daarna.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat.",
+      "koper": "Een koper of het metaal koper."
+    }
+  }
+]

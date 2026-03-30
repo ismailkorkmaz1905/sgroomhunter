@@ -1,0 +1,87 @@
+{
+  "brand": "WordSprint",
+  "seo": {
+    "homeTitle": "WordSprint | Game kata cepat dalam empat bahasa",
+    "homeDescription": "Mainkan Tangga Harian, Acak Kata, dan Buru Typo secara instan dalam bahasa Inggris, Turki, Belanda, dan Indonesia.",
+    "dailyTitle": "Tangga Harian | WordSprint",
+    "dailyDescription": "Capai kata target dari kata awal dengan mengubah satu huruf setiap langkah.",
+    "scrambleTitle": "Acak Kata | WordSprint",
+    "scrambleDescription": "Susun sebanyak mungkin kata sebelum satu menit habis.",
+    "typoTitle": "Buru Typo | WordSprint",
+    "typoDescription": "Temukan kata yang salah eja dalam sepuluh ronde cepat."
+  },
+  "nav": {
+    "home": "Beranda",
+    "dailyWord": "Tangga Harian",
+    "wordScramble": "Acak Kata",
+    "typoHunt": "Buru Typo"
+  },
+  "home": {
+    "eyebrow": "Paket puzzle cepat hari ini",
+    "title": "Game kata cepat untuk ronde singkat yang memuaskan.",
+    "subtitle": "Ganti bahasa, mulai ronde singkat, dan main instan di desktop maupun ponsel.",
+    "cta": "Main sekarang",
+    "dailyBody": "Naik dari satu kata ke kata lain dengan mengganti satu huruf tiap langkah.",
+    "scrambleBody": "Kejar waktu selama satu menit dan pecahkan sebanyak mungkin kata acak.",
+    "typoBody": "Cari satu kata yang salah eja di setiap set singkat.",
+    "metricsLanguages": "Bahasa",
+    "metricsGames": "Game",
+    "metricsSpeed": "Ritme",
+    "metricsGamesValue": "3 aktif",
+    "metricsSpeedValue": "Main instan",
+    "dailyHero": "Tantangan tangga harian",
+    "scrambleHero": "Sprint acak kata satu menit",
+    "typoHero": "Deteksi typo cepat"
+  },
+  "common": {
+    "score": "Skor",
+    "restart": "Mulai lagi",
+    "playAgain": "Main lagi",
+    "submit": "Kirim",
+    "correct": "Benar",
+    "wrong": "Salah",
+    "timeLeft": "Sisa waktu",
+    "question": "Pertanyaan",
+    "language": "Bahasa",
+    "adLabel": "Slot iklan",
+    "topBanner": "Banner atas",
+    "sidebar": "Sidebar",
+    "endScreen": "Layar akhir",
+    "best": "Terbaik",
+    "backHome": "Kembali ke beranda"
+  },
+  "daily": {
+    "title": "Tangga Harian",
+    "body": "Hubungkan kata awal dan target dengan mengganti satu huruf setiap giliran.",
+    "inputLabel": "Masukkan langkah berikutnya",
+    "invalid": "Langkah itu sudah dipakai.",
+    "tooShort": "Gunakan kata dengan panjang yang sama.",
+    "win": "Rapi sekali. Tangga hari ini selesai.",
+    "lose": "Langkah habis. Jalur:",
+    "streak": "Streak",
+    "completed": "Kembali besok untuk tangga baru.",
+    "moves": "Langkah",
+    "start": "Awal",
+    "target": "Target",
+    "rule": "Setiap giliran hanya boleh mengubah satu huruf.",
+    "hintTitle": "Hint terbuka",
+    "hintBody": "Petunjuk makna untuk langkah berikutnya",
+    "invalidBounce": "Kata itu tidak ada di tangga hari ini.",
+    "retryHint": "Dua tebakan di luar tangga membuka sebuah hint."
+  },
+  "scramble": {
+    "title": "Acak Kata",
+    "body": "Susun ulang setiap kata sebelum waktu habis.",
+    "inputLabel": "Jawabanmu",
+    "placeholder": "Tulis kata aslinya",
+    "gameOver": "Waktu habis.",
+    "nextWord": "Benar. Kata berikutnya."
+  },
+  "typo": {
+    "title": "Buru Typo",
+    "body": "Temukan satu kata yang salah eja di setiap ronde.",
+    "instruction": "Ketuk kata yang salah.",
+    "gameOver": "Kamu sudah menyelesaikan sepuluh pertanyaan.",
+    "next": "Pertanyaan berikutnya"
+  }
+}

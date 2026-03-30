@@ -1,0 +1,87 @@
+{
+  "brand": "WordSprint",
+  "seo": {
+    "homeTitle": "WordSprint | Dört dilde hızlı kelime oyunları",
+    "homeDescription": "Günlük Merdiven, Kelime Karıştırma ve Yazım Hatası Avı'nı Türkçe, İngilizce, Felemenkçe ve Endonezce olarak anında oyna.",
+    "dailyTitle": "Günlük Merdiven | WordSprint",
+    "dailyDescription": "Başlangıç kelimesinden hedefe her adımda tek harf değiştirerek ulaş.",
+    "scrambleTitle": "Kelime Karıştırma | WordSprint",
+    "scrambleDescription": "Altmış saniye dolmadan mümkün olduğunca çok kelimeyi düzelt.",
+    "typoTitle": "Yazım Hatası Avı | WordSprint",
+    "typoDescription": "On kısa tur boyunca yanlış yazılan kelimeyi bul."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "dailyWord": "Günlük Merdiven",
+    "wordScramble": "Kelime Karıştırma",
+    "typoHunt": "Yazım Hatası Avı"
+  },
+  "home": {
+    "eyebrow": "Günün hızlı kelime seçkisi",
+    "title": "Kısa turlar için hazırlanmış hızlı kelime oyunları.",
+    "subtitle": "Dil değiştir, kısa bir tur aç ve masaüstünde ya da telefonda anında oyna.",
+    "cta": "Hemen oyna",
+    "dailyBody": "Başlangıçtan hedefe her adımda tek harf değiştirerek ilerle.",
+    "scrambleBody": "Bir dakikada olabildiğince çok karışık kelimeyi çöz.",
+    "typoBody": "Her kısa sette yanlış yazılan tek kelimeyi bul.",
+    "metricsLanguages": "Dil",
+    "metricsGames": "Oyun",
+    "metricsSpeed": "Akış",
+    "metricsGamesValue": "3 aktif",
+    "metricsSpeedValue": "Anında oyun",
+    "dailyHero": "Günün merdiven bulmacası",
+    "scrambleHero": "Bir dakikalık kelime yarışı",
+    "typoHero": "Hızlı yazım avı"
+  },
+  "common": {
+    "score": "Puan",
+    "restart": "Yeniden başlat",
+    "playAgain": "Tekrar oyna",
+    "submit": "Gönder",
+    "correct": "Doğru",
+    "wrong": "Yanlış",
+    "timeLeft": "Kalan süre",
+    "question": "Soru",
+    "language": "Dil",
+    "adLabel": "Reklam alanı",
+    "topBanner": "Üst banner",
+    "sidebar": "Yan alan",
+    "endScreen": "Oyun sonu alanı",
+    "best": "En iyi",
+    "backHome": "Ana sayfaya dön"
+  },
+  "daily": {
+    "title": "Günlük Merdiven",
+    "body": "Başlangıç ve hedef kelime arasında her hamlede tek harf değiştir.",
+    "inputLabel": "Sıradaki basamağı yaz",
+    "invalid": "Bu basamağı zaten kullandın.",
+    "tooShort": "Merdivenle aynı uzunlukta bir kelime gir.",
+    "win": "Temiz çözdün. Bugünün merdiveni tamamlandı.",
+    "lose": "Hamle hakkın bitti. Yol:",
+    "streak": "Seri",
+    "completed": "Yeni merdiven için yarın tekrar gel.",
+    "moves": "Hamle",
+    "start": "Başlangıç",
+    "target": "Hedef",
+    "rule": "Her turda yalnızca bir harf değişebilir.",
+    "hintTitle": "İpucu açıldı",
+    "hintBody": "Sıradaki basamak için anlam ipucu",
+    "invalidBounce": "Bu kelime bugünkü merdivenin dışında.",
+    "retryHint": "Merdiven dışı iki deneme sonrası ipucu açıldı."
+  },
+  "scramble": {
+    "title": "Kelime Karıştırma",
+    "body": "Süre dolmadan her kelimeyi doğru haline getir.",
+    "inputLabel": "Cevabın",
+    "placeholder": "Asıl kelimeyi yaz",
+    "gameOver": "Süre doldu.",
+    "nextWord": "Doğru. Yeni kelime geldi."
+  },
+  "typo": {
+    "title": "Yazım Hatası Avı",
+    "body": "Her turda yanlış yazılan tek kelimeyi bul.",
+    "instruction": "Yanlış yazılan kelimeye dokun.",
+    "gameOver": "On sorunun tamamını bitirdin.",
+    "next": "Sıradaki soru"
+  }
+}

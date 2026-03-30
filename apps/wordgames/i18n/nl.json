@@ -1,0 +1,87 @@
+{
+  "brand": "WordSprint",
+  "seo": {
+    "homeTitle": "WordSprint | Snelle woordspelletjes in vier talen",
+    "homeDescription": "Speel Dagladder, Woordmix en Typojacht direct lokaal in het Engels, Turks, Nederlands en Indonesisch.",
+    "dailyTitle": "Dagladder | WordSprint",
+    "dailyDescription": "Ga van het startwoord naar het doelwoord door telkens één letter te veranderen.",
+    "scrambleTitle": "Woordmix | WordSprint",
+    "scrambleDescription": "Ontwar zoveel mogelijk woorden voordat de minuut voorbij is.",
+    "typoTitle": "Typojacht | WordSprint",
+    "typoDescription": "Zoek het verkeerd gespelde woord in tien snelle rondes."
+  },
+  "nav": {
+    "home": "Start",
+    "dailyWord": "Dagladder",
+    "wordScramble": "Woordmix",
+    "typoHunt": "Typojacht"
+  },
+  "home": {
+    "eyebrow": "Snelle puzzels van vandaag",
+    "title": "Snelle woordspelletjes voor korte, fijne rondes.",
+    "subtitle": "Wissel van taal, start een korte ronde en speel direct op desktop of telefoon.",
+    "cta": "Nu spelen",
+    "dailyBody": "Ga van het ene woord naar het andere door steeds één letter te veranderen.",
+    "scrambleBody": "Versla de klok in zestig seconden en los zoveel mogelijk husselwoorden op.",
+    "typoBody": "Kies in elke korte set het ene fout gespelde woord.",
+    "metricsLanguages": "Talen",
+    "metricsGames": "Spellen",
+    "metricsSpeed": "Tempo",
+    "metricsGamesValue": "3 live",
+    "metricsSpeedValue": "Direct spel",
+    "dailyHero": "Dagelijkse ladderuitdaging",
+    "scrambleHero": "Woordmix van één minuut",
+    "typoHero": "Snelle typodetectie"
+  },
+  "common": {
+    "score": "Score",
+    "restart": "Opnieuw starten",
+    "playAgain": "Nog een keer",
+    "submit": "Verstuur",
+    "correct": "Goed",
+    "wrong": "Fout",
+    "timeLeft": "Tijd over",
+    "question": "Vraag",
+    "language": "Taal",
+    "adLabel": "Advertentieplek",
+    "topBanner": "Bovenbanner",
+    "sidebar": "Zijbalk",
+    "endScreen": "Eindscherm",
+    "best": "Beste",
+    "backHome": "Terug naar start"
+  },
+  "daily": {
+    "title": "Dagladder",
+    "body": "Breng het startwoord naar het doelwoord door per beurt één letter te veranderen.",
+    "inputLabel": "Vul de volgende trede in",
+    "invalid": "Die trede heb je al gebruikt.",
+    "tooShort": "Gebruik een woord met dezelfde lengte als de ladder.",
+    "win": "Mooi opgelost. De ladder van vandaag is klaar.",
+    "lose": "Geen zetten meer over. Pad:",
+    "streak": "Reeks",
+    "completed": "Kom morgen terug voor een nieuwe ladder.",
+    "moves": "Zetten",
+    "start": "Start",
+    "target": "Doel",
+    "rule": "Per beurt mag maar één letter veranderen.",
+    "hintTitle": "Hint vrijgespeeld",
+    "hintBody": "Betekenis-hint voor de volgende trede",
+    "invalidBounce": "Dat woord hoort niet bij de ladder van vandaag.",
+    "retryHint": "Na twee missers buiten de ladder is een hint vrijgespeeld."
+  },
+  "scramble": {
+    "title": "Woordmix",
+    "body": "Ontwar elk woord voordat de timer op nul staat.",
+    "inputLabel": "Jouw antwoord",
+    "placeholder": "Typ het originele woord",
+    "gameOver": "De tijd is om.",
+    "nextWord": "Goed. Volgend woord."
+  },
+  "typo": {
+    "title": "Typojacht",
+    "body": "Vind in elke ronde het ene verkeerd gespelde woord.",
+    "instruction": "Tik op het foute woord.",
+    "gameOver": "Je hebt alle tien vragen afgerond.",
+    "next": "Volgende vraag"
+  }
+}

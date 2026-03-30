@@ -1,0 +1,62 @@
+[
+  {
+    "start": "plane",
+    "target": "stare",
+    "path": ["plane", "place", "plate", "slate", "state", "stare"],
+    "clues": {
+      "place": "A location or spot.",
+      "plate": "A flat dish for food.",
+      "slate": "A dark stone or a planned list.",
+      "state": "A condition or region.",
+      "stare": "To look fixedly."
+    }
+  },
+  {
+    "start": "bread",
+    "target": "bleak",
+    "path": ["bread", "bream", "cream", "creak", "break", "bleak"],
+    "clues": {
+      "bream": "A type of fish.",
+      "cream": "The rich part of milk.",
+      "creak": "A sharp wooden sound.",
+      "break": "To split or pause.",
+      "bleak": "Cold, bare, or hopeless."
+    }
+  },
+  {
+    "start": "point",
+    "target": "feint",
+    "path": ["point", "paint", "saint", "taint", "faint", "feint"],
+    "clues": {
+      "paint": "Colored liquid for walls or art.",
+      "saint": "A holy person.",
+      "taint": "A stain or trace of something bad.",
+      "faint": "Very slight or weak.",
+      "feint": "A deceptive move."
+    }
+  },
+  {
+    "start": "crown",
+    "target": "crawl",
+    "path": ["crown", "brown", "brawn", "drawn", "drawl", "crawl"],
+    "clues": {
+      "brown": "A dark earthy color.",
+      "brawn": "Physical strength.",
+      "drawn": "Pulled or sketched.",
+      "drawl": "A slow stretched way of speaking.",
+      "crawl": "To move close to the ground."
+    }
+  },
+  {
+    "start": "flame",
+    "target": "grape",
+    "path": ["flame", "blame", "blade", "glade", "grade", "grape"],
+    "clues": {
+      "blame": "Responsibility for a fault.",
+      "blade": "The sharp part of a knife.",
+      "glade": "An open space in a forest.",
+      "grade": "A level or score.",
+      "grape": "A small fruit used for wine."
+    }
+  }
+]

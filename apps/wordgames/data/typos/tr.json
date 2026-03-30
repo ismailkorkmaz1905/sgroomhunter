@@ -1,0 +1,12 @@
+[
+  { "correct": "viral", "typo": "vrail" },
+  { "correct": "trend", "typo": "trned" },
+  { "correct": "video", "typo": "vidoe" },
+  { "correct": "emoji", "typo": "emoij" },
+  { "correct": "reels", "typo": "reles" },
+  { "correct": "drama", "typo": "darma" },
+  { "correct": "takip", "typo": "taikp" },
+  { "correct": "yorum", "typo": "yorumm" },
+  { "correct": "yayın", "typo": "yyaın" },
+  { "correct": "müzik", "typo": "müizk" }
+]

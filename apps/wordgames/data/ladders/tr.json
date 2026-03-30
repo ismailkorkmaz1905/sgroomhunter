@@ -1,0 +1,38 @@
+[
+  {
+    "start": "yatak",
+    "target": "saban",
+    "path": ["yatak", "yamak", "yaman", "zaman", "saman", "saban"],
+    "clues": {
+      "yamak": "Bir işte yardımcı olan kişi.",
+      "yaman": "Güçlü, etkili ya da becerikli.",
+      "zaman": "Vakit.",
+      "saman": "Tahıl sapı.",
+      "saban": "Toprağı sürmeye yarayan araç."
+    }
+  },
+  {
+    "start": "bakan",
+    "target": "pazar",
+    "path": ["bakan", "bakar", "yakar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "bakar": "Bakmak fiilinin geniş zamanı.",
+      "yakar": "Yakmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "sarma",
+    "target": "taşma",
+    "path": ["sarma", "salma", "saçma", "kaçma", "kaşma", "taşma"],
+    "clues": {
+      "salma": "Salmak işi ya da salınmış şey.",
+      "saçma": "Anlamsız söz ya da saçmak fiilinin biçimi.",
+      "kaçma": "Uzaklaşma eylemi.",
+      "kaşma": "Kazıma ya da kaşımaya benzeyen hareket.",
+      "taşma": "Sınırı aşıp dışarı çıkma."
+    }
+  }
+]

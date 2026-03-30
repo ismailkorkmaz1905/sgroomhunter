@@ -1,0 +1,12 @@
+[
+  { "correct": "viral", "typo": "vrial" },
+  { "correct": "trend", "typo": "trned" },
+  { "correct": "reels", "typo": "reelss" },
+  { "correct": "video", "typo": "vidoe" },
+  { "correct": "emoji", "typo": "emoij" },
+  { "correct": "drama", "typo": "darma" },
+  { "correct": "audio", "typo": "auido" },
+  { "correct": "stream", "typo": "strema" },
+  { "correct": "clout", "typo": "colut" },
+  { "correct": "matcha", "typo": "matcah" }
+]
