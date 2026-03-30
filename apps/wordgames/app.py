@@ -50,6 +50,12 @@ def load_json(*parts: str):
         return json.load(handle)
 
 
+def count_letter_changes(left: str, right: str) -> int:
+    if len(left) != len(right):
+        return -1
+    return sum(1 for left_char, right_char in zip(left, right) if left_char != right_char)
+
+
 DICTIONARIES = {
     "en": load_json("i18n", "en.json"),
     "tr": load_json("i18n", "tr.json"),
@@ -105,6 +111,30 @@ CROSSWORDS = {
     "id": load_json("data", "crosswords", "id.json"),
     "ms": load_json("data", "crosswords", "ms.json"),
 }
+
+
+def validate_ladder_pool(language: str, ladders: list[dict]) -> None:
+    for index, puzzle in enumerate(ladders, start=1):
+        path = puzzle["path"]
+        if not path:
+            raise ValueError(f"{language} ladder #{index} has an empty path")
+        if path[0] != puzzle["start"]:
+            raise ValueError(f"{language} ladder #{index} start mismatch: {path[0]} != {puzzle['start']}")
+        if path[-1] != puzzle["target"]:
+            raise ValueError(f"{language} ladder #{index} target mismatch: {path[-1]} != {puzzle['target']}")
+        if len(path) != len(set(path)):
+            raise ValueError(f"{language} ladder #{index} repeats a rung: {' -> '.join(path)}")
+
+        for current_word, next_word in zip(path, path[1:]):
+            difference = count_letter_changes(current_word, next_word)
+            if difference != 1:
+                raise ValueError(
+                    f"{language} ladder #{index} invalid transition: {current_word} -> {next_word} ({difference})"
+                )
+
+
+for language_code, ladder_pool in LADDERS.items():
+    validate_ladder_pool(language_code, ladder_pool)
 
 
 def ensure_analytics_db() -> None:
@@ -523,6 +553,7 @@ def render_localized_page(lang: str, page: str = "home"):
         page=normalized_page,
         title=dictionary["seo"][title_key],
         description=dictionary["seo"][description_key],
+        app_version=APP_VERSION,
         app_data={
             "lang": lang,
             "page": normalized_page,

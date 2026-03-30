@@ -183,6 +183,17 @@
     return changes;
   }
 
+  function getNextUnusedPathWord(path, steps) {
+    const previousStep = steps[steps.length - 1];
+    const currentPathIndex = Math.max(0, path.lastIndexOf(previousStep));
+    for (let index = currentPathIndex + 1; index < path.length; index += 1) {
+      if (!steps.includes(path[index])) {
+        return path[index];
+      }
+    }
+    return "";
+  }
+
   function getSavedLanguage() {
     return localStorage.getItem("word-game-language") || currentLanguage;
   }
@@ -484,9 +495,9 @@
             flashMessage: "",
             feedbackTone: "",
             shakeTick: 0,
-          };
+      };
     const streak = Number(localStorage.getItem(streakKey) || "0");
-    const nextExpected = puzzle.path[state.steps.length];
+    const nextExpected = getNextUnusedPathWord(puzzle.path, state.steps);
     const hintVisible = !state.completed && state.invalidAttemptCount >= 2 && nextExpected;
     const revealVisible = !state.completed && state.invalidAttemptCount >= 3 && nextExpected;
     const hintText = hintVisible ? puzzle.clues[nextExpected] || displayWord(nextExpected) : "";
