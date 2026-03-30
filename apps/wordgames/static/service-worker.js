@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordsprint-v1";
+const CACHE_NAME = "wordsprint-v2";
 const APP_SHELL = [
   "/",
   "/en",

@@ -656,7 +656,7 @@
       });
     }
 
-    function commitInvalid(message, countTowardHint) {
+      function commitInvalid(message, countTowardHint) {
       if (countTowardHint) {
         state.invalidAttemptCount += 1;
       }
@@ -674,31 +674,31 @@
       renderDailyLadder();
     }
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const guess = normalizeWord(input.value);
-      const previous = state.steps[state.steps.length - 1];
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const guess = normalizeWord(input.value);
+        const previous = state.steps[state.steps.length - 1];
 
-      if (guess.length !== puzzle.start.length) {
-        commitInvalid(dictionary.daily.tooShort, false);
-        return;
-      }
-      if (!puzzle.path.includes(guess)) {
-        commitInvalid(dictionary.daily.invalidBounce, true);
-        return;
-      }
-      if (countLetterChanges(previous, guess) !== 1) {
-        commitInvalid(dictionary.daily.rule, true);
-        return;
-      }
-      if (state.steps.includes(guess)) {
-        commitInvalid(dictionary.daily.invalid, true);
-        return;
-      }
+        if (guess.length !== puzzle.start.length) {
+          commitInvalid(dictionary.daily.tooShort, false);
+          return;
+        }
+        if (countLetterChanges(previous, guess) !== 1) {
+          commitInvalid(dictionary.daily.rule, true);
+          return;
+        }
+        if (state.steps.includes(guess)) {
+          commitInvalid(dictionary.daily.invalid, true);
+          return;
+        }
+        if (guess !== puzzle.target && !puzzle.path.includes(guess)) {
+          commitInvalid(dictionary.daily.invalidBounce, true);
+          return;
+        }
 
-      state.steps.push(guess);
-      state.won = guess === puzzle.target;
-      state.completed = state.won || state.steps.length - 1 >= maxMoves;
+        state.steps.push(guess);
+        state.won = guess === puzzle.target;
+        state.completed = state.won || state.steps.length - 1 >= maxMoves;
       state.invalidAttemptCount = 0;
       state.flashMessage = "";
       state.feedbackTone = "";
@@ -1145,11 +1145,10 @@
             const selected = button.getAttribute("data-option");
             const buttons = Array.from(app.querySelectorAll("[data-option]"));
             buttons.forEach(function (item) {
-              const isTarget = item.getAttribute("data-option") === round.answer;
-              if (isTarget) {
+              if (item === button && selected === round.answer) {
                 item.classList.add("correct");
               }
-              if (item === button && !isTarget) {
+              if (item === button && selected !== round.answer) {
                 item.classList.add("wrong");
               }
               item.disabled = true;
