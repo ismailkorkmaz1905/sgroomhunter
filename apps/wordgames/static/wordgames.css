@@ -114,6 +114,10 @@ button {
   gap: 16px;
 }
 
+.hero-shell-row {
+  align-items: flex-start;
+}
+
 .site-header {
   align-items: center;
   margin-bottom: 16px;
@@ -291,18 +295,23 @@ button {
   grid-template-columns: repeat(3, minmax(90px, 1fr));
   gap: 10px;
   min-width: min(100%, 300px);
+  align-self: flex-start;
 }
 
 .metric-card {
-  padding: 16px;
-  border-radius: 22px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 0;
+  padding: 14px 16px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid var(--line);
 }
 
 .metric-card span {
   display: block;
-  margin-bottom: 6px;
+  margin: 0;
   color: var(--muted);
   font: 600 0.78rem/1.2 "Segoe UI", sans-serif;
   text-transform: uppercase;
@@ -310,6 +319,8 @@ button {
 }
 
 .metric-card strong {
+  display: block;
+  line-height: 1.2;
   font-size: 1.05rem;
 }
 
