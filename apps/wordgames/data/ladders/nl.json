@@ -118,5 +118,125 @@
       "loser": "Iemand die verliest.",
       "loper": "Een hardloper of lange mat."
     }
+  },
+  {
+    "start": "laser",
+    "target": "kamer",
+    "path": ["laser", "loser", "loper", "koper", "kaper", "kamer"],
+    "clues": {
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat.",
+      "koper": "Een koper of het metaal koper.",
+      "kaper": "Iemand die een schip of toestel kaapt.",
+      "kamer": "Een ruimte in huis."
+    }
+  },
+  {
+    "start": "baken",
+    "target": "wagen",
+    "path": ["baken", "balen", "talen", "taken", "waken", "wagen"],
+    "clues": {
+      "balen": "Er flink van balen of grote pakken.",
+      "talen": "Meervoud van taal.",
+      "taken": "Werkjes of opdrachten.",
+      "waken": "Niet slapen en ergens op letten.",
+      "wagen": "Een auto of rijtuig."
+    }
+  },
+  {
+    "start": "koper",
+    "target": "water",
+    "path": ["koper", "loper", "loser", "laser", "later", "water"],
+    "clues": {
+      "loper": "Een hardloper of lange mat.",
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "later": "Niet nu maar daarna.",
+      "water": "Vloeistof om te drinken."
+    }
+  },
+  {
+    "start": "koper",
+    "target": "mager",
+    "path": ["koper", "loper", "loser", "laser", "lager", "mager"],
+    "clues": {
+      "loper": "Een hardloper of lange mat.",
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "lager": "Niet zo hoog of een soort bier.",
+      "mager": "Dun of schraal."
+    }
+  },
+  {
+    "start": "baken",
+    "target": "dagen",
+    "path": ["baken", "balen", "talen", "taken", "daken", "dagen"],
+    "clues": {
+      "balen": "Er flink van balen of grote pakken.",
+      "talen": "Meervoud van taal.",
+      "taken": "Werkjes of opdrachten.",
+      "daken": "Meervoud van dak.",
+      "dagen": "Meervoud van dag."
+    }
+  },
+  {
+    "start": "talen",
+    "target": "zaken",
+    "path": ["talen", "taken", "daken", "dagen", "zagen", "zaken"],
+    "clues": {
+      "taken": "Werkjes of opdrachten.",
+      "daken": "Meervoud van dak.",
+      "dagen": "Meervoud van dag.",
+      "zagen": "Met een zaag werken of meervoud van zaag.",
+      "zaken": "Dingen of kwesties."
+    }
+  },
+  {
+    "start": "loper",
+    "target": "maker",
+    "path": ["loper", "loser", "laser", "lager", "mager", "maker"],
+    "clues": {
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "lager": "Niet zo hoog of een soort bier.",
+      "mager": "Dun of schraal.",
+      "maker": "Iemand die iets maakt."
+    }
+  },
+  {
+    "start": "kat",
+    "target": "pan",
+    "path": ["kat", "mat", "met", "men", "pen", "pan"],
+    "clues": {
+      "mat": "Een vloerkleed of dof.",
+      "met": "Samen met of voorzien van.",
+      "men": "Algemeen voornaamwoord.",
+      "pen": "Schrijfgerei.",
+      "pan": "Kookgerei."
+    }
+  },
+  {
+    "start": "heer",
+    "target": "peer",
+    "path": ["heer", "beer", "weer", "meer", "neer", "peer"],
+    "clues": {
+      "beer": "Een groot dier of schuim op drank.",
+      "weer": "Het weer of opnieuw.",
+      "meer": "Een groot binnenwater of meer.",
+      "neer": "Omlaag of neer.",
+      "peer": "Een vrucht."
+    }
+  },
+  {
+    "start": "bakken",
+    "target": "doeken",
+    "path": ["bakken", "pakken", "pikken", "dikken", "dokken", "doeken"],
+    "clues": {
+      "pakken": "Vastgrijpen of kledingstukken.",
+      "pikken": "Stelen of prikken.",
+      "dikken": "Dikker maken.",
+      "dokken": "Betalen, informeel.",
+      "doeken": "Lappen stof of afdekken."
+    }
   }
 ]

@@ -70,6 +70,12 @@ button {
   background: linear-gradient(135deg, rgba(53, 87, 255, 0.08), rgba(224, 108, 67, 0.1));
 }
 
+.ladder-switch-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
 .ladder-meter-labels,
 .celebration-actions {
   display: flex;

@@ -61,6 +61,10 @@
     sessionStorage.setItem(key, String(currentOffset + 1));
   }
 
+  function switchActiveLadder(language) {
+    unlockNextBonus(language);
+  }
+
   function shuffleWord(word) {
     if (word.length < 2) {
       return word;
@@ -160,11 +164,11 @@
         hint: `${name}, this clue should make the next step clearer.`,
       },
       tr: {
-        daily: `Hadi ${name}, bunu adim adim cozebilirsin.`,
-        scramble: `Hadi ${name}, ritmi koru ve hizli git.`,
-        typo: `${name}, gozune guven ve farkli olani sec.`,
+        daily: `Hadi ${name}, bunu adım adım çözebilirsin.`,
+        scramble: `Hadi ${name}, ritmi koru ve hızlı git.`,
+        typo: `${name}, gözüne güven ve farklı olanı seç.`,
         celebrate: `Tebrikler ${name}.`,
-        hint: `${name}, bu ipucu siradaki adimi biraz acacak.`,
+        hint: `${name}, bu ipucu sıradaki adımı biraz açacak.`,
       },
       nl: {
         daily: `${name}, rustig aan. Deze kun je stap voor stap oplossen.`,
@@ -423,6 +427,9 @@
         </section>
       `
       : "";
+    const switchButtonMarkup = payload.ladders[currentLanguage].length > 1
+      ? `<button class="cta-link ghost-button" type="button" id="switch-ladder-button">${dictionary.daily.switchCta}</button>`
+      : "";
 
     app.innerHTML = layout(
       `
@@ -439,6 +446,7 @@
             <p class="stat-pill">${dictionary.daily.bonusLabel}: ${ladderState.bonusOffset + 1}</p>
           </div>
         </header>
+        ${switchButtonMarkup ? `<div class="ladder-switch-row">${switchButtonMarkup}</div>` : ""}
         <section class="panel ladder-meter">
           <div class="ladder-meter-labels">
             <span>${dictionary.daily.start}</span>
@@ -485,6 +493,7 @@
     const boardNode = document.getElementById("ladder-board");
     const bonusButton = document.getElementById("bonus-ladder-button");
     const revealButton = document.getElementById("reveal-ladder-button");
+    const switchButton = document.getElementById("switch-ladder-button");
 
     if (!state.completed) {
       requestAnimationFrame(function () {
@@ -504,7 +513,14 @@
 
     if (bonusButton) {
       bonusButton.addEventListener("click", function () {
-        unlockNextBonus(currentLanguage);
+        switchActiveLadder(currentLanguage);
+        renderDailyLadder();
+      });
+    }
+
+    if (switchButton) {
+      switchButton.addEventListener("click", function () {
+        switchActiveLadder(currentLanguage);
         renderDailyLadder();
       });
     }

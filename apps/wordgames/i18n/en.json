@@ -96,6 +96,7 @@
     "bonusLabel": "Run",
     "bonusBody": "You cleared this ladder. Keep the streak going with a bonus round.",
     "bonusCta": "Play bonus ladder",
+    "switchCta": "Switch ladder",
     "start": "Start",
     "target": "Target",
     "rule": "Only one letter can change each turn.",
