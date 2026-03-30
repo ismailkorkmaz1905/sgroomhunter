@@ -56,6 +56,15 @@
     "privacy": "Gizlilik",
     "about": "Hakkında"
   },
+  "profile": {
+    "greeting": "Merhaba, {name}",
+    "promptTitle": "Sana nasıl hitap edeyim?",
+    "promptBody": "İstersen adını yaz, oyun sana daha kişisel hitap etsin.",
+    "inputLabel": "Adın",
+    "placeholder": "Bir isim yaz",
+    "save": "İsmi kaydet",
+    "skip": "Şimdilik geç"
+  },
   "about": {
     "title": "WordSprint Hakkında",
     "intro": "WordSprint, farklı cihazlarda hızlı günlük oyun deneyimi sunan hafif ve çok dilli bir kelime oyunu projesidir.",
@@ -70,7 +79,8 @@
     "point2": "Analitik için çerez kullanmıyoruz.",
     "point3": "Reklam profili ya da cihaz parmak izi oluşturmuyoruz.",
     "point4": "Yalnızca route, dil, durum kodu, cihaz tipi, tarayıcı ailesi ve yönlendiren domain tutulur.",
-    "point5": "Analitik özeti toplulaştırılmıştır ve sadece hafif ürün içgörüsü içindir."
+    "point5": "Analitik özeti toplulaştırılmıştır ve sadece hafif ürün içgörüsü içindir.",
+    "point6": "İstersen paylaştığın görünen isim, sitenin sahibine açık özel analytics ekranında görünebilir."
   },
   "daily": {
     "title": "Günlük Merdiven",

@@ -67,6 +67,16 @@ def ensure_analytics_db() -> None:
             )
             """
         )
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS player_profiles (
+                client_id TEXT PRIMARY KEY,
+                display_name TEXT NOT NULL,
+                lang TEXT,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )
+            """
+        )
         connection.commit()
 
 
@@ -188,6 +198,14 @@ def get_analytics_summary(days: int = 7) -> dict:
             """,
             (f"-{days} days",),
         ).fetchall()
+        recent_names = connection.execute(
+            """
+            SELECT display_name, lang, updated_at
+            FROM player_profiles
+            ORDER BY updated_at DESC
+            LIMIT 12
+            """
+        ).fetchall()
 
     return {
         "days": days,
@@ -197,7 +215,30 @@ def get_analytics_summary(days: int = 7) -> dict:
         "by_language": [dict(row) for row in by_language],
         "by_device": [dict(row) for row in by_device],
         "by_browser": [dict(row) for row in by_browser],
+        "recent_names": [dict(row) for row in recent_names],
     }
+
+
+def normalize_display_name(value: str) -> str:
+    cleaned = " ".join(value.strip().split())
+    return cleaned[:40]
+
+
+def upsert_player_profile(client_id: str, display_name: str, lang: str | None) -> None:
+    ensure_analytics_db()
+    with sqlite3.connect(ANALYTICS_DB) as connection:
+        connection.execute(
+            """
+            INSERT INTO player_profiles (client_id, display_name, lang, updated_at)
+            VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(client_id) DO UPDATE SET
+                display_name = excluded.display_name,
+                lang = excluded.lang,
+                updated_at = CURRENT_TIMESTAMP
+            """,
+            (client_id, display_name, lang),
+        )
+        connection.commit()
 
 
 def analytics_auth_enabled() -> bool:
@@ -377,6 +418,16 @@ def render_analytics_dashboard(summary: dict) -> str:
               {% endfor %}
             </ul>
           </article>
+          <article class="panel">
+            <h2>Recent names</h2>
+            <ul>
+              {% for row in summary.recent_names %}
+              <li><strong>{{ row.display_name }}</strong> — {{ row.lang or "unknown" }}</li>
+              {% else %}
+              <li>No names submitted yet.</li>
+              {% endfor %}
+            </ul>
+          </article>
         </section>
         <p class="hint">If you still want the raw aggregate JSON for debugging, use <code>/analytics-summary</code>.</p>
       </div>
@@ -470,6 +521,21 @@ def create_app() -> Flask:
         if unauthorized is not None:
             return unauthorized
         return jsonify(summary)
+
+    @app.route("/profile-name", methods=["POST"])
+    def profile_name():
+        payload = request.get_json(silent=True) or {}
+        client_id = str(payload.get("clientId", "")).strip()
+        display_name = normalize_display_name(str(payload.get("displayName", "")))
+        lang = str(payload.get("lang", "")).strip() or None
+
+        if not client_id or len(client_id) > 100:
+            return jsonify({"ok": False, "error": "invalid_client"}), 400
+        if not display_name:
+            return jsonify({"ok": False, "error": "invalid_name"}), 400
+
+        upsert_player_profile(client_id, display_name, lang)
+        return jsonify({"ok": True}), 200
 
     @app.route("/<lang>")
     @app.route("/<lang>/<page>")

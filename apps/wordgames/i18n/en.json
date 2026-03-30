@@ -56,6 +56,15 @@
     "privacy": "Privacy",
     "about": "About"
   },
+  "profile": {
+    "greeting": "Hi, {name}",
+    "promptTitle": "How should I call you?",
+    "promptBody": "If you want, leave a name so the game can greet you properly.",
+    "inputLabel": "Your name",
+    "placeholder": "Type a name",
+    "save": "Save name",
+    "skip": "Skip for now"
+  },
   "about": {
     "title": "About WordSprint",
     "intro": "WordSprint is a lightweight multilingual word game project focused on quick daily play across devices.",
@@ -70,7 +79,8 @@
     "point2": "We do not use cookies for analytics.",
     "point3": "We do not build advertising profiles or fingerprints.",
     "point4": "We only keep route, language, status code, device type, browser family, and referrer domain.",
-    "point5": "The analytics summary is aggregated and intended for lightweight product insight only."
+    "point5": "The analytics summary is aggregated and intended for lightweight product insight only.",
+    "point6": "If you choose to share a display name, it can appear in the private analytics dashboard for the site owner."
   },
   "daily": {
     "title": "Daily Ladder",

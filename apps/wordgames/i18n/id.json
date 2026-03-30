@@ -56,6 +56,15 @@
     "privacy": "Privasi",
     "about": "Tentang"
   },
+  "profile": {
+    "greeting": "Halo, {name}",
+    "promptTitle": "Aku sebaiknya memanggilmu apa?",
+    "promptBody": "Kalau mau, isi nama supaya game bisa menyapamu dengan lebih personal.",
+    "inputLabel": "Namamu",
+    "placeholder": "Tulis nama",
+    "save": "Simpan nama",
+    "skip": "Lewati dulu"
+  },
   "about": {
     "title": "Tentang WordSprint",
     "intro": "WordSprint adalah proyek game kata multibahasa yang ringan dan dirancang untuk sesi permainan harian yang cepat di berbagai perangkat.",
@@ -70,7 +79,8 @@
     "point2": "Kami tidak memakai cookie untuk analitik.",
     "point3": "Kami tidak membuat profil iklan atau fingerprint perangkat.",
     "point4": "Kami hanya menyimpan rute, bahasa, kode status, tipe perangkat, keluarga browser, dan domain perujuk.",
-    "point5": "Ringkasan analitik bersifat agregat dan hanya dipakai untuk insight produk ringan."
+    "point5": "Ringkasan analitik bersifat agregat dan hanya dipakai untuk insight produk ringan.",
+    "point6": "Kalau kamu memilih membagikan nama panggilan, nama itu bisa terlihat di dashboard analytics privat milik pemilik situs."
   },
   "daily": {
     "title": "Tangga Harian",

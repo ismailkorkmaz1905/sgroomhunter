@@ -108,6 +108,54 @@
     localStorage.setItem("word-game-language", language);
   }
 
+  function getProfileStorageKey() {
+    return "word-game-player-profile";
+  }
+
+  function getPlayerProfile() {
+    try {
+      return JSON.parse(localStorage.getItem(getProfileStorageKey()) || "{}");
+    } catch {
+      return {};
+    }
+  }
+
+  function savePlayerProfile(profile) {
+    localStorage.setItem(getProfileStorageKey(), JSON.stringify(profile));
+  }
+
+  function ensureClientId() {
+    const profile = getPlayerProfile();
+    if (profile.clientId) {
+      return profile.clientId;
+    }
+    const clientId =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `client-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    savePlayerProfile({ ...profile, clientId });
+    return clientId;
+  }
+
+  function formatGreeting(name) {
+    return dictionary.profile.greeting.replace("{name}", name);
+  }
+
+  function submitProfileName(displayName) {
+    const clientId = ensureClientId();
+    return fetch("/profile-name", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        clientId,
+        displayName,
+        lang: currentLanguage,
+      }),
+    }).catch(function () {});
+  }
+
   function pulseDevice(pattern) {
     if ("vibrate" in navigator) {
       navigator.vibrate(pattern);
@@ -183,6 +231,7 @@
           <main class="main-content">
             <section class="panel hero-shell">
               <p class="eyebrow">${heroNote || dictionary.home.eyebrow}</p>
+              <div class="welcome-strip" id="welcome-strip"></div>
               <div class="hero-shell-row">
                 <div>
                   <h1>${dictionary.home.title}</h1>
@@ -679,6 +728,7 @@
           <li>${dictionary.privacy.point3}</li>
           <li>${dictionary.privacy.point4}</li>
           <li>${dictionary.privacy.point5}</li>
+          <li>${dictionary.privacy.point6}</li>
         </ul>
         <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
       </section>
@@ -709,6 +759,64 @@
       dictionary.common.about,
     );
     bindLanguageSwitcher();
+  }
+
+  function enhanceProfileUX() {
+    const profile = getPlayerProfile();
+    const welcomeStrip = document.getElementById("welcome-strip");
+    if (welcomeStrip && profile.displayName) {
+      welcomeStrip.innerHTML = `<p class="welcome-chip">${formatGreeting(profile.displayName)}</p>`;
+    }
+
+    if (profile.displayName || profile.dismissedNamePrompt) {
+      return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className = "name-modal-overlay";
+    overlay.innerHTML = `
+      <div class="panel name-modal">
+        <p class="card-kicker">${dictionary.common.about}</p>
+        <h2>${dictionary.profile.promptTitle}</h2>
+        <p>${dictionary.profile.promptBody}</p>
+        <form id="name-form" class="game-form">
+          <label for="display-name-input">${dictionary.profile.inputLabel}</label>
+          <input id="display-name-input" maxlength="40" placeholder="${dictionary.profile.placeholder}" />
+          <div class="name-modal-actions">
+            <button class="primary-button" type="submit">${dictionary.profile.save}</button>
+            <button class="cta-link ghost-button" type="button" id="skip-name-button">${dictionary.profile.skip}</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const input = overlay.querySelector("#display-name-input");
+    const form = overlay.querySelector("#name-form");
+    const skipButton = overlay.querySelector("#skip-name-button");
+
+    requestAnimationFrame(function () {
+      input.focus();
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const displayName = input.value.trim().slice(0, 40);
+      if (!displayName) {
+        input.focus();
+        return;
+      }
+      const nextProfile = { ...profile, clientId: ensureClientId(), displayName };
+      savePlayerProfile(nextProfile);
+      submitProfileName(displayName);
+      overlay.remove();
+      enhanceProfileUX();
+    });
+
+    skipButton.addEventListener("click", function () {
+      savePlayerProfile({ ...profile, clientId: ensureClientId(), dismissedNamePrompt: true });
+      overlay.remove();
+    });
   }
 
   function bindLanguageSwitcher() {
@@ -742,6 +850,8 @@
     } else {
       renderTypoHunt();
     }
+
+    enhanceProfileUX();
   }
 
   boot();
