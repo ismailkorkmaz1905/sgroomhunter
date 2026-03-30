@@ -1,0 +1,32 @@
+[
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "muat", "clue": "Cukup ruang untuk masuk"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "masa", "clue": "Periode waktu"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tren", "clue": "Hal yang sedang populer"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "aman", "clue": "Tidak berbahaya"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kabar", "clue": "Berita atau keadaan terbaru"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kelas", "clue": "Tempat belajar di sekolah"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "radio", "clue": "Alat untuk mendengar siaran"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "saldo", "clue": "Sisa uang dalam rekening"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "bubur", "clue": "Makanan lembut dari nasi"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "botol", "clue": "Wadah minuman"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "rumah", "clue": "Tempat tinggal"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "lelah", "clue": "Kondisi capek"}
+    ]
+  }
+]

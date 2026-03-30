@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Game kata cepat dalam lima bahasa",
-    "homeDescription": "Mainkan Tangga Harian, Acak Kata, dan Cari Salah Eja secara instan dalam bahasa Inggris, Turki, Belanda, Indonesia, dan Melayu.",
+    "homeDescription": "Mainkan enam game kata cepat secara instan dalam bahasa Inggris, Turki, Belanda, Indonesia, dan Melayu.",
     "dailyTitle": "Tangga Harian | WordSprint",
     "dailyDescription": "Capai kata target dari kata awal dengan mengubah satu huruf di setiap langkah.",
     "scrambleTitle": "Acak Kata | WordSprint",
@@ -13,6 +13,8 @@
     "chainDescription": "Teruskan rantai dengan kata baru yang dimulai dari huruf terakhir.",
     "categoryTitle": "Kilat Kategori | WordSprint",
     "categoryDescription": "Pilih kata yang benar-benar cocok dengan kategorinya.",
+    "crosswordTitle": "TTS Mini | WordSprint",
+    "crosswordDescription": "Isi kotak silang ringkas dengan petunjuk mendatar dan menurun yang singkat.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas.",
     "aboutTitle": "Tentang | WordSprint",
@@ -26,7 +28,8 @@
     "wordScramble": "Acak Kata",
     "typoHunt": "Cari Salah Eja",
     "wordChain": "Rantai Kata",
-    "categoryBlitz": "Kilat Kategori"
+    "categoryBlitz": "Kilat Kategori",
+    "miniCrossword": "TTS Mini"
   },
   "home": {
     "eyebrow": "Paket puzzle cepat hari ini",
@@ -38,16 +41,18 @@
     "typoBody": "Cari satu kata yang salah eja di setiap set singkat.",
     "chainBody": "Tangkap huruf terakhir dan lanjutkan rantai kata secepat mungkin.",
     "categoryBody": "Pilih kata yang memang cocok dengan kategori yang muncul.",
+    "crosswordBody": "Isi kotak ringkas dari petunjuk mendatar dan menurun yang pendek.",
     "metricsLanguages": "Bahasa",
     "metricsGames": "Game",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "5 aktif",
+    "metricsGamesValue": "6 aktif",
     "metricsSpeedValue": "Main instan",
     "dailyHero": "Tantangan tangga harian",
     "scrambleHero": "Sprint acak kata satu menit",
     "typoHero": "Deteksi salah eja cepat",
     "chainHero": "Rantai kata cepat",
-    "categoryHero": "Pilihan kategori kilat"
+    "categoryHero": "Pilihan kategori kilat",
+    "crosswordHero": "Kotak TTS mini"
   },
   "common": {
     "score": "Skor",
@@ -164,5 +169,17 @@
     "instruction": "Ketuk pilihan terbaik.",
     "gameOver": "Semua ronde kategori sudah selesai.",
     "next": "Ronde berikutnya"
+  },
+  "crossword": {
+    "title": "TTS Mini",
+    "body": "Isi kotak kecil dengan petunjuk mendatar dan menurun.",
+    "instruction": "Ketuk satu kotak, ketik hurufnya, lalu cek seluruh grid.",
+    "across": "Mendatar",
+    "down": "Menurun",
+    "reveal": "Buka satu huruf",
+    "check": "Cek grid",
+    "next": "TTS berikutnya",
+    "complete": "Grid selesai. Rapi banget.",
+    "progress": "Kotak terisi"
   }
 }

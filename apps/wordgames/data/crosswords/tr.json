@@ -1,0 +1,32 @@
+[
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "mert", "clue": "Dürüst ve açık sözlü"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "masa", "clue": "Üstünde çalışılan mobilya"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tane", "clue": "Adet anlamında kullanılır"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "anne", "clue": "Ailedeki kadın ebeveyn"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kral", "clue": "Tahtın erkek sahibi"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kapi", "clue": "Odaya giriş çıkış yeri"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "lama", "clue": "Uzun boyunlu bir hayvan"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "imza", "clue": "Bir belgenin altına atılır"}
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "can", "clue": "İçten sevilen kişi için de söylenir"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "cin", "clue": "Masallarda geçen görünmez varlık"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "net", "clue": "Açık ve kesin"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "not", "clue": "Kısa yazılı hatırlatma"}
+    ]
+  }
+]

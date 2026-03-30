@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Permainan kata pantas dalam lima bahasa",
-    "homeDescription": "Main Tangga Kata Harian, Susun Kata, dan Cari Salah Eja secara pantas dalam bahasa Inggeris, Turki, Belanda, Indonesia, dan Melayu.",
+    "homeDescription": "Main enam permainan kata pantas secara serta-merta dalam bahasa Inggeris, Turki, Belanda, Indonesia, dan Melayu.",
     "dailyTitle": "Tangga Kata Harian | WordSprint",
     "dailyDescription": "Naik dari kata mula ke kata sasaran dengan menukar satu huruf pada setiap langkah.",
     "scrambleTitle": "Susun Kata | WordSprint",
@@ -13,6 +13,8 @@
     "chainDescription": "Teruskan rantai dengan perkataan baharu yang bermula dengan huruf terakhir.",
     "categoryTitle": "Kilat Kategori | WordSprint",
     "categoryDescription": "Pilih perkataan yang betul-betul sesuai dengan kategorinya.",
+    "crosswordTitle": "Silang Kata Mini | WordSprint",
+    "crosswordDescription": "Isi grid silang kata ringkas dengan petunjuk melintang dan menegak yang pendek.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Cara WordSprint mengendalikan analitik penggunaan tanpa nama yang sangat terhad.",
     "aboutTitle": "Tentang | WordSprint",
@@ -26,7 +28,8 @@
     "wordScramble": "Susun Kata",
     "typoHunt": "Cari Salah Eja",
     "wordChain": "Rantai Kata",
-    "categoryBlitz": "Kilat Kategori"
+    "categoryBlitz": "Kilat Kategori",
+    "miniCrossword": "Silang Kata Mini"
   },
   "home": {
     "eyebrow": "Set puzzle harian yang ringkas",
@@ -38,16 +41,18 @@
     "typoBody": "Cari satu pilihan yang salah ejaan dalam setiap set ringkas.",
     "chainBody": "Sambung huruf terakhir dan teruskan rantai perkataan secepat mungkin.",
     "categoryBody": "Pilih perkataan yang benar-benar sesuai dengan kategori yang diberi.",
+    "crosswordBody": "Isi grid ringkas daripada petunjuk melintang dan menegak yang pendek.",
     "metricsLanguages": "Bahasa",
     "metricsGames": "Permainan",
     "metricsSpeed": "Rentak",
-    "metricsGamesValue": "5 aktif",
+    "metricsGamesValue": "6 aktif",
     "metricsSpeedValue": "Main segera",
     "dailyHero": "Cabaran ladder harian",
     "scrambleHero": "Sprint scramble seminit",
     "typoHero": "Kesan typo dengan cepat",
     "chainHero": "Rantai kata pantas",
-    "categoryHero": "Pilihan kategori kilat"
+    "categoryHero": "Pilihan kategori kilat",
+    "crosswordHero": "Grid silang kata mini"
   },
   "common": {
     "score": "Skor",
@@ -164,5 +169,17 @@
     "instruction": "Tekan padanan terbaik.",
     "gameOver": "Semua pusingan kategori sudah selesai.",
     "next": "Pusingan seterusnya"
+  },
+  "crossword": {
+    "title": "Silang Kata Mini",
+    "body": "Isi grid kecil dengan petunjuk melintang dan menegak.",
+    "instruction": "Tekan satu kotak, taip hurufnya, kemudian semak seluruh grid.",
+    "across": "Melintang",
+    "down": "Menegak",
+    "reveal": "Buka satu huruf",
+    "check": "Semak grid",
+    "next": "Silang kata seterusnya",
+    "complete": "Grid lengkap. Kemas jawapannya.",
+    "progress": "Kotak terisi"
   }
 }

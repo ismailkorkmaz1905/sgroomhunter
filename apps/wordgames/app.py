@@ -12,7 +12,7 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 BASE_DIR = Path(__file__).resolve().parent
 SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
-SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "word-chain", "category-blitz", "privacy", "about", "terms"}
+SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "word-chain", "category-blitz", "mini-crossword", "privacy", "about", "terms"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
 
 
@@ -67,6 +67,14 @@ CATEGORIES = {
     "nl": load_json("data", "categories", "nl.json"),
     "id": load_json("data", "categories", "id.json"),
     "ms": load_json("data", "categories", "ms.json"),
+}
+
+CROSSWORDS = {
+    "en": load_json("data", "crosswords", "en.json"),
+    "tr": load_json("data", "crosswords", "tr.json"),
+    "nl": load_json("data", "crosswords", "nl.json"),
+    "id": load_json("data", "crosswords", "id.json"),
+    "ms": load_json("data", "crosswords", "ms.json"),
 }
 
 
@@ -473,6 +481,7 @@ def render_localized_page(lang: str, page: str = "home"):
         "typo-hunt": ("typoTitle", "typoDescription"),
         "word-chain": ("chainTitle", "chainDescription"),
         "category-blitz": ("categoryTitle", "categoryDescription"),
+        "mini-crossword": ("crosswordTitle", "crosswordDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
         "about": ("aboutTitle", "aboutDescription"),
         "terms": ("termsTitle", "termsDescription"),
@@ -494,6 +503,7 @@ def render_localized_page(lang: str, page: str = "home"):
             "ladders": LADDERS,
             "chains": CHAINS,
             "categories": CATEGORIES,
+            "crosswords": CROSSWORDS,
         },
     )
 
@@ -546,7 +556,7 @@ def create_app() -> Flask:
             urls.append(url_for("localized_page", lang=lang, _external=True))
             for page in ("daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
-            for page in ("word-chain", "category-blitz"):
+            for page in ("word-chain", "category-blitz", "mini-crossword"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
         xml = render_template_string(
             """<?xml version="1.0" encoding="UTF-8"?>

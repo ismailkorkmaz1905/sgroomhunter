@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Fast daily word games in five languages",
-    "homeDescription": "Play Daily Ladder, Word Scramble, and Typo Hunt with instant local gameplay in English, Turkish, Dutch, Indonesian, and Malay.",
+    "homeDescription": "Play six quick word games with instant local gameplay in English, Turkish, Dutch, Indonesian, and Malay.",
     "dailyTitle": "Daily Ladder | WordSprint",
     "dailyDescription": "Climb from the start word to the target by changing one letter at a time.",
     "scrambleTitle": "Word Scramble | WordSprint",
@@ -13,6 +13,8 @@
     "chainDescription": "Keep the chain alive by entering a word that starts with the final letter.",
     "categoryTitle": "Category Blitz | WordSprint",
     "categoryDescription": "Pick the matching word for each category before the round ends.",
+    "crosswordTitle": "Mini Crossword | WordSprint",
+    "crosswordDescription": "Fill a compact crossword grid with quick across and down clues.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
     "aboutTitle": "About | WordSprint",
@@ -26,7 +28,8 @@
     "wordScramble": "Word Scramble",
     "typoHunt": "Typo Hunt",
     "wordChain": "Word Chain",
-    "categoryBlitz": "Category Blitz"
+    "categoryBlitz": "Category Blitz",
+    "miniCrossword": "Mini Crossword"
   },
   "home": {
     "eyebrow": "Quick daily puzzle set",
@@ -38,16 +41,18 @@
     "typoBody": "Find the one misspelled option in each quick set.",
     "chainBody": "Keep a live word chain going by matching the final letter.",
     "categoryBody": "Pick the word that actually fits the category.",
+    "crosswordBody": "Fill a compact grid from short across and down clues.",
     "metricsLanguages": "Languages",
     "metricsGames": "Games",
     "metricsSpeed": "Speed",
-    "metricsGamesValue": "5 live",
+    "metricsGamesValue": "6 live",
     "metricsSpeedValue": "Instant play",
     "dailyHero": "Daily ladder challenge",
     "scrambleHero": "One-minute scramble sprint",
     "typoHero": "Fast typo detection",
     "chainHero": "Last-letter word chain",
-    "categoryHero": "Quick category picks"
+    "categoryHero": "Quick category picks",
+    "crosswordHero": "Mini crossword grid"
   },
   "common": {
     "score": "Score",
@@ -164,5 +169,17 @@
     "instruction": "Tap the best match.",
     "gameOver": "You finished all category rounds.",
     "next": "Next round"
+  },
+  "crossword": {
+    "title": "Mini Crossword",
+    "body": "Fill the small grid with the across and down clues.",
+    "instruction": "Tap a cell, type a letter, then check the grid.",
+    "across": "Across",
+    "down": "Down",
+    "reveal": "Reveal a letter",
+    "check": "Check grid",
+    "next": "Next crossword",
+    "complete": "Grid complete. Nice solve.",
+    "progress": "Filled"
   }
 }

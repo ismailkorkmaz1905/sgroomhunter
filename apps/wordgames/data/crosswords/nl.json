@@ -1,0 +1,32 @@
+[
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "meer", "clue": "Groot binnenwater"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "muur", "clue": "Stevige wand"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "roep", "clue": "Luide stem of oproep"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "rijp", "clue": "Klaar om geplukt te worden"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kaas", "clue": "Geel plakbaar zuivelproduct"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kind", "clue": "Jonge persoon"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "slag", "clue": "Klap of ritme"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ding", "clue": "Algemeen woord voor voorwerp"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "zoek", "clue": "Probeer te vinden"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "zand", "clue": "Ligt vaak op het strand"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "klep", "clue": "Klapdeel van een tas of doos"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "dorp", "clue": "Kleiner dan een stad"}
+    ]
+  }
+]

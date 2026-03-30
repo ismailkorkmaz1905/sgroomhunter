@@ -7,6 +7,7 @@
   const typoEntries = payload.typos[currentLanguage];
   const chainWords = payload.chains[currentLanguage];
   const categoryRounds = payload.categories[currentLanguage];
+  const crosswordPuzzles = payload.crosswords[currentLanguage];
   const app = document.getElementById("app");
   const availableLanguages = Object.keys(payload.dictionaries);
   const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
@@ -68,6 +69,24 @@
     unlockNextBonus(language);
   }
 
+  function getActiveCrossword(language) {
+    const pool = payload.crosswords[language];
+    const baseIndex = getDailyIndex(new Date(), pool.length);
+    const offset = Number(sessionStorage.getItem(getSessionKey("word-game-crossword-offset", language)) || "0");
+    const activeIndex = (baseIndex + offset) % pool.length;
+    return {
+      puzzle: pool[activeIndex],
+      activeIndex,
+      hasNext: pool.length > 1,
+    };
+  }
+
+  function switchActiveCrossword(language) {
+    const key = getSessionKey("word-game-crossword-offset", language);
+    const currentOffset = Number(sessionStorage.getItem(key) || "0");
+    sessionStorage.setItem(key, String(currentOffset + 1));
+  }
+
   function shuffleWord(word) {
     if (word.length < 2) {
       return word;
@@ -95,6 +114,51 @@
       .slice(0, 4);
 
     return [...distractors, entry.typo].sort(() => Math.random() - 0.5);
+  }
+
+  function buildCrosswordPuzzle(puzzle) {
+    const size = puzzle.size;
+    const cells = Array.from({ length: size * size }, function () {
+      return {
+        blocked: false,
+        solution: "",
+        number: "",
+      };
+    });
+
+    (puzzle.blocks || []).forEach(function ([row, col]) {
+      const index = row * size + col;
+      cells[index].blocked = true;
+    });
+
+    puzzle.entries.forEach(function (entry) {
+      const letters = Array.from(normalizeWord(entry.answer));
+      letters.forEach(function (letter, offset) {
+        const row = entry.row + (entry.direction === "down" ? offset : 0);
+        const col = entry.col + (entry.direction === "across" ? offset : 0);
+        const index = row * size + col;
+        cells[index].solution = letter;
+      });
+
+      const startIndex = entry.row * size + entry.col;
+      if (!cells[startIndex].number) {
+        cells[startIndex].number = String(entry.number);
+      }
+    });
+
+    return {
+      size,
+      cells,
+      totalFillable: cells.filter(function (cell) {
+        return !cell.blocked;
+      }).length,
+      entries: puzzle.entries.map(function (entry) {
+        return {
+          ...entry,
+          answer: normalizeWord(entry.answer),
+        };
+      }),
+    };
   }
 
   function countLetterChanges(left, right) {
@@ -259,10 +323,11 @@
       home: ["homeTitle", "homeDescription"],
       "daily-ladder": ["dailyTitle", "dailyDescription"],
       "word-scramble": ["scrambleTitle", "scrambleDescription"],
-      "typo-hunt": ["typoTitle", "typoDescription"],
-      "word-chain": ["chainTitle", "chainDescription"],
-      "category-blitz": ["categoryTitle", "categoryDescription"],
-      privacy: ["privacyTitle", "privacyDescription"],
+        "typo-hunt": ["typoTitle", "typoDescription"],
+        "word-chain": ["chainTitle", "chainDescription"],
+        "category-blitz": ["categoryTitle", "categoryDescription"],
+        "mini-crossword": ["crosswordTitle", "crosswordDescription"],
+        privacy: ["privacyTitle", "privacyDescription"],
       about: ["aboutTitle", "aboutDescription"],
       terms: ["termsTitle", "termsDescription"],
     };
@@ -296,10 +361,11 @@
       ["home", dictionary.nav.home],
       ["daily-ladder", dictionary.nav.dailyWord],
       ["word-scramble", dictionary.nav.wordScramble],
-      ["typo-hunt", dictionary.nav.typoHunt],
-      ["word-chain", dictionary.nav.wordChain],
-      ["category-blitz", dictionary.nav.categoryBlitz],
-    ];
+        ["typo-hunt", dictionary.nav.typoHunt],
+        ["word-chain", dictionary.nav.wordChain],
+        ["category-blitz", dictionary.nav.categoryBlitz],
+        ["mini-crossword", dictionary.nav.miniCrossword],
+      ];
 
     return `
       <div class="shell">
@@ -374,6 +440,7 @@
         ${card(dictionary.nav.typoHunt, dictionary.home.typoBody, pathFor(currentLanguage, "typo-hunt"), "card-typo")}
         ${card(dictionary.nav.wordChain, dictionary.home.chainBody, pathFor(currentLanguage, "word-chain"), "card-chain")}
         ${card(dictionary.nav.categoryBlitz, dictionary.home.categoryBody, pathFor(currentLanguage, "category-blitz"), "card-category")}
+        ${card(dictionary.nav.miniCrossword, dictionary.home.crosswordBody, pathFor(currentLanguage, "mini-crossword"), "card-crossword")}
       </section>
     `,
       dictionary.home.eyebrow,
@@ -1123,6 +1190,262 @@
     draw();
   }
 
+  function renderMiniCrossword() {
+    const displayName = getDisplayName();
+    const personalCrosswordPrompt = getPlayerPrompt(displayName, "daily");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
+    const crosswordStateKey = getScopedKey("word-game-crossword-state", currentLanguage);
+    const activeCrossword = getActiveCrossword(currentLanguage);
+    const puzzle = activeCrossword.puzzle;
+    const builtPuzzle = buildCrosswordPuzzle(puzzle);
+    const todayKey = getTodayKey();
+    const puzzleSignature = `${currentLanguage}:${activeCrossword.activeIndex}:${puzzle.entries
+      .map(function (entry) {
+        return `${entry.direction}-${entry.number}-${entry.answer}`;
+      })
+      .join("|")}`;
+    const savedState = JSON.parse(localStorage.getItem(crosswordStateKey) || "null");
+    const state =
+      savedState && savedState.date === todayKey && savedState.puzzleSignature === puzzleSignature
+        ? savedState
+        : {
+            date: todayKey,
+            puzzleSignature,
+            letters: {},
+            message: dictionary.crossword.instruction,
+            checked: false,
+            completed: false,
+          };
+
+    function persist() {
+      localStorage.setItem(crosswordStateKey, JSON.stringify(state));
+    }
+
+    function getCellKey(row, col) {
+      return `${row}-${col}`;
+    }
+
+    function getOrderedInputs() {
+      return Array.from(document.querySelectorAll(".crossword-grid input"));
+    }
+
+    function countCorrectLetters() {
+      return builtPuzzle.cells.reduce(function (count, cell, index) {
+        if (cell.blocked) {
+          return count;
+        }
+        const row = Math.floor(index / builtPuzzle.size);
+        const col = index % builtPuzzle.size;
+        const value = state.letters[getCellKey(row, col)];
+        return count + (value === cell.solution ? 1 : 0);
+      }, 0);
+    }
+
+    function finishIfSolved() {
+      if (countCorrectLetters() === builtPuzzle.totalFillable) {
+        state.completed = true;
+        state.checked = true;
+        state.message = dictionary.crossword.complete;
+        saveLastPlayed("mini-crossword");
+        pulseDevice([12, 30, 12]);
+        persist();
+        return true;
+      }
+      return false;
+    }
+
+    function draw() {
+      const filledCount = Object.values(state.letters).filter(Boolean).length;
+      const clueMarkup = function (direction, label) {
+        return `
+          <div class="panel crossword-clue-card">
+            <p class="card-kicker">${label}</p>
+            <ul class="privacy-list">
+              ${builtPuzzle.entries
+                .filter(function (entry) {
+                  return entry.direction === direction;
+                })
+                .map(function (entry) {
+                  return `<li><strong>${entry.number}.</strong> ${entry.clue}</li>`;
+                })
+                .join("")}
+            </ul>
+          </div>
+        `;
+      };
+
+      app.innerHTML = layout(
+        `
+        <section class="panel game-screen crossword-screen">
+          <header class="section-header">
+            <div>
+              <h1>${dictionary.crossword.title}</h1>
+              <p>${dictionary.crossword.body}</p>
+              ${personalCrosswordPrompt ? `<p class="player-note">${personalCrosswordPrompt}</p>` : ""}
+            </div>
+            <div class="stats-row">
+              <p class="stat-pill">${dictionary.crossword.progress}: ${filledCount}/${builtPuzzle.totalFillable}</p>
+            </div>
+          </header>
+          <p class="subtle">${state.message}</p>
+          <div class="crossword-layout">
+            <section class="panel crossword-board">
+              <div class="crossword-grid" style="grid-template-columns: repeat(${builtPuzzle.size}, minmax(0, 1fr));">
+                ${builtPuzzle.cells
+                  .map(function (cell, index) {
+                    if (cell.blocked) {
+                      return '<div class="crossword-cell blocked" aria-hidden="true"></div>';
+                    }
+                    const row = Math.floor(index / builtPuzzle.size);
+                    const col = index % builtPuzzle.size;
+                    const key = getCellKey(row, col);
+                    const letter = state.letters[key] || "";
+                    const wrongClass = state.checked && letter && letter !== cell.solution ? " wrong" : "";
+                    return `
+                      <label class="crossword-cell${wrongClass}">
+                        ${cell.number ? `<span class="crossword-number">${cell.number}</span>` : ""}
+                        <input
+                          data-row="${row}"
+                          data-col="${col}"
+                          maxlength="1"
+                          autocapitalize="characters"
+                          autocomplete="off"
+                          spellcheck="false"
+                          inputmode="text"
+                          value="${letter ? displayWord(letter) : ""}"
+                        />
+                      </label>
+                    `;
+                  })
+                  .join("")}
+              </div>
+              <div class="crossword-actions">
+                <button class="primary-button" type="button" id="check-crossword">${dictionary.crossword.check}</button>
+                <button class="ghost-button" type="button" id="reveal-crossword">${dictionary.crossword.reveal}</button>
+                ${
+                  activeCrossword.hasNext
+                    ? `<button class="ghost-button" type="button" id="next-crossword">${dictionary.crossword.next}</button>`
+                    : ""
+                }
+              </div>
+            </section>
+            <section class="crossword-clues">
+              ${clueMarkup("across", dictionary.crossword.across)}
+              ${clueMarkup("down", dictionary.crossword.down)}
+            </section>
+          </div>
+          ${
+            state.completed
+              ? `
+                <section class="panel ladder-celebration">
+                  <p class="card-kicker">${dictionary.crossword.title}</p>
+                  <h2>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.crossword.complete}` : dictionary.crossword.complete}</h2>
+                </section>
+              `
+              : ""
+          }
+        </section>
+      `,
+        dictionary.home.crosswordHero,
+      );
+      bindLanguageSwitcher();
+
+      const inputs = getOrderedInputs();
+      if (inputs[0]) {
+        requestAnimationFrame(function () {
+          inputs[0].focus();
+        });
+      }
+
+      inputs.forEach(function (input, position) {
+        input.addEventListener("input", function (event) {
+          const row = Number(input.getAttribute("data-row"));
+          const col = Number(input.getAttribute("data-col"));
+          const key = getCellKey(row, col);
+          const value = Array.from(normalizeWord(event.target.value)).slice(-1)[0] || "";
+
+          if (value) {
+            state.letters[key] = value;
+            input.value = displayWord(value);
+            const nextInput = inputs[position + 1];
+            if (nextInput) {
+              nextInput.focus();
+              nextInput.select();
+            }
+          } else {
+            delete state.letters[key];
+            input.value = "";
+          }
+          state.checked = false;
+          state.completed = false;
+          state.message = `${dictionary.crossword.progress}: ${Object.values(state.letters).filter(Boolean).length}/${builtPuzzle.totalFillable}`;
+          persist();
+        });
+
+        input.addEventListener("keydown", function (event) {
+          if (event.key === "Backspace" && !input.value) {
+            const previousInput = inputs[position - 1];
+            if (previousInput) {
+              previousInput.focus();
+              previousInput.select();
+            }
+          }
+        });
+      });
+
+      document.getElementById("check-crossword").addEventListener("click", function () {
+        state.checked = true;
+        if (!finishIfSolved()) {
+          state.message = `${dictionary.crossword.progress}: ${countCorrectLetters()}/${builtPuzzle.totalFillable}`;
+          pulseDevice([25]);
+          persist();
+          draw();
+        } else {
+          draw();
+        }
+      });
+
+      document.getElementById("reveal-crossword").addEventListener("click", function () {
+        const nextCell = builtPuzzle.cells.find(function (cell, index) {
+          if (cell.blocked) {
+            return false;
+          }
+          const row = Math.floor(index / builtPuzzle.size);
+          const col = index % builtPuzzle.size;
+          return state.letters[getCellKey(row, col)] !== cell.solution;
+        });
+
+        if (!nextCell) {
+          finishIfSolved();
+          draw();
+          return;
+        }
+
+        const index = builtPuzzle.cells.indexOf(nextCell);
+        const row = Math.floor(index / builtPuzzle.size);
+        const col = index % builtPuzzle.size;
+        state.letters[getCellKey(row, col)] = nextCell.solution;
+        state.checked = false;
+        state.message = `${dictionary.crossword.progress}: ${Object.values(state.letters).filter(Boolean).length}/${builtPuzzle.totalFillable}`;
+        pulseDevice([12]);
+        finishIfSolved();
+        persist();
+        draw();
+      });
+
+      const nextButton = document.getElementById("next-crossword");
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          switchActiveCrossword(currentLanguage);
+          renderMiniCrossword();
+        });
+      }
+    }
+
+    persist();
+    draw();
+  }
+
   function renderPrivacy() {
     const pageContent = `
       <section class="panel game-screen privacy-screen">
@@ -1277,6 +1600,8 @@
       renderWordChain();
     } else if (currentPage === "category-blitz") {
       renderCategoryBlitz();
+    } else if (currentPage === "mini-crossword") {
+      renderMiniCrossword();
     } else if (currentPage === "privacy") {
       renderPrivacy();
     } else if (currentPage === "about") {

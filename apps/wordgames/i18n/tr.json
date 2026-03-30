@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Beş dilde hızlı kelime oyunları",
-    "homeDescription": "Günlük Merdiven, Kelime Karıştırma ve Yazım Hatası Avı'nı Türkçe, İngilizce, Hollandaca, Endonezce ve Malayca olarak anında oyna.",
+    "homeDescription": "Altı hızlı kelime oyununu Türkçe, İngilizce, Hollandaca, Endonezce ve Malayca olarak anında oyna.",
     "dailyTitle": "Günlük Merdiven | WordSprint",
     "dailyDescription": "Başlangıç kelimesinden hedefe, her adımda tek harf değiştirerek ulaş.",
     "scrambleTitle": "Kelime Karıştırma | WordSprint",
@@ -13,6 +13,8 @@
     "chainDescription": "Son harften yeni kelime türeterek zinciri sürdür.",
     "categoryTitle": "Kategori Hızı | WordSprint",
     "categoryDescription": "Her kategoride doğru kelimeyi hızla seç.",
+    "crosswordTitle": "Mini Çengel | WordSprint",
+    "crosswordDescription": "Kısa yatay ve dikey ipuçlarıyla küçük bir çengel bulmaca çöz.",
     "privacyTitle": "Gizlilik | WordSprint",
     "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren.",
     "aboutTitle": "Hakkında | WordSprint",
@@ -26,7 +28,8 @@
     "wordScramble": "Kelime Karıştırma",
     "typoHunt": "Yazım Hatası Avı",
     "wordChain": "Kelime Zinciri",
-    "categoryBlitz": "Kategori Hızı"
+    "categoryBlitz": "Kategori Hızı",
+    "miniCrossword": "Mini Çengel"
   },
   "home": {
     "eyebrow": "Günün hızlı kelime seçkisi",
@@ -38,16 +41,18 @@
     "typoBody": "Her kısa sette yanlış yazılan tek kelimeyi bul.",
     "chainBody": "Son harfi yakala ve zinciri yeni kelimelerle sürdür.",
     "categoryBody": "Kategoriye gerçekten uyan kelimeyi seç.",
+    "crosswordBody": "Kısa yatay ve dikey ipuçlarından küçük ızgarayı doldur.",
     "metricsLanguages": "Dil",
     "metricsGames": "Oyun",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "5 aktif",
+    "metricsGamesValue": "6 aktif",
     "metricsSpeedValue": "Anında oyun",
     "dailyHero": "Günün merdiven bulmacası",
     "scrambleHero": "Bir dakikalık kelime yarışı",
     "typoHero": "Hızlı yazım avı",
     "chainHero": "Son harften yeni zincir",
-    "categoryHero": "Hızlı kategori seçimi"
+    "categoryHero": "Hızlı kategori seçimi",
+    "crosswordHero": "Mini çengel bulmaca"
   },
   "common": {
     "score": "Puan",
@@ -164,5 +169,17 @@
     "instruction": "En uygun kelimeye dokun.",
     "gameOver": "Tüm kategori turlarını tamamladın.",
     "next": "Sıradaki tur"
+  },
+  "crossword": {
+    "title": "Mini Çengel",
+    "body": "Yatay ve dikey ipuçlarıyla küçük ızgarayı doldur.",
+    "instruction": "Bir kutuya dokun, harfi yaz, sonra ızgarayı kontrol et.",
+    "across": "Yatay",
+    "down": "Dikey",
+    "reveal": "Bir harf aç",
+    "check": "Izgarayı kontrol et",
+    "next": "Sıradaki bulmaca",
+    "complete": "Bulmaca tamam. Güzel çözdün.",
+    "progress": "Dolu kutu"
   }
 }

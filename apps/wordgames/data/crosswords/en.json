@@ -1,0 +1,32 @@
+[
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "meat", "clue": "Protein on the plate"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "moon", "clue": "Bright object in the night sky"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tide", "clue": "Sea level rise and fall"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "name", "clue": "What someone is called"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "look", "clue": "Direct your eyes at something"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "lamp", "clue": "Light on a desk"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "kite", "clue": "It flies on a string"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "page", "clue": "One sheet in a book"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "rent", "clue": "Monthly payment for a flat"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "road", "clue": "Cars drive on it"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tone", "clue": "Colouring of a voice"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "dive", "clue": "Jump into water headfirst"}
+    ]
+  }
+]

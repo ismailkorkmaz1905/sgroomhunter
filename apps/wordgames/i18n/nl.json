@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Snelle woordspellen in vijf talen",
-    "homeDescription": "Speel Dagladder, Woordmix en Typojacht direct in het Engels, Turks, Nederlands, Indonesisch en Maleis.",
+    "homeDescription": "Speel zes snelle woordspellen direct in het Engels, Turks, Nederlands, Indonesisch en Maleis.",
     "dailyTitle": "Dagladder | WordSprint",
     "dailyDescription": "Ga van het startwoord naar het doelwoord door telkens één letter te veranderen.",
     "scrambleTitle": "Woordmix | WordSprint",
@@ -13,6 +13,8 @@
     "chainDescription": "Houd de ketting gaande met een woord dat begint met de laatste letter.",
     "categoryTitle": "Categorieflits | WordSprint",
     "categoryDescription": "Kies snel het woord dat echt bij de categorie past.",
+    "crosswordTitle": "Mini Kruiswoord | WordSprint",
+    "crosswordDescription": "Vul een compacte kruiswoordraster met korte horizontale en verticale hints.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses.",
     "aboutTitle": "Over | WordSprint",
@@ -26,7 +28,8 @@
     "wordScramble": "Woordmix",
     "typoHunt": "Typojacht",
     "wordChain": "Woordketting",
-    "categoryBlitz": "Categorieflits"
+    "categoryBlitz": "Categorieflits",
+    "miniCrossword": "Mini Kruiswoord"
   },
   "home": {
     "eyebrow": "Snelle puzzels van vandaag",
@@ -38,16 +41,18 @@
     "typoBody": "Kies in elke korte set het ene fout gespelde woord.",
     "chainBody": "Pak de laatste letter en houd de ketting in leven.",
     "categoryBody": "Kies het woord dat echt bij de categorie hoort.",
+    "crosswordBody": "Vul een compacte raster in met korte horizontale en verticale hints.",
     "metricsLanguages": "Talen",
     "metricsGames": "Spellen",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "5 live",
+    "metricsGamesValue": "6 live",
     "metricsSpeedValue": "Direct spel",
     "dailyHero": "Dagelijkse ladderuitdaging",
     "scrambleHero": "Woordmix van één minuut",
     "typoHero": "Snelle typodetectie",
     "chainHero": "Woordketting op tempo",
-    "categoryHero": "Snelle categoriekeuze"
+    "categoryHero": "Snelle categoriekeuze",
+    "crosswordHero": "Mini kruiswoordraster"
   },
   "common": {
     "score": "Score",
@@ -164,5 +169,17 @@
     "instruction": "Tik op de beste match.",
     "gameOver": "Je hebt alle categorierondes afgerond.",
     "next": "Volgende ronde"
+  },
+  "crossword": {
+    "title": "Mini Kruiswoord",
+    "body": "Vul het kleine raster met de horizontale en verticale hints.",
+    "instruction": "Tik op een vakje, typ een letter en controleer daarna het raster.",
+    "across": "Horizontaal",
+    "down": "Verticaal",
+    "reveal": "Onthul een letter",
+    "check": "Controleer raster",
+    "next": "Volgend kruiswoord",
+    "complete": "Raster compleet. Mooi opgelost.",
+    "progress": "Gevulde vakjes"
   }
 }
