@@ -8,7 +8,9 @@
     "scrambleTitle": "Woordmix | WordSprint",
     "scrambleDescription": "Ontwar zoveel mogelijk woorden voordat de minuut voorbij is.",
     "typoTitle": "Typojacht | WordSprint",
-    "typoDescription": "Zoek het verkeerd gespelde woord in tien snelle rondes."
+    "typoDescription": "Zoek het verkeerd gespelde woord in tien snelle rondes.",
+    "privacyTitle": "Privacy | WordSprint",
+    "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses."
   },
   "nav": {
     "home": "Start",
@@ -48,7 +50,17 @@
     "sidebar": "Zijbalk",
     "endScreen": "Eindscherm",
     "best": "Beste",
-    "backHome": "Terug naar start"
+    "backHome": "Terug naar start",
+    "privacy": "Privacy"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "WordSprint gebruikt minimale, anonieme server-side analytics om te begrijpen welke routes worden gebruikt en welke apparaattype langskomt.",
+    "point1": "We slaan geen ruwe IP-adressen op.",
+    "point2": "We gebruiken geen cookies voor analytics.",
+    "point3": "We bouwen geen advertentieprofielen of fingerprints.",
+    "point4": "We bewaren alleen route, taal, statuscode, apparaattype, browserfamilie en verwijzend domein.",
+    "point5": "De analytics-samenvatting is geaggregeerd en alleen bedoeld voor lichte productinzichten."
   },
   "daily": {
     "title": "Dagladder",

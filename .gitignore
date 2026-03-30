@@ -9,3 +9,6 @@ automation/propertyguru/propertyguru_monitor_config.local.json
 automation/propertyguru/propertyguru_stdout.log
 automation/propertyguru/propertyguru_stderr.log
 automation/propertyguru/listings.txt
+apps/wordgames/analytics.sqlite3
+apps/wordgames/server.out.log
+apps/wordgames/server.err.log

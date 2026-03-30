@@ -8,7 +8,9 @@
     "scrambleTitle": "Kelime Karıştırma | WordSprint",
     "scrambleDescription": "Altmış saniye dolmadan mümkün olduğunca çok kelimeyi düzelt.",
     "typoTitle": "Yazım Hatası Avı | WordSprint",
-    "typoDescription": "On kısa tur boyunca yanlış yazılan kelimeyi bul."
+    "typoDescription": "On kısa tur boyunca yanlış yazılan kelimeyi bul.",
+    "privacyTitle": "Gizlilik | WordSprint",
+    "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren."
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -48,7 +50,17 @@
     "sidebar": "Yan alan",
     "endScreen": "Oyun sonu alanı",
     "best": "En iyi",
-    "backHome": "Ana sayfaya dön"
+    "backHome": "Ana sayfaya dön",
+    "privacy": "Gizlilik"
+  },
+  "privacy": {
+    "title": "Gizlilik",
+    "intro": "WordSprint, hangi sayfaların kullanıldığını ve hangi cihaz tiplerinin geldiğini anlamak için minimum düzeyde, anonim sunucu tarafı analitiği kullanır.",
+    "point1": "Ham IP adresi saklamıyoruz.",
+    "point2": "Analitik için çerez kullanmıyoruz.",
+    "point3": "Reklam profili ya da cihaz parmak izi oluşturmuyoruz.",
+    "point4": "Yalnızca route, dil, durum kodu, cihaz tipi, tarayıcı ailesi ve yönlendiren domain tutulur.",
+    "point5": "Analitik özeti toplulaştırılmıştır ve sadece hafif ürün içgörüsü içindir."
   },
   "daily": {
     "title": "Günlük Merdiven",

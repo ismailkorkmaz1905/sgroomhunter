@@ -32,6 +32,17 @@ http://127.0.0.1:5051
 - `/id/daily-ladder`
 - `/id/word-scramble`
 - `/id/typo-hunt`
+- `/en/privacy`
+- `/analytics-summary`
+
+## Privacy-friendly analytics
+
+WordGames keeps minimal server-side aggregate analytics only.
+
+- No raw IP storage
+- No analytics cookies
+- No device fingerprinting
+- Aggregates include route, language, status code, device type, browser family, and referrer domain
 
 ## Render
 

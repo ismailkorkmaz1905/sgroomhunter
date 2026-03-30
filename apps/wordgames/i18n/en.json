@@ -8,7 +8,9 @@
     "scrambleTitle": "Word Scramble | WordSprint",
     "scrambleDescription": "Unscramble as many words as you can before the sixty-second timer runs out.",
     "typoTitle": "Typo Hunt | WordSprint",
-    "typoDescription": "Spot the misspelled word across ten quick rounds."
+    "typoDescription": "Spot the misspelled word across ten quick rounds.",
+    "privacyTitle": "Privacy | WordSprint",
+    "privacyDescription": "How WordSprint handles limited anonymous usage analytics."
   },
   "nav": {
     "home": "Home",
@@ -48,7 +50,17 @@
     "sidebar": "Sidebar",
     "endScreen": "Game end screen",
     "best": "Best",
-    "backHome": "Back home"
+    "backHome": "Back home",
+    "privacy": "Privacy"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "intro": "WordSprint uses minimal, anonymous server-side analytics to understand which routes are used and what device types are visiting.",
+    "point1": "We do not store raw IP addresses.",
+    "point2": "We do not use cookies for analytics.",
+    "point3": "We do not build advertising profiles or fingerprints.",
+    "point4": "We only keep route, language, status code, device type, browser family, and referrer domain.",
+    "point5": "The analytics summary is aggregated and intended for lightweight product insight only."
   },
   "daily": {
     "title": "Daily Ladder",

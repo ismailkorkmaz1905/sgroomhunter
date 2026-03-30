@@ -179,6 +179,9 @@
                 .join("")}
             </nav>
             ${content}
+            <footer class="panel site-footer">
+              <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
+            </footer>
           </main>
           <aside class="ad-placeholder sidebar-ad">${dictionary.common.adLabel}: ${dictionary.common.sidebar}</aside>
         </div>
@@ -596,6 +599,31 @@
     draw();
   }
 
+  function renderPrivacy() {
+    app.innerHTML = layout(
+      `
+      <section class="panel game-screen privacy-screen">
+        <header class="section-header">
+          <div>
+            <h1>${dictionary.privacy.title}</h1>
+            <p>${dictionary.privacy.intro}</p>
+          </div>
+        </header>
+        <ul class="privacy-list">
+          <li>${dictionary.privacy.point1}</li>
+          <li>${dictionary.privacy.point2}</li>
+          <li>${dictionary.privacy.point3}</li>
+          <li>${dictionary.privacy.point4}</li>
+          <li>${dictionary.privacy.point5}</li>
+        </ul>
+        <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
+      </section>
+    `,
+      dictionary.common.privacy,
+    );
+    bindLanguageSwitcher();
+  }
+
   function bindLanguageSwitcher() {
     app.querySelectorAll("[data-lang]").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -620,6 +648,8 @@
       renderDailyLadder();
     } else if (currentPage === "word-scramble") {
       renderScramble();
+    } else if (currentPage === "privacy") {
+      renderPrivacy();
     } else {
       renderTypoHunt();
     }

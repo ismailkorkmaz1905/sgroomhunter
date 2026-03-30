@@ -8,7 +8,9 @@
     "scrambleTitle": "Acak Kata | WordSprint",
     "scrambleDescription": "Susun sebanyak mungkin kata sebelum satu menit habis.",
     "typoTitle": "Buru Typo | WordSprint",
-    "typoDescription": "Temukan kata yang salah eja dalam sepuluh ronde cepat."
+    "typoDescription": "Temukan kata yang salah eja dalam sepuluh ronde cepat.",
+    "privacyTitle": "Privasi | WordSprint",
+    "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas."
   },
   "nav": {
     "home": "Beranda",
@@ -48,7 +50,17 @@
     "sidebar": "Sidebar",
     "endScreen": "Layar akhir",
     "best": "Terbaik",
-    "backHome": "Kembali ke beranda"
+    "backHome": "Kembali ke beranda",
+    "privacy": "Privasi"
+  },
+  "privacy": {
+    "title": "Privasi",
+    "intro": "WordSprint memakai analitik server-side yang minimal dan anonim untuk memahami rute yang dipakai serta tipe perangkat yang berkunjung.",
+    "point1": "Kami tidak menyimpan alamat IP mentah.",
+    "point2": "Kami tidak memakai cookie untuk analitik.",
+    "point3": "Kami tidak membuat profil iklan atau fingerprint perangkat.",
+    "point4": "Kami hanya menyimpan rute, bahasa, kode status, tipe perangkat, keluarga browser, dan domain perujuk.",
+    "point5": "Ringkasan analitik bersifat agregat dan hanya dipakai untuk insight produk ringan."
   },
   "daily": {
     "title": "Tangga Harian",

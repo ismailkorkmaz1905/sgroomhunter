@@ -277,10 +277,29 @@ button {
 .section-header p,
 .feedback,
 .subtle,
-.end-card p {
+.end-card p,
+.site-footer a,
+.privacy-list {
   margin: 0;
   color: var(--muted);
   font-family: "Segoe UI", sans-serif;
+}
+
+.site-footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.site-footer a {
+  font-weight: 600;
+}
+
+.privacy-list {
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  line-height: 1.6;
 }
 
 .game-screen,
