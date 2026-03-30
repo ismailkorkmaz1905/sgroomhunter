@@ -7,6 +7,7 @@
   const typoEntries = payload.typos[currentLanguage];
   const app = document.getElementById("app");
   const availableLanguages = Object.keys(payload.dictionaries);
+  const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
 
   const DAILY_EPOCH = Date.UTC(2026, 0, 1);
   const TYPO_QUESTIONS = 10;
@@ -199,13 +200,13 @@
 
   function getLanguageFlag(language) {
     const flags = {
-      en: "🇬🇧",
-      tr: "🇹🇷",
-      nl: "🇳🇱",
-      id: "🇮🇩",
-      ms: "🇲🇾",
+      en: { src: "/static/flags/en.svg", label: "English" },
+      tr: { src: "/static/flags/tr.svg", label: "Türkçe" },
+      nl: { src: "/static/flags/nl.svg", label: "Nederlands" },
+      id: { src: "/static/flags/id.svg", label: "Bahasa Indonesia" },
+      ms: { src: "/static/flags/ms.svg", label: "Bahasa Melayu" },
     };
-    return flags[language] || language.toUpperCase();
+    return flags[language] || null;
   }
 
   function submitProfileName(displayName) {
@@ -284,13 +285,20 @@
         <header class="site-header">
           <div>
             <p class="eyebrow">${dictionary.home.eyebrow}</p>
-            <a class="brand" href="${pathFor(currentLanguage, "home")}">${dictionary.brand}</a>
+            <a class="brand" href="${pathFor(currentLanguage, "home")}" aria-label="${dictionary.brand}">
+              <img class="brand-mark" src="${brandMarkUrl}" alt="" />
+              <span class="brand-wordmark">${dictionary.brand}</span>
+            </a>
           </div>
           <div class="language-switcher" aria-label="${dictionary.common.language}">
             ${availableLanguages
               .map(function (language) {
                 const active = currentLanguage === language ? "active" : "";
-                return `<button type="button" data-lang="${language}" class="${active}" aria-label="${language.toUpperCase()}" title="${language.toUpperCase()}">${getLanguageFlag(language)}</button>`;
+                const flag = getLanguageFlag(language);
+                const content = flag
+                  ? `<img class="flag-icon" src="${flag.src}" alt="${flag.label}" />`
+                  : language.toUpperCase();
+                return `<button type="button" data-lang="${language}" class="${active}" aria-label="${flag ? flag.label : language.toUpperCase()}" title="${flag ? flag.label : language.toUpperCase()}">${content}</button>`;
               })
               .join("")}
           </div>
