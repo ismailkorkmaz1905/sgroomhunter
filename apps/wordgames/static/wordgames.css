@@ -135,6 +135,13 @@ button {
   gap: 8px;
 }
 
+.language-switcher button {
+  min-width: 50px;
+  padding: 10px 12px;
+  font-size: 1.28rem;
+  line-height: 1;
+}
+
 .language-switcher button,
 .nav-tabs a,
 .cta-link,
@@ -242,6 +249,12 @@ button {
   background: rgba(31, 122, 107, 0.12);
   color: var(--ink);
   font: 600 0.95rem/1 "Segoe UI", sans-serif;
+}
+
+.player-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font: 600 0.95rem/1.5 "Segoe UI", sans-serif;
 }
 
 .hero-metrics {

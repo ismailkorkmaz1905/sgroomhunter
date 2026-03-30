@@ -1,0 +1,122 @@
+[
+  {
+    "start": "batas",
+    "target": "jelas",
+    "path": ["batas", "balas", "belas", "gelas", "kelas", "jelas"],
+    "clues": {
+      "balas": "Jawapan atau tindak balas kepada sesuatu.",
+      "belas": "Rasa kasihan atau bahagian dalam nombor belasan.",
+      "gelas": "Bekas untuk minum.",
+      "kelas": "Ruang belajar atau tahap.",
+      "jelas": "Mudah difahami atau terang."
+    }
+  },
+  {
+    "start": "tanah",
+    "target": "mewah",
+    "path": ["tanah", "panah", "parah", "marah", "merah", "mewah"],
+    "clues": {
+      "panah": "Senjata yang dilontar dengan busur.",
+      "parah": "Teruk atau serius.",
+      "marah": "Perasaan tidak puas hati yang kuat.",
+      "merah": "Salah satu warna asas.",
+      "mewah": "Nampak mahal, selesa, dan eksklusif."
+    }
+  },
+  {
+    "start": "kasar",
+    "target": "bakat",
+    "path": ["kasar", "pasar", "pagar", "pakar", "bakar", "bakat"],
+    "clues": {
+      "pasar": "Tempat jual beli.",
+      "pagar": "Penghadang di sekeliling rumah atau kawasan.",
+      "pakar": "Orang yang mahir dalam bidang tertentu.",
+      "bakar": "Membakar atau sesuatu yang dipanggang atas api.",
+      "bakat": "Kebolehan semula jadi yang menonjol."
+    }
+  },
+  {
+    "start": "surat",
+    "target": "darah",
+    "path": ["surat", "serat", "berat", "barat", "darat", "darah"],
+    "clues": {
+      "serat": "Urat halus pada bahan atau makanan.",
+      "berat": "Tidak ringan.",
+      "barat": "Arah mata angin.",
+      "darat": "Bahagian bumi yang bukan laut.",
+      "darah": "Cecair merah dalam tubuh."
+    }
+  },
+  {
+    "start": "murah",
+    "target": "megah",
+    "path": ["murah", "merah", "serah", "cerah", "cegah", "megah"],
+    "clues": {
+      "merah": "Salah satu warna asas.",
+      "serah": "Menyerahkan atau pasrah.",
+      "cerah": "Terang dan bersih.",
+      "cegah": "Menahan agar sesuatu tidak berlaku.",
+      "megah": "Tampak besar, indah, dan mengagumkan."
+    }
+  },
+  {
+    "start": "kanan",
+    "target": "makan",
+    "path": ["kanan", "kanal", "kapal", "kapan", "mapan", "makan"],
+    "clues": {
+      "kanal": "Saluran air.",
+      "kapal": "Kenderaan besar di laut.",
+      "kapan": "Soalan tentang masa.",
+      "mapan": "Stabil dan sudah tersusun.",
+      "makan": "Memasukkan makanan ke dalam tubuh."
+    }
+  },
+  {
+    "start": "cerah",
+    "target": "mudah",
+    "path": ["cerah", "cegah", "megah", "merah", "murah", "mudah"],
+    "clues": {
+      "cegah": "Menahan agar sesuatu tidak berlaku.",
+      "megah": "Tampak besar, indah, dan mengagumkan.",
+      "merah": "Salah satu warna asas.",
+      "murah": "Tidak mahal.",
+      "mudah": "Tidak susah."
+    }
+  },
+  {
+    "start": "barat",
+    "target": "mewah",
+    "path": ["barat", "darat", "darah", "marah", "merah", "mewah"],
+    "clues": {
+      "darat": "Bahagian bumi yang bukan laut.",
+      "darah": "Cecair merah dalam tubuh.",
+      "marah": "Perasaan tidak puas hati yang kuat.",
+      "merah": "Salah satu warna asas.",
+      "mewah": "Nampak mahal, selesa, dan eksklusif."
+    }
+  },
+  {
+    "start": "jelas",
+    "target": "batas",
+    "path": ["jelas", "kelas", "gelas", "belas", "balas", "batas"],
+    "clues": {
+      "kelas": "Ruang belajar atau tahap.",
+      "gelas": "Bekas untuk minum.",
+      "belas": "Rasa kasihan atau bahagian dalam nombor belasan.",
+      "balas": "Jawapan atau tindak balas kepada sesuatu.",
+      "batas": "Garis pemisah atau had."
+    }
+  },
+  {
+    "start": "barah",
+    "target": "surat",
+    "path": ["barah", "marah", "merah", "serah", "serat", "surat"],
+    "clues": {
+      "marah": "Perasaan tidak puas hati yang kuat.",
+      "merah": "Salah satu warna asas.",
+      "serah": "Menyerahkan atau pasrah.",
+      "serat": "Urat halus pada bahan atau makanan.",
+      "surat": "Pesanan bertulis atau dokumen."
+    }
+  }
+]

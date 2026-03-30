@@ -34,5 +34,89 @@
       "loper": "Een hardloper of lange mat.",
       "koper": "Een koper of het metaal koper."
     }
+  },
+  {
+    "start": "mager",
+    "target": "koper",
+    "path": ["mager", "lager", "laser", "loser", "loper", "koper"],
+    "clues": {
+      "lager": "Niet zo hoog of een soort bier.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat.",
+      "koper": "Een koper of het metaal koper."
+    }
+  },
+  {
+    "start": "dagen",
+    "target": "baken",
+    "path": ["dagen", "daken", "taken", "talen", "balen", "baken"],
+    "clues": {
+      "daken": "Meervoud van dak.",
+      "taken": "Werkjes of opdrachten.",
+      "talen": "Meervoud van taal.",
+      "balen": "Er flink van balen of grote pakken.",
+      "baken": "Een herkenningspunt of vuurbaken."
+    }
+  },
+  {
+    "start": "zaken",
+    "target": "talen",
+    "path": ["zaken", "zagen", "dagen", "daken", "taken", "talen"],
+    "clues": {
+      "zagen": "Met een zaag werken of meervoud van zaag.",
+      "dagen": "Meervoud van dag.",
+      "daken": "Meervoud van dak.",
+      "taken": "Werkjes of opdrachten.",
+      "talen": "Meervoud van taal."
+    }
+  },
+  {
+    "start": "maker",
+    "target": "loper",
+    "path": ["maker", "mager", "lager", "laser", "loser", "loper"],
+    "clues": {
+      "mager": "Dun of schraal.",
+      "lager": "Niet zo hoog of een soort bier.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat."
+    }
+  },
+  {
+    "start": "baden",
+    "target": "waken",
+    "path": ["baden", "baken", "balen", "talen", "taken", "waken"],
+    "clues": {
+      "baken": "Een herkenningspunt of vuurbaken.",
+      "balen": "Er flink van balen of grote pakken.",
+      "talen": "Meervoud van taal.",
+      "taken": "Werkjes of opdrachten.",
+      "waken": "Niet slapen en ergens op letten."
+    }
+  },
+  {
+    "start": "komen",
+    "target": "laser",
+    "path": ["komen", "kopen", "koper", "loper", "loser", "laser"],
+    "clues": {
+      "kopen": "Iets aanschaffen.",
+      "koper": "Een koper of het metaal koper.",
+      "loper": "Een hardloper of lange mat.",
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel."
+    }
+  },
+  {
+    "start": "kater",
+    "target": "loper",
+    "path": ["kater", "water", "later", "laser", "loser", "loper"],
+    "clues": {
+      "water": "Vloeistof om te drinken.",
+      "later": "Niet nu maar daarna.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat."
+    }
   }
 ]

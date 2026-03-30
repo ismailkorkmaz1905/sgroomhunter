@@ -1,38 +1,122 @@
 [
   {
     "start": "batas",
-    "target": "kelam",
-    "path": ["batas", "balas", "belas", "gelas", "kelas", "kelam"],
+    "target": "jelas",
+    "path": ["batas", "balas", "belas", "gelas", "kelas", "jelas"],
     "clues": {
       "balas": "Tanggapan atau jawaban balik.",
       "belas": "Rasa iba atau bilangan belasan.",
       "gelas": "Wadah untuk minum.",
       "kelas": "Ruang belajar atau tingkat.",
-      "kelam": "Gelap atau suram."
+      "jelas": "Mudah dipahami atau terang."
     }
   },
   {
     "start": "tanah",
-    "target": "serah",
-    "path": ["tanah", "panah", "parah", "marah", "merah", "serah"],
+    "target": "mewah",
+    "path": ["tanah", "panah", "parah", "marah", "merah", "mewah"],
     "clues": {
       "panah": "Senjata yang ditembakkan dari busur.",
       "parah": "Berat atau gawat.",
       "marah": "Perasaan kesal yang kuat.",
       "merah": "Salah satu warna dasar.",
-      "serah": "Menyerahkan atau pasrah."
+      "mewah": "Terlihat mahal dan serba nyaman."
     }
   },
   {
-    "start": "dasar",
-    "target": "bakar",
-    "path": ["dasar", "kasar", "pasar", "pagar", "pakar", "bakar"],
+    "start": "kasar",
+    "target": "bakat",
+    "path": ["kasar", "pasar", "pagar", "pakar", "bakar", "bakat"],
     "clues": {
-      "kasar": "Tidak halus.",
       "pasar": "Tempat jual beli.",
       "pagar": "Pembatas halaman atau rumah.",
       "pakar": "Ahli dalam bidang tertentu.",
-      "bakar": "Membakar atau sesuatu yang dibakar."
+      "bakar": "Membakar atau sesuatu yang dibakar.",
+      "bakat": "Kemampuan alami yang menonjol."
+    }
+  },
+  {
+    "start": "surat",
+    "target": "darah",
+    "path": ["surat", "serat", "berat", "barat", "darat", "darah"],
+    "clues": {
+      "serat": "Urat halus pada bahan atau makanan.",
+      "berat": "Tidak ringan.",
+      "barat": "Arah mata angin.",
+      "darat": "Bagian bumi yang bukan laut.",
+      "darah": "Cairan merah dalam tubuh."
+    }
+  },
+  {
+    "start": "murah",
+    "target": "megah",
+    "path": ["murah", "merah", "serah", "cerah", "cegah", "megah"],
+    "clues": {
+      "merah": "Salah satu warna dasar.",
+      "serah": "Menyerahkan atau pasrah.",
+      "cerah": "Terang dan bersih.",
+      "cegah": "Menahan agar sesuatu tidak terjadi.",
+      "megah": "Tampak besar, indah, dan mengesankan."
+    }
+  },
+  {
+    "start": "kanan",
+    "target": "makan",
+    "path": ["kanan", "kanal", "kapal", "kapan", "mapan", "makan"],
+    "clues": {
+      "kanal": "Saluran air.",
+      "kapal": "Kendaraan besar di laut.",
+      "kapan": "Pertanyaan tentang waktu.",
+      "mapan": "Stabil dan sudah tertata.",
+      "makan": "Memasukkan makanan ke dalam tubuh."
+    }
+  },
+  {
+    "start": "cerah",
+    "target": "mudah",
+    "path": ["cerah", "cegah", "megah", "merah", "murah", "mudah"],
+    "clues": {
+      "cegah": "Menahan agar sesuatu tidak terjadi.",
+      "megah": "Tampak besar, indah, dan mengesankan.",
+      "merah": "Salah satu warna dasar.",
+      "murah": "Tidak mahal.",
+      "mudah": "Tidak sulit."
+    }
+  },
+  {
+    "start": "barat",
+    "target": "mewah",
+    "path": ["barat", "darat", "darah", "marah", "merah", "mewah"],
+    "clues": {
+      "darat": "Bagian bumi yang bukan laut.",
+      "darah": "Cairan merah dalam tubuh.",
+      "marah": "Perasaan kesal yang kuat.",
+      "merah": "Salah satu warna dasar.",
+      "mewah": "Terlihat mahal dan serba nyaman."
+    }
+  },
+  {
+    "start": "jelas",
+    "target": "batas",
+    "path": ["jelas", "kelas", "gelas", "belas", "balas", "batas"],
+    "clues": {
+      "kelas": "Ruang belajar atau tingkat.",
+      "gelas": "Wadah untuk minum.",
+      "belas": "Rasa iba atau bilangan belasan.",
+      "balas": "Tanggapan atau jawaban balik.",
+      "batas": "Garis pemisah atau limit."
+    }
+  },
+  {
+    "start": "barah",
+    "target": "surat",
+    "path": ["barah", "marah", "merah", "serah", "serat", "surat"],
+    "clues": {
+      "marah": "Perasaan kesal yang kuat.",
+      "merah": "Salah satu warna dasar.",
+      "serah": "Menyerahkan atau pasrah.",
+      "serat": "Urat halus pada bahan atau makanan.",
+      "surat": "Pesan tertulis atau dokumen."
     }
   }
 ]

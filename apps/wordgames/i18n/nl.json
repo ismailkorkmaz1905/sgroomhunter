@@ -1,8 +1,8 @@
 {
   "brand": "WordSprint",
   "seo": {
-    "homeTitle": "WordSprint | Snelle woordspelletjes in vier talen",
-    "homeDescription": "Speel Dagladder, Woordmix en Typojacht direct lokaal in het Engels, Turks, Nederlands en Indonesisch.",
+    "homeTitle": "WordSprint | Snelle woordspellen in vijf talen",
+    "homeDescription": "Speel Dagladder, Woordmix en Typojacht direct in het Engels, Turks, Nederlands, Indonesisch en Maleis.",
     "dailyTitle": "Dagladder | WordSprint",
     "dailyDescription": "Ga van het startwoord naar het doelwoord door telkens één letter te veranderen.",
     "scrambleTitle": "Woordmix | WordSprint",
@@ -22,11 +22,11 @@
   },
   "home": {
     "eyebrow": "Snelle puzzels van vandaag",
-    "title": "Snelle woordspelletjes voor korte, fijne rondes.",
-    "subtitle": "Wissel van taal, start een korte ronde en speel direct op desktop of telefoon.",
+    "title": "Snelle woordspellen voor korte rondes die lekker wegspelen.",
+    "subtitle": "Wissel van taal, start een korte ronde en speel meteen op laptop of telefoon.",
     "cta": "Nu spelen",
     "dailyBody": "Ga van het ene woord naar het andere door steeds één letter te veranderen.",
-    "scrambleBody": "Versla de klok in zestig seconden en los zoveel mogelijk husselwoorden op.",
+    "scrambleBody": "Versla de klok in zestig seconden en los zoveel mogelijk gehusselde woorden op.",
     "typoBody": "Kies in elke korte set het ene fout gespelde woord.",
     "metricsLanguages": "Talen",
     "metricsGames": "Spellen",
@@ -59,7 +59,7 @@
   "profile": {
     "greeting": "Hoi, {name}",
     "promptTitle": "Hoe zal ik je noemen?",
-    "promptBody": "Als je wilt, kun je een naam invullen zodat het spel je persoonlijk begroet.",
+    "promptBody": "Als je wilt, kun je een naam invullen zodat het spel je persoonlijk kan begroeten.",
     "inputLabel": "Jouw naam",
     "placeholder": "Typ een naam",
     "save": "Naam opslaan",
@@ -67,17 +67,17 @@
   },
   "about": {
     "title": "Over WordSprint",
-    "intro": "WordSprint is een lichte meertalige woordspel-app die is gebouwd voor snelle dagelijkse speelsessies op verschillende apparaten.",
+    "intro": "WordSprint is een lichte meertalige woordspel-app, gemaakt voor snelle dagelijkse speelsessies op verschillende apparaten.",
     "contactLabel": "Contact",
     "contactBody": "Wil je feedback delen, een bug melden of contact opnemen over het project, dan kan dat hier.",
     "emailLabel": "E-mail"
   },
   "privacy": {
     "title": "Privacy",
-    "intro": "WordSprint gebruikt minimale, anonieme server-side analytics om te begrijpen welke routes worden gebruikt en welke apparaattype langskomt.",
+    "intro": "WordSprint gebruikt minimale, anonieme serveranalyses om te begrijpen welke routes worden gebruikt en welk type apparaat langskomt.",
     "point1": "We slaan geen ruwe IP-adressen op.",
     "point2": "We gebruiken geen cookies voor analytics.",
-    "point3": "We bouwen geen advertentieprofielen of fingerprints.",
+    "point3": "We bouwen geen advertentieprofielen of device fingerprints.",
     "point4": "We bewaren alleen route, taal, statuscode, apparaattype, browserfamilie en verwijzend domein.",
     "point5": "De analytics-samenvatting is geaggregeerd en alleen bedoeld voor lichte productinzichten.",
     "point6": "Als je vrijwillig een naam deelt, kan die zichtbaar zijn in het private analytics-dashboard van de eigenaar."

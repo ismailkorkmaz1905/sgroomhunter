@@ -120,6 +120,11 @@
     }
   }
 
+  function getDisplayName() {
+    const name = getPlayerProfile().displayName;
+    return typeof name === "string" && name.trim() ? name.trim() : "";
+  }
+
   function savePlayerProfile(profile) {
     localStorage.setItem(getProfileStorageKey(), JSON.stringify(profile));
   }
@@ -139,6 +144,64 @@
 
   function formatGreeting(name) {
     return dictionary.profile.greeting.replace("{name}", name);
+  }
+
+  function getPlayerPrompt(name, context) {
+    if (!name) {
+      return "";
+    }
+
+    const prompts = {
+      en: {
+        daily: `${name}, you can take this one step by step.`,
+        scramble: `Let's go, ${name}. Keep the pace light and fast.`,
+        typo: `${name}, trust your eye and pick the odd one out.`,
+        celebrate: `Nice work, ${name}.`,
+        hint: `${name}, this clue should make the next step clearer.`,
+      },
+      tr: {
+        daily: `Hadi ${name}, bunu adim adim cozebilirsin.`,
+        scramble: `Hadi ${name}, ritmi koru ve hizli git.`,
+        typo: `${name}, gozune guven ve farkli olani sec.`,
+        celebrate: `Tebrikler ${name}.`,
+        hint: `${name}, bu ipucu siradaki adimi biraz acacak.`,
+      },
+      nl: {
+        daily: `${name}, rustig aan. Deze kun je stap voor stap oplossen.`,
+        scramble: `Kom op, ${name}. Hou het tempo hoog.`,
+        typo: `${name}, vertrouw op je oog en pak de vreemde eruit.`,
+        celebrate: `Lekker bezig, ${name}.`,
+        hint: `${name}, deze hint maakt de volgende trede hopelijk duidelijker.`,
+      },
+      id: {
+        daily: `${name}, pelan saja. Ini bisa kamu pecahkan selangkah demi selangkah.`,
+        scramble: `Ayo ${name}, jaga ritmenya dan tetap cepat.`,
+        typo: `${name}, percaya sama matamu dan pilih yang paling janggal.`,
+        celebrate: `Mantap, ${name}.`,
+        hint: `${name}, hint ini semoga bikin langkah berikutnya lebih kebayang.`,
+      },
+      ms: {
+        daily: `${name}, ambil selangkah demi selangkah. Yang ini boleh lepas.`,
+        scramble: `Jom ${name}, kekalkan rentak dan terus laju.`,
+        typo: `${name}, percaya mata anda dan pilih yang nampak janggal.`,
+        celebrate: `Bagus, ${name}.`,
+        hint: `${name}, petunjuk ini patut buat langkah seterusnya lebih jelas.`,
+      },
+    };
+
+    const languagePrompts = prompts[currentLanguage] || prompts.en;
+    return languagePrompts[context] || "";
+  }
+
+  function getLanguageFlag(language) {
+    const flags = {
+      en: "🇬🇧",
+      tr: "🇹🇷",
+      nl: "🇳🇱",
+      id: "🇮🇩",
+      ms: "🇲🇾",
+    };
+    return flags[language] || language.toUpperCase();
   }
 
   function submitProfileName(displayName) {
@@ -221,7 +284,7 @@
             ${availableLanguages
               .map(function (language) {
                 const active = currentLanguage === language ? "active" : "";
-                return `<button type="button" data-lang="${language}" class="${active}">${language.toUpperCase()}</button>`;
+                return `<button type="button" data-lang="${language}" class="${active}" aria-label="${language.toUpperCase()}" title="${language.toUpperCase()}">${getLanguageFlag(language)}</button>`;
               })
               .join("")}
           </div>
@@ -279,6 +342,7 @@
   }
 
   function renderDailyLadder() {
+    const displayName = getDisplayName();
     const todayKey = getTodayKey();
     const ladderState = getActiveLadder(currentLanguage);
     const puzzle = ladderState.puzzle;
@@ -306,6 +370,9 @@
     const hintVisible = !state.completed && state.invalidAttemptCount >= 2 && nextExpected;
     const revealVisible = !state.completed && state.invalidAttemptCount >= 3 && nextExpected;
     const hintText = hintVisible ? puzzle.clues[nextExpected] || displayWord(nextExpected) : "";
+    const personalDailyPrompt = getPlayerPrompt(displayName, "daily");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
+    const personalHintPrompt = getPlayerPrompt(displayName, "hint");
     const progressWidth = `${Math.max(8, Math.round(((state.steps.length - 1) / maxMoves) * 100))}%`;
     const celebrationVisible = state.completed && state.won;
 
@@ -344,7 +411,7 @@
       ? `
         <section class="panel ladder-celebration">
           <p class="card-kicker">${ladderState.bonusOffset > 0 ? dictionary.daily.bonusLabel : dictionary.daily.title}</p>
-          <h2>${dictionary.daily.win}</h2>
+          <h2>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.daily.win}` : dictionary.daily.win}</h2>
           <p>${ladderState.hasNextBonus ? dictionary.daily.bonusBody : dictionary.daily.completed}</p>
           <div class="celebration-actions">
             ${
@@ -362,9 +429,10 @@
       <section class="panel game-screen ladder-screen">
         <header class="section-header">
           <div>
-            <h1>${dictionary.daily.title}</h1>
-            <p>${dictionary.daily.body}</p>
-          </div>
+              <h1>${dictionary.daily.title}</h1>
+              <p>${dictionary.daily.body}</p>
+              ${personalDailyPrompt ? `<p class="player-note">${personalDailyPrompt}</p>` : ""}
+            </div>
           <div class="stats-row">
             <p class="stat-pill">${dictionary.daily.streak}: ${streak}</p>
             <p class="stat-pill">${dictionary.daily.moves}: ${state.steps.length - 1}/${maxMoves}</p>
@@ -389,6 +457,7 @@
           <aside class="panel ladder-hint ${hintVisible ? "visible" : ""}">
             <p class="card-kicker">${dictionary.daily.hintTitle}</p>
             <h3>${dictionary.daily.hintBody}</h3>
+            ${personalHintPrompt ? `<p class="player-note">${personalHintPrompt}</p>` : ""}
             <p>${hintText}</p>
             <span>${hintVisible ? dictionary.daily.retryHint : "&nbsp;"}</span>
             ${
@@ -514,6 +583,9 @@
   }
 
   function renderScramble() {
+    const displayName = getDisplayName();
+    const personalScramblePrompt = getPlayerPrompt(displayName, "scramble");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
     const bestKey = getScopedKey("word-game-scramble-best", currentLanguage);
     let currentWord = words[Math.floor(Math.random() * words.length)];
     let currentScramble = shuffleWord(currentWord);
@@ -561,6 +633,7 @@
             <div>
               <h1>${dictionary.scramble.title}</h1>
               <p>${dictionary.scramble.body}</p>
+              ${personalScramblePrompt ? `<p class="player-note">${personalScramblePrompt}</p>` : ""}
             </div>
             <div class="stats-row">
               <p class="stat-pill" id="scramble-timer">${dictionary.common.timeLeft}: ${secondsLeft}s</p>
@@ -615,7 +688,7 @@
       app.innerHTML = layout(
         `
         <section class="panel end-card">
-          <h1>${dictionary.scramble.gameOver}</h1>
+          <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.scramble.gameOver}` : dictionary.scramble.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
           <button class="primary-button" id="restart-scramble">${dictionary.common.playAgain}</button>
@@ -640,6 +713,9 @@
   }
 
   function renderTypoHunt() {
+    const displayName = getDisplayName();
+    const personalTypoPrompt = getPlayerPrompt(displayName, "typo");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
     const bestKey = getScopedKey("word-game-typo-best", currentLanguage);
     const totalQuestions = Math.min(TYPO_QUESTIONS, typoEntries.length);
     let questionIndex = 0;
@@ -655,6 +731,7 @@
             <div>
               <h1>${dictionary.typo.title}</h1>
               <p>${dictionary.typo.body}</p>
+              ${personalTypoPrompt ? `<p class="player-note">${personalTypoPrompt}</p>` : ""}
             </div>
             <div class="stats-row">
               <p class="stat-pill">${dictionary.common.question}: ${questionIndex + 1}/${totalQuestions}</p>
@@ -723,7 +800,7 @@
       app.innerHTML = layout(
         `
         <section class="panel end-card">
-          <h1>${dictionary.typo.gameOver}</h1>
+          <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.typo.gameOver}` : dictionary.typo.gameOver}</h1>
           <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
           <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
           <button class="primary-button" id="restart-typo">${dictionary.common.playAgain}</button>

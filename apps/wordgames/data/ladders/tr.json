@@ -34,5 +34,89 @@
       "kaşma": "Kazıma ya da kaşımaya benzeyen hareket.",
       "taşma": "Sınırı aşıp dışarı çıkma."
     }
+  },
+  {
+    "start": "çalar",
+    "target": "pazar",
+    "path": ["çalar", "çakar", "yakar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "çakar": "Çakmak fiilinin geniş zamanı ya da çakar lamba.",
+      "yakar": "Yakmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "sarar",
+    "target": "pazar",
+    "path": ["sarar", "sayar", "yayar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "sayar": "Saymak fiilinin geniş zamanı.",
+      "yayar": "Yaymak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "yanak",
+    "target": "saban",
+    "path": ["yanak", "yamak", "yaman", "zaman", "saman", "saban"],
+    "clues": {
+      "yamak": "Bir işte yardımcı olan kişi.",
+      "yaman": "Güçlü, etkili ya da becerikli.",
+      "zaman": "Vakit.",
+      "saman": "Tahıl sapı.",
+      "saban": "Toprağı sürmeye yarayan araç."
+    }
+  },
+  {
+    "start": "salar",
+    "target": "pazar",
+    "path": ["salar", "sayar", "yayar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "sayar": "Saymak fiilinin geniş zamanı.",
+      "yayar": "Yaymak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "katar",
+    "target": "pazar",
+    "path": ["katar", "batar", "yatar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "batar": "Batmak fiilinin geniş zamanı.",
+      "yatar": "Yatmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "bakar",
+    "target": "pazar",
+    "path": ["bakar", "takar", "yakar", "yazar", "nazar", "pazar"],
+    "clues": {
+      "takar": "Takmak fiilinin geniş zamanı.",
+      "yakar": "Yakmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "salan",
+    "target": "yatak",
+    "path": ["salan", "saman", "zaman", "yaman", "yamak", "yatak"],
+    "clues": {
+      "saman": "Tahıl sapı.",
+      "zaman": "Vakit.",
+      "yaman": "Güçlü, etkili ya da becerikli.",
+      "yamak": "Bir işte yardımcı olan kişi.",
+      "yatak": "Uyumak için kullanılan yer."
+    }
   }
 ]

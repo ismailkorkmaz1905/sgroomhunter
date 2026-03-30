@@ -6,7 +6,8 @@
   { "correct": "reels", "typo": "reles" },
   { "correct": "drama", "typo": "darma" },
   { "correct": "audio", "typo": "auido" },
-  { "correct": "story", "typo": "stroy" },
-  { "correct": "delen", "typo": "deeln" },
-  { "correct": "clips", "typo": "cilps" }
+  { "correct": "komen", "typo": "koemn" },
+  { "correct": "muzik", "typo": "muzki" },
+  { "correct": "strim", "typo": "stirm" },
+  { "correct": "tular", "typo": "tualr" }
 ]

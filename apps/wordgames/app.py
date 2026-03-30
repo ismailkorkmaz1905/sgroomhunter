@@ -11,7 +11,7 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 
 BASE_DIR = Path(__file__).resolve().parent
-SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id"}
+SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
 SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy", "about"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
 
@@ -26,6 +26,7 @@ DICTIONARIES = {
     "tr": load_json("i18n", "tr.json"),
     "nl": load_json("i18n", "nl.json"),
     "id": load_json("i18n", "id.json"),
+    "ms": load_json("i18n", "ms.json"),
 }
 
 WORDS = {
@@ -33,6 +34,7 @@ WORDS = {
     "tr": load_json("data", "words", "tr", "common.json"),
     "nl": load_json("data", "words", "nl", "common.json"),
     "id": load_json("data", "words", "id", "common.json"),
+    "ms": load_json("data", "words", "ms", "common.json"),
 }
 
 TYPOS = {
@@ -40,6 +42,7 @@ TYPOS = {
     "tr": load_json("data", "typos", "tr.json"),
     "nl": load_json("data", "typos", "nl.json"),
     "id": load_json("data", "typos", "id.json"),
+    "ms": load_json("data", "typos", "ms.json"),
 }
 
 LADDERS = {
@@ -47,6 +50,7 @@ LADDERS = {
     "tr": load_json("data", "ladders", "tr.json"),
     "nl": load_json("data", "ladders", "nl.json"),
     "id": load_json("data", "ladders", "id.json"),
+    "ms": load_json("data", "ladders", "ms.json"),
 }
 
 

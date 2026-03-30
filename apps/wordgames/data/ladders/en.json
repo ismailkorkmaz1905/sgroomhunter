@@ -58,5 +58,66 @@
       "grade": "A level or score.",
       "grape": "A small fruit used for wine."
     }
+  },
+  {
+    "start": "stone",
+    "target": "share",
+    "path": ["stone", "shone", "shore", "score", "scare", "share"],
+    "clues": {
+      "shone": "Gave off light.",
+      "shore": "Land at the edge of water.",
+      "score": "A tally or result.",
+      "scare": "A sudden fright.",
+      "share": "To divide or give a part."
+    }
+  },
+  {
+    "start": "wheat",
+    "target": "creed",
+    "path": ["wheat", "cheat", "cheap", "cheep", "creep", "creed"],
+    "clues": {
+      "cheat": "To break rules unfairly.",
+      "cheap": "Low in cost.",
+      "cheep": "A small bird sound.",
+      "creep": "To move slowly and quietly.",
+      "creed": "A guiding belief or set of beliefs."
+    }
+  },
+  {
+    "start": "crane",
+    "target": "blade",
+    "path": ["crane", "crate", "grate", "grade", "glade", "blade"],
+    "clues": {
+      "crate": "A wooden box for carrying goods.",
+      "grate": "A metal frame or to shred something.",
+      "grade": "A level or score.",
+      "glade": "An open space in a forest.",
+      "blade": "The sharp part of a knife."
+    }
+  },
+  {
+    "start": "brink",
+    "target": "blank",
+    "path": ["brink", "drink", "drank", "crank", "clank", "blank"],
+    "clues": {
+      "drink": "A liquid you swallow.",
+      "drank": "Past tense of drink.",
+      "crank": "A handle you turn or an odd person.",
+      "clank": "A heavy metal sound.",
+      "blank": "Empty or without marks."
+    }
+  },
+  {
+    "start": "crash",
+    "target": "cross",
+    "path": ["crash", "clash", "class", "glass", "gloss", "gross", "cross"],
+    "clues": {
+      "clash": "A sharp conflict.",
+      "class": "A group or lesson.",
+      "glass": "A hard transparent material.",
+      "gloss": "A smooth shine or short explanation.",
+      "gross": "Total before deductions or unpleasant.",
+      "cross": "To go across or feel annoyed."
+    }
   }
 ]
