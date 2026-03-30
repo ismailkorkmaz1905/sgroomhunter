@@ -14,9 +14,9 @@
     "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
     "entries": [
       {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kral", "clue": "Tahtın erkek sahibi"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kapi", "clue": "Odaya giriş çıkış yeri"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kapı", "clue": "Odaya giriş çıkış yeri"},
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "lama", "clue": "Uzun boyunlu bir hayvan"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "imza", "clue": "Bir belgenin altına atılır"}
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ışla", "clue": "Askerlerin kaldığı yer"}
     ]
   },
   {

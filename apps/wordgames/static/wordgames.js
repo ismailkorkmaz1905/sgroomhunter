@@ -125,11 +125,22 @@
         number: "",
       };
     });
+    const numberingMap = {};
+    let nextNumber = 1;
 
     (puzzle.blocks || []).forEach(function ([row, col]) {
       const index = row * size + col;
       cells[index].blocked = true;
     });
+
+    function ensureNumberForStart(row, col) {
+      const key = `${row}-${col}`;
+      if (!numberingMap[key]) {
+        numberingMap[key] = String(nextNumber);
+        nextNumber += 1;
+      }
+      return numberingMap[key];
+    }
 
     puzzle.entries.forEach(function (entry) {
       const letters = Array.from(normalizeWord(entry.answer));
@@ -141,9 +152,8 @@
       });
 
       const startIndex = entry.row * size + entry.col;
-      if (!cells[startIndex].number) {
-        cells[startIndex].number = String(entry.number);
-      }
+      const entryNumber = ensureNumberForStart(entry.row, entry.col);
+      cells[startIndex].number = entryNumber;
     });
 
     return {
@@ -155,6 +165,7 @@
       entries: puzzle.entries.map(function (entry) {
         return {
           ...entry,
+          number: ensureNumberForStart(entry.row, entry.col),
           answer: normalizeWord(entry.answer),
         };
       }),
