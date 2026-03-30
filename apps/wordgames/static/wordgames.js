@@ -535,10 +535,29 @@
                   <h1>${dictionary.home.title}</h1>
                   <p>${dictionary.home.subtitle}</p>
                 </div>
-                <div class="hero-metrics">
-                  <div class="metric-card"><span>${dictionary.home.metricsLanguages}</span><strong>${availableLanguages.length}</strong></div>
-                  <div class="metric-card"><span>${dictionary.home.metricsGames}</span><strong>${dictionary.home.metricsGamesValue}</strong></div>
-                  <div class="metric-card"><span>${dictionary.home.metricsSpeed}</span><strong>${dictionary.home.metricsSpeedValue}</strong></div>
+                <div class="hero-side-panel">
+                  <div class="hero-metrics">
+                    <div class="metric-card"><span>${dictionary.home.metricsLanguages}</span><strong>${availableLanguages.length}</strong></div>
+                    <div class="metric-card"><span>${dictionary.home.metricsGames}</span><strong>${dictionary.home.metricsGamesValue}</strong></div>
+                    <div class="metric-card"><span>${dictionary.home.metricsSpeed}</span><strong>${dictionary.home.metricsSpeedValue}</strong></div>
+                  </div>
+                  <div class="hero-feature-list">
+                    <a class="hero-feature-card" href="${pathFor(currentLanguage, "daily-ladder")}">
+                      <p class="card-kicker">${dictionary.nav.dailyWord}</p>
+                      <strong>${dictionary.home.dailyHero}</strong>
+                      <span>${dictionary.home.dailyBody}</span>
+                    </a>
+                    <a class="hero-feature-card" href="${pathFor(currentLanguage, "mini-crossword")}">
+                      <p class="card-kicker">${dictionary.nav.miniCrossword}</p>
+                      <strong>${dictionary.home.crosswordHero}</strong>
+                      <span>${dictionary.home.crosswordBody}</span>
+                    </a>
+                    <a class="hero-feature-card" href="${pathFor(currentLanguage, "mini-sudoku")}">
+                      <p class="card-kicker">${dictionary.nav.miniSudoku}</p>
+                      <strong>${dictionary.home.sudokuHero}</strong>
+                      <span>${dictionary.home.sudokuBody}</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </section>

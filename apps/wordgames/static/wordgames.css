@@ -294,8 +294,15 @@ button {
   display: grid;
   grid-template-columns: repeat(3, minmax(90px, 1fr));
   gap: 10px;
-  min-width: min(100%, 300px);
+  min-width: min(100%, 320px);
   align-self: flex-start;
+}
+
+.hero-side-panel {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 430px);
+  align-self: stretch;
 }
 
 .metric-card {
@@ -322,6 +329,41 @@ button {
   display: block;
   line-height: 1.2;
   font-size: 1.05rem;
+}
+
+.hero-feature-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hero-feature-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.hero-feature-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(53, 87, 255, 0.18);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.hero-feature-card .card-kicker {
+  margin: 0;
+}
+
+.hero-feature-card strong {
+  font-size: 1.02rem;
+  line-height: 1.15;
+}
+
+.hero-feature-card span {
+  color: var(--muted);
+  font: 500 0.92rem/1.5 "Segoe UI", sans-serif;
 }
 
 .nav-tabs {
@@ -867,6 +909,10 @@ button {
 
   .hero-metrics {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-side-panel {
+    width: 100%;
   }
 
   .stats-row {
