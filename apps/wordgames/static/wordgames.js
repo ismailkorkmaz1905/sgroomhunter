@@ -270,7 +270,8 @@
     `;
   }
 
-  function layout(content, heroNote) {
+  function layout(content, heroNote, options) {
+    const config = options || {};
     const navItems = [
       ["home", dictionary.nav.home],
       ["daily-ladder", dictionary.nav.dailyWord],
@@ -297,6 +298,7 @@
         <aside class="ad-placeholder top-banner">${dictionary.common.adLabel}: ${dictionary.common.topBanner}</aside>
         <div class="shell-body">
           <main class="main-content">
+            ${config.leadContent || ""}
             <section class="panel hero-shell">
               <p class="eyebrow">${heroNote || dictionary.home.eyebrow}</p>
               <div class="welcome-strip" id="welcome-strip"></div>
@@ -320,7 +322,8 @@
                 })
                 .join("")}
             </nav>
-            ${content}
+            ${config.leadContent ? "" : content}
+            ${config.leadContent ? `<div class="secondary-page-content">${content}</div>` : ""}
             <footer class="panel site-footer">
               <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
               <a href="${pathFor(currentLanguage, "terms")}">${dictionary.common.terms}</a>
@@ -834,8 +837,7 @@
   }
 
   function renderPrivacy() {
-    app.innerHTML = layout(
-      `
+    const pageContent = `
       <section class="panel game-screen privacy-screen">
         <header class="section-header">
           <div>
@@ -853,15 +855,13 @@
         </ul>
         <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
       </section>
-    `,
-      dictionary.common.privacy,
-    );
+    `;
+    app.innerHTML = layout("", dictionary.common.privacy, { leadContent: pageContent });
     bindLanguageSwitcher();
   }
 
   function renderAbout() {
-    app.innerHTML = layout(
-      `
+    const pageContent = `
       <section class="panel game-screen about-screen">
         <header class="section-header">
           <div>
@@ -876,15 +876,13 @@
         </section>
         <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
       </section>
-    `,
-      dictionary.common.about,
-    );
+    `;
+    app.innerHTML = layout("", dictionary.common.about, { leadContent: pageContent });
     bindLanguageSwitcher();
   }
 
   function renderTerms() {
-    app.innerHTML = layout(
-      `
+    const pageContent = `
       <section class="panel game-screen terms-screen">
         <header class="section-header">
           <div>
@@ -901,9 +899,8 @@
         </ul>
         <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
       </section>
-    `,
-      dictionary.common.terms,
-    );
+    `;
+    app.innerHTML = layout("", dictionary.common.terms, { leadContent: pageContent });
     bindLanguageSwitcher();
   }
 
