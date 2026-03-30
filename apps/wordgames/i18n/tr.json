@@ -12,7 +12,9 @@
     "privacyTitle": "Gizlilik | WordSprint",
     "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren.",
     "aboutTitle": "Hakkında | WordSprint",
-    "aboutDescription": "WordSprint hakkında bilgi al ve geliştiriciyle iletişime geç."
+    "aboutDescription": "WordSprint hakkında bilgi al ve geliştiriciyle iletişime geç.",
+    "termsTitle": "Kullanım Koşulları | WordSprint",
+    "termsDescription": "WordSprint için temel kullanım koşulları."
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -54,6 +56,7 @@
     "best": "En iyi",
     "backHome": "Ana sayfaya dön",
     "privacy": "Gizlilik",
+    "terms": "Koşullar",
     "about": "Hakkında"
   },
   "profile": {
@@ -81,6 +84,15 @@
     "point4": "Yalnızca rota, dil, durum kodu, cihaz tipi, tarayıcı ailesi ve yönlendiren alan adı tutulur.",
     "point5": "Analitik özeti toplulaştırılmıştır ve sadece hafif ürün içgörüsü içindir.",
     "point6": "İstersen paylaştığın görünen isim, sitenin sahibine açık özel analitik ekranında görünebilir."
+  },
+  "terms": {
+    "title": "Kullanım Koşulları",
+    "intro": "WordSprint hafif bir oyun projesidir. Bu temel koşullar, sitenin nasıl kullanılmasının amaçlandığını açıklar.",
+    "point1": "Site olduğu gibi sunulur; kesintisiz erişim ya da kusursuz doğruluk garantisi verilmez.",
+    "point2": "Oyun ilerlemesi ve dil tercihleri, deneyimi akıcı tutmak için tarayıcında saklanabilir.",
+    "point3": "Siteyi kötüye kullanmamalı, işleyişini bozmamalı ve izinsiz özel alanlara erişmeye çalışmamalısın.",
+    "point4": "İleride reklamlar etkinleştirilirse reklam sunumu ve izin akışı platform gerekliliklerine göre güncellenebilir.",
+    "point5": "Soru, hata bildirimi ya da kaldırma talepleri için Hakkında sayfasındaki iletişim adresi kullanılabilir."
   },
   "daily": {
     "title": "Günlük Merdiven",

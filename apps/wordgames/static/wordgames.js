@@ -244,6 +244,7 @@
       "typo-hunt": ["typoTitle", "typoDescription"],
       privacy: ["privacyTitle", "privacyDescription"],
       about: ["aboutTitle", "aboutDescription"],
+      terms: ["termsTitle", "termsDescription"],
     };
     const [titleKey, descriptionKey] = seoMap[page];
     document.title = dictionary.seo[titleKey];
@@ -322,6 +323,7 @@
             ${content}
             <footer class="panel site-footer">
               <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
+              <a href="${pathFor(currentLanguage, "terms")}">${dictionary.common.terms}</a>
               <a href="${pathFor(currentLanguage, "about")}">${dictionary.common.about}</a>
             </footer>
           </main>
@@ -880,6 +882,31 @@
     bindLanguageSwitcher();
   }
 
+  function renderTerms() {
+    app.innerHTML = layout(
+      `
+      <section class="panel game-screen terms-screen">
+        <header class="section-header">
+          <div>
+            <h1>${dictionary.terms.title}</h1>
+            <p>${dictionary.terms.intro}</p>
+          </div>
+        </header>
+        <ul class="privacy-list">
+          <li>${dictionary.terms.point1}</li>
+          <li>${dictionary.terms.point2}</li>
+          <li>${dictionary.terms.point3}</li>
+          <li>${dictionary.terms.point4}</li>
+          <li>${dictionary.terms.point5}</li>
+        </ul>
+        <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
+      </section>
+    `,
+      dictionary.common.terms,
+    );
+    bindLanguageSwitcher();
+  }
+
   function enhanceProfileUX() {
     const profile = getPlayerProfile();
     const welcomeStrip = document.getElementById("welcome-strip");
@@ -966,6 +993,8 @@
       renderPrivacy();
     } else if (currentPage === "about") {
       renderAbout();
+    } else if (currentPage === "terms") {
+      renderTerms();
     } else {
       renderTypoHunt();
     }

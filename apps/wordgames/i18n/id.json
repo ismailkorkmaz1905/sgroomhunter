@@ -12,7 +12,9 @@
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas.",
     "aboutTitle": "Tentang | WordSprint",
-    "aboutDescription": "Tentang WordSprint dan cara menghubungi pembuatnya."
+    "aboutDescription": "Tentang WordSprint dan cara menghubungi pembuatnya.",
+    "termsTitle": "Ketentuan | WordSprint",
+    "termsDescription": "Ketentuan dasar untuk menggunakan WordSprint."
   },
   "nav": {
     "home": "Beranda",
@@ -54,6 +56,7 @@
     "best": "Terbaik",
     "backHome": "Kembali ke beranda",
     "privacy": "Privasi",
+    "terms": "Ketentuan",
     "about": "Tentang"
   },
   "profile": {
@@ -81,6 +84,15 @@
     "point4": "Kami hanya menyimpan rute, bahasa, kode status, jenis perangkat, keluarga browser, dan domain perujuk.",
     "point5": "Ringkasan analitik bersifat agregat dan hanya dipakai untuk insight produk ringan.",
     "point6": "Kalau kamu memilih membagikan nama panggilan, nama itu bisa terlihat di dashboard analitik privat milik pemilik situs."
+  },
+  "terms": {
+    "title": "Ketentuan",
+    "intro": "WordSprint adalah proyek game ringan. Ketentuan dasar ini menjelaskan bagaimana situs ini dimaksudkan untuk digunakan.",
+    "point1": "Situs ini disediakan apa adanya, tanpa jaminan akses tanpa gangguan atau akurasi yang sempurna.",
+    "point2": "Progres game dan preferensi bahasa bisa disimpan di browsermu agar pengalaman tetap lancar.",
+    "point3": "Kamu tidak boleh menyalahgunakan situs, mengganggu operasinya, atau mencoba mengakses area privat tanpa izin.",
+    "point4": "Jika iklan diaktifkan nanti, penayangan iklan dan alur persetujuan bisa diperbarui sesuai kebutuhan platform.",
+    "point5": "Pertanyaan, laporan bug, atau permintaan takedown bisa dikirim ke alamat kontak di halaman Tentang."
   },
   "daily": {
     "title": "Tangga Harian",

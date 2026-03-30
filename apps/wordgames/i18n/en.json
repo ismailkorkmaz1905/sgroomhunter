@@ -12,7 +12,9 @@
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
     "aboutTitle": "About | WordSprint",
-    "aboutDescription": "About WordSprint and how to contact the creator."
+    "aboutDescription": "About WordSprint and how to contact the creator.",
+    "termsTitle": "Terms | WordSprint",
+    "termsDescription": "Basic terms for using WordSprint."
   },
   "nav": {
     "home": "Home",
@@ -54,6 +56,7 @@
     "best": "Best",
     "backHome": "Back home",
     "privacy": "Privacy",
+    "terms": "Terms",
     "about": "About"
   },
   "profile": {
@@ -81,6 +84,15 @@
     "point4": "We only keep route, language, status code, device type, browser family, and referrer domain.",
     "point5": "The analytics summary is aggregated and intended for lightweight product insight only.",
     "point6": "If you choose to share a display name, it can appear in the private analytics dashboard for the site owner."
+  },
+  "terms": {
+    "title": "Terms",
+    "intro": "WordSprint is a lightweight game project. These basic terms explain how the site is intended to be used.",
+    "point1": "The site is provided as-is, without guarantees of uninterrupted access or perfect accuracy.",
+    "point2": "Game progress and language preferences may be stored in your browser to keep the experience smooth.",
+    "point3": "You should not abuse the site, interfere with its operation, or try to access private areas without permission.",
+    "point4": "If advertising is enabled in the future, ad delivery and consent handling may be updated to match platform requirements.",
+    "point5": "Questions, bug reports, or takedown requests can be sent to the contact address listed on the About page."
   },
   "daily": {
     "title": "Daily Ladder",

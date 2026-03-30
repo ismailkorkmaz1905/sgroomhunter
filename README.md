@@ -32,6 +32,7 @@ Routes:
 - `/tr`
 - `/nl`
 - `/id`
+- `/ms`
 - `/en/daily-ladder`
 - `/en/word-scramble`
 - `/en/typo-hunt`
@@ -44,6 +45,22 @@ Routes:
 - `/id/daily-ladder`
 - `/id/word-scramble`
 - `/id/typo-hunt`
+- `/ms/daily-ladder`
+- `/ms/word-scramble`
+- `/ms/typo-hunt`
+
+### Ad readiness
+
+WordGames now includes the no-cost prep pieces for future ad approval:
+
+- `ads.txt` endpoint at `/ads.txt`
+- `robots.txt`
+- `sitemap.xml`
+- localized `Privacy`, `Terms`, and `About` pages
+
+To publish a real `ads.txt` line later, set:
+
+- `ADSENSE_PUBLISHER_ID`
 
 ### Deploy to Render
 

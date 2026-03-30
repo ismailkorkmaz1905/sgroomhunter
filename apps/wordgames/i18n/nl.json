@@ -12,7 +12,9 @@
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses.",
     "aboutTitle": "Over | WordSprint",
-    "aboutDescription": "Meer over WordSprint en contact met de maker."
+    "aboutDescription": "Meer over WordSprint en contact met de maker.",
+    "termsTitle": "Voorwaarden | WordSprint",
+    "termsDescription": "Basisvoorwaarden voor het gebruik van WordSprint."
   },
   "nav": {
     "home": "Start",
@@ -54,6 +56,7 @@
     "best": "Beste",
     "backHome": "Terug naar start",
     "privacy": "Privacy",
+    "terms": "Voorwaarden",
     "about": "Over"
   },
   "profile": {
@@ -81,6 +84,15 @@
     "point4": "We bewaren alleen route, taal, statuscode, apparaattype, browserfamilie en verwijzend domein.",
     "point5": "De analytics-samenvatting is geaggregeerd en alleen bedoeld voor lichte productinzichten.",
     "point6": "Als je vrijwillig een naam deelt, kan die zichtbaar zijn in het private analytics-dashboard van de eigenaar."
+  },
+  "terms": {
+    "title": "Voorwaarden",
+    "intro": "WordSprint is een licht woordspelproject. Deze basisvoorwaarden leggen uit hoe de site bedoeld is om gebruikt te worden.",
+    "point1": "De site wordt aangeboden zoals hij is, zonder garanties op ononderbroken toegang of perfecte nauwkeurigheid.",
+    "point2": "Spelvoortgang en taalvoorkeuren kunnen in je browser worden opgeslagen om de ervaring soepel te houden.",
+    "point3": "Je mag de site niet misbruiken, de werking verstoren of zonder toestemming privégedeelten proberen te openen.",
+    "point4": "Als advertenties later worden ingeschakeld, kunnen advertentieweergave en toestemmingsafhandeling worden bijgewerkt volgens platformregels.",
+    "point5": "Vragen, bugmeldingen of verwijderverzoeken kun je sturen naar het contactadres op de Over-pagina."
   },
   "daily": {
     "title": "Dagladder",

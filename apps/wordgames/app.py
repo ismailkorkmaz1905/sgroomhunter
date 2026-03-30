@@ -12,7 +12,7 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 BASE_DIR = Path(__file__).resolve().parent
 SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
-SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy", "about"}
+SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
 
 
@@ -457,6 +457,7 @@ def render_localized_page(lang: str, page: str = "home"):
         "typo-hunt": ("typoTitle", "typoDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
         "about": ("aboutTitle", "aboutDescription"),
+        "terms": ("termsTitle", "termsDescription"),
     }
     title_key, description_key = seo_map[normalized_page]
 
@@ -495,6 +496,47 @@ def create_app() -> Flask:
     @app.route("/healthz")
     def healthcheck():
         return {"status": "ok"}, 200
+
+    @app.route("/ads.txt")
+    def ads_txt():
+        publisher_id = (os.environ.get("ADSENSE_PUBLISHER_ID") or "").strip()
+        if publisher_id:
+            body = f"google.com, {publisher_id}, DIRECT, f08c47fec0942fa0\n"
+        else:
+            body = (
+                "# Add your AdSense publisher ID in Render as ADSENSE_PUBLISHER_ID\n"
+                "# Example:\n"
+                "# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0\n"
+            )
+        return Response(body, mimetype="text/plain; charset=utf-8")
+
+    @app.route("/robots.txt")
+    def robots_txt():
+        body = (
+            "User-agent: *\n"
+            "Allow: /\n\n"
+            f"Sitemap: {request.url_root.rstrip('/')}/sitemap.xml\n"
+        )
+        return Response(body, mimetype="text/plain; charset=utf-8")
+
+    @app.route("/sitemap.xml")
+    def sitemap_xml():
+        urls: list[str] = []
+        for lang in sorted(SUPPORTED_LANGUAGES):
+            urls.append(url_for("localized_page", lang=lang, _external=True))
+            for page in ("daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"):
+                urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
+        xml = render_template_string(
+            """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for loc in urls %}
+  <url><loc>{{ loc }}</loc></url>
+{% endfor %}
+</urlset>
+""",
+            urls=urls,
+        )
+        return Response(xml, mimetype="application/xml")
 
     @app.route("/manifest.webmanifest")
     def manifest():

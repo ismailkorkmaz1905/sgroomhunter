@@ -20,6 +20,7 @@ http://127.0.0.1:5051
 - `/tr`
 - `/nl`
 - `/id`
+- `/ms`
 - `/en/daily-ladder`
 - `/en/word-scramble`
 - `/en/typo-hunt`
@@ -32,7 +33,11 @@ http://127.0.0.1:5051
 - `/id/daily-ladder`
 - `/id/word-scramble`
 - `/id/typo-hunt`
+- `/ms/daily-ladder`
+- `/ms/word-scramble`
+- `/ms/typo-hunt`
 - `/en/privacy`
+- `/en/terms`
 - `/analytics`
 - `/analytics-summary`
 
@@ -51,6 +56,19 @@ To protect `/analytics` and `/analytics-summary`, set these environment variable
 - `ANALYTICS_PASSWORD`
 
 When these are set, the analytics endpoint requires HTTP Basic Auth.
+
+## Ad readiness
+
+WordGames includes the free ad-readiness setup:
+
+- `/ads.txt`
+- `/robots.txt`
+- `/sitemap.xml`
+- localized `Privacy`, `Terms`, and `About` pages
+
+To publish a real AdSense line later, set:
+
+- `ADSENSE_PUBLISHER_ID`
 
 ## Render
 
