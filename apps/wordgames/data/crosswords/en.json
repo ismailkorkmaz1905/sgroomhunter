@@ -78,5 +78,25 @@
       {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "pen", "clue": "Writing tool"},
       {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "gin", "clue": "Clear spirit used in cocktails"}
     ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "table", "clue": "Furniture with a flat top"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "tulip", "clue": "Spring flower with a cup shape"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "eager", "clue": "Excited and ready"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "piper", "clue": "Musician who plays a pipe"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "crown", "clue": "Royal headpiece"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "cabin", "clue": "Small wooden house"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "nicer", "clue": "More pleasant"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "never", "clue": "At no time"}
+    ]
   }
 ]

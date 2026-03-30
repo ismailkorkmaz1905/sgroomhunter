@@ -78,5 +78,25 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ikan", "clue": "Haiwan yang hidup di air"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awan", "clue": "Gumpalan putih di langit"}
     ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "panas", "clue": "Lawan kepada sejuk"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "pisau", "clue": "Alat tajam untuk memotong"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "salat", "clue": "Ibadah utama umat Islam"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "umpat", "clue": "Kata kasar ketika mencaci"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "bakar", "clue": "Masak dengan api secara langsung"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "bibir", "clue": "Bahagian mulut"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "raden", "clue": "Gelaran bangsawan tradisional"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "rawan", "clue": "Mudah terdedah kepada risiko"}
+    ]
   }
 ]

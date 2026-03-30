@@ -78,5 +78,25 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "geur", "clue": "Wat je ruikt"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "deur", "clue": "Draait open en dicht"}
     ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "taart", "clue": "Zoete traktatie voor een feestje"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "troon", "clue": "Koninklijke stoel"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "timer", "clue": "Klokje dat aftelt"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "nader", "clue": "Dichterbij of meer precies"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "brood", "clue": "Basiseten uit de oven"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "baken", "clue": "Lichtpunt of herkenningspunt"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "deler", "clue": "Iemand die iets opdeelt"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "nader", "clue": "Dichterbij of meer precies"}
+    ]
   }
 ]

@@ -78,5 +78,25 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "topi", "clue": "Penutup kepala"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "inti", "clue": "Bagian paling pokok"}
     ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "panas", "clue": "Lawan dari dingin"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "pisau", "clue": "Alat tajam untuk memotong"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "salat", "clue": "Ibadah utama umat Muslim"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "umpat", "clue": "Ucapan kasar saat memaki"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "bakar", "clue": "Memanaskan hingga hangus atau matang"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "bibir", "clue": "Bagian mulut"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "raden", "clue": "Gelar bangsawan Jawa"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "rawan", "clue": "Mudah terkena risiko"}
+    ]
   }
 ]

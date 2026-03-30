@@ -78,5 +78,25 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "erik", "clue": "Ekşi ya da tatlı çekirdekli meyve"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ılık", "clue": "Ne sıcak ne soğuk"}
     ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "şehir", "clue": "Büyük yerleşim merkezi"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "şafak", "clue": "Günün ağarmaya başladığı an"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "radar", "clue": "Cisimleri algılayan sistem"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "kader", "clue": "Yazgı"}
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "maden", "clue": "Topraktan çıkarılan değerli doğal kaynak"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "masal", "clue": "Olağanüstü olaylar anlatan hikâye"},
+      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "narin", "clue": "İnce ve kırılgan"},
+      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "liman", "clue": "Gemilerin yanaştığı yer"}
+    ]
   }
 ]
