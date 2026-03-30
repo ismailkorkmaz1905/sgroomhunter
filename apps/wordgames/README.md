@@ -33,6 +33,7 @@ http://127.0.0.1:5051
 - `/id/word-scramble`
 - `/id/typo-hunt`
 - `/en/privacy`
+- `/analytics`
 - `/analytics-summary`
 
 ## Privacy-friendly analytics
@@ -44,7 +45,7 @@ WordGames keeps minimal server-side aggregate analytics only.
 - No device fingerprinting
 - Aggregates include route, language, status code, device type, browser family, and referrer domain
 
-To protect `/analytics-summary`, set these environment variables in Render:
+To protect `/analytics` and `/analytics-summary`, set these environment variables in Render:
 
 - `ANALYTICS_USERNAME`
 - `ANALYTICS_PASSWORD`

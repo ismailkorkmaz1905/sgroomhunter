@@ -104,6 +104,7 @@
       "daily-ladder": ["dailyTitle", "dailyDescription"],
       "word-scramble": ["scrambleTitle", "scrambleDescription"],
       "typo-hunt": ["typoTitle", "typoDescription"],
+      privacy: ["privacyTitle", "privacyDescription"],
     };
     const [titleKey, descriptionKey] = seoMap[page];
     document.title = dictionary.seo[titleKey];
