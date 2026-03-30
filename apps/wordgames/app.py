@@ -45,6 +45,40 @@ LADDERS = {
 }
 
 
+def render_localized_page(lang: str, page: str = "home"):
+    if lang not in SUPPORTED_LANGUAGES:
+        return None
+
+    normalized_page = "daily-ladder" if page == "daily-word" else (page or "home")
+    if normalized_page not in SUPPORTED_PAGES:
+        return None
+
+    dictionary = DICTIONARIES[lang]
+    seo_map = {
+        "home": ("homeTitle", "homeDescription"),
+        "daily-ladder": ("dailyTitle", "dailyDescription"),
+        "word-scramble": ("scrambleTitle", "scrambleDescription"),
+        "typo-hunt": ("typoTitle", "typoDescription"),
+    }
+    title_key, description_key = seo_map[normalized_page]
+
+    return render_template(
+        "wordgames.html",
+        lang=lang,
+        page=normalized_page,
+        title=dictionary["seo"][title_key],
+        description=dictionary["seo"][description_key],
+        app_data={
+            "lang": lang,
+            "page": normalized_page,
+            "dictionaries": DICTIONARIES,
+            "words": WORDS,
+            "typos": TYPOS,
+            "ladders": LADDERS,
+        },
+    )
+
+
 def create_app() -> Flask:
     app = Flask(
         "wordgames",
@@ -54,42 +88,25 @@ def create_app() -> Flask:
 
     @app.route("/")
     def root():
-        return redirect(url_for("localized_page", lang="en"))
+        return render_localized_page("en", "home")
+
+    @app.route("/en")
+    def english_home():
+        return render_localized_page("en", "home")
+
+    @app.route("/healthz")
+    def healthcheck():
+        return {"status": "ok"}, 200
 
     @app.route("/<lang>")
     @app.route("/<lang>/<page>")
     def localized_page(lang: str, page: str = "home"):
-        if lang not in SUPPORTED_LANGUAGES:
+        rendered = render_localized_page(lang, page)
+        if rendered is None:
+            if lang not in SUPPORTED_LANGUAGES:
+                return redirect(url_for("english_home"))
             return redirect(url_for("localized_page", lang="en"))
-
-        normalized_page = "daily-ladder" if page == "daily-word" else (page or "home")
-        if normalized_page not in SUPPORTED_PAGES:
-            return redirect(url_for("localized_page", lang=lang))
-
-        dictionary = DICTIONARIES[lang]
-        seo_map = {
-            "home": ("homeTitle", "homeDescription"),
-            "daily-ladder": ("dailyTitle", "dailyDescription"),
-            "word-scramble": ("scrambleTitle", "scrambleDescription"),
-            "typo-hunt": ("typoTitle", "typoDescription"),
-        }
-        title_key, description_key = seo_map[normalized_page]
-
-        return render_template(
-            "wordgames.html",
-            lang=lang,
-            page=normalized_page,
-            title=dictionary["seo"][title_key],
-            description=dictionary["seo"][description_key],
-            app_data={
-                "lang": lang,
-                "page": normalized_page,
-                "dictionaries": DICTIONARIES,
-                "words": WORDS,
-                "typos": TYPOS,
-                "ladders": LADDERS,
-            },
-        )
+        return rendered
 
     return app
 
