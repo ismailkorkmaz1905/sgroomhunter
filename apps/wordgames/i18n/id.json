@@ -102,7 +102,10 @@
     "hintTitle": "Hint terbuka",
     "hintBody": "Petunjuk makna untuk langkah berikutnya",
     "invalidBounce": "Kata itu tidak ada di tangga hari ini.",
-    "retryHint": "Dua tebakan di luar tangga membuka sebuah hint."
+    "retryHint": "Dua tebakan di luar tangga membuka sebuah hint.",
+    "revealPrompt": "Mau aku tunjukkan kata benar berikutnya?",
+    "revealCta": "Tunjukkan kata berikutnya",
+    "revealDone": "Langkah berikutnya sudah dibuka."
   },
   "scramble": {
     "title": "Acak Kata",

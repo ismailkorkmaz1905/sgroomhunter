@@ -102,7 +102,10 @@
     "hintTitle": "Hint unlocked",
     "hintBody": "Meaning clue for the next rung",
     "invalidBounce": "That word is outside today's ladder.",
-    "retryHint": "Two off-ladder tries unlocked a clue."
+    "retryHint": "Two off-ladder tries unlocked a clue.",
+    "revealPrompt": "Want me to show the correct next word?",
+    "revealCta": "Show next word",
+    "revealDone": "The next rung is now revealed."
   },
   "scramble": {
     "title": "Word Scramble",

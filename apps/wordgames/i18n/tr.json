@@ -102,7 +102,10 @@
     "hintTitle": "İpucu açıldı",
     "hintBody": "Sıradaki basamak için anlam ipucu",
     "invalidBounce": "Bu kelime bugünkü merdivenin dışında.",
-    "retryHint": "Merdiven dışı iki deneme sonrası ipucu açıldı."
+    "retryHint": "Merdiven dışı iki deneme sonrası ipucu açıldı.",
+    "revealPrompt": "İstersen sıradaki doğru kelimeyi göstereyim mi?",
+    "revealCta": "Doğru kelimeyi göster",
+    "revealDone": "Sıradaki basamak açıldı."
   },
   "scramble": {
     "title": "Kelime Karıştırma",

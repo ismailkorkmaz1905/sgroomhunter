@@ -304,6 +304,7 @@
     const streak = Number(localStorage.getItem(streakKey) || "0");
     const nextExpected = puzzle.path[state.steps.length];
     const hintVisible = !state.completed && state.invalidAttemptCount >= 2 && nextExpected;
+    const revealVisible = !state.completed && state.invalidAttemptCount >= 3 && nextExpected;
     const hintText = hintVisible ? puzzle.clues[nextExpected] || displayWord(nextExpected) : "";
     const progressWidth = `${Math.max(8, Math.round(((state.steps.length - 1) / maxMoves) * 100))}%`;
     const celebrationVisible = state.completed && state.won;
@@ -390,6 +391,11 @@
             <h3>${dictionary.daily.hintBody}</h3>
             <p>${hintText}</p>
             <span>${hintVisible ? dictionary.daily.retryHint : "&nbsp;"}</span>
+            ${
+              revealVisible
+                ? `<button class="primary-button" type="button" id="reveal-ladder-button">${dictionary.daily.revealCta}</button>`
+                : ""
+            }
           </aside>
         </div>
         <form class="game-form" id="ladder-form">
@@ -409,6 +415,7 @@
     const input = document.getElementById("ladder-guess");
     const boardNode = document.getElementById("ladder-board");
     const bonusButton = document.getElementById("bonus-ladder-button");
+    const revealButton = document.getElementById("reveal-ladder-button");
 
     if (!state.completed) {
       requestAnimationFrame(function () {
@@ -429,6 +436,21 @@
     if (bonusButton) {
       bonusButton.addEventListener("click", function () {
         unlockNextBonus(currentLanguage);
+        renderDailyLadder();
+      });
+    }
+
+    if (revealButton) {
+      revealButton.addEventListener("click", function () {
+        state.steps.push(nextExpected);
+        state.completed = nextExpected === puzzle.target || state.steps.length - 1 >= maxMoves;
+        state.won = nextExpected === puzzle.target;
+        state.invalidAttemptCount = 0;
+        state.flashMessage = dictionary.daily.revealDone;
+        state.feedbackTone = "";
+        state.puzzleSignature = puzzleSignature;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        pulseDevice([15, 35, 15]);
         renderDailyLadder();
       });
     }

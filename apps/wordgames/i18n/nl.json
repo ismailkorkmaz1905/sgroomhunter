@@ -102,7 +102,10 @@
     "hintTitle": "Hint vrijgespeeld",
     "hintBody": "Betekenis-hint voor de volgende trede",
     "invalidBounce": "Dat woord hoort niet bij de ladder van vandaag.",
-    "retryHint": "Na twee missers buiten de ladder is een hint vrijgespeeld."
+    "retryHint": "Na twee missers buiten de ladder is een hint vrijgespeeld.",
+    "revealPrompt": "Wil je dat ik het juiste volgende woord laat zien?",
+    "revealCta": "Toon volgend woord",
+    "revealDone": "De volgende trede is onthuld."
   },
   "scramble": {
     "title": "Woordmix",
