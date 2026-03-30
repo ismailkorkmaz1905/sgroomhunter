@@ -28,5 +28,55 @@
       {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "net", "clue": "Açık ve kesin"},
       {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "not", "clue": "Kısa yazılı hatırlatma"}
     ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "sarı", "clue": "Güneşi çağrıştıran renk"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "sıra", "clue": "Düzenli diziliş"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ırak", "clue": "Uzak anlamında eski kullanım"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "açık", "clue": "Kapalı olmayan"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "dere", "clue": "Küçük akarsu"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "dizi", "clue": "Televizyon yapımı ya da sıra"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "elma", "clue": "Kırmızı ya da yeşil meyve"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "imza", "clue": "Belgenin altına atılır"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "yazı", "clue": "Metin ya da makale"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "yeni", "clue": "Eski olmayan"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ırak", "clue": "Uzak anlamında eski kullanım"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "inek", "clue": "Süt veren çiftlik hayvanı"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "mavi", "clue": "Gökyüzü rengi"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "mart", "clue": "İlkbahara yakın ay"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "izci", "clue": "Kamp yapan kulüp öğrencisi"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "teri", "clue": "Vücut sıvısı"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "çile", "clue": "Sıkıntı, dert"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "çatı", "clue": "Evin üst kısmı"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "erik", "clue": "Ekşi ya da tatlı çekirdekli meyve"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ılık", "clue": "Ne sıcak ne soğuk"}
+    ]
   }
 ]

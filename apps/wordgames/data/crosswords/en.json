@@ -28,5 +28,55 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tone", "clue": "Colouring of a voice"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "dive", "clue": "Jump into water headfirst"}
     ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "sun", "clue": "Bright object in the daytime sky"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "sip", "clue": "Small drink"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "nap", "clue": "Short sleep"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "pop", "clue": "Light bursting sound"}
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "cat", "clue": "Popular house pet"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "cow", "clue": "Farm animal that gives milk"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "tin", "clue": "Metal food can"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "win", "clue": "Come out on top"}
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "map", "clue": "Guide to streets or places"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "mud", "clue": "Wet, soft dirt"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "pen", "clue": "Tool used to write"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "den", "clue": "Animal shelter or cozy room"}
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "dog", "clue": "Loyal pet with a wagging tail"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "dry", "clue": "Not wet"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "gap", "clue": "A small opening"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "yap", "clue": "High-pitched bark"}
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [[1, 1]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "lip", "clue": "Edge of a mouth"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "log", "clue": "Chunk of wood"},
+      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "pen", "clue": "Writing tool"},
+      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "gin", "clue": "Clear spirit used in cocktails"}
+    ]
   }
 ]

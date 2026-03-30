@@ -28,5 +28,55 @@
       {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "kasih", "clue": "Sayang atau cinta"},
       {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "kisah", "clue": "Cerita atau naratif ringkas"}
     ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "buku", "clue": "Himpunan helaian untuk dibaca"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "batu", "clue": "Benda keras dari alam"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ular", "clue": "Haiwan melata tanpa kaki"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ukur", "clue": "Menentukan panjang atau saiz"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "duit", "clue": "Wang atau bayaran"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "dari", "clue": "Menunjukkan asal atau permulaan"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tepi", "clue": "Bahagian sisi"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "inti", "clue": "Bahagian paling utama"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "masa", "clue": "Tempoh waktu"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "muda", "clue": "Belum tua"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "asal", "clue": "Punca atau tempat bermula"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awal", "clue": "Bahagian paling mula"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "rasa", "clue": "Perasaan atau cita rasa"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "roda", "clue": "Bulatan pada kenderaan"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "asal", "clue": "Punca atau tempat bermula"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awal", "clue": "Bahagian paling mula"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "nasi", "clue": "Makanan ruji yang sangat biasa"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "nama", "clue": "Panggilan seseorang"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ikan", "clue": "Haiwan yang hidup di air"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awan", "clue": "Gumpalan putih di langit"}
+    ]
   }
 ]

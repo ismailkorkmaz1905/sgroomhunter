@@ -28,5 +28,55 @@
       {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "rumah", "clue": "Tempat tinggal"},
       {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "lelah", "clue": "Kondisi capek"}
     ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "buku", "clue": "Kumpulan halaman untuk dibaca"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "batu", "clue": "Benda keras dari alam"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ular", "clue": "Hewan melata tanpa kaki"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ukur", "clue": "Menentukan panjang atau besar"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kopi", "clue": "Minuman hitam yang sering diminum pagi hari"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kota", "clue": "Wilayah perkotaan"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ikan", "clue": "Hewan yang hidup di air"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awan", "clue": "Gumpalan putih di langit"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "mata", "clue": "Organ untuk melihat"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "muda", "clue": "Belum tua"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "apel", "clue": "Buah merah atau hijau"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "asal", "clue": "Tempat atau sumber awal"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "desa", "clue": "Wilayah kecil di luar kota"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "duka", "clue": "Sedih karena kehilangan"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "apel", "clue": "Buah merah atau hijau"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "awal", "clue": "Bagian paling mula"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "laut", "clue": "Hamparan air asin yang luas"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "lari", "clue": "Bergerak cepat dengan kaki"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "topi", "clue": "Penutup kepala"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "inti", "clue": "Bagian paling pokok"}
+    ]
   }
 ]

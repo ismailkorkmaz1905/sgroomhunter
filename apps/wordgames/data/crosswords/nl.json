@@ -28,5 +28,55 @@
       {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "klep", "clue": "Klapdeel van een tas of doos"},
       {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "dorp", "clue": "Kleiner dan een stad"}
     ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "boot", "clue": "Vervoer over het water"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "baas", "clue": "Leider op het werk"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tuin", "clue": "Stuk groen bij een huis"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "spin", "clue": "Dier met acht poten"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "weer", "clue": "Regen, zon of wind"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "wolf", "clue": "Wild dier dat op een hond lijkt"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "room", "clue": "Dik zuivelproduct"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "film", "clue": "Iets wat je in de bioscoop kijkt"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "stad", "clue": "Groter dan een dorp"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "soep", "clue": "Warm gerecht in een kom"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "deur", "clue": "Je gaat erdoor naar binnen"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "peer", "clue": "Groene of gele vrucht"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "maan", "clue": "Licht bolletje aan de nachtelijke hemel"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "mist", "clue": "Laag hangende nevel"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "neus", "clue": "Midden op je gezicht"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "taks", "clue": "Belasting of heffing"}
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "entries": [
+      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "zorg", "clue": "Iets waar je je druk om maakt"},
+      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "zand", "clue": "Ligt op veel stranden"},
+      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "geur", "clue": "Wat je ruikt"},
+      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "deur", "clue": "Draait open en dicht"}
+    ]
   }
 ]
