@@ -7,7 +7,7 @@ from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
 
-from flask import Flask, Response, jsonify, redirect, render_template, render_template_string, request, url_for
+from flask import Flask, Response, jsonify, redirect, render_template, render_template_string, request, send_from_directory, url_for
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -439,6 +439,17 @@ def create_app() -> Flask:
     @app.route("/healthz")
     def healthcheck():
         return {"status": "ok"}, 200
+
+    @app.route("/manifest.webmanifest")
+    def manifest():
+        return send_from_directory(app.static_folder, "manifest.webmanifest", mimetype="application/manifest+json")
+
+    @app.route("/service-worker.js")
+    def service_worker():
+        response = send_from_directory(app.static_folder, "service-worker.js", mimetype="application/javascript")
+        response.headers["Service-Worker-Allowed"] = "/"
+        response.headers["Cache-Control"] = "no-cache"
+        return response
 
     def authorize_analytics():
         if not check_basic_auth(request.headers.get("Authorization")):

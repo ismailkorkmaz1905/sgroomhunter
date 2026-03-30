@@ -60,6 +60,20 @@ Render-ready files:
 - `apps/wordgames/render_wsgi.py`
 - `apps/wordgames/requirements-render.txt`
 
+## iPhone home screen / PWA
+
+WordGames now includes:
+
+- `manifest.webmanifest`
+- root-scoped `service-worker.js`
+- Apple touch icon and PWA icons
+
+On iPhone:
+
+1. Open the deployed site in Safari
+2. Tap `Share`
+3. Tap `Add to Home Screen`
+
 Manual Render setup:
 
 - Build Command: `pip install -r apps/wordgames/requirements-render.txt`
