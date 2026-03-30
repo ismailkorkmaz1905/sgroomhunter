@@ -467,13 +467,21 @@ button {
 }
 
 .stats-row {
+  display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .stat-pill {
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 10px 14px;
+  min-height: 44px;
   border-radius: 999px;
   background: var(--accent-soft);
   font: 600 0.95rem/1 "Segoe UI", sans-serif;
@@ -848,6 +856,10 @@ button {
 
   .hero-metrics {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats-row {
+    justify-content: center;
   }
 
   .nav-tabs {
