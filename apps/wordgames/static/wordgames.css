@@ -64,6 +64,42 @@ button {
   display: flex;
 }
 
+.ladder-meter {
+  display: grid;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(53, 87, 255, 0.08), rgba(224, 108, 67, 0.1));
+}
+
+.ladder-meter-labels,
+.celebration-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.ladder-meter-labels span {
+  color: var(--muted);
+  font: 700 0.78rem/1 "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ladder-meter-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(30, 36, 51, 0.1);
+  overflow: hidden;
+}
+
+.ladder-meter-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-3));
+  box-shadow: 0 0 18px rgba(53, 87, 255, 0.35);
+  transition: width 180ms ease;
+}
+
 .site-header,
 .hero-shell-row,
 .section-header,
@@ -406,6 +442,38 @@ button {
   background: rgba(30, 36, 51, 0.08);
 }
 
+.ladder-celebration {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(224, 108, 67, 0.2), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(53, 87, 255, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(250, 246, 237, 0.96));
+  animation: celebration-rise 220ms ease-out;
+}
+
+.ladder-celebration::after {
+  content: "";
+  position: absolute;
+  inset: auto -18px -30px auto;
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  background: rgba(31, 122, 107, 0.12);
+}
+
+.ladder-celebration h2,
+.ladder-celebration p {
+  position: relative;
+  z-index: 1;
+}
+
+.celebration-actions {
+  position: relative;
+  z-index: 1;
+  justify-content: flex-start;
+}
+
 .game-form {
   display: grid;
   gap: 12px;
@@ -556,6 +624,17 @@ button {
   from {
     opacity: 0;
     transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes celebration-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
   }
   to {
     opacity: 1;

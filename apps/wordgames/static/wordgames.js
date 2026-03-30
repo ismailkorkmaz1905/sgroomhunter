@@ -15,6 +15,10 @@
     return `${base}-${language}`;
   }
 
+  function getSessionKey(base, language) {
+    return `${base}-${language}-${getTodayKey()}`;
+  }
+
   function normalizeWord(value) {
     return value.trim().toLocaleLowerCase(currentLanguage);
   }
@@ -36,6 +40,25 @@
 
   function getDailyLadder(date, language) {
     return payload.ladders[language][getDailyIndex(date, payload.ladders[language].length)];
+  }
+
+  function getActiveLadder(language) {
+    const pool = payload.ladders[language];
+    const baseIndex = getDailyIndex(new Date(), pool.length);
+    const bonusOffset = Number(sessionStorage.getItem(getSessionKey("word-game-daily-ladder-bonus", language)) || "0");
+    const activeIndex = Math.min(baseIndex + bonusOffset, pool.length - 1);
+    return {
+      puzzle: pool[activeIndex],
+      bonusOffset,
+      activeIndex,
+      hasNextBonus: activeIndex < pool.length - 1,
+    };
+  }
+
+  function unlockNextBonus(language) {
+    const key = getSessionKey("word-game-daily-ladder-bonus", language);
+    const currentOffset = Number(sessionStorage.getItem(key) || "0");
+    sessionStorage.setItem(key, String(currentOffset + 1));
   }
 
   function shuffleWord(word) {
@@ -206,7 +229,8 @@
 
   function renderDailyLadder() {
     const todayKey = getTodayKey();
-    const puzzle = getDailyLadder(new Date(), currentLanguage);
+    const ladderState = getActiveLadder(currentLanguage);
+    const puzzle = ladderState.puzzle;
     const puzzleSignature = `${currentLanguage}:${puzzle.start}:${puzzle.target}:${puzzle.path.join("-")}`;
     const storageKey = getScopedKey("word-game-daily-ladder-state", currentLanguage);
     const streakKey = getScopedKey("word-game-daily-ladder-streak", currentLanguage);
@@ -230,6 +254,8 @@
     const nextExpected = puzzle.path[state.steps.length];
     const hintVisible = !state.completed && state.invalidAttemptCount >= 2 && nextExpected;
     const hintText = hintVisible ? puzzle.clues[nextExpected] || displayWord(nextExpected) : "";
+    const progressWidth = `${Math.max(8, Math.round(((state.steps.length - 1) / maxMoves) * 100))}%`;
+    const celebrationVisible = state.completed && state.won;
 
     localStorage.setItem(storageKey, JSON.stringify(state));
 
@@ -262,6 +288,22 @@
         ? dictionary.daily.win
         : `${dictionary.daily.lose} ${puzzle.path.map(displayWord).join(" -> ")}`
       : dictionary.daily.rule);
+    const celebrationMarkup = celebrationVisible
+      ? `
+        <section class="panel ladder-celebration">
+          <p class="card-kicker">${ladderState.bonusOffset > 0 ? dictionary.daily.bonusLabel : dictionary.daily.title}</p>
+          <h2>${dictionary.daily.win}</h2>
+          <p>${ladderState.hasNextBonus ? dictionary.daily.bonusBody : dictionary.daily.completed}</p>
+          <div class="celebration-actions">
+            ${
+              ladderState.hasNextBonus
+                ? `<button class="primary-button" type="button" id="bonus-ladder-button">${dictionary.daily.bonusCta}</button>`
+                : `<a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>`
+            }
+          </div>
+        </section>
+      `
+      : "";
 
     app.innerHTML = layout(
       `
@@ -274,8 +316,18 @@
           <div class="stats-row">
             <p class="stat-pill">${dictionary.daily.streak}: ${streak}</p>
             <p class="stat-pill">${dictionary.daily.moves}: ${state.steps.length - 1}/${maxMoves}</p>
+            <p class="stat-pill">${dictionary.daily.bonusLabel}: ${ladderState.bonusOffset + 1}</p>
           </div>
         </header>
+        <section class="panel ladder-meter">
+          <div class="ladder-meter-labels">
+            <span>${dictionary.daily.start}</span>
+            <span>${dictionary.daily.target}</span>
+          </div>
+          <div class="ladder-meter-track">
+            <div class="ladder-meter-fill" style="width: ${progressWidth}"></div>
+          </div>
+        </section>
         <section class="panel ladder-brief">
           <div><span>${dictionary.daily.start}</span><strong>${displayWord(puzzle.start)}</strong></div>
           <div><span>${dictionary.daily.target}</span><strong>${displayWord(puzzle.target)}</strong></div>
@@ -295,6 +347,7 @@
           <button class="primary-button" type="submit" ${state.completed ? "disabled" : ""}>${dictionary.common.submit}</button>
         </form>
         <p class="feedback ${state.feedbackTone === "danger" ? "feedback-danger" : ""}" id="ladder-feedback">${feedback}</p>
+        ${celebrationMarkup}
       </section>
     `,
       dictionary.home.dailyHero,
@@ -304,6 +357,7 @@
     const form = document.getElementById("ladder-form");
     const input = document.getElementById("ladder-guess");
     const boardNode = document.getElementById("ladder-board");
+    const bonusButton = document.getElementById("bonus-ladder-button");
 
     if (!state.completed) {
       requestAnimationFrame(function () {
@@ -318,6 +372,13 @@
         boardNode.classList.add("board-shake");
         input.focus();
         input.select();
+      });
+    }
+
+    if (bonusButton) {
+      bonusButton.addEventListener("click", function () {
+        unlockNextBonus(currentLanguage);
+        renderDailyLadder();
       });
     }
 
