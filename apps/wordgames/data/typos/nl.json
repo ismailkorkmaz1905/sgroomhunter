@@ -2,11 +2,11 @@
   { "correct": "viral", "typo": "vrail" },
   { "correct": "trend", "typo": "trned" },
   { "correct": "video", "typo": "vidoe" },
-  { "correct": "emoji", "typo": "emoij" },
-  { "correct": "reels", "typo": "reles" },
-  { "correct": "drama", "typo": "darma" },
-  { "correct": "audio", "typo": "auido" },
-  { "correct": "story", "typo": "stroy" },
+  { "correct": "nieuws", "typo": "nieusw" },
   { "correct": "delen", "typo": "deeln" },
-  { "correct": "clips", "typo": "cilps" }
+  { "correct": "bericht", "typo": "berciht" },
+  { "correct": "verhaal", "typo": "verhaall" },
+  { "correct": "muziek", "typo": "muzike" },
+  { "correct": "kanaal", "typo": "kanaall" },
+  { "correct": "volgen", "typo": "vlogen" }
 ]

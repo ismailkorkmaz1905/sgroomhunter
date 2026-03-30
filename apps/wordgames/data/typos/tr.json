@@ -1,12 +1,12 @@
 [
-  { "correct": "viral", "typo": "vrail" },
-  { "correct": "trend", "typo": "trned" },
-  { "correct": "video", "typo": "vidoe" },
-  { "correct": "emoji", "typo": "emoij" },
-  { "correct": "reels", "typo": "reles" },
-  { "correct": "drama", "typo": "darma" },
-  { "correct": "takip", "typo": "taikp" },
+  { "correct": "gündem", "typo": "gündme" },
   { "correct": "yorum", "typo": "yorumm" },
+  { "correct": "takip", "typo": "taikp" },
   { "correct": "yayın", "typo": "yyaın" },
-  { "correct": "müzik", "typo": "müizk" }
+  { "correct": "müzik", "typo": "müzki" },
+  { "correct": "filtre", "typo": "fitlre" },
+  { "correct": "akış", "typo": "aşkı" },
+  { "correct": "başlık", "typo": "başlki" },
+  { "correct": "gönderi", "typo": "göndrei" },
+  { "correct": "etiket", "typo": "etkiet" }
 ]

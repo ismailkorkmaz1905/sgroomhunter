@@ -1,12 +1,12 @@
 [
   { "correct": "viral", "typo": "vrail" },
-  { "correct": "trend", "typo": "trned" },
+  { "correct": "tren", "typo": "tern" },
   { "correct": "video", "typo": "vidoe" },
   { "correct": "emoji", "typo": "emoij" },
-  { "correct": "reels", "typo": "reles" },
-  { "correct": "drama", "typo": "darma" },
-  { "correct": "audio", "typo": "auido" },
-  { "correct": "story", "typo": "stroy" },
-  { "correct": "komen", "typo": "koemn" },
-  { "correct": "musik", "typo": "muski" }
+  { "correct": "konten", "typo": "kotenn" },
+  { "correct": "siaran", "typo": "siarann" },
+  { "correct": "musik", "typo": "muski" },
+  { "correct": "tagar", "typo": "taagr" },
+  { "correct": "unggah", "typo": "unggahh" },
+  { "correct": "tautan", "typo": "tautna" }
 ]
