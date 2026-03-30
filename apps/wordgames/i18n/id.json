@@ -9,6 +9,10 @@
     "scrambleDescription": "Susun sebanyak mungkin kata sebelum satu menit habis.",
     "typoTitle": "Cari Salah Eja | WordSprint",
     "typoDescription": "Temukan kata yang salah eja dalam sepuluh ronde cepat.",
+    "chainTitle": "Rantai Kata | WordSprint",
+    "chainDescription": "Teruskan rantai dengan kata baru yang dimulai dari huruf terakhir.",
+    "categoryTitle": "Kilat Kategori | WordSprint",
+    "categoryDescription": "Pilih kata yang benar-benar cocok dengan kategorinya.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas.",
     "aboutTitle": "Tentang | WordSprint",
@@ -20,7 +24,9 @@
     "home": "Beranda",
     "dailyWord": "Tangga Harian",
     "wordScramble": "Acak Kata",
-    "typoHunt": "Cari Salah Eja"
+    "typoHunt": "Cari Salah Eja",
+    "wordChain": "Rantai Kata",
+    "categoryBlitz": "Kilat Kategori"
   },
   "home": {
     "eyebrow": "Paket puzzle cepat hari ini",
@@ -30,14 +36,18 @@
     "dailyBody": "Naik dari satu kata ke kata lain dengan mengganti satu huruf di tiap langkah.",
     "scrambleBody": "Kejar waktu selama satu menit dan pecahkan sebanyak mungkin kata acak.",
     "typoBody": "Cari satu kata yang salah eja di setiap set singkat.",
+    "chainBody": "Tangkap huruf terakhir dan lanjutkan rantai kata secepat mungkin.",
+    "categoryBody": "Pilih kata yang memang cocok dengan kategori yang muncul.",
     "metricsLanguages": "Bahasa",
     "metricsGames": "Game",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "3 aktif",
+    "metricsGamesValue": "5 aktif",
     "metricsSpeedValue": "Main instan",
     "dailyHero": "Tantangan tangga harian",
     "scrambleHero": "Sprint acak kata satu menit",
-    "typoHero": "Deteksi salah eja cepat"
+    "typoHero": "Deteksi salah eja cepat",
+    "chainHero": "Rantai kata cepat",
+    "categoryHero": "Pilihan kategori kilat"
   },
   "common": {
     "score": "Skor",
@@ -135,5 +145,24 @@
     "instruction": "Ketuk kata yang salah.",
     "gameOver": "Kamu sudah menyelesaikan sepuluh pertanyaan.",
     "next": "Pertanyaan berikutnya"
+  },
+  "chain": {
+    "title": "Rantai Kata",
+    "body": "Tulis kata baru yang dimulai dengan huruf terakhir dari kata saat ini.",
+    "inputLabel": "Kata berikutnya",
+    "placeholder": "Tulis kata yang valid",
+    "rule": "Pakai huruf terakhir untuk menjaga rantai tetap hidup.",
+    "used": "Kata itu sudah dipakai di rantai ini.",
+    "invalid": "Kata itu tidak ada di daftar ronde ini.",
+    "wrongStart": "Kata kamu harus dimulai dari huruf terakhir.",
+    "nextWord": "Bagus. Rantainya lanjut.",
+    "gameOver": "Waktu habis."
+  },
+  "category": {
+    "title": "Kilat Kategori",
+    "body": "Pilih satu opsi yang benar-benar cocok dengan kategorinya.",
+    "instruction": "Ketuk pilihan terbaik.",
+    "gameOver": "Semua ronde kategori sudah selesai.",
+    "next": "Ronde berikutnya"
   }
 }

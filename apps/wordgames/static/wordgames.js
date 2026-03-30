@@ -5,6 +5,8 @@
   const dictionary = payload.dictionaries[currentLanguage];
   const words = payload.words[currentLanguage];
   const typoEntries = payload.typos[currentLanguage];
+  const chainWords = payload.chains[currentLanguage];
+  const categoryRounds = payload.categories[currentLanguage];
   const app = document.getElementById("app");
   const availableLanguages = Object.keys(payload.dictionaries);
   const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
@@ -258,6 +260,8 @@
       "daily-ladder": ["dailyTitle", "dailyDescription"],
       "word-scramble": ["scrambleTitle", "scrambleDescription"],
       "typo-hunt": ["typoTitle", "typoDescription"],
+      "word-chain": ["chainTitle", "chainDescription"],
+      "category-blitz": ["categoryTitle", "categoryDescription"],
       privacy: ["privacyTitle", "privacyDescription"],
       about: ["aboutTitle", "aboutDescription"],
       terms: ["termsTitle", "termsDescription"],
@@ -293,6 +297,8 @@
       ["daily-ladder", dictionary.nav.dailyWord],
       ["word-scramble", dictionary.nav.wordScramble],
       ["typo-hunt", dictionary.nav.typoHunt],
+      ["word-chain", dictionary.nav.wordChain],
+      ["category-blitz", dictionary.nav.categoryBlitz],
     ];
 
     return `
@@ -366,6 +372,8 @@
         ${card(dictionary.nav.dailyWord, dictionary.home.dailyBody, pathFor(currentLanguage, "daily-ladder"), "card-ladder")}
         ${card(dictionary.nav.wordScramble, dictionary.home.scrambleBody, pathFor(currentLanguage, "word-scramble"), "card-scramble")}
         ${card(dictionary.nav.typoHunt, dictionary.home.typoBody, pathFor(currentLanguage, "typo-hunt"), "card-typo")}
+        ${card(dictionary.nav.wordChain, dictionary.home.chainBody, pathFor(currentLanguage, "word-chain"), "card-chain")}
+        ${card(dictionary.nav.categoryBlitz, dictionary.home.categoryBody, pathFor(currentLanguage, "category-blitz"), "card-category")}
       </section>
     `,
       dictionary.home.eyebrow,
@@ -859,6 +867,262 @@
     draw();
   }
 
+  function renderWordChain() {
+    const displayName = getDisplayName();
+    const personalChainPrompt = getPlayerPrompt(displayName, "daily");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
+    const bestKey = getScopedKey("word-game-chain-best", currentLanguage);
+    const pool = chainWords.slice();
+    let currentWord = pool[Math.floor(Math.random() * pool.length)];
+    let score = 0;
+    let secondsLeft = 45;
+    let intervalId = null;
+    let currentGuess = "";
+    let statusText = dictionary.chain.rule;
+    const usedWords = new Set([currentWord]);
+
+    function syncChainUI() {
+      const timerNode = document.getElementById("chain-timer");
+      const scoreNode = document.getElementById("chain-score");
+      const wordNode = document.getElementById("chain-word");
+      const inputNode = document.getElementById("chain-guess");
+      const feedbackNode = document.getElementById("chain-feedback");
+
+      if (timerNode) {
+        timerNode.textContent = `${dictionary.common.timeLeft}: ${secondsLeft}s`;
+      }
+      if (scoreNode) {
+        scoreNode.textContent = `${dictionary.common.score}: ${score}`;
+      }
+      if (wordNode) {
+        wordNode.textContent = displayWord(currentWord);
+      }
+      if (inputNode && inputNode.value !== currentGuess) {
+        inputNode.value = currentGuess;
+      }
+      if (feedbackNode) {
+        feedbackNode.textContent = statusText || "\u00a0";
+      }
+    }
+
+    function drawShell() {
+      const currentLastLetter = displayWord(currentWord.slice(-1));
+      app.innerHTML = layout(
+        `
+        <section class="panel game-screen chain-screen">
+          <header class="section-header">
+            <div>
+              <h1>${dictionary.chain.title}</h1>
+              <p>${dictionary.chain.body}</p>
+              ${personalChainPrompt ? `<p class="player-note">${personalChainPrompt}</p>` : ""}
+            </div>
+            <div class="stats-row">
+              <p class="stat-pill" id="chain-timer">${dictionary.common.timeLeft}: ${secondsLeft}s</p>
+              <p class="stat-pill" id="chain-score">${dictionary.common.score}: ${score}</p>
+            </div>
+          </header>
+          <section class="panel chain-brief">
+            <div><span>${dictionary.daily.target}</span><strong id="chain-word">${displayWord(currentWord)}</strong></div>
+            <div><span>${dictionary.chain.rule}</span><strong>${currentLastLetter}</strong></div>
+          </section>
+          <form class="game-form" id="chain-form">
+            <label for="chain-guess">${dictionary.chain.inputLabel}</label>
+            <input id="chain-guess" placeholder="${dictionary.chain.placeholder}" />
+            <button class="primary-button" type="submit">${dictionary.common.submit}</button>
+          </form>
+          <p class="feedback" id="chain-feedback">${statusText}</p>
+        </section>
+      `,
+        dictionary.home.chainHero,
+      );
+      bindLanguageSwitcher();
+      requestAnimationFrame(function () {
+        document.getElementById("chain-guess").focus();
+      });
+
+      document.getElementById("chain-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const input = document.getElementById("chain-guess");
+        const guess = normalizeWord(input.value);
+        const requiredStart = normalizeWord(currentWord.slice(-1));
+
+        if (!guess) {
+          statusText = dictionary.chain.rule;
+          syncChainUI();
+          return;
+        }
+        if (guess[0] !== requiredStart) {
+          pulseDevice([25]);
+          statusText = dictionary.chain.wrongStart;
+          syncChainUI();
+          return;
+        }
+        if (!pool.includes(guess)) {
+          pulseDevice([25]);
+          statusText = dictionary.chain.invalid;
+          syncChainUI();
+          return;
+        }
+        if (usedWords.has(guess)) {
+          pulseDevice([25]);
+          statusText = dictionary.chain.used;
+          syncChainUI();
+          return;
+        }
+
+        currentWord = guess;
+        usedWords.add(guess);
+        score += 1;
+        currentGuess = "";
+        statusText = dictionary.chain.nextWord;
+        const best = Math.max(Number(localStorage.getItem(bestKey) || "0"), score);
+        localStorage.setItem(bestKey, String(best));
+        saveLastPlayed("word-chain");
+        pulseDevice([12]);
+        syncChainUI();
+        input.focus();
+      });
+
+      document.getElementById("chain-guess").addEventListener("input", function (event) {
+        currentGuess = event.target.value;
+      });
+    }
+
+    function renderEnd() {
+      const best = Number(localStorage.getItem(bestKey) || "0");
+      app.innerHTML = layout(
+        `
+        <section class="panel end-card">
+          <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.chain.gameOver}` : dictionary.chain.gameOver}</h1>
+          <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
+          <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="primary-button" id="restart-chain">${dictionary.common.playAgain}</button>
+        </section>
+      `,
+        dictionary.home.chainHero,
+      );
+      bindLanguageSwitcher();
+      document.getElementById("restart-chain").addEventListener("click", renderWordChain);
+    }
+
+    drawShell();
+    intervalId = window.setInterval(function () {
+      secondsLeft -= 1;
+      if (secondsLeft <= 0) {
+        clearInterval(intervalId);
+        renderEnd();
+        return;
+      }
+      syncChainUI();
+    }, 1000);
+  }
+
+  function renderCategoryBlitz() {
+    const displayName = getDisplayName();
+    const personalCategoryPrompt = getPlayerPrompt(displayName, "typo");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
+    const bestKey = getScopedKey("word-game-category-best", currentLanguage);
+    const rounds = categoryRounds.slice(0, 10);
+    let roundIndex = 0;
+    let score = 0;
+
+    function draw() {
+      const round = rounds[roundIndex];
+      app.innerHTML = layout(
+        `
+        <section class="panel game-screen category-screen">
+          <header class="section-header">
+            <div>
+              <h1>${dictionary.category.title}</h1>
+              <p>${dictionary.category.body}</p>
+              ${personalCategoryPrompt ? `<p class="player-note">${personalCategoryPrompt}</p>` : ""}
+            </div>
+            <div class="stats-row">
+              <p class="stat-pill">${dictionary.common.question}: ${roundIndex + 1}/${rounds.length}</p>
+              <p class="stat-pill">${dictionary.common.score}: ${score}</p>
+            </div>
+          </header>
+          <p class="subtle">${dictionary.category.instruction}</p>
+          <section class="panel category-card">
+            <p class="card-kicker">${dictionary.common.question}</p>
+            <h2>${round.category}</h2>
+          </section>
+          <div class="option-grid">
+            ${round.options
+              .map((option) => `<button class="option-button" type="button" data-option="${option}">${option}</button>`)
+              .join("")}
+          </div>
+        </section>
+      `,
+        dictionary.home.categoryHero,
+      );
+      bindLanguageSwitcher();
+
+      app.querySelectorAll("[data-option]").forEach(function (button) {
+        button.addEventListener(
+          "click",
+          function () {
+            const selected = button.getAttribute("data-option");
+            const buttons = Array.from(app.querySelectorAll("[data-option]"));
+            buttons.forEach(function (item) {
+              const isTarget = item.getAttribute("data-option") === round.answer;
+              if (isTarget) {
+                item.classList.add("correct");
+              }
+              if (item === button && !isTarget) {
+                item.classList.add("wrong");
+              }
+              item.disabled = true;
+            });
+
+            if (selected === round.answer) {
+              score += 1;
+              const best = Math.max(Number(localStorage.getItem(bestKey) || "0"), score);
+              localStorage.setItem(bestKey, String(best));
+              pulseDevice([12]);
+            } else {
+              pulseDevice([25]);
+            }
+            saveLastPlayed("category-blitz");
+
+            const nextButton = document.createElement("button");
+            nextButton.className = "next-button";
+            nextButton.textContent = dictionary.category.next;
+            nextButton.addEventListener("click", function () {
+              roundIndex += 1;
+              if (roundIndex >= rounds.length) {
+                renderEnd();
+                return;
+              }
+              draw();
+            });
+            app.querySelector(".game-screen").appendChild(nextButton);
+          },
+          { once: true },
+        );
+      });
+    }
+
+    function renderEnd() {
+      const best = Number(localStorage.getItem(bestKey) || "0");
+      app.innerHTML = layout(
+        `
+        <section class="panel end-card">
+          <h1>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.category.gameOver}` : dictionary.category.gameOver}</h1>
+          <p>${dictionary.common.score}: ${score} | ${dictionary.common.best}: ${best}</p>
+          <aside class="ad-placeholder">${dictionary.common.adLabel}: ${dictionary.common.endScreen}</aside>
+          <button class="primary-button" id="restart-category">${dictionary.common.playAgain}</button>
+        </section>
+      `,
+        dictionary.home.categoryHero,
+      );
+      bindLanguageSwitcher();
+      document.getElementById("restart-category").addEventListener("click", renderCategoryBlitz);
+    }
+
+    draw();
+  }
+
   function renderPrivacy() {
     const pageContent = `
       <section class="panel game-screen privacy-screen">
@@ -1009,6 +1273,10 @@
       renderDailyLadder();
     } else if (currentPage === "word-scramble") {
       renderScramble();
+    } else if (currentPage === "word-chain") {
+      renderWordChain();
+    } else if (currentPage === "category-blitz") {
+      renderCategoryBlitz();
     } else if (currentPage === "privacy") {
       renderPrivacy();
     } else if (currentPage === "about") {

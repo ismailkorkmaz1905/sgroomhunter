@@ -12,7 +12,7 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 BASE_DIR = Path(__file__).resolve().parent
 SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
-SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"}
+SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "word-chain", "category-blitz", "privacy", "about", "terms"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
 
 
@@ -51,6 +51,22 @@ LADDERS = {
     "nl": load_json("data", "ladders", "nl.json"),
     "id": load_json("data", "ladders", "id.json"),
     "ms": load_json("data", "ladders", "ms.json"),
+}
+
+CHAINS = {
+    "en": load_json("data", "chains", "en.json"),
+    "tr": load_json("data", "chains", "tr.json"),
+    "nl": load_json("data", "chains", "nl.json"),
+    "id": load_json("data", "chains", "id.json"),
+    "ms": load_json("data", "chains", "ms.json"),
+}
+
+CATEGORIES = {
+    "en": load_json("data", "categories", "en.json"),
+    "tr": load_json("data", "categories", "tr.json"),
+    "nl": load_json("data", "categories", "nl.json"),
+    "id": load_json("data", "categories", "id.json"),
+    "ms": load_json("data", "categories", "ms.json"),
 }
 
 
@@ -455,6 +471,8 @@ def render_localized_page(lang: str, page: str = "home"):
         "daily-ladder": ("dailyTitle", "dailyDescription"),
         "word-scramble": ("scrambleTitle", "scrambleDescription"),
         "typo-hunt": ("typoTitle", "typoDescription"),
+        "word-chain": ("chainTitle", "chainDescription"),
+        "category-blitz": ("categoryTitle", "categoryDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
         "about": ("aboutTitle", "aboutDescription"),
         "terms": ("termsTitle", "termsDescription"),
@@ -474,6 +492,8 @@ def render_localized_page(lang: str, page: str = "home"):
             "words": WORDS,
             "typos": TYPOS,
             "ladders": LADDERS,
+            "chains": CHAINS,
+            "categories": CATEGORIES,
         },
     )
 
@@ -525,6 +545,8 @@ def create_app() -> Flask:
         for lang in sorted(SUPPORTED_LANGUAGES):
             urls.append(url_for("localized_page", lang=lang, _external=True))
             for page in ("daily-ladder", "word-scramble", "typo-hunt", "privacy", "about", "terms"):
+                urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
+            for page in ("word-chain", "category-blitz"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
         xml = render_template_string(
             """<?xml version="1.0" encoding="UTF-8"?>

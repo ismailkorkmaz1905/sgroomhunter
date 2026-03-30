@@ -1,0 +1,12 @@
+[
+  { "category": "Colors", "answer": "Blue", "options": ["Blue", "Table", "River", "Button"] },
+  { "category": "Fruits", "answer": "Grape", "options": ["Grape", "Canvas", "Rocket", "Thread"] },
+  { "category": "Devices", "answer": "Tablet", "options": ["Tablet", "Lantern", "Forest", "Cookie"] },
+  { "category": "Music", "answer": "Album", "options": ["Album", "Bridge", "Pillow", "Ticket"] },
+  { "category": "Internet", "answer": "Browser", "options": ["Browser", "Backpack", "Teapot", "Blanket"] },
+  { "category": "Weather", "answer": "Thunder", "options": ["Thunder", "Library", "Marker", "Window"] },
+  { "category": "Sports", "answer": "Goal", "options": ["Goal", "Cloud", "Candle", "Pocket"] },
+  { "category": "Kitchen", "answer": "Pan", "options": ["Pan", "Leaf", "Train", "Stone"] },
+  { "category": "Travel", "answer": "Ticket", "options": ["Ticket", "Velvet", "Melody", "Anchor"] },
+  { "category": "School", "answer": "Pencil", "options": ["Pencil", "Harbor", "Planet", "Garden"] }
+]

@@ -1,0 +1,12 @@
+[
+  { "category": "Renkler", "answer": "Mavi", "options": ["Mavi", "Masa", "Kanal", "Yorum"] },
+  { "category": "Meyveler", "answer": "Üzüm", "options": ["Üzüm", "Şerit", "Kadro", "Yayın"] },
+  { "category": "Cihazlar", "answer": "Tablet", "options": ["Tablet", "Köprü", "Doku", "Sahne"] },
+  { "category": "Müzik", "answer": "Albüm", "options": ["Albüm", "Bahçe", "Tren", "Filtre"] },
+  { "category": "İnternet", "answer": "Tarayıcı", "options": ["Tarayıcı", "Perde", "Yorgan", "Başlık"] },
+  { "category": "Hava", "answer": "Yağmur", "options": ["Yağmur", "Defter", "Akış", "Klip"] },
+  { "category": "Spor", "answer": "Gol", "options": ["Gol", "Düğme", "Kireç", "Bardak"] },
+  { "category": "Mutfak", "answer": "Tava", "options": ["Tava", "Yaprak", "Pencere", "Takip"] },
+  { "category": "Yolculuk", "answer": "Bilet", "options": ["Bilet", "Örtü", "Akşam", "Konu"] },
+  { "category": "Okul", "answer": "Kalem", "options": ["Kalem", "Kule", "Mizah", "Bağlantı"] }
+]

@@ -9,6 +9,10 @@
     "scrambleDescription": "Altmış saniye dolmadan olabildiğince çok kelimeyi düzelt.",
     "typoTitle": "Yazım Hatası Avı | WordSprint",
     "typoDescription": "On kısa tur boyunca yanlış yazılan kelimeyi bul.",
+    "chainTitle": "Kelime Zinciri | WordSprint",
+    "chainDescription": "Son harften yeni kelime türeterek zinciri sürdür.",
+    "categoryTitle": "Kategori Hızı | WordSprint",
+    "categoryDescription": "Her kategoride doğru kelimeyi hızla seç.",
     "privacyTitle": "Gizlilik | WordSprint",
     "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren.",
     "aboutTitle": "Hakkında | WordSprint",
@@ -20,7 +24,9 @@
     "home": "Ana Sayfa",
     "dailyWord": "Günlük Merdiven",
     "wordScramble": "Kelime Karıştırma",
-    "typoHunt": "Yazım Hatası Avı"
+    "typoHunt": "Yazım Hatası Avı",
+    "wordChain": "Kelime Zinciri",
+    "categoryBlitz": "Kategori Hızı"
   },
   "home": {
     "eyebrow": "Günün hızlı kelime seçkisi",
@@ -30,14 +36,18 @@
     "dailyBody": "Başlangıçtan hedefe, her adımda tek harf değiştirerek ilerle.",
     "scrambleBody": "Bir dakikada olabildiğince çok karışık kelimeyi çöz.",
     "typoBody": "Her kısa sette yanlış yazılan tek kelimeyi bul.",
+    "chainBody": "Son harfi yakala ve zinciri yeni kelimelerle sürdür.",
+    "categoryBody": "Kategoriye gerçekten uyan kelimeyi seç.",
     "metricsLanguages": "Dil",
     "metricsGames": "Oyun",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "3 aktif",
+    "metricsGamesValue": "5 aktif",
     "metricsSpeedValue": "Anında oyun",
     "dailyHero": "Günün merdiven bulmacası",
     "scrambleHero": "Bir dakikalık kelime yarışı",
-    "typoHero": "Hızlı yazım avı"
+    "typoHero": "Hızlı yazım avı",
+    "chainHero": "Son harften yeni zincir",
+    "categoryHero": "Hızlı kategori seçimi"
   },
   "common": {
     "score": "Puan",
@@ -135,5 +145,24 @@
     "instruction": "Yanlış yazılan kelimeye dokun.",
     "gameOver": "On sorunun tamamını bitirdin.",
     "next": "Sıradaki soru"
+  },
+  "chain": {
+    "title": "Kelime Zinciri",
+    "body": "Geçerli kelimeyi, mevcut kelimenin son harfiyle başlayan yeni bir kelimeyle sürdür.",
+    "inputLabel": "Sıradaki kelime",
+    "placeholder": "Geçerli bir kelime yaz",
+    "rule": "Zinciri son harften devam ettir.",
+    "used": "Bu kelimeyi bu zincirde zaten kullandın.",
+    "invalid": "Bu kelime bu turun listesinde yok.",
+    "wrongStart": "Kelimen son harfle başlamalı.",
+    "nextWord": "Güzel. Zincir sürüyor.",
+    "gameOver": "Süre doldu."
+  },
+  "category": {
+    "title": "Kategori Hızı",
+    "body": "Kategoriye uyan tek seçeneği bul.",
+    "instruction": "En uygun kelimeye dokun.",
+    "gameOver": "Tüm kategori turlarını tamamladın.",
+    "next": "Sıradaki tur"
   }
 }

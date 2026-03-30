@@ -9,6 +9,10 @@
     "scrambleDescription": "Ontwar zoveel mogelijk woorden voordat de minuut voorbij is.",
     "typoTitle": "Typojacht | WordSprint",
     "typoDescription": "Zoek het verkeerd gespelde woord in tien snelle rondes.",
+    "chainTitle": "Woordketting | WordSprint",
+    "chainDescription": "Houd de ketting gaande met een woord dat begint met de laatste letter.",
+    "categoryTitle": "Categorieflits | WordSprint",
+    "categoryDescription": "Kies snel het woord dat echt bij de categorie past.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses.",
     "aboutTitle": "Over | WordSprint",
@@ -20,7 +24,9 @@
     "home": "Start",
     "dailyWord": "Dagladder",
     "wordScramble": "Woordmix",
-    "typoHunt": "Typojacht"
+    "typoHunt": "Typojacht",
+    "wordChain": "Woordketting",
+    "categoryBlitz": "Categorieflits"
   },
   "home": {
     "eyebrow": "Snelle puzzels van vandaag",
@@ -30,14 +36,18 @@
     "dailyBody": "Ga van het ene woord naar het andere door steeds één letter te veranderen.",
     "scrambleBody": "Versla de klok in zestig seconden en los zoveel mogelijk gehusselde woorden op.",
     "typoBody": "Kies in elke korte set het ene fout gespelde woord.",
+    "chainBody": "Pak de laatste letter en houd de ketting in leven.",
+    "categoryBody": "Kies het woord dat echt bij de categorie hoort.",
     "metricsLanguages": "Talen",
     "metricsGames": "Spellen",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "3 live",
+    "metricsGamesValue": "5 live",
     "metricsSpeedValue": "Direct spel",
     "dailyHero": "Dagelijkse ladderuitdaging",
     "scrambleHero": "Woordmix van één minuut",
-    "typoHero": "Snelle typodetectie"
+    "typoHero": "Snelle typodetectie",
+    "chainHero": "Woordketting op tempo",
+    "categoryHero": "Snelle categoriekeuze"
   },
   "common": {
     "score": "Score",
@@ -135,5 +145,24 @@
     "instruction": "Tik op het foute woord.",
     "gameOver": "Je hebt alle tien vragen afgerond.",
     "next": "Volgende vraag"
+  },
+  "chain": {
+    "title": "Woordketting",
+    "body": "Typ een nieuw woord dat begint met de laatste letter van het huidige woord.",
+    "inputLabel": "Jouw volgende woord",
+    "placeholder": "Typ een geldig woord",
+    "rule": "Gebruik de laatste letter om de ketting door te zetten.",
+    "used": "Dat woord heb je al gebruikt in deze ketting.",
+    "invalid": "Dat woord zit niet in de lijst van deze ronde.",
+    "wrongStart": "Je woord moet beginnen met de laatste letter.",
+    "nextWord": "Netjes. De ketting loopt door.",
+    "gameOver": "De tijd is om."
+  },
+  "category": {
+    "title": "Categorieflits",
+    "body": "Kies de ene optie die bij de categorie past.",
+    "instruction": "Tik op de beste match.",
+    "gameOver": "Je hebt alle categorierondes afgerond.",
+    "next": "Volgende ronde"
   }
 }

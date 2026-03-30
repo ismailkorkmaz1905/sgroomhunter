@@ -1,0 +1,12 @@
+[
+  { "category": "Kleuren", "answer": "Blauw", "options": ["Blauw", "Tafel", "Kanaal", "Reactie"] },
+  { "category": "Fruit", "answer": "Druif", "options": ["Druif", "Sticker", "Bericht", "Trui"] },
+  { "category": "Apparaten", "answer": "Tablet", "options": ["Tablet", "Brug", "Thee", "Forum"] },
+  { "category": "Muziek", "answer": "Album", "options": ["Album", "Rugzak", "Lamp", "Verhaal"] },
+  { "category": "Internet", "answer": "Browser", "options": ["Browser", "Kussen", "Lepel", "Meme"] },
+  { "category": "Weer", "answer": "Regen", "options": ["Regen", "Kanaal", "Krant", "Delen"] },
+  { "category": "Sport", "answer": "Doelpunt", "options": ["Doelpunt", "Raam", "Beker", "Muziek"] },
+  { "category": "Keuken", "answer": "Pan", "options": ["Pan", "Tak", "Nieuws", "Trein"] },
+  { "category": "Reizen", "answer": "Ticket", "options": ["Ticket", "Sjaal", "Knop", "Inhoud"] },
+  { "category": "School", "answer": "Potlood", "options": ["Potlood", "Haven", "Viral", "Gesprek"] }
+]

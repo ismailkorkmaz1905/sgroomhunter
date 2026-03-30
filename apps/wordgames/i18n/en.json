@@ -9,6 +9,10 @@
     "scrambleDescription": "Unscramble as many words as you can before the sixty-second timer runs out.",
     "typoTitle": "Typo Hunt | WordSprint",
     "typoDescription": "Spot the misspelled word across ten quick rounds.",
+    "chainTitle": "Word Chain | WordSprint",
+    "chainDescription": "Keep the chain alive by entering a word that starts with the final letter.",
+    "categoryTitle": "Category Blitz | WordSprint",
+    "categoryDescription": "Pick the matching word for each category before the round ends.",
     "privacyTitle": "Privacy | WordSprint",
     "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
     "aboutTitle": "About | WordSprint",
@@ -20,7 +24,9 @@
     "home": "Home",
     "dailyWord": "Daily Ladder",
     "wordScramble": "Word Scramble",
-    "typoHunt": "Typo Hunt"
+    "typoHunt": "Typo Hunt",
+    "wordChain": "Word Chain",
+    "categoryBlitz": "Category Blitz"
   },
   "home": {
     "eyebrow": "Quick daily puzzle set",
@@ -30,14 +36,18 @@
     "dailyBody": "Move from one word to another by changing one letter at a time.",
     "scrambleBody": "Race the clock for one minute and solve as many mixed-up words as you can.",
     "typoBody": "Find the one misspelled option in each quick set.",
+    "chainBody": "Keep a live word chain going by matching the final letter.",
+    "categoryBody": "Pick the word that actually fits the category.",
     "metricsLanguages": "Languages",
     "metricsGames": "Games",
     "metricsSpeed": "Speed",
-    "metricsGamesValue": "3 live",
+    "metricsGamesValue": "5 live",
     "metricsSpeedValue": "Instant play",
     "dailyHero": "Daily ladder challenge",
     "scrambleHero": "One-minute scramble sprint",
-    "typoHero": "Fast typo detection"
+    "typoHero": "Fast typo detection",
+    "chainHero": "Last-letter word chain",
+    "categoryHero": "Quick category picks"
   },
   "common": {
     "score": "Score",
@@ -135,5 +145,24 @@
     "instruction": "Tap the incorrect word.",
     "gameOver": "You finished all ten questions.",
     "next": "Next question"
+  },
+  "chain": {
+    "title": "Word Chain",
+    "body": "Type a new word that starts with the last letter of the current word.",
+    "inputLabel": "Your next word",
+    "placeholder": "Type a valid word",
+    "rule": "Use the final letter to keep the chain alive.",
+    "used": "That word is already in this chain.",
+    "invalid": "That word is not in this round's list.",
+    "wrongStart": "Your word has to begin with the final letter.",
+    "nextWord": "Nice. Chain keeps going.",
+    "gameOver": "Time is up."
+  },
+  "category": {
+    "title": "Category Blitz",
+    "body": "Pick the one option that matches the category.",
+    "instruction": "Tap the best match.",
+    "gameOver": "You finished all category rounds.",
+    "next": "Next round"
   }
 }

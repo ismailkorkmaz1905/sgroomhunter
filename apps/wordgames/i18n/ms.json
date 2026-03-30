@@ -9,6 +9,10 @@
     "scrambleDescription": "Susun semula sebanyak mungkin perkataan sebelum masa enam puluh saat tamat.",
     "typoTitle": "Cari Salah Eja | WordSprint",
     "typoDescription": "Cari perkataan yang salah ejaan dalam sepuluh pusingan pantas.",
+    "chainTitle": "Rantai Kata | WordSprint",
+    "chainDescription": "Teruskan rantai dengan perkataan baharu yang bermula dengan huruf terakhir.",
+    "categoryTitle": "Kilat Kategori | WordSprint",
+    "categoryDescription": "Pilih perkataan yang betul-betul sesuai dengan kategorinya.",
     "privacyTitle": "Privasi | WordSprint",
     "privacyDescription": "Cara WordSprint mengendalikan analitik penggunaan tanpa nama yang sangat terhad.",
     "aboutTitle": "Tentang | WordSprint",
@@ -20,7 +24,9 @@
     "home": "Utama",
     "dailyWord": "Tangga Kata Harian",
     "wordScramble": "Susun Kata",
-    "typoHunt": "Cari Salah Eja"
+    "typoHunt": "Cari Salah Eja",
+    "wordChain": "Rantai Kata",
+    "categoryBlitz": "Kilat Kategori"
   },
   "home": {
     "eyebrow": "Set puzzle harian yang ringkas",
@@ -30,14 +36,18 @@
     "dailyBody": "Bergerak dari satu kata ke kata lain dengan menukar satu huruf setiap langkah.",
     "scrambleBody": "Lawan masa selama seminit dan selesaikan sebanyak mungkin perkataan yang diacak.",
     "typoBody": "Cari satu pilihan yang salah ejaan dalam setiap set ringkas.",
+    "chainBody": "Sambung huruf terakhir dan teruskan rantai perkataan secepat mungkin.",
+    "categoryBody": "Pilih perkataan yang benar-benar sesuai dengan kategori yang diberi.",
     "metricsLanguages": "Bahasa",
     "metricsGames": "Permainan",
     "metricsSpeed": "Rentak",
-    "metricsGamesValue": "3 aktif",
+    "metricsGamesValue": "5 aktif",
     "metricsSpeedValue": "Main segera",
     "dailyHero": "Cabaran ladder harian",
     "scrambleHero": "Sprint scramble seminit",
-    "typoHero": "Kesan typo dengan cepat"
+    "typoHero": "Kesan typo dengan cepat",
+    "chainHero": "Rantai kata pantas",
+    "categoryHero": "Pilihan kategori kilat"
   },
   "common": {
     "score": "Skor",
@@ -135,5 +145,24 @@
     "instruction": "Tekan perkataan yang salah.",
     "gameOver": "Anda sudah habiskan kesemua sepuluh soalan.",
     "next": "Soalan seterusnya"
+  },
+  "chain": {
+    "title": "Rantai Kata",
+    "body": "Taip perkataan baharu yang bermula dengan huruf terakhir daripada perkataan semasa.",
+    "inputLabel": "Perkataan seterusnya",
+    "placeholder": "Taip perkataan yang sah",
+    "rule": "Gunakan huruf terakhir untuk memastikan rantai terus berjalan.",
+    "used": "Perkataan itu sudah digunakan dalam rantai ini.",
+    "invalid": "Perkataan itu tiada dalam senarai pusingan ini.",
+    "wrongStart": "Perkataan anda mesti bermula dengan huruf terakhir.",
+    "nextWord": "Bagus. Rantai masih berjalan.",
+    "gameOver": "Masa tamat."
+  },
+  "category": {
+    "title": "Kilat Kategori",
+    "body": "Pilih satu pilihan yang benar-benar sesuai dengan kategorinya.",
+    "instruction": "Tekan padanan terbaik.",
+    "gameOver": "Semua pusingan kategori sudah selesai.",
+    "next": "Pusingan seterusnya"
   }
 }

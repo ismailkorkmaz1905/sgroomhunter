@@ -1,0 +1,12 @@
+[
+  { "category": "Warna", "answer": "Biru", "options": ["Biru", "Meja", "Tagar", "Cerita"] },
+  { "category": "Buah", "answer": "Anggur", "options": ["Anggur", "Sorotan", "Kanal", "Forum"] },
+  { "category": "Perangkat", "answer": "Tablet", "options": ["Tablet", "Lampu", "Balasan", "Obrolan"] },
+  { "category": "Musik", "answer": "Album", "options": ["Album", "Jendela", "Meme", "Tautan"] },
+  { "category": "Internet", "answer": "Peramban", "options": ["Peramban", "Selimut", "Kursi", "Konten"] },
+  { "category": "Cuaca", "answer": "Hujan", "options": ["Hujan", "Komentar", "Kipas", "Beranda"] },
+  { "category": "Olahraga", "answer": "Gol", "options": ["Gol", "Tiket", "Gelas", "Video"] },
+  { "category": "Dapur", "answer": "Wajan", "options": ["Wajan", "Daun", "Unggah", "Trend"] },
+  { "category": "Perjalanan", "answer": "Tiket", "options": ["Tiket", "Bantal", "Emoji", "Forum"] },
+  { "category": "Sekolah", "answer": "Pensil", "options": ["Pensil", "Tagar", "Kanal", "Cuplikan"] }
+]
