@@ -10,7 +10,9 @@
     "typoTitle": "Typo Hunt | WordSprint",
     "typoDescription": "Spot the misspelled word across ten quick rounds.",
     "privacyTitle": "Privacy | WordSprint",
-    "privacyDescription": "How WordSprint handles limited anonymous usage analytics."
+    "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
+    "aboutTitle": "About | WordSprint",
+    "aboutDescription": "About WordSprint and how to contact the creator."
   },
   "nav": {
     "home": "Home",
@@ -51,7 +53,15 @@
     "endScreen": "Game end screen",
     "best": "Best",
     "backHome": "Back home",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "about": "About"
+  },
+  "about": {
+    "title": "About WordSprint",
+    "intro": "WordSprint is a lightweight multilingual word game project focused on quick daily play across devices.",
+    "contactLabel": "Contact",
+    "contactBody": "If you want to share feedback, report a bug, or talk about the project, you can reach the creator here.",
+    "emailLabel": "Email"
   },
   "privacy": {
     "title": "Privacy",

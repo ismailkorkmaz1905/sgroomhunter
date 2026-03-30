@@ -128,6 +128,7 @@
       "word-scramble": ["scrambleTitle", "scrambleDescription"],
       "typo-hunt": ["typoTitle", "typoDescription"],
       privacy: ["privacyTitle", "privacyDescription"],
+      about: ["aboutTitle", "aboutDescription"],
     };
     const [titleKey, descriptionKey] = seoMap[page];
     document.title = dictionary.seo[titleKey];
@@ -205,6 +206,7 @@
             ${content}
             <footer class="panel site-footer">
               <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
+              <a href="${pathFor(currentLanguage, "about")}">${dictionary.common.about}</a>
             </footer>
           </main>
           <aside class="ad-placeholder sidebar-ad">${dictionary.common.adLabel}: ${dictionary.common.sidebar}</aside>
@@ -686,6 +688,29 @@
     bindLanguageSwitcher();
   }
 
+  function renderAbout() {
+    app.innerHTML = layout(
+      `
+      <section class="panel game-screen about-screen">
+        <header class="section-header">
+          <div>
+            <h1>${dictionary.about.title}</h1>
+            <p>${dictionary.about.intro}</p>
+          </div>
+        </header>
+        <section class="panel about-card">
+          <p class="card-kicker">${dictionary.about.contactLabel}</p>
+          <p>${dictionary.about.contactBody}</p>
+          <a class="cta-link" href="mailto:ismailkorkmaz490@gmail.com">${dictionary.about.emailLabel}: ismailkorkmaz490@gmail.com</a>
+        </section>
+        <a class="cta-link" href="${pathFor(currentLanguage, "home")}">${dictionary.common.backHome}</a>
+      </section>
+    `,
+      dictionary.common.about,
+    );
+    bindLanguageSwitcher();
+  }
+
   function bindLanguageSwitcher() {
     app.querySelectorAll("[data-lang]").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -712,6 +737,8 @@
       renderScramble();
     } else if (currentPage === "privacy") {
       renderPrivacy();
+    } else if (currentPage === "about") {
+      renderAbout();
     } else {
       renderTypoHunt();
     }

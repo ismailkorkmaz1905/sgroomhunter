@@ -10,7 +10,9 @@
     "typoTitle": "Typojacht | WordSprint",
     "typoDescription": "Zoek het verkeerd gespelde woord in tien snelle rondes.",
     "privacyTitle": "Privacy | WordSprint",
-    "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses."
+    "privacyDescription": "Zo gaat WordSprint om met beperkte anonieme gebruiksanalyses.",
+    "aboutTitle": "Over | WordSprint",
+    "aboutDescription": "Meer over WordSprint en contact met de maker."
   },
   "nav": {
     "home": "Start",
@@ -51,7 +53,15 @@
     "endScreen": "Eindscherm",
     "best": "Beste",
     "backHome": "Terug naar start",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "about": "Over"
+  },
+  "about": {
+    "title": "Over WordSprint",
+    "intro": "WordSprint is een lichte meertalige woordspel-app die is gebouwd voor snelle dagelijkse speelsessies op verschillende apparaten.",
+    "contactLabel": "Contact",
+    "contactBody": "Wil je feedback delen, een bug melden of contact opnemen over het project, dan kan dat hier.",
+    "emailLabel": "E-mail"
   },
   "privacy": {
     "title": "Privacy",

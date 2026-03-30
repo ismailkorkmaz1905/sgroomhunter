@@ -12,7 +12,7 @@ from flask import Flask, Response, jsonify, redirect, render_template, render_te
 
 BASE_DIR = Path(__file__).resolve().parent
 SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id"}
-SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy"}
+SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "privacy", "about"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
 
 
@@ -401,6 +401,7 @@ def render_localized_page(lang: str, page: str = "home"):
         "word-scramble": ("scrambleTitle", "scrambleDescription"),
         "typo-hunt": ("typoTitle", "typoDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
+        "about": ("aboutTitle", "aboutDescription"),
     }
     title_key, description_key = seo_map[normalized_page]
 

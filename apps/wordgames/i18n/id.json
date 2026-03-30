@@ -10,7 +10,9 @@
     "typoTitle": "Buru Typo | WordSprint",
     "typoDescription": "Temukan kata yang salah eja dalam sepuluh ronde cepat.",
     "privacyTitle": "Privasi | WordSprint",
-    "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas."
+    "privacyDescription": "Begini cara WordSprint menangani analitik penggunaan anonim yang sangat terbatas.",
+    "aboutTitle": "Tentang | WordSprint",
+    "aboutDescription": "Tentang WordSprint dan cara menghubungi pembuatnya."
   },
   "nav": {
     "home": "Beranda",
@@ -51,7 +53,15 @@
     "endScreen": "Layar akhir",
     "best": "Terbaik",
     "backHome": "Kembali ke beranda",
-    "privacy": "Privasi"
+    "privacy": "Privasi",
+    "about": "Tentang"
+  },
+  "about": {
+    "title": "Tentang WordSprint",
+    "intro": "WordSprint adalah proyek game kata multibahasa yang ringan dan dirancang untuk sesi permainan harian yang cepat di berbagai perangkat.",
+    "contactLabel": "Kontak",
+    "contactBody": "Kalau kamu ingin memberi masukan, melaporkan bug, atau membahas proyek ini, kamu bisa menghubungi pembuatnya di sini.",
+    "emailLabel": "Email"
   },
   "privacy": {
     "title": "Privasi",

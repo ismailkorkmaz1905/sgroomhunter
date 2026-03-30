@@ -10,7 +10,9 @@
     "typoTitle": "Yazım Hatası Avı | WordSprint",
     "typoDescription": "On kısa tur boyunca yanlış yazılan kelimeyi bul.",
     "privacyTitle": "Gizlilik | WordSprint",
-    "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren."
+    "privacyDescription": "WordSprint'in sınırlı ve anonim kullanım analitiğini nasıl ele aldığını öğren.",
+    "aboutTitle": "Hakkında | WordSprint",
+    "aboutDescription": "WordSprint hakkında bilgi al ve geliştiriciyle iletişime geç."
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -51,7 +53,15 @@
     "endScreen": "Oyun sonu alanı",
     "best": "En iyi",
     "backHome": "Ana sayfaya dön",
-    "privacy": "Gizlilik"
+    "privacy": "Gizlilik",
+    "about": "Hakkında"
+  },
+  "about": {
+    "title": "WordSprint Hakkında",
+    "intro": "WordSprint, farklı cihazlarda hızlı günlük oyun deneyimi sunan hafif ve çok dilli bir kelime oyunu projesidir.",
+    "contactLabel": "İletişim",
+    "contactBody": "Geri bildirim vermek, hata bildirmek ya da proje hakkında yazmak istersen geliştiriciye buradan ulaşabilirsin.",
+    "emailLabel": "E-posta"
   },
   "privacy": {
     "title": "Gizlilik",

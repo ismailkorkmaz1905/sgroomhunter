@@ -325,10 +325,17 @@ button {
   margin-top: 16px;
   display: flex;
   justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .site-footer a {
   font-weight: 600;
+}
+
+.about-card {
+  display: grid;
+  gap: 14px;
 }
 
 .privacy-list {
