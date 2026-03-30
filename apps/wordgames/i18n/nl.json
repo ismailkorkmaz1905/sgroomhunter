@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Snelle woordspellen in vijf talen",
-    "homeDescription": "Speel zes snelle woordspellen direct in het Engels, Turks, Nederlands, Indonesisch en Maleis.",
+    "homeDescription": "Speel zeven snelle woordspellen direct in het Engels, Turks, Nederlands, Indonesisch en Maleis.",
     "dailyTitle": "Dagladder | WordSprint",
     "dailyDescription": "Ga van het startwoord naar het doelwoord door telkens één letter te veranderen.",
     "scrambleTitle": "Woordmix | WordSprint",
@@ -15,6 +15,8 @@
     "categoryDescription": "Kies snel het woord dat echt bij de categorie past.",
     "crosswordTitle": "Mini Kruiswoord | WordSprint",
     "crosswordDescription": "Vul een compacte kruiswoordraster met korte horizontale en verticale hints.",
+    "sudokuTitle": "Mini Sudoku | WordSprint",
+    "sudokuDescription": "Los een compacte 6x6-sudoku op met snelle moeilijkheidswissels en eindeloze nieuwe rondes.",
     "historyTitle": "Geschiedenis | WordSprint",
     "historyDescription": "Bekijk je recente rondes en beste lokale resultaten in WordSprint.",
     "privacyTitle": "Privacy | WordSprint",
@@ -31,7 +33,8 @@
     "typoHunt": "Typojacht",
     "wordChain": "Woordketting",
     "categoryBlitz": "Categorieflits",
-    "miniCrossword": "Mini Kruiswoord"
+    "miniCrossword": "Mini Kruiswoord",
+    "miniSudoku": "Mini Sudoku"
   },
   "home": {
     "eyebrow": "Snelle puzzels van vandaag",
@@ -44,17 +47,19 @@
     "chainBody": "Pak de laatste letter en houd de ketting in leven.",
     "categoryBody": "Kies het woord dat echt bij de categorie hoort.",
     "crosswordBody": "Vul een compacte raster in met korte horizontale en verticale hints.",
+    "sudokuBody": "Los een compacte 6x6-sudoku op en spring wanneer je wilt naar een nieuwe puzzel.",
     "metricsLanguages": "Talen",
     "metricsGames": "Spellen",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "6 live",
+    "metricsGamesValue": "7 live",
     "metricsSpeedValue": "Direct spel",
     "dailyHero": "Dagelijkse ladderuitdaging",
     "scrambleHero": "Woordmix van één minuut",
     "typoHero": "Snelle typodetectie",
     "chainHero": "Woordketting op tempo",
     "categoryHero": "Snelle categoriekeuze",
-    "crosswordHero": "Mini kruiswoordraster"
+    "crosswordHero": "Mini kruiswoordraster",
+    "sudokuHero": "Snelle 6x6-sudoku"
   },
   "common": {
     "score": "Score",
@@ -75,6 +80,10 @@
     "newRound": "Nieuwe ronde",
     "shareResult": "Resultaat delen",
     "shareCopied": "Resultaat is naar je klembord gekopieerd.",
+    "difficulty": "Moeilijkheid",
+    "easy": "Makkelijk",
+    "medium": "Gemiddeld",
+    "hard": "Moeilijk",
     "history": "Geschiedenis",
     "privacy": "Privacy",
     "terms": "Voorwaarden",
@@ -197,5 +206,15 @@
     "next": "Volgend kruiswoord",
     "complete": "Raster compleet. Mooi opgelost.",
     "progress": "Gevulde vakjes"
+  },
+  "sudoku": {
+    "title": "Mini Sudoku",
+    "body": "Vul het 6x6-raster zodat elke rij, kolom en box de cijfers 1 tot 6 precies één keer bevat.",
+    "instruction": "Tik op een vakje, vul een cijfer van 1 tot 6 in en controleer daarna het bord.",
+    "check": "Bord controleren",
+    "reveal": "Eén vakje tonen",
+    "clear": "Gissingen wissen",
+    "complete": "Bord compleet. Strakke solve.",
+    "progress": "Gevuld"
   }
 }

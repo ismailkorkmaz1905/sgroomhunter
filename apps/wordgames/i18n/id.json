@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Game kata cepat dalam lima bahasa",
-    "homeDescription": "Mainkan enam game kata cepat secara instan dalam bahasa Inggris, Turki, Belanda, Indonesia, dan Melayu.",
+    "homeDescription": "Mainkan tujuh game kata cepat secara instan dalam bahasa Inggris, Turki, Belanda, Indonesia, dan Melayu.",
     "dailyTitle": "Tangga Harian | WordSprint",
     "dailyDescription": "Capai kata target dari kata awal dengan mengubah satu huruf di setiap langkah.",
     "scrambleTitle": "Acak Kata | WordSprint",
@@ -15,6 +15,8 @@
     "categoryDescription": "Pilih kata yang benar-benar cocok dengan kategorinya.",
     "crosswordTitle": "TTS Mini | WordSprint",
     "crosswordDescription": "Isi kotak silang ringkas dengan petunjuk mendatar dan menurun yang singkat.",
+    "sudokuTitle": "Sudoku Mini | WordSprint",
+    "sudokuDescription": "Selesaikan sudoku 6x6 ringkas dengan pindah tingkat kesulitan dan papan baru kapan saja.",
     "historyTitle": "Riwayat | WordSprint",
     "historyDescription": "Lihat ronde terakhirmu dan hasil lokal terbaik di WordSprint.",
     "privacyTitle": "Privasi | WordSprint",
@@ -31,7 +33,8 @@
     "typoHunt": "Cari Salah Eja",
     "wordChain": "Rantai Kata",
     "categoryBlitz": "Kilat Kategori",
-    "miniCrossword": "TTS Mini"
+    "miniCrossword": "TTS Mini",
+    "miniSudoku": "Sudoku Mini"
   },
   "home": {
     "eyebrow": "Paket puzzle cepat hari ini",
@@ -44,17 +47,19 @@
     "chainBody": "Tangkap huruf terakhir dan lanjutkan rantai kata secepat mungkin.",
     "categoryBody": "Pilih kata yang memang cocok dengan kategori yang muncul.",
     "crosswordBody": "Isi kotak ringkas dari petunjuk mendatar dan menurun yang pendek.",
+    "sudokuBody": "Selesaikan sudoku 6x6 ringkas dan ganti ke papan baru kapan saja.",
     "metricsLanguages": "Bahasa",
     "metricsGames": "Game",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "6 aktif",
+    "metricsGamesValue": "7 aktif",
     "metricsSpeedValue": "Main instan",
     "dailyHero": "Tantangan tangga harian",
     "scrambleHero": "Sprint acak kata satu menit",
     "typoHero": "Deteksi salah eja cepat",
     "chainHero": "Rantai kata cepat",
     "categoryHero": "Pilihan kategori kilat",
-    "crosswordHero": "Kotak TTS mini"
+    "crosswordHero": "Kotak TTS mini",
+    "sudokuHero": "Sudoku 6x6 cepat"
   },
   "common": {
     "score": "Skor",
@@ -75,6 +80,10 @@
     "newRound": "Ronde baru",
     "shareResult": "Bagikan hasil",
     "shareCopied": "Hasil sudah disalin ke clipboard.",
+    "difficulty": "Tingkat",
+    "easy": "Mudah",
+    "medium": "Sedang",
+    "hard": "Sulit",
     "history": "Riwayat",
     "privacy": "Privasi",
     "terms": "Ketentuan",
@@ -197,5 +206,15 @@
     "next": "TTS berikutnya",
     "complete": "Grid selesai. Rapi banget.",
     "progress": "Kotak terisi"
+  },
+  "sudoku": {
+    "title": "Sudoku Mini",
+    "body": "Isi papan 6x6 supaya setiap baris, kolom, dan kotak berisi angka 1 sampai 6 satu kali.",
+    "instruction": "Ketuk sel, isi angka 1 sampai 6, lalu cek papan.",
+    "check": "Cek papan",
+    "reveal": "Buka satu sel",
+    "clear": "Bersihkan tebakan",
+    "complete": "Papan selesai. Rapi sekali.",
+    "progress": "Terisi"
   }
 }

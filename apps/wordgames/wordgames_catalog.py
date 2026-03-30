@@ -14,6 +14,7 @@ SUPPORTED_PAGES = {
     "word-chain",
     "category-blitz",
     "mini-crossword",
+    "mini-sudoku",
     "history",
     "privacy",
     "about",
@@ -61,5 +62,10 @@ CATEGORIES = {
 
 CROSSWORDS = {
     language: load_json("data", "crosswords", f"{language}.json")
+    for language in SUPPORTED_LANGUAGES
+}
+
+SUDOKUS = {
+    language: load_json("data", "sudokus", f"{language}.json")
     for language in SUPPORTED_LANGUAGES
 }

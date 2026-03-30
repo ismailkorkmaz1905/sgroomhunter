@@ -116,6 +116,56 @@ def validate_crossword_pool(language: str, puzzles: list[dict]) -> None:
                 occupied[(current_row, current_col)] = letter
 
 
+def validate_sudoku_pool(language: str, puzzles: list[dict]) -> None:
+    if not puzzles:
+        raise ValueError(f"{language} sudoku pool is empty")
+
+    valid_digits = {"1", "2", "3", "4", "5", "6"}
+    for puzzle_index, puzzle in enumerate(puzzles, start=1):
+        size = int(puzzle.get("size", 0))
+        box_rows = int(puzzle.get("boxRows", 0))
+        box_cols = int(puzzle.get("boxCols", 0))
+        givens = puzzle.get("givens", [])
+        solution = puzzle.get("solution", [])
+        difficulty = str(puzzle.get("difficulty", "")).strip().lower()
+
+        if size != 6 or box_rows != 2 or box_cols != 3:
+            raise ValueError(f"{language} sudoku #{puzzle_index} must be 6x6 with 2x3 boxes")
+        if difficulty not in {"easy", "medium", "hard"}:
+            raise ValueError(f"{language} sudoku #{puzzle_index} has an invalid difficulty")
+        if len(givens) != size or len(solution) != size:
+            raise ValueError(f"{language} sudoku #{puzzle_index} has the wrong row count")
+
+        for row_index, (given_row, solution_row) in enumerate(zip(givens, solution), start=1):
+            if len(given_row) != size or len(solution_row) != size:
+                raise ValueError(f"{language} sudoku #{puzzle_index} row #{row_index} has the wrong length")
+            given_values = [str(value) if value is not None else "" for value in given_row]
+            solution_values = [str(value) for value in solution_row]
+
+            if set(solution_values) != valid_digits:
+                raise ValueError(f"{language} sudoku #{puzzle_index} row #{row_index} solution is invalid")
+            for given_value, solution_value in zip(given_values, solution_values):
+                if given_value not in {"", "0"} | valid_digits:
+                    raise ValueError(f"{language} sudoku #{puzzle_index} has an invalid given")
+                if given_value not in {"", "0"} and given_value != solution_value:
+                    raise ValueError(f"{language} sudoku #{puzzle_index} givens do not match solution")
+
+        for col in range(size):
+            column_values = {str(solution[row][col]) for row in range(size)}
+            if column_values != valid_digits:
+                raise ValueError(f"{language} sudoku #{puzzle_index} column #{col + 1} is invalid")
+
+        for start_row in range(0, size, box_rows):
+            for start_col in range(0, size, box_cols):
+                box_values = {
+                    str(solution[row][col])
+                    for row in range(start_row, start_row + box_rows)
+                    for col in range(start_col, start_col + box_cols)
+                }
+                if box_values != valid_digits:
+                    raise ValueError(f"{language} sudoku #{puzzle_index} has an invalid box")
+
+
 def validate_all_datasets(
     words_by_language: dict[str, list[str]],
     typos_by_language: dict[str, list[dict]],
@@ -123,6 +173,7 @@ def validate_all_datasets(
     chains_by_language: dict[str, list[str]],
     categories_by_language: dict[str, list[dict]],
     crosswords_by_language: dict[str, list[dict]],
+    sudokus_by_language: dict[str, list[dict]],
 ) -> None:
     for language, words in words_by_language.items():
         validate_word_pool(language, words)
@@ -136,3 +187,5 @@ def validate_all_datasets(
         validate_category_pool(language, categories)
     for language, puzzles in crosswords_by_language.items():
         validate_crossword_pool(language, puzzles)
+    for language, puzzles in sudokus_by_language.items():
+        validate_sudoku_pool(language, puzzles)

@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Beş dilde hızlı kelime oyunları",
-    "homeDescription": "Altı hızlı kelime oyununu Türkçe, İngilizce, Hollandaca, Endonezce ve Malayca olarak anında oyna.",
+    "homeDescription": "Yedi hızlı kelime oyununu Türkçe, İngilizce, Hollandaca, Endonezce ve Malayca olarak anında oyna.",
     "dailyTitle": "Günlük Merdiven | WordSprint",
     "dailyDescription": "Başlangıç kelimesinden hedefe, her adımda tek harf değiştirerek ulaş.",
     "scrambleTitle": "Kelime Karıştırma | WordSprint",
@@ -15,6 +15,8 @@
     "categoryDescription": "Her kategoride doğru kelimeyi hızla seç.",
     "crosswordTitle": "Mini Çengel | WordSprint",
     "crosswordDescription": "Kısa yatay ve dikey ipuçlarıyla küçük bir çengel bulmaca çöz.",
+    "sudokuTitle": "Mini Sudoku | WordSprint",
+    "sudokuDescription": "Zorluk değiştirip durmadan yeni tur açabileceğin kompakt bir 6x6 sudoku çöz.",
     "historyTitle": "Geçmiş | WordSprint",
     "historyDescription": "WordSprint oyunlarında bu cihazdaki son turlarını ve en iyi sonuçlarını gör.",
     "privacyTitle": "Gizlilik | WordSprint",
@@ -31,7 +33,8 @@
     "typoHunt": "Yazım Hatası Avı",
     "wordChain": "Kelime Zinciri",
     "categoryBlitz": "Kategori Hızı",
-    "miniCrossword": "Mini Çengel"
+    "miniCrossword": "Mini Çengel",
+    "miniSudoku": "Mini Sudoku"
   },
   "home": {
     "eyebrow": "Günün hızlı kelime seçkisi",
@@ -44,17 +47,19 @@
     "chainBody": "Son harfi yakala ve zinciri yeni kelimelerle sürdür.",
     "categoryBody": "Kategoriye gerçekten uyan kelimeyi seç.",
     "crosswordBody": "Kısa yatay ve dikey ipuçlarından küçük ızgarayı doldur.",
+    "sudokuBody": "Kompakt bir 6x6 sudoku çöz ve istediğin an yeni tahtaya geç.",
     "metricsLanguages": "Dil",
     "metricsGames": "Oyun",
     "metricsSpeed": "Tempo",
-    "metricsGamesValue": "6 aktif",
+    "metricsGamesValue": "7 aktif",
     "metricsSpeedValue": "Anında oyun",
     "dailyHero": "Günün merdiven bulmacası",
     "scrambleHero": "Bir dakikalık kelime yarışı",
     "typoHero": "Hızlı yazım avı",
     "chainHero": "Son harften yeni zincir",
     "categoryHero": "Hızlı kategori seçimi",
-    "crosswordHero": "Mini çengel bulmaca"
+    "crosswordHero": "Mini çengel bulmaca",
+    "sudokuHero": "Hızlı 6x6 sudoku"
   },
   "common": {
     "score": "Puan",
@@ -75,6 +80,10 @@
     "newRound": "Yeni tur",
     "shareResult": "Sonucu paylaş",
     "shareCopied": "Sonuç panoya kopyalandı.",
+    "difficulty": "Zorluk",
+    "easy": "Kolay",
+    "medium": "Orta",
+    "hard": "Zor",
     "history": "Geçmiş",
     "privacy": "Gizlilik",
     "terms": "Koşullar",
@@ -197,5 +206,15 @@
     "next": "Sıradaki bulmaca",
     "complete": "Bulmaca tamam. Güzel çözdün.",
     "progress": "Dolu kutu"
+  },
+  "sudoku": {
+    "title": "Mini Sudoku",
+    "body": "6x6 tahtayı öyle doldur ki her satır, sütun ve kutuda 1’den 6’ya kadar sayılar birer kez geçsin.",
+    "instruction": "Bir kutuya dokun, 1 ile 6 arasında sayı yaz, sonra tahtayı kontrol et.",
+    "check": "Tahtayı kontrol et",
+    "reveal": "Bir kutu aç",
+    "clear": "Tahminleri temizle",
+    "complete": "Tahta tamam. Temiz çözdün.",
+    "progress": "Dolu"
   }
 }

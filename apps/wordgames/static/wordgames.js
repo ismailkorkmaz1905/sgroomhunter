@@ -8,6 +8,7 @@
   const chainWords = payload.chains;
   const categoryRounds = payload.categories;
   const crosswordPuzzles = payload.crosswords;
+  const sudokuPuzzles = payload.sudokus;
   const appVersion = payload.version || "local";
   const app = document.getElementById("app");
   const availableLanguages = payload.availableLanguages || [currentLanguage];
@@ -16,6 +17,7 @@
 
   const DAILY_EPOCH = Date.UTC(2026, 0, 1);
   const TYPO_QUESTIONS = 10;
+  const SUDOKU_SYMBOLS = ["1", "2", "3", "4", "5", "6"];
 
   function getScopedKey(base, language) {
     return `${base}-${language}`;
@@ -72,21 +74,77 @@
   }
 
   function getActiveCrossword(language) {
-    const pool = payload.crosswords;
+    const difficulty = getCrosswordDifficultySetting(language);
+    const filteredPool = crosswordPuzzles.filter(function (puzzle) {
+      return getCrosswordDifficulty(puzzle) === difficulty;
+    });
+    const pool = filteredPool.length ? filteredPool : crosswordPuzzles;
     const baseIndex = getDailyIndex(new Date(), pool.length);
-    const offset = Number(sessionStorage.getItem(getSessionKey("word-game-crossword-offset", language)) || "0");
+    const offset = Number(sessionStorage.getItem(getSessionKey(`word-game-crossword-offset-${difficulty}`, language)) || "0");
     const activeIndex = (baseIndex + offset) % pool.length;
     return {
       puzzle: pool[activeIndex],
       activeIndex,
       hasNext: pool.length > 1,
+      difficulty,
     };
   }
 
   function switchActiveCrossword(language) {
-    const key = getSessionKey("word-game-crossword-offset", language);
+    const difficulty = getCrosswordDifficultySetting(language);
+    const key = getSessionKey(`word-game-crossword-offset-${difficulty}`, language);
     const currentOffset = Number(sessionStorage.getItem(key) || "0");
     sessionStorage.setItem(key, String(currentOffset + 1));
+  }
+
+  function getCrosswordDifficulty(puzzle) {
+    if (puzzle.size <= 3) {
+      return "easy";
+    }
+    if (puzzle.size === 4) {
+      return "medium";
+    }
+    return "hard";
+  }
+
+  function getCrosswordDifficultySetting(language) {
+    return sessionStorage.getItem(getScopedKey("word-game-crossword-difficulty", language)) || "medium";
+  }
+
+  function setCrosswordDifficultySetting(language, difficulty) {
+    sessionStorage.setItem(getScopedKey("word-game-crossword-difficulty", language), difficulty);
+  }
+
+  function getActiveSudoku(language) {
+    const difficulty = getSudokuDifficultySetting(language);
+    const filteredPool = sudokuPuzzles.filter(function (puzzle) {
+      return puzzle.difficulty === difficulty;
+    });
+    const pool = filteredPool.length ? filteredPool : sudokuPuzzles;
+    const baseIndex = getDailyIndex(new Date(), pool.length);
+    const offset = Number(sessionStorage.getItem(getSessionKey(`word-game-sudoku-offset-${difficulty}`, language)) || "0");
+    const activeIndex = (baseIndex + offset) % pool.length;
+    return {
+      puzzle: pool[activeIndex],
+      activeIndex,
+      hasNext: pool.length > 1,
+      difficulty,
+    };
+  }
+
+  function switchActiveSudoku(language) {
+    const difficulty = getSudokuDifficultySetting(language);
+    const key = getSessionKey(`word-game-sudoku-offset-${difficulty}`, language);
+    const currentOffset = Number(sessionStorage.getItem(key) || "0");
+    sessionStorage.setItem(key, String(currentOffset + 1));
+  }
+
+  function getSudokuDifficultySetting(language) {
+    return sessionStorage.getItem(getScopedKey("word-game-sudoku-difficulty", language)) || "medium";
+  }
+
+  function setSudokuDifficultySetting(language, difficulty) {
+    sessionStorage.setItem(getScopedKey("word-game-sudoku-difficulty", language), difficulty);
   }
 
   function shuffleWord(word) {
@@ -385,6 +443,7 @@
       "word-chain": ["chainTitle", "chainDescription"],
         "category-blitz": ["categoryTitle", "categoryDescription"],
         "mini-crossword": ["crosswordTitle", "crosswordDescription"],
+        "mini-sudoku": ["sudokuTitle", "sudokuDescription"],
         history: ["historyTitle", "historyDescription"],
         privacy: ["privacyTitle", "privacyDescription"],
       about: ["aboutTitle", "aboutDescription"],
@@ -414,17 +473,32 @@
     `;
   }
 
+  function difficultyChips(currentValue, onPrefix) {
+    const levels = ["easy", "medium", "hard"];
+    return `
+      <div class="difficulty-row">
+        ${levels
+          .map(function (level) {
+            const active = currentValue === level ? "active" : "";
+            return `<button class="difficulty-chip ${active}" type="button" data-${onPrefix}-difficulty="${level}">${dictionary.common[level]}</button>`;
+          })
+          .join("")}
+      </div>
+    `;
+  }
+
   function layout(content, heroNote, options) {
     const config = options || {};
     const navItems = [
       ["home", dictionary.nav.home],
       ["daily-ladder", dictionary.nav.dailyWord],
+      ["mini-crossword", dictionary.nav.miniCrossword],
+      ["mini-sudoku", dictionary.nav.miniSudoku],
       ["word-scramble", dictionary.nav.wordScramble],
-        ["typo-hunt", dictionary.nav.typoHunt],
-        ["word-chain", dictionary.nav.wordChain],
-        ["category-blitz", dictionary.nav.categoryBlitz],
-        ["mini-crossword", dictionary.nav.miniCrossword],
-      ];
+      ["typo-hunt", dictionary.nav.typoHunt],
+      ["word-chain", dictionary.nav.wordChain],
+      ["category-blitz", dictionary.nav.categoryBlitz],
+    ];
 
     return `
       <div class="shell">
@@ -497,11 +571,12 @@
       `
       <section class="game-grid">
         ${card(dictionary.nav.dailyWord, dictionary.home.dailyBody, pathFor(currentLanguage, "daily-ladder"), "card-ladder")}
+        ${card(dictionary.nav.miniCrossword, dictionary.home.crosswordBody, pathFor(currentLanguage, "mini-crossword"), "card-crossword")}
+        ${card(dictionary.nav.miniSudoku, dictionary.home.sudokuBody, pathFor(currentLanguage, "mini-sudoku"), "card-crossword")}
         ${card(dictionary.nav.wordScramble, dictionary.home.scrambleBody, pathFor(currentLanguage, "word-scramble"), "card-scramble")}
         ${card(dictionary.nav.typoHunt, dictionary.home.typoBody, pathFor(currentLanguage, "typo-hunt"), "card-typo")}
         ${card(dictionary.nav.wordChain, dictionary.home.chainBody, pathFor(currentLanguage, "word-chain"), "card-chain")}
         ${card(dictionary.nav.categoryBlitz, dictionary.home.categoryBody, pathFor(currentLanguage, "category-blitz"), "card-category")}
-        ${card(dictionary.nav.miniCrossword, dictionary.home.crosswordBody, pathFor(currentLanguage, "mini-crossword"), "card-crossword")}
       </section>
     `,
       dictionary.home.eyebrow,
@@ -1360,6 +1435,7 @@
     const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
     const crosswordStateKey = getScopedKey("word-game-crossword-state", currentLanguage);
     const activeCrossword = getActiveCrossword(currentLanguage);
+    const selectedDifficulty = activeCrossword.difficulty;
     const puzzle = activeCrossword.puzzle;
     const builtPuzzle = buildCrosswordPuzzle(puzzle);
     const todayKey = getTodayKey();
@@ -1455,8 +1531,10 @@
               <h1>${dictionary.crossword.title}</h1>
               <p>${dictionary.crossword.body}</p>
               ${personalCrosswordPrompt ? `<p class="player-note">${personalCrosswordPrompt}</p>` : ""}
+              ${difficultyChips(selectedDifficulty, "crossword")}
             </div>
             <div class="stats-row">
+              <p class="stat-pill">${dictionary.common.difficulty}: ${dictionary.common[selectedDifficulty]}</p>
               <p class="stat-pill">${dictionary.crossword.progress}: ${filledCount}/${builtPuzzle.totalFillable}</p>
               ${
                 activeCrossword.hasNext
@@ -1615,6 +1693,7 @@
       const nextButton = document.getElementById("next-crossword");
       const headerNextButton = document.getElementById("header-next-crossword");
       const shareCrosswordButton = document.getElementById("share-crossword");
+      const difficultyButtons = Array.from(document.querySelectorAll("[data-crossword-difficulty]"));
       if (nextButton) {
         nextButton.addEventListener("click", function () {
           switchActiveCrossword(currentLanguage);
@@ -1633,6 +1712,283 @@
             game: "mini-crossword",
             outcome: "win",
             score: builtPuzzle.totalFillable,
+          });
+        });
+      }
+      difficultyButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          const difficulty = button.getAttribute("data-crossword-difficulty");
+          if (!difficulty || difficulty === selectedDifficulty) {
+            return;
+          }
+          setCrosswordDifficultySetting(currentLanguage, difficulty);
+          renderMiniCrossword();
+        });
+      });
+    }
+
+    persist();
+    draw();
+  }
+
+  function renderMiniSudoku() {
+    const displayName = getDisplayName();
+    const personalSudokuPrompt = getPlayerPrompt(displayName, "daily");
+    const personalCelebratePrompt = getPlayerPrompt(displayName, "celebrate");
+    const sudokuStateKey = getScopedKey("word-game-sudoku-state", currentLanguage);
+    const activeSudoku = getActiveSudoku(currentLanguage);
+    const selectedDifficulty = activeSudoku.difficulty;
+    const puzzle = activeSudoku.puzzle;
+    const todayKey = getTodayKey();
+    const puzzleSignature = `${currentLanguage}:${selectedDifficulty}:${activeSudoku.activeIndex}`;
+    const savedState = JSON.parse(localStorage.getItem(sudokuStateKey) || "null");
+    const state =
+      savedState && savedState.date === todayKey && savedState.puzzleSignature === puzzleSignature
+        ? savedState
+        : {
+            date: todayKey,
+            puzzleSignature,
+            cells: {},
+            message: dictionary.sudoku.instruction,
+            completed: false,
+            checked: false,
+            recordedAt: "",
+          };
+
+    function persist() {
+      localStorage.setItem(sudokuStateKey, JSON.stringify(state));
+    }
+
+    function getCellKey(row, col) {
+      return `${row}-${col}`;
+    }
+
+    function getFilledCount() {
+      return Object.values(state.cells).filter(Boolean).length;
+    }
+
+    function countCorrectCells() {
+      let correct = 0;
+      for (let row = 0; row < puzzle.size; row += 1) {
+        for (let col = 0; col < puzzle.size; col += 1) {
+          const given = puzzle.givens[row][col];
+          const solution = puzzle.solution[row][col];
+          const value = given || state.cells[getCellKey(row, col)] || "";
+          if (value === solution) {
+            correct += 1;
+          }
+        }
+      }
+      return correct;
+    }
+
+    function finishIfSolved() {
+      if (countCorrectCells() === puzzle.size * puzzle.size) {
+        state.completed = true;
+        state.checked = true;
+        state.message = dictionary.sudoku.complete;
+        saveLastPlayed("mini-sudoku");
+        if (!state.recordedAt) {
+          const entry = recordHistory({
+            game: "mini-sudoku",
+            outcome: "win",
+            score: puzzle.size * puzzle.size,
+          });
+          state.recordedAt = entry.playedAt;
+        }
+        pulseDevice([12, 30, 12]);
+        persist();
+        return true;
+      }
+      return false;
+    }
+
+    function draw() {
+      const filledCount = getFilledCount() + puzzle.givens.flat().filter(Boolean).length;
+      app.innerHTML = layout(
+        `
+        <section class="panel game-screen sudoku-screen">
+          <header class="section-header">
+            <div>
+              <h1>${dictionary.sudoku.title}</h1>
+              <p>${dictionary.sudoku.body}</p>
+              ${personalSudokuPrompt ? `<p class="player-note">${personalSudokuPrompt}</p>` : ""}
+              ${difficultyChips(selectedDifficulty, "sudoku")}
+            </div>
+            <div class="stats-row">
+              <p class="stat-pill">${dictionary.common.difficulty}: ${dictionary.common[selectedDifficulty]}</p>
+              <p class="stat-pill">${dictionary.sudoku.progress}: ${filledCount}/${puzzle.size * puzzle.size}</p>
+              ${
+                activeSudoku.hasNext
+                  ? `<button class="ghost-button" type="button" id="new-sudoku-round">${dictionary.common.newRound}</button>`
+                  : ""
+              }
+            </div>
+          </header>
+          <p class="subtle">${state.message}</p>
+          <section class="panel sudoku-board">
+            <div class="sudoku-grid" style="grid-template-columns: repeat(${puzzle.size}, minmax(0, 1fr));">
+              ${puzzle.givens
+                .flatMap(function (rowValues, row) {
+                  return rowValues.map(function (given, col) {
+                    const key = getCellKey(row, col);
+                    const value = given || state.cells[key] || "";
+                    const wrongClass =
+                      state.checked && value && value !== puzzle.solution[row][col] ? " wrong" : "";
+                    const fixedClass = given ? " fixed" : "";
+                    const boxClass = `${row % puzzle.boxRows === 0 ? " box-top" : ""}${col % puzzle.boxCols === 0 ? " box-left" : ""}`;
+                    return `
+                      <label class="sudoku-cell${wrongClass}${fixedClass}${boxClass}">
+                        <input
+                          data-row="${row}"
+                          data-col="${col}"
+                          maxlength="1"
+                          inputmode="numeric"
+                          autocomplete="off"
+                          spellcheck="false"
+                          ${given ? "disabled" : ""}
+                          value="${value}"
+                        />
+                      </label>
+                    `;
+                  });
+                })
+                .join("")}
+            </div>
+            <div class="crossword-actions">
+              <button class="primary-button" type="button" id="check-sudoku">${dictionary.sudoku.check}</button>
+              <button class="ghost-button" type="button" id="reveal-sudoku">${dictionary.sudoku.reveal}</button>
+              <button class="ghost-button" type="button" id="clear-sudoku">${dictionary.sudoku.clear}</button>
+            </div>
+          </section>
+          ${
+            state.completed
+              ? `
+                <section class="panel ladder-celebration">
+                  <p class="card-kicker">${dictionary.sudoku.title}</p>
+                  <h2>${personalCelebratePrompt ? `${personalCelebratePrompt} ${dictionary.sudoku.complete}` : dictionary.sudoku.complete}</h2>
+                  <button class="ghost-button" type="button" id="share-sudoku">${dictionary.common.shareResult}</button>
+                </section>
+              `
+              : ""
+          }
+        </section>
+      `,
+        dictionary.home.sudokuHero,
+      );
+      bindLanguageSwitcher();
+
+      const inputs = Array.from(document.querySelectorAll(".sudoku-grid input:not([disabled])"));
+      if (inputs[0]) {
+        requestAnimationFrame(function () {
+          inputs[0].focus();
+        });
+      }
+
+      inputs.forEach(function (input, position) {
+        input.addEventListener("input", function (event) {
+          const row = Number(input.getAttribute("data-row"));
+          const col = Number(input.getAttribute("data-col"));
+          const key = getCellKey(row, col);
+          const raw = String(event.target.value || "").slice(-1);
+          const value = SUDOKU_SYMBOLS.includes(raw) ? raw : "";
+          if (value) {
+            state.cells[key] = value;
+            input.value = value;
+            const nextInput = inputs[position + 1];
+            if (nextInput) {
+              nextInput.focus();
+              nextInput.select();
+            }
+          } else {
+            delete state.cells[key];
+            input.value = "";
+          }
+          state.checked = false;
+          state.completed = false;
+          state.message = `${dictionary.sudoku.progress}: ${getFilledCount() + puzzle.givens.flat().filter(Boolean).length}/${puzzle.size * puzzle.size}`;
+          persist();
+        });
+
+        input.addEventListener("keydown", function (event) {
+          if (event.key === "Backspace" && !input.value) {
+            const previousInput = inputs[position - 1];
+            if (previousInput) {
+              previousInput.focus();
+              previousInput.select();
+            }
+          }
+        });
+      });
+
+      document.getElementById("check-sudoku").addEventListener("click", function () {
+        state.checked = true;
+        if (!finishIfSolved()) {
+          state.message = `${dictionary.sudoku.progress}: ${countCorrectCells()}/${puzzle.size * puzzle.size}`;
+          pulseDevice([25]);
+          persist();
+          draw();
+        } else {
+          draw();
+        }
+      });
+
+      document.getElementById("reveal-sudoku").addEventListener("click", function () {
+        for (let row = 0; row < puzzle.size; row += 1) {
+          for (let col = 0; col < puzzle.size; col += 1) {
+            if (puzzle.givens[row][col]) {
+              continue;
+            }
+            const key = getCellKey(row, col);
+            if (state.cells[key] !== puzzle.solution[row][col]) {
+              state.cells[key] = puzzle.solution[row][col];
+              state.checked = false;
+              state.message = `${dictionary.sudoku.progress}: ${getFilledCount() + puzzle.givens.flat().filter(Boolean).length}/${puzzle.size * puzzle.size}`;
+              pulseDevice([12]);
+              finishIfSolved();
+              persist();
+              draw();
+              return;
+            }
+          }
+        }
+      });
+
+      document.getElementById("clear-sudoku").addEventListener("click", function () {
+        state.cells = {};
+        state.checked = false;
+        state.completed = false;
+        state.message = dictionary.sudoku.instruction;
+        persist();
+        draw();
+      });
+
+      const newRoundButton = document.getElementById("new-sudoku-round");
+      if (newRoundButton) {
+        newRoundButton.addEventListener("click", function () {
+          switchActiveSudoku(currentLanguage);
+          renderMiniSudoku();
+        });
+      }
+
+      document.querySelectorAll("[data-sudoku-difficulty]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const difficulty = button.getAttribute("data-sudoku-difficulty");
+          if (!difficulty || difficulty === selectedDifficulty) {
+            return;
+          }
+          setSudokuDifficultySetting(currentLanguage, difficulty);
+          renderMiniSudoku();
+        });
+      });
+
+      const shareSudokuButton = document.getElementById("share-sudoku");
+      if (shareSudokuButton) {
+        shareSudokuButton.addEventListener("click", function () {
+          shareHistoryEntry({
+            game: "mini-sudoku",
+            outcome: "win",
+            score: puzzle.size * puzzle.size,
           });
         });
       }
@@ -1675,6 +2031,7 @@
       "word-chain": dictionary.nav.wordChain,
       "category-blitz": dictionary.nav.categoryBlitz,
       "mini-crossword": dictionary.nav.miniCrossword,
+      "mini-sudoku": dictionary.nav.miniSudoku,
     };
     const recentMarkup = summary.recent.length
       ? summary.recent
@@ -1854,6 +2211,8 @@
       renderCategoryBlitz();
     } else if (currentPage === "mini-crossword") {
       renderMiniCrossword();
+    } else if (currentPage === "mini-sudoku") {
+      renderMiniSudoku();
     } else if (currentPage === "history") {
       renderHistory();
     } else if (currentPage === "privacy") {

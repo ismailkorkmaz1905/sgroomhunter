@@ -24,6 +24,7 @@ from wordgames_catalog import (
     CROSSWORDS,
     DICTIONARIES,
     LADDERS,
+    SUDOKUS,
     SUPPORTED_LANGUAGES,
     SUPPORTED_PAGES,
     TYPOS,
@@ -59,7 +60,7 @@ def detect_app_version() -> str:
 
 APP_VERSION = detect_app_version()
 
-validate_all_datasets(WORDS, TYPOS, LADDERS, CHAINS, CATEGORIES, CROSSWORDS)
+validate_all_datasets(WORDS, TYPOS, LADDERS, CHAINS, CATEGORIES, CROSSWORDS, SUDOKUS)
 
 
 def ensure_analytics_db() -> None:
@@ -511,6 +512,7 @@ def render_localized_page(lang: str, page: str = "home"):
         "word-chain": ("chainTitle", "chainDescription"),
         "category-blitz": ("categoryTitle", "categoryDescription"),
         "mini-crossword": ("crosswordTitle", "crosswordDescription"),
+        "mini-sudoku": ("sudokuTitle", "sudokuDescription"),
         "history": ("historyTitle", "historyDescription"),
         "privacy": ("privacyTitle", "privacyDescription"),
         "about": ("aboutTitle", "aboutDescription"),
@@ -536,6 +538,7 @@ def render_localized_page(lang: str, page: str = "home"):
             "chains": CHAINS[lang],
             "categories": CATEGORIES[lang],
             "crosswords": CROSSWORDS[lang],
+            "sudokus": SUDOKUS[lang],
             "version": APP_VERSION,
         },
     )
@@ -589,7 +592,7 @@ def create_app() -> Flask:
             urls.append(url_for("localized_page", lang=lang, _external=True))
             for page in ("daily-ladder", "word-scramble", "typo-hunt", "history", "privacy", "about", "terms"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
-            for page in ("word-chain", "category-blitz", "mini-crossword"):
+            for page in ("mini-crossword", "mini-sudoku", "word-chain", "category-blitz"):
                 urls.append(url_for("localized_page", lang=lang, page=page, _external=True))
         xml = render_template_string(
             """<?xml version="1.0" encoding="UTF-8"?>

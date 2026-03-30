@@ -39,6 +39,7 @@ class WordGamesSmokeTests(unittest.TestCase):
             "/en/word-chain",
             "/en/category-blitz",
             "/en/mini-crossword",
+            "/en/mini-sudoku",
         ]
         for route in routes:
             with self.subTest(route=route):

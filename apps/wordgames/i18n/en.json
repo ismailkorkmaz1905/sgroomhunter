@@ -2,7 +2,7 @@
   "brand": "WordSprint",
   "seo": {
     "homeTitle": "WordSprint | Fast daily word games in five languages",
-    "homeDescription": "Play six quick word games with instant local gameplay in English, Turkish, Dutch, Indonesian, and Malay.",
+    "homeDescription": "Play seven quick word games with instant local gameplay in English, Turkish, Dutch, Indonesian, and Malay.",
     "dailyTitle": "Daily Ladder | WordSprint",
     "dailyDescription": "Climb from the start word to the target by changing one letter at a time.",
     "scrambleTitle": "Word Scramble | WordSprint",
@@ -15,6 +15,8 @@
     "categoryDescription": "Pick the matching word for each category before the round ends.",
     "crosswordTitle": "Mini Crossword | WordSprint",
     "crosswordDescription": "Fill a compact crossword grid with quick across and down clues.",
+    "sudokuTitle": "Mini Sudoku | WordSprint",
+    "sudokuDescription": "Solve a compact 6x6 sudoku with quick difficulty switches and endless fresh rounds.",
     "historyTitle": "History | WordSprint",
     "historyDescription": "See your recent rounds and best local results across WordSprint games.",
     "privacyTitle": "Privacy | WordSprint",
@@ -31,7 +33,8 @@
     "typoHunt": "Typo Hunt",
     "wordChain": "Word Chain",
     "categoryBlitz": "Category Blitz",
-    "miniCrossword": "Mini Crossword"
+    "miniCrossword": "Mini Crossword",
+    "miniSudoku": "Mini Sudoku"
   },
   "home": {
     "eyebrow": "Quick daily puzzle set",
@@ -44,17 +47,19 @@
     "chainBody": "Keep a live word chain going by matching the final letter.",
     "categoryBody": "Pick the word that actually fits the category.",
     "crosswordBody": "Fill a compact grid from short across and down clues.",
+    "sudokuBody": "Solve a compact 6x6 sudoku and switch to a fresh board anytime.",
     "metricsLanguages": "Languages",
     "metricsGames": "Games",
     "metricsSpeed": "Speed",
-    "metricsGamesValue": "6 live",
+    "metricsGamesValue": "7 live",
     "metricsSpeedValue": "Instant play",
     "dailyHero": "Daily ladder challenge",
     "scrambleHero": "One-minute scramble sprint",
     "typoHero": "Fast typo detection",
     "chainHero": "Last-letter word chain",
     "categoryHero": "Quick category picks",
-    "crosswordHero": "Mini crossword grid"
+    "crosswordHero": "Mini crossword grid",
+    "sudokuHero": "Fast 6x6 sudoku"
   },
   "common": {
     "score": "Score",
@@ -75,6 +80,10 @@
     "newRound": "New round",
     "shareResult": "Share result",
     "shareCopied": "Result copied to your clipboard.",
+    "difficulty": "Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
     "history": "History",
     "privacy": "Privacy",
     "terms": "Terms",
@@ -196,6 +205,16 @@
     "check": "Check grid",
     "next": "Next crossword",
     "complete": "Grid complete. Nice solve.",
+    "progress": "Filled"
+  },
+  "sudoku": {
+    "title": "Mini Sudoku",
+    "body": "Fill the 6x6 grid so each row, column, and box uses 1 to 6 once.",
+    "instruction": "Tap a cell, type a number from 1 to 6, then check the board.",
+    "check": "Check board",
+    "reveal": "Reveal a cell",
+    "clear": "Clear guesses",
+    "complete": "Board complete. Smooth solve.",
     "progress": "Filled"
   }
 }

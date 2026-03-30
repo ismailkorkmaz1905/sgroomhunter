@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordsprint-v4";
+const CACHE_NAME = "wordsprint-v5";
 const APP_SHELL = [
   "/",
   "/en",
@@ -7,6 +7,7 @@ const APP_SHELL = [
   "/ms",
   "/id",
   "/en/history",
+  "/en/mini-sudoku",
 ];
 
 self.addEventListener("install", (event) => {
