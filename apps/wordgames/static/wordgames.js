@@ -781,6 +781,7 @@
             <div class="stats-row">
               <p class="stat-pill" id="scramble-timer">${dictionary.common.timeLeft}: ${secondsLeft}s</p>
               <p class="stat-pill" id="scramble-score">${dictionary.common.score}: ${score}</p>
+              <button class="ghost-button" type="button" id="new-scramble-round">${dictionary.common.newRound}</button>
             </div>
           </header>
           <p class="scramble-word" id="scramble-word">${displayWord(currentScramble)}</p>
@@ -823,6 +824,10 @@
 
       document.getElementById("scramble-guess").addEventListener("input", function (event) {
         currentGuess = event.target.value;
+      });
+      document.getElementById("new-scramble-round").addEventListener("click", function () {
+        clearInterval(intervalId);
+        renderScramble();
       });
     }
 
@@ -879,6 +884,7 @@
             <div class="stats-row">
               <p class="stat-pill">${dictionary.common.question}: ${questionIndex + 1}/${totalQuestions}</p>
               <p class="stat-pill">${dictionary.common.score}: ${score}</p>
+              <button class="ghost-button" type="button" id="restart-typo-run">${dictionary.common.newRound}</button>
             </div>
           </header>
           <p class="subtle">${dictionary.typo.instruction}</p>
@@ -892,6 +898,7 @@
         dictionary.home.typoHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("restart-typo-run").addEventListener("click", renderTypoHunt);
 
       app.querySelectorAll("[data-option]").forEach(function (button) {
         button.addEventListener(
@@ -1010,6 +1017,7 @@
             <div class="stats-row">
               <p class="stat-pill" id="chain-timer">${dictionary.common.timeLeft}: ${secondsLeft}s</p>
               <p class="stat-pill" id="chain-score">${dictionary.common.score}: ${score}</p>
+              <button class="ghost-button" type="button" id="new-chain-round">${dictionary.common.newRound}</button>
             </div>
           </header>
           <section class="panel chain-brief">
@@ -1029,6 +1037,10 @@
       bindLanguageSwitcher();
       requestAnimationFrame(function () {
         document.getElementById("chain-guess").focus();
+      });
+      document.getElementById("new-chain-round").addEventListener("click", function () {
+        clearInterval(intervalId);
+        renderWordChain();
       });
 
       document.getElementById("chain-form").addEventListener("submit", function (event) {
@@ -1131,6 +1143,7 @@
             <div class="stats-row">
               <p class="stat-pill">${dictionary.common.question}: ${roundIndex + 1}/${rounds.length}</p>
               <p class="stat-pill">${dictionary.common.score}: ${score}</p>
+              <button class="ghost-button" type="button" id="restart-category-run">${dictionary.common.newRound}</button>
             </div>
           </header>
           <p class="subtle">${dictionary.category.instruction}</p>
@@ -1148,6 +1161,7 @@
         dictionary.home.categoryHero,
       );
       bindLanguageSwitcher();
+      document.getElementById("restart-category-run").addEventListener("click", renderCategoryBlitz);
 
       app.querySelectorAll("[data-option]").forEach(function (button) {
         button.addEventListener(
@@ -1308,6 +1322,11 @@
             </div>
             <div class="stats-row">
               <p class="stat-pill">${dictionary.crossword.progress}: ${filledCount}/${builtPuzzle.totalFillable}</p>
+              ${
+                activeCrossword.hasNext
+                  ? `<button class="ghost-button" type="button" id="header-next-crossword">${dictionary.common.newRound}</button>`
+                  : ""
+              }
             </div>
           </header>
           <p class="subtle">${state.message}</p>
@@ -1457,8 +1476,15 @@
       });
 
       const nextButton = document.getElementById("next-crossword");
+      const headerNextButton = document.getElementById("header-next-crossword");
       if (nextButton) {
         nextButton.addEventListener("click", function () {
+          switchActiveCrossword(currentLanguage);
+          renderMiniCrossword();
+        });
+      }
+      if (headerNextButton) {
+        headerNextButton.addEventListener("click", function () {
           switchActiveCrossword(currentLanguage);
           renderMiniCrossword();
         });
