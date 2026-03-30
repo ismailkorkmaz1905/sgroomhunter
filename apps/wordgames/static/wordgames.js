@@ -8,6 +8,7 @@
   const chainWords = payload.chains[currentLanguage];
   const categoryRounds = payload.categories[currentLanguage];
   const crosswordPuzzles = payload.crosswords[currentLanguage];
+  const appVersion = payload.version || "local";
   const app = document.getElementById("app");
   const availableLanguages = Object.keys(payload.dictionaries);
   const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
@@ -434,6 +435,7 @@
               <a href="${pathFor(currentLanguage, "privacy")}">${dictionary.common.privacy}</a>
               <a href="${pathFor(currentLanguage, "terms")}">${dictionary.common.terms}</a>
               <a href="${pathFor(currentLanguage, "about")}">${dictionary.common.about}</a>
+              <span class="version-chip" title="Current build version">v${appVersion}</span>
             </footer>
           </main>
           <aside class="ad-placeholder sidebar-ad">${dictionary.common.adLabel}: ${dictionary.common.sidebar}</aside>

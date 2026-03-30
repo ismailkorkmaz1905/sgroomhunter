@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sqlite3
+import subprocess
 from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
@@ -14,6 +15,34 @@ BASE_DIR = Path(__file__).resolve().parent
 SUPPORTED_LANGUAGES = {"en", "tr", "nl", "id", "ms"}
 SUPPORTED_PAGES = {"home", "daily-ladder", "word-scramble", "typo-hunt", "word-chain", "category-blitz", "mini-crossword", "privacy", "about", "terms"}
 ANALYTICS_DB = BASE_DIR / "analytics.sqlite3"
+
+
+def detect_app_version() -> str:
+    env_version = (
+        os.environ.get("APP_VERSION")
+        or os.environ.get("RENDER_GIT_COMMIT")
+        or os.environ.get("RENDER_GIT_BRANCH")
+    )
+    if env_version:
+        return env_version[:7]
+
+    try:
+        repo_root = BASE_DIR.parent.parent
+        version = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=repo_root,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        if version:
+            return version
+    except Exception:
+        pass
+
+    return "local"
+
+
+APP_VERSION = detect_app_version()
 
 
 def load_json(*parts: str):
@@ -504,6 +533,7 @@ def render_localized_page(lang: str, page: str = "home"):
             "chains": CHAINS,
             "categories": CATEGORIES,
             "crosswords": CROSSWORDS,
+            "version": APP_VERSION,
         },
     )
 

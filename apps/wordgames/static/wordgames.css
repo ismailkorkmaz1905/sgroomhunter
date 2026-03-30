@@ -403,6 +403,18 @@ button {
   font-weight: 600;
 }
 
+.version-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(30, 36, 51, 0.08);
+  color: var(--muted);
+  font: 700 0.78rem/1 "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .about-card {
   display: grid;
   gap: 14px;
