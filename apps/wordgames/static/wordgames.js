@@ -46,12 +46,12 @@
     const pool = payload.ladders[language];
     const baseIndex = getDailyIndex(new Date(), pool.length);
     const bonusOffset = Number(sessionStorage.getItem(getSessionKey("word-game-daily-ladder-bonus", language)) || "0");
-    const activeIndex = Math.min(baseIndex + bonusOffset, pool.length - 1);
+    const activeIndex = (baseIndex + bonusOffset) % pool.length;
     return {
       puzzle: pool[activeIndex],
       bonusOffset,
       activeIndex,
-      hasNextBonus: activeIndex < pool.length - 1,
+      hasNextBonus: pool.length > 0,
     };
   }
 
@@ -460,7 +460,11 @@
         state.invalidAttemptCount += 1;
       }
       state.flashMessage =
-        state.invalidAttemptCount >= 2 && nextExpected ? dictionary.daily.retryHint : message;
+        state.invalidAttemptCount >= 3 && nextExpected
+          ? dictionary.daily.revealPrompt
+          : state.invalidAttemptCount >= 2 && nextExpected
+            ? dictionary.daily.revealHeadsUp
+            : message;
       state.feedbackTone = "danger";
       state.shakeTick += 1;
       state.puzzleSignature = puzzleSignature;

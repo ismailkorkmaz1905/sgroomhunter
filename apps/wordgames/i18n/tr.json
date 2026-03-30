@@ -103,6 +103,7 @@
     "hintBody": "Sıradaki basamak için anlam ipucu",
     "invalidBounce": "Bu kelime bugünkü merdivenin dışında.",
     "retryHint": "Merdiven dışı iki deneme sonrası ipucu açıldı.",
+    "revealHeadsUp": "Bir kez daha yanlış girersen istersen doğru kelimeyi görebilirsin.",
     "revealPrompt": "İstersen sıradaki doğru kelimeyi göstereyim mi?",
     "revealCta": "Doğru kelimeyi göster",
     "revealDone": "Sıradaki basamak açıldı."

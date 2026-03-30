@@ -103,6 +103,7 @@
     "hintBody": "Petunjuk makna untuk langkah berikutnya",
     "invalidBounce": "Kata itu tidak ada di tangga hari ini.",
     "retryHint": "Dua tebakan di luar tangga membuka sebuah hint.",
+    "revealHeadsUp": "Satu salah lagi dan kamu bisa memilih melihat jawaban berikutnya.",
     "revealPrompt": "Mau aku tunjukkan kata benar berikutnya?",
     "revealCta": "Tunjukkan kata berikutnya",
     "revealDone": "Langkah berikutnya sudah dibuka."
