@@ -55,14 +55,38 @@ class WordGamesSmokeTests(unittest.TestCase):
         self.assertIn("dictionary", payload)
         self.assertNotIn("dictionaries", payload)
         self.assertEqual(payload["lang"], "en")
-        self.assertEqual(len(payload["words"]), 20)
+        self.assertEqual(len(payload["words"]), 50)
         self.assertEqual(len(payload["availableLanguages"]), 5)
+
+    def test_turkish_payload_keeps_real_unicode(self):
+        response = self.client.get("/tr")
+        html = response.get_data(as_text=True)
+        match = re.search(r'<script id="app-data" type="application/json">(.*?)</script>', html)
+        self.assertIsNotNone(match)
+        payload = json.loads(match.group(1))
+        self.assertEqual(payload["dictionary"]["seo"]["dailyTitle"], "Günlük Merdiven | WordSprint")
+        self.assertEqual(payload["dictionary"]["profile"]["promptTitle"], "Sana nasıl hitap edeyim?")
 
     def test_analytics_summary_has_richer_breakdowns(self):
         response = self.client.get("/analytics-summary")
         summary = response.get_json()
         self.assertIn("by_page", summary)
         self.assertIn("daily_visits", summary)
+
+    def test_crossword_difficulty_has_variety_per_locale(self):
+        for lang, puzzles in self.module.CROSSWORDS.items():
+            counts = {"easy": 0, "medium": 0, "hard": 0}
+            for puzzle in puzzles:
+                difficulty = puzzle.get("difficulty")
+                if difficulty:
+                    counts[difficulty] += 1
+                else:
+                    size = int(puzzle["size"])
+                    counts["easy" if size <= 3 else "medium" if size == 4 else "hard"] += 1
+            with self.subTest(lang=lang):
+                self.assertGreaterEqual(counts["easy"], 3)
+                self.assertGreaterEqual(counts["medium"], 3)
+                self.assertGreaterEqual(counts["hard"], 3)
 
 
 if __name__ == "__main__":

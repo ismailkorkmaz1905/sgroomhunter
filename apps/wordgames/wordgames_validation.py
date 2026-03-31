@@ -81,6 +81,7 @@ def validate_crossword_pool(language: str, puzzles: list[dict]) -> None:
     if not puzzles:
         raise ValueError(f"{language} crossword pool is empty")
 
+    difficulty_counts = {"easy": 0, "medium": 0, "hard": 0}
     for puzzle_index, puzzle in enumerate(puzzles, start=1):
         size = int(puzzle["size"])
         blocks = {tuple(block) for block in puzzle.get("blocks", [])}
@@ -114,6 +115,22 @@ def validate_crossword_pool(language: str, puzzles: list[dict]) -> None:
                         f"{language} crossword #{puzzle_index} conflicting letters at {(current_row, current_col)}"
                     )
                 occupied[(current_row, current_col)] = letter
+
+        difficulty = str(puzzle.get("difficulty", "")).strip().lower()
+        if difficulty:
+            if difficulty not in difficulty_counts:
+                raise ValueError(f"{language} crossword #{puzzle_index} has an invalid difficulty")
+            difficulty_counts[difficulty] += 1
+        elif size <= 3:
+            difficulty_counts["easy"] += 1
+        elif size == 4:
+            difficulty_counts["medium"] += 1
+        else:
+            difficulty_counts["hard"] += 1
+
+    for difficulty, count in difficulty_counts.items():
+        if count < 3:
+            raise ValueError(f"{language} crossword pool has fewer than 3 {difficulty} puzzles")
 
 
 def validate_sudoku_pool(language: str, puzzles: list[dict]) -> None:

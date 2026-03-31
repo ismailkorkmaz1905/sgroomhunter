@@ -98,6 +98,9 @@
   }
 
   function getCrosswordDifficulty(puzzle) {
+    if (typeof puzzle.difficulty === "string" && ["easy", "medium", "hard"].includes(puzzle.difficulty)) {
+      return puzzle.difficulty;
+    }
     if (puzzle.size <= 3) {
       return "easy";
     }

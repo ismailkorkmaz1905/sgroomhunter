@@ -699,10 +699,18 @@ button {
 .option-button {
   text-align: left;
   padding: 16px;
+  min-height: 72px;
   border-radius: 18px;
   border: 1px solid var(--line);
   background: var(--surface-strong);
   box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-wrap: balance;
+  line-height: 1.35;
 }
 
 .option-button.correct {

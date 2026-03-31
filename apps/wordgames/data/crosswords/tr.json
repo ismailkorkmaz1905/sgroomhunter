@@ -1,102 +1,1325 @@
 [
   {
     "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "mert", "clue": "Dürüst ve açık sözlü"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "masa", "clue": "Üstünde çalışılan mobilya"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "tane", "clue": "Adet anlamında kullanılır"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "anne", "clue": "Ailedeki kadın ebeveyn"}
-    ]
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "mert",
+        "clue": "Dürüst ve açık sözlü"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "masa",
+        "clue": "Üstünde çalışılan mobilya"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "tane",
+        "clue": "Adet anlamında kullanılır"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "anne",
+        "clue": "Ailedeki kadın ebeveyn"
+      }
+    ],
+    "difficulty": "easy"
   },
   {
     "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "kral", "clue": "Tahtın erkek sahibi"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "kapı", "clue": "Odaya giriş çıkış yeri"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "lama", "clue": "Uzun boyunlu bir hayvan"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ışla", "clue": "Askerlerin kaldığı yer"}
-    ]
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kral",
+        "clue": "Tahtın erkek sahibi"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kapı",
+        "clue": "Odaya giriş çıkış yeri"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "lama",
+        "clue": "Uzun boyunlu bir hayvan"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "ışla",
+        "clue": "Askerlerin kaldığı yer"
+      }
+    ],
+    "difficulty": "easy"
   },
   {
     "size": 3,
-    "blocks": [[1, 1]],
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "can", "clue": "İçten sevilen kişi için de söylenir"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "cin", "clue": "Masallarda geçen görünmez varlık"},
-      {"number": 3, "direction": "down", "row": 0, "col": 2, "answer": "net", "clue": "Açık ve kesin"},
-      {"number": 4, "direction": "across", "row": 2, "col": 0, "answer": "not", "clue": "Kısa yazılı hatırlatma"}
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "can",
+        "clue": "İçten sevilen kişi için de söylenir"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "cin",
+        "clue": "Masallarda geçen görünmez varlık"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "net",
+        "clue": "Açık ve kesin"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "not",
+        "clue": "Kısa yazılı hatırlatma"
+      }
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "sarı",
+        "clue": "Güneşi çağrıştıran renk"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "sıra",
+        "clue": "Düzenli diziliş"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ırak",
+        "clue": "Uzak anlamında eski kullanım"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "açık",
+        "clue": "Kapalı olmayan"
+      }
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "dere",
+        "clue": "Küçük akarsu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "dizi",
+        "clue": "Televizyon yapımı ya da sıra"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "elma",
+        "clue": "Kırmızı ya da yeşil meyve"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "imza",
+        "clue": "Belgenin altına atılır"
+      }
+    ],
+    "difficulty": "easy"
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "yazı",
+        "clue": "Metin ya da makale"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "yeni",
+        "clue": "Eski olmayan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ırak",
+        "clue": "Uzak anlamında eski kullanım"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "inek",
+        "clue": "Süt veren çiftlik hayvanı"
+      }
     ]
   },
   {
     "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "sarı", "clue": "Güneşi çağrıştıran renk"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "sıra", "clue": "Düzenli diziliş"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ırak", "clue": "Uzak anlamında eski kullanım"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "açık", "clue": "Kapalı olmayan"}
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "mavi",
+        "clue": "Gökyüzü rengi"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "mart",
+        "clue": "İlkbahara yakın ay"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "izci",
+        "clue": "Kamp yapan kulüp öğrencisi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "teri",
+        "clue": "Vücut sıvısı"
+      }
     ]
   },
   {
     "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "dere", "clue": "Küçük akarsu"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "dizi", "clue": "Televizyon yapımı ya da sıra"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "elma", "clue": "Kırmızı ya da yeşil meyve"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "imza", "clue": "Belgenin altına atılır"}
-    ]
-  },
-  {
-    "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
-    "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "yazı", "clue": "Metin ya da makale"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "yeni", "clue": "Eski olmayan"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "ırak", "clue": "Uzak anlamında eski kullanım"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "inek", "clue": "Süt veren çiftlik hayvanı"}
-    ]
-  },
-  {
-    "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
-    "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "mavi", "clue": "Gökyüzü rengi"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "mart", "clue": "İlkbahara yakın ay"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "izci", "clue": "Kamp yapan kulüp öğrencisi"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "teri", "clue": "Vücut sıvısı"}
-    ]
-  },
-  {
-    "size": 4,
-    "blocks": [[1, 1], [1, 2], [2, 1], [2, 2]],
-    "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "çile", "clue": "Sıkıntı, dert"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "çatı", "clue": "Evin üst kısmı"},
-      {"number": 3, "direction": "down", "row": 0, "col": 3, "answer": "erik", "clue": "Ekşi ya da tatlı çekirdekli meyve"},
-      {"number": 4, "direction": "across", "row": 3, "col": 0, "answer": "ılık", "clue": "Ne sıcak ne soğuk"}
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "çile",
+        "clue": "Sıkıntı, dert"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "çatı",
+        "clue": "Evin üst kısmı"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "erik",
+        "clue": "Ekşi ya da tatlı çekirdekli meyve"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "ılık",
+        "clue": "Ne sıcak ne soğuk"
+      }
     ]
   },
   {
     "size": 5,
-    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "şehir", "clue": "Büyük yerleşim merkezi"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "şafak", "clue": "Günün ağarmaya başladığı an"},
-      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "radar", "clue": "Cisimleri algılayan sistem"},
-      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "kader", "clue": "Yazgı"}
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "şehir",
+        "clue": "Büyük yerleşim merkezi"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "şafak",
+        "clue": "Günün ağarmaya başladığı an"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "radar",
+        "clue": "Cisimleri algılayan sistem"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "kader",
+        "clue": "Yazgı"
+      }
     ]
   },
   {
     "size": 5,
-    "blocks": [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
     "entries": [
-      {"number": 1, "direction": "across", "row": 0, "col": 0, "answer": "maden", "clue": "Topraktan çıkarılan değerli doğal kaynak"},
-      {"number": 2, "direction": "down", "row": 0, "col": 0, "answer": "masal", "clue": "Olağanüstü olaylar anlatan hikâye"},
-      {"number": 3, "direction": "down", "row": 0, "col": 4, "answer": "narin", "clue": "İnce ve kırılgan"},
-      {"number": 4, "direction": "across", "row": 4, "col": 0, "answer": "liman", "clue": "Gemilerin yanaştığı yer"}
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "maden",
+        "clue": "Topraktan çıkarılan değerli doğal kaynak"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "masal",
+        "clue": "Olağanüstü olaylar anlatan hikâye"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "narin",
+        "clue": "İnce ve kırılgan"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "liman",
+        "clue": "Gemilerin yanaştığı yer"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ayna",
+        "clue": "Ayna"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "arsa",
+        "clue": "Arazi"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ayna",
+        "clue": "Ayna"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "arka",
+        "clue": "Arka"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arsa",
+        "clue": "Arazi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "ayna",
+        "clue": "Ayna"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arsa",
+        "clue": "Arazi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "arka",
+        "clue": "Arka"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arka",
+        "clue": "Arka"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "ayna",
+        "clue": "Ayna"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "paha",
+        "clue": "Deger"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "para",
+        "clue": "Para"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arka",
+        "clue": "Arka"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "arsa",
+        "clue": "Arazi"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "ayna",
+        "clue": "Ayna"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "aile",
+        "clue": "Aile"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arsa",
+        "clue": "Arazi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "elma",
+        "clue": "Meyve"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "ayna",
+        "clue": "Ayna"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "aile",
+        "clue": "Aile"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "arka",
+        "clue": "Arka"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "elma",
+        "clue": "Meyve"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kalem",
+        "clue": "Yazı"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kadin",
+        "clue": "Kadin"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "maden",
+        "clue": "Maden"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "neden",
+        "clue": "Sebep"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "deniz",
+        "clue": "Su kutle"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "duman",
+        "clue": "Duman"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "zemin",
+        "clue": "Taban"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "neden",
+        "clue": "Sebep"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "duman",
+        "clue": "Duman"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "deniz",
+        "clue": "Su kutle"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "neden",
+        "clue": "Sebep"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "zemin",
+        "clue": "Taban"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kadin",
+        "clue": "Kadin"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kalem",
+        "clue": "Yazı"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "neden",
+        "clue": "Sebep"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "maden",
+        "clue": "Maden"
+      }
     ]
   }
 ]
