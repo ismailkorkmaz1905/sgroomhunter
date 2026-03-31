@@ -88,6 +88,11 @@ class WordGamesSmokeTests(unittest.TestCase):
                 self.assertGreaterEqual(counts["medium"], 3)
                 self.assertGreaterEqual(counts["hard"], 3)
 
+    def test_ladder_pool_is_expanded_per_locale(self):
+        for lang, ladders in self.module.LADDERS.items():
+            with self.subTest(lang=lang):
+                self.assertGreaterEqual(len(ladders), 25)
+
 
 if __name__ == "__main__":
     unittest.main()

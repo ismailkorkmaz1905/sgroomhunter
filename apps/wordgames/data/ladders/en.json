@@ -2,7 +2,14 @@
   {
     "start": "plane",
     "target": "stare",
-    "path": ["plane", "place", "plate", "slate", "state", "stare"],
+    "path": [
+      "plane",
+      "place",
+      "plate",
+      "slate",
+      "state",
+      "stare"
+    ],
     "clues": {
       "place": "A location or spot.",
       "plate": "A flat dish for food.",
@@ -14,7 +21,14 @@
   {
     "start": "bread",
     "target": "bleak",
-    "path": ["bread", "bream", "cream", "creak", "break", "bleak"],
+    "path": [
+      "bread",
+      "bream",
+      "cream",
+      "creak",
+      "break",
+      "bleak"
+    ],
     "clues": {
       "bream": "A type of fish.",
       "cream": "The rich part of milk.",
@@ -26,7 +40,14 @@
   {
     "start": "point",
     "target": "feint",
-    "path": ["point", "paint", "saint", "taint", "faint", "feint"],
+    "path": [
+      "point",
+      "paint",
+      "saint",
+      "taint",
+      "faint",
+      "feint"
+    ],
     "clues": {
       "paint": "Colored liquid for walls or art.",
       "saint": "A holy person.",
@@ -38,7 +59,14 @@
   {
     "start": "crown",
     "target": "crawl",
-    "path": ["crown", "brown", "brawn", "drawn", "drawl", "crawl"],
+    "path": [
+      "crown",
+      "brown",
+      "brawn",
+      "drawn",
+      "drawl",
+      "crawl"
+    ],
     "clues": {
       "brown": "A dark earthy color.",
       "brawn": "Physical strength.",
@@ -50,7 +78,14 @@
   {
     "start": "flame",
     "target": "grape",
-    "path": ["flame", "blame", "blade", "glade", "grade", "grape"],
+    "path": [
+      "flame",
+      "blame",
+      "blade",
+      "glade",
+      "grade",
+      "grape"
+    ],
     "clues": {
       "blame": "Responsibility for a fault.",
       "blade": "The sharp part of a knife.",
@@ -62,7 +97,14 @@
   {
     "start": "stone",
     "target": "share",
-    "path": ["stone", "shone", "shore", "score", "scare", "share"],
+    "path": [
+      "stone",
+      "shone",
+      "shore",
+      "score",
+      "scare",
+      "share"
+    ],
     "clues": {
       "shone": "Gave off light.",
       "shore": "Land at the edge of water.",
@@ -74,7 +116,14 @@
   {
     "start": "wheat",
     "target": "creed",
-    "path": ["wheat", "cheat", "cheap", "cheep", "creep", "creed"],
+    "path": [
+      "wheat",
+      "cheat",
+      "cheap",
+      "cheep",
+      "creep",
+      "creed"
+    ],
     "clues": {
       "cheat": "To break rules unfairly.",
       "cheap": "Low in cost.",
@@ -86,7 +135,14 @@
   {
     "start": "crane",
     "target": "blade",
-    "path": ["crane", "crate", "grate", "grade", "glade", "blade"],
+    "path": [
+      "crane",
+      "crate",
+      "grate",
+      "grade",
+      "glade",
+      "blade"
+    ],
     "clues": {
       "crate": "A wooden box for carrying goods.",
       "grate": "A metal frame or to shred something.",
@@ -98,7 +154,14 @@
   {
     "start": "brink",
     "target": "blank",
-    "path": ["brink", "drink", "drank", "crank", "clank", "blank"],
+    "path": [
+      "brink",
+      "drink",
+      "drank",
+      "crank",
+      "clank",
+      "blank"
+    ],
     "clues": {
       "drink": "A liquid you swallow.",
       "drank": "Past tense of drink.",
@@ -110,7 +173,15 @@
   {
     "start": "crash",
     "target": "cross",
-    "path": ["crash", "clash", "class", "glass", "gloss", "gross", "cross"],
+    "path": [
+      "crash",
+      "clash",
+      "class",
+      "glass",
+      "gloss",
+      "gross",
+      "cross"
+    ],
     "clues": {
       "clash": "A sharp conflict.",
       "class": "A group or lesson.",
@@ -123,7 +194,14 @@
   {
     "start": "stare",
     "target": "plane",
-    "path": ["stare", "state", "slate", "plate", "place", "plane"],
+    "path": [
+      "stare",
+      "state",
+      "slate",
+      "plate",
+      "place",
+      "plane"
+    ],
     "clues": {
       "state": "A condition or region.",
       "slate": "A dark stone or a planned list.",
@@ -135,7 +213,14 @@
   {
     "start": "bleak",
     "target": "bread",
-    "path": ["bleak", "break", "creak", "cream", "bream", "bread"],
+    "path": [
+      "bleak",
+      "break",
+      "creak",
+      "cream",
+      "bream",
+      "bread"
+    ],
     "clues": {
       "break": "To split or pause.",
       "creak": "A sharp wooden sound.",
@@ -147,7 +232,14 @@
   {
     "start": "feint",
     "target": "point",
-    "path": ["feint", "faint", "taint", "saint", "paint", "point"],
+    "path": [
+      "feint",
+      "faint",
+      "taint",
+      "saint",
+      "paint",
+      "point"
+    ],
     "clues": {
       "faint": "Very slight or weak.",
       "taint": "A stain or trace of something bad.",
@@ -159,7 +251,14 @@
   {
     "start": "crawl",
     "target": "crown",
-    "path": ["crawl", "drawl", "drawn", "brawn", "brown", "crown"],
+    "path": [
+      "crawl",
+      "drawl",
+      "drawn",
+      "brawn",
+      "brown",
+      "crown"
+    ],
     "clues": {
       "drawl": "A slow stretched way of speaking.",
       "drawn": "Pulled or sketched.",
@@ -171,7 +270,14 @@
   {
     "start": "grape",
     "target": "flame",
-    "path": ["grape", "grade", "glade", "blade", "blame", "flame"],
+    "path": [
+      "grape",
+      "grade",
+      "glade",
+      "blade",
+      "blame",
+      "flame"
+    ],
     "clues": {
       "grade": "A level or score.",
       "glade": "An open space in a forest.",
@@ -183,7 +289,14 @@
   {
     "start": "share",
     "target": "stone",
-    "path": ["share", "scare", "score", "shore", "shone", "stone"],
+    "path": [
+      "share",
+      "scare",
+      "score",
+      "shore",
+      "shone",
+      "stone"
+    ],
     "clues": {
       "scare": "A sudden fright.",
       "score": "A tally or result.",
@@ -195,7 +308,14 @@
   {
     "start": "creed",
     "target": "wheat",
-    "path": ["creed", "creep", "cheep", "cheap", "cheat", "wheat"],
+    "path": [
+      "creed",
+      "creep",
+      "cheep",
+      "cheap",
+      "cheat",
+      "wheat"
+    ],
     "clues": {
       "creep": "To move slowly and quietly.",
       "cheep": "A small bird sound.",
@@ -207,7 +327,14 @@
   {
     "start": "cat",
     "target": "dog",
-    "path": ["cat", "cot", "cog", "fog", "log", "dog"],
+    "path": [
+      "cat",
+      "cot",
+      "cog",
+      "fog",
+      "log",
+      "dog"
+    ],
     "clues": {
       "cot": "A small light bed.",
       "cog": "A tooth on a gear.",
@@ -219,7 +346,14 @@
   {
     "start": "cold",
     "target": "warm",
-    "path": ["cold", "cord", "card", "care", "ware", "warm"],
+    "path": [
+      "cold",
+      "cord",
+      "card",
+      "care",
+      "ware",
+      "warm"
+    ],
     "clues": {
       "cord": "A thick string or cable.",
       "card": "A small flat piece of paper or plastic.",
@@ -231,7 +365,130 @@
   {
     "start": "reader",
     "target": "meaner",
-    "path": ["reader", "leader", "loader", "loaner", "leaner", "meaner"],
+    "path": [
+      "reader",
+      "leader",
+      "loader",
+      "loaner",
+      "leaner",
+      "meaner"
+    ],
+    "clues": {
+      "leader": "A person who guides others.",
+      "loader": "A machine or person that loads.",
+      "loaner": "Something lent for temporary use.",
+      "leaner": "Someone or something that leans.",
+      "meaner": "More unkind."
+    }
+  },
+  {
+    "start": "blade",
+    "target": "crane",
+    "path": [
+      "blade",
+      "glade",
+      "grade",
+      "grate",
+      "crate",
+      "crane"
+    ],
+    "clues": {
+      "crate": "A wooden box for carrying goods.",
+      "grate": "A metal frame or to shred something.",
+      "grade": "A level or score.",
+      "glade": "An open space in a forest.",
+      "blade": "The sharp part of a knife."
+    }
+  },
+  {
+    "start": "blank",
+    "target": "brink",
+    "path": [
+      "blank",
+      "clank",
+      "crank",
+      "drank",
+      "drink",
+      "brink"
+    ],
+    "clues": {
+      "drink": "A liquid you swallow.",
+      "drank": "Past tense of drink.",
+      "crank": "A handle you turn or an odd person.",
+      "clank": "A heavy metal sound.",
+      "blank": "Empty or without marks."
+    }
+  },
+  {
+    "start": "cross",
+    "target": "crash",
+    "path": [
+      "cross",
+      "gross",
+      "gloss",
+      "glass",
+      "class",
+      "clash",
+      "crash"
+    ],
+    "clues": {
+      "clash": "A sharp conflict.",
+      "class": "A group or lesson.",
+      "glass": "A hard transparent material.",
+      "gloss": "A smooth shine or short explanation.",
+      "gross": "Total before deductions or unpleasant.",
+      "cross": "To go across or feel annoyed."
+    }
+  },
+  {
+    "start": "dog",
+    "target": "cat",
+    "path": [
+      "dog",
+      "log",
+      "fog",
+      "cog",
+      "cot",
+      "cat"
+    ],
+    "clues": {
+      "cot": "A small light bed.",
+      "cog": "A tooth on a gear.",
+      "fog": "A thick cloud near the ground.",
+      "log": "A cut piece of tree trunk.",
+      "dog": "A common household pet."
+    }
+  },
+  {
+    "start": "warm",
+    "target": "cold",
+    "path": [
+      "warm",
+      "ware",
+      "care",
+      "card",
+      "cord",
+      "cold"
+    ],
+    "clues": {
+      "cord": "A thick string or cable.",
+      "card": "A small flat piece of paper or plastic.",
+      "care": "Attention or concern.",
+      "ware": "Goods or products for sale.",
+      "warm": "A little hot, not cold."
+    }
+  },
+  {
+    "start": "meaner",
+    "target": "reader",
+    "path": [
+      "meaner",
+      "leaner",
+      "loaner",
+      "loader",
+      "leader",
+      "reader"
+    ],
     "clues": {
       "leader": "A person who guides others.",
       "loader": "A machine or person that loads.",
