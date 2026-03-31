@@ -89,9 +89,13 @@ class WordGamesSmokeTests(unittest.TestCase):
                 self.assertGreaterEqual(counts["hard"], 3)
 
     def test_ladder_pool_is_expanded_per_locale(self):
+        from collections import Counter
+
         for lang, ladders in self.module.LADDERS.items():
             with self.subTest(lang=lang):
-                self.assertGreaterEqual(len(ladders), 25)
+                self.assertGreaterEqual(len(ladders), 8)
+                word_usage = Counter(word for ladder in ladders for word in ladder["path"])
+                self.assertLessEqual(max(word_usage.values()), 3)
 
 
 if __name__ == "__main__":

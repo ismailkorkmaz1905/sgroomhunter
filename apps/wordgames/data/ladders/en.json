@@ -133,25 +133,6 @@
     }
   },
   {
-    "start": "crane",
-    "target": "blade",
-    "path": [
-      "crane",
-      "crate",
-      "grate",
-      "grade",
-      "glade",
-      "blade"
-    ],
-    "clues": {
-      "crate": "A wooden box for carrying goods.",
-      "grate": "A metal frame or to shred something.",
-      "grade": "A level or score.",
-      "glade": "An open space in a forest.",
-      "blade": "The sharp part of a knife."
-    }
-  },
-  {
     "start": "brink",
     "target": "blank",
     "path": [
@@ -168,160 +149,6 @@
       "crank": "A handle you turn or an odd person.",
       "clank": "A heavy metal sound.",
       "blank": "Empty or without marks."
-    }
-  },
-  {
-    "start": "crash",
-    "target": "cross",
-    "path": [
-      "crash",
-      "clash",
-      "class",
-      "glass",
-      "gloss",
-      "gross",
-      "cross"
-    ],
-    "clues": {
-      "clash": "A sharp conflict.",
-      "class": "A group or lesson.",
-      "glass": "A hard transparent material.",
-      "gloss": "A smooth shine or short explanation.",
-      "gross": "Total before deductions or unpleasant.",
-      "cross": "To go across or feel annoyed."
-    }
-  },
-  {
-    "start": "stare",
-    "target": "plane",
-    "path": [
-      "stare",
-      "state",
-      "slate",
-      "plate",
-      "place",
-      "plane"
-    ],
-    "clues": {
-      "state": "A condition or region.",
-      "slate": "A dark stone or a planned list.",
-      "plate": "A flat dish for food.",
-      "place": "A location or spot.",
-      "plane": "A flat surface or an aircraft."
-    }
-  },
-  {
-    "start": "bleak",
-    "target": "bread",
-    "path": [
-      "bleak",
-      "break",
-      "creak",
-      "cream",
-      "bream",
-      "bread"
-    ],
-    "clues": {
-      "break": "To split or pause.",
-      "creak": "A sharp wooden sound.",
-      "cream": "The rich part of milk.",
-      "bream": "A type of fish.",
-      "bread": "Baked food made from flour."
-    }
-  },
-  {
-    "start": "feint",
-    "target": "point",
-    "path": [
-      "feint",
-      "faint",
-      "taint",
-      "saint",
-      "paint",
-      "point"
-    ],
-    "clues": {
-      "faint": "Very slight or weak.",
-      "taint": "A stain or trace of something bad.",
-      "saint": "A holy person.",
-      "paint": "Colored liquid for walls or art.",
-      "point": "A tip, mark, or moment."
-    }
-  },
-  {
-    "start": "crawl",
-    "target": "crown",
-    "path": [
-      "crawl",
-      "drawl",
-      "drawn",
-      "brawn",
-      "brown",
-      "crown"
-    ],
-    "clues": {
-      "drawl": "A slow stretched way of speaking.",
-      "drawn": "Pulled or sketched.",
-      "brawn": "Physical strength.",
-      "brown": "A dark earthy color.",
-      "crown": "A royal headpiece or top part."
-    }
-  },
-  {
-    "start": "grape",
-    "target": "flame",
-    "path": [
-      "grape",
-      "grade",
-      "glade",
-      "blade",
-      "blame",
-      "flame"
-    ],
-    "clues": {
-      "grade": "A level or score.",
-      "glade": "An open space in a forest.",
-      "blade": "The sharp part of a knife.",
-      "blame": "Responsibility for a fault.",
-      "flame": "A tongue of fire."
-    }
-  },
-  {
-    "start": "share",
-    "target": "stone",
-    "path": [
-      "share",
-      "scare",
-      "score",
-      "shore",
-      "shone",
-      "stone"
-    ],
-    "clues": {
-      "scare": "A sudden fright.",
-      "score": "A tally or result.",
-      "shore": "Land at the edge of water.",
-      "shone": "Gave off light.",
-      "stone": "A hard piece of rock."
-    }
-  },
-  {
-    "start": "creed",
-    "target": "wheat",
-    "path": [
-      "creed",
-      "creep",
-      "cheep",
-      "cheap",
-      "cheat",
-      "wheat"
-    ],
-    "clues": {
-      "creep": "To move slowly and quietly.",
-      "cheep": "A small bird sound.",
-      "cheap": "Low in cost.",
-      "cheat": "To break rules unfairly.",
-      "wheat": "A grain used for flour."
     }
   },
   {
@@ -382,54 +209,16 @@
     }
   },
   {
-    "start": "blade",
-    "target": "crane",
+    "start": "crash",
+    "target": "cross",
     "path": [
-      "blade",
-      "glade",
-      "grade",
-      "grate",
-      "crate",
-      "crane"
-    ],
-    "clues": {
-      "crate": "A wooden box for carrying goods.",
-      "grate": "A metal frame or to shred something.",
-      "grade": "A level or score.",
-      "glade": "An open space in a forest.",
-      "blade": "The sharp part of a knife."
-    }
-  },
-  {
-    "start": "blank",
-    "target": "brink",
-    "path": [
-      "blank",
-      "clank",
-      "crank",
-      "drank",
-      "drink",
-      "brink"
-    ],
-    "clues": {
-      "drink": "A liquid you swallow.",
-      "drank": "Past tense of drink.",
-      "crank": "A handle you turn or an odd person.",
-      "clank": "A heavy metal sound.",
-      "blank": "Empty or without marks."
-    }
-  },
-  {
-    "start": "cross",
-    "target": "crash",
-    "path": [
-      "cross",
-      "gross",
-      "gloss",
-      "glass",
-      "class",
+      "crash",
       "clash",
-      "crash"
+      "class",
+      "glass",
+      "gloss",
+      "gross",
+      "cross"
     ],
     "clues": {
       "clash": "A sharp conflict.",
@@ -438,63 +227,6 @@
       "gloss": "A smooth shine or short explanation.",
       "gross": "Total before deductions or unpleasant.",
       "cross": "To go across or feel annoyed."
-    }
-  },
-  {
-    "start": "dog",
-    "target": "cat",
-    "path": [
-      "dog",
-      "log",
-      "fog",
-      "cog",
-      "cot",
-      "cat"
-    ],
-    "clues": {
-      "cot": "A small light bed.",
-      "cog": "A tooth on a gear.",
-      "fog": "A thick cloud near the ground.",
-      "log": "A cut piece of tree trunk.",
-      "dog": "A common household pet."
-    }
-  },
-  {
-    "start": "warm",
-    "target": "cold",
-    "path": [
-      "warm",
-      "ware",
-      "care",
-      "card",
-      "cord",
-      "cold"
-    ],
-    "clues": {
-      "cord": "A thick string or cable.",
-      "card": "A small flat piece of paper or plastic.",
-      "care": "Attention or concern.",
-      "ware": "Goods or products for sale.",
-      "warm": "A little hot, not cold."
-    }
-  },
-  {
-    "start": "meaner",
-    "target": "reader",
-    "path": [
-      "meaner",
-      "leaner",
-      "loaner",
-      "loader",
-      "leader",
-      "reader"
-    ],
-    "clues": {
-      "leader": "A person who guides others.",
-      "loader": "A machine or person that loads.",
-      "loaner": "Something lent for temporary use.",
-      "leaner": "Someone or something that leans.",
-      "meaner": "More unkind."
     }
   }
 ]

@@ -34,6 +34,10 @@ def validate_typo_pool(language: str, entries: list[dict]) -> None:
 
 
 def validate_ladder_pool(language: str, ladders: list[dict]) -> None:
+    if len(ladders) < 8:
+        raise ValueError(f"{language} ladder pool is too small")
+    seen_paths = set()
+    word_usage: dict[str, int] = {}
     for index, puzzle in enumerate(ladders, start=1):
         path = puzzle["path"]
         if not path:
@@ -46,12 +50,24 @@ def validate_ladder_pool(language: str, ladders: list[dict]) -> None:
             raise ValueError(f"{language} ladder #{index} repeats a rung: {' -> '.join(path)}")
         if len({len(word) for word in path}) != 1:
             raise ValueError(f"{language} ladder #{index} mixes word lengths")
+        path_signature = tuple(path)
+        reverse_signature = tuple(reversed(path))
+        if path_signature in seen_paths or reverse_signature in seen_paths:
+            raise ValueError(f"{language} ladder #{index} duplicates an existing path")
+        seen_paths.add(path_signature)
         for current_word, next_word in zip(path, path[1:]):
             difference = count_letter_changes(current_word, next_word)
             if difference != 1:
                 raise ValueError(
                     f"{language} ladder #{index} invalid transition: {current_word} -> {next_word} ({difference})"
                 )
+        for word in path:
+            word_usage[word] = word_usage.get(word, 0) + 1
+
+    too_repeated = [word for word, count in word_usage.items() if count > 3]
+    if too_repeated:
+        preview = ", ".join(sorted(too_repeated)[:5])
+        raise ValueError(f"{language} ladder pool overuses words: {preview}")
 
 
 def validate_chain_pool(language: str, words: list[str]) -> None:
