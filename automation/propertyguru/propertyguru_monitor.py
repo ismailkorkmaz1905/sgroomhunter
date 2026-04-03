@@ -9,6 +9,7 @@ import argparse
 import html
 import json
 import logging
+import os
 import re
 import subprocess
 import time
@@ -32,6 +33,13 @@ except ImportError:
     sync_playwright = None
 
 BASE_DIR = Path(__file__).resolve().parent
+
+IGNORED_PROXY_VALUES = {
+    "",
+    "http://127.0.0.1:9",
+    "https://127.0.0.1:9",
+    "127.0.0.1:9",
+}
 
 
 def default_config_path() -> Path:
@@ -161,10 +169,26 @@ def resolve_path(path_str: str) -> Path:
 
 
 def build_session():
-    if cffi_requests:
+    proxy_keys = ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "http_proxy", "https_proxy", "all_proxy")
+    proxy_values = {
+        str(os.environ.get(key) or "").strip()
+        for key in proxy_keys
+    }
+    meaningful_proxy_values = {
+        value for value in proxy_values if value and value.lower() not in IGNORED_PROXY_VALUES
+    }
+    if cffi_requests and not meaningful_proxy_values:
+        for key in proxy_keys:
+            value = str(os.environ.get(key) or "").strip().lower()
+            if value in IGNORED_PROXY_VALUES:
+                os.environ.pop(key, None)
         session = cffi_requests.Session(impersonate="chrome124")
+        session.trust_env = False
+        session.proxies = {}
     else:
         session = requests.Session()
+        session.trust_env = False
+        session.proxies.clear()
     session.headers.update(DEFAULT_HEADERS)
     return session
 
@@ -358,6 +382,12 @@ def _normalize_optional_int(value: Any) -> int | None:
     return int(value)
 
 
+def is_truthy_text(value: str | None) -> bool:
+    if value is None:
+        return False
+    return str(value).strip().lower() in {"1", "true", "yes", "y"}
+
+
 def collect_keyword_hits(text: str, keywords: list[str]) -> list[str]:
     lower_text = text.lower()
     hits = [keyword for keyword in keywords if keyword.lower() in lower_text]
@@ -469,6 +499,17 @@ def listing_passes_filters(details: ListingDetails, config: dict[str, Any]) -> b
         details.reject_reasons.append("listing_too_old")
     if config.get("require_room_rental") and "room" not in details.studio_or_room_text.lower():
         details.reject_reasons.append("not_room_rental")
+    room_type = details.room_type.strip().lower()
+    cooking_type = details.cooking_type.strip().lower()
+    tenant_gender = details.tenant_gender.strip().lower()
+    if room_type == "common":
+        details.reject_reasons.append("common_room")
+    if cooking_type and cooking_type != "all":
+        details.reject_reasons.append(f"restricted_cooking:{cooking_type}")
+    if tenant_gender in {"female", "male"}:
+        details.reject_reasons.append(f"gender_restricted:{tenant_gender}")
+    if is_truthy_text(details.owner_stays):
+        details.reject_reasons.append("owner_stays")
     if config.get("require_attached_bathroom"):
         if (details.bathrooms or 0) < 1:
             details.reject_reasons.append("no_bathroom")
@@ -479,10 +520,28 @@ def listing_passes_filters(details: ListingDetails, config: dict[str, Any]) -> b
             ).lower()
             if not any(keyword in combined for keyword in private_keywords):
                 details.reject_reasons.append("private_bathroom_not_clear")
-    combined = " ".join([details.title, details.headline, details.description, " ".join(details.detail_values)]).lower()
+    combined = " ".join(
+        [
+            details.title,
+            details.headline,
+            details.description,
+            " ".join(details.detail_values),
+            details.room_type,
+            details.cooking_type,
+            details.visitors_allowed,
+            details.tenant_gender,
+            details.max_tenants,
+            details.owner_stays,
+        ]
+    ).lower()
+    if "shared bath" in combined:
+        details.reject_reasons.append("banned:shared bath")
+    if "staying with owner" in combined:
+        details.reject_reasons.append("banned:staying with owner")
     for keyword in config.get("banned_keywords", []):
         if keyword.lower() in combined:
             details.reject_reasons.append(f"banned:{keyword}")
+    details.reject_reasons[:] = list(dict.fromkeys(details.reject_reasons))
     return not details.reject_reasons
 
 
@@ -554,6 +613,8 @@ class TelegramClient:
         self.token = token
         self.chat_id = str(chat_id) if chat_id else ""
         self.base_url = f"https://api.telegram.org/bot{token}"
+        self.session = requests.Session()
+        self.session.trust_env = False
 
     @property
     def enabled(self) -> bool:
@@ -569,13 +630,16 @@ class TelegramClient:
         }
         if inline_keyboard:
             payload["reply_markup"] = {"inline_keyboard": inline_keyboard}
-        response = requests.post(f"{self.base_url}/sendMessage", json=payload, timeout=30)
-        response.raise_for_status()
+        try:
+            response = self.session.post(f"{self.base_url}/sendMessage", json=payload, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException:
+            logging.exception("Telegram sendMessage failed.")
 
     def get_updates(self, offset: int) -> tuple[int, list[dict[str, Any]]]:
         if not self.enabled:
             return offset, []
-        response = requests.get(
+        response = self.session.get(
             f"{self.base_url}/getUpdates",
             params={"offset": offset, "timeout": 5},
             timeout=30,
@@ -591,13 +655,16 @@ class TelegramClient:
     def answer_callback(self, callback_query_id: str, text: str) -> None:
         if not self.enabled:
             return
-        response = requests.post(
-            f"{self.base_url}/answerCallbackQuery",
-            json={"callback_query_id": callback_query_id, "text": text},
-            timeout=30,
-        )
-        if not response.ok:
-            logging.warning("answerCallbackQuery failed: %s", response.text)
+        try:
+            response = self.session.post(
+                f"{self.base_url}/answerCallbackQuery",
+                json={"callback_query_id": callback_query_id, "text": text},
+                timeout=30,
+            )
+            if not response.ok:
+                logging.warning("answerCallbackQuery failed: %s", response.text)
+        except requests.RequestException:
+            logging.exception("Telegram answerCallbackQuery failed.")
 
 
 def open_whatsapp_preview(details: ListingDetails, message: str, config: dict[str, Any]) -> str:
@@ -696,7 +763,11 @@ def process_telegram_updates(
     config: dict[str, Any],
 ) -> None:
     offset = int(state.get("telegram_update_offset", 0))
-    new_offset, updates = telegram.get_updates(offset)
+    try:
+        new_offset, updates = telegram.get_updates(offset)
+    except requests.RequestException:
+        logging.exception("Telegram getUpdates failed; continuing without approval sync.")
+        return
     state["telegram_update_offset"] = new_offset
     for update in updates:
         callback = update.get("callback_query")
