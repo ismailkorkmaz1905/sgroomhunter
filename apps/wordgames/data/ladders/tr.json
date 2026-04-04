@@ -1,0 +1,154 @@
+[
+  {
+    "start": "yatak",
+    "target": "saban",
+    "path": [
+      "yatak",
+      "yamak",
+      "yaman",
+      "zaman",
+      "saman",
+      "saban"
+    ],
+    "clues": {
+      "yamak": "Bir işte yardımcı olan kişi.",
+      "yaman": "Güçlü, etkili ya da becerikli.",
+      "zaman": "Vakit.",
+      "saman": "Tahıl sapı.",
+      "saban": "Toprağı sürmeye yarayan araç."
+    }
+  },
+  {
+    "start": "bakan",
+    "target": "pazar",
+    "path": [
+      "bakan",
+      "bakar",
+      "yakar",
+      "yazar",
+      "nazar",
+      "pazar"
+    ],
+    "clues": {
+      "bakar": "Bakmak fiilinin geniş zamanı.",
+      "yakar": "Yakmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "sarma",
+    "target": "taşma",
+    "path": [
+      "sarma",
+      "salma",
+      "saçma",
+      "kaçma",
+      "kaşma",
+      "taşma"
+    ],
+    "clues": {
+      "salma": "Salmak işi ya da salınmış şey.",
+      "saçma": "Anlamsız söz ya da saçmak fiilinin biçimi.",
+      "kaçma": "Uzaklaşma eylemi.",
+      "kaşma": "Kazıma ya da kaşımaya benzeyen hareket.",
+      "taşma": "Sınırı aşıp dışarı çıkma."
+    }
+  },
+  {
+    "start": "bir",
+    "target": "son",
+    "path": [
+      "bir",
+      "bin",
+      "cin",
+      "can",
+      "san",
+      "son"
+    ],
+    "clues": {
+      "bin": "Sayı olarak bin ya da binmek fiilinin kökü.",
+      "cin": "Masallarda geçen görünmez varlık.",
+      "can": "Yaşam gücü.",
+      "san": "Sanmak fiilinin kökü.",
+      "son": "Bir şeyin bitiş noktası."
+    }
+  },
+  {
+    "start": "beni",
+    "target": "beri",
+    "path": [
+      "beni",
+      "seni",
+      "seri",
+      "deri",
+      "geri",
+      "beri"
+    ],
+    "clues": {
+      "seni": "İkinci tekil kişiyi gösteren sözcük.",
+      "seri": "Dizi ya da hızlı.",
+      "deri": "Cildin dış tabakası.",
+      "geri": "Arkaya doğru ya da önceki yere.",
+      "beri": "Bu yana, bu tarafa."
+    }
+  },
+  {
+    "start": "satmak",
+    "target": "sanmak",
+    "path": [
+      "satmak",
+      "batmak",
+      "yatmak",
+      "yarmak",
+      "sarmak",
+      "sanmak"
+    ],
+    "clues": {
+      "batmak": "Suya ya da zemine gömülmek.",
+      "yatmak": "Uzanmak ya da uyumak için durmak.",
+      "yarmak": "İkiye ayırmak, kesmek.",
+      "sarmak": "Çevresini dolamak.",
+      "sanmak": "Öyle olduğunu düşünmek."
+    }
+  },
+  {
+    "start": "sarar",
+    "target": "pazar",
+    "path": [
+      "sarar",
+      "sayar",
+      "yayar",
+      "yazar",
+      "nazar",
+      "pazar"
+    ],
+    "clues": {
+      "sayar": "Saymak fiilinin geniş zamanı.",
+      "yayar": "Yaymak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  },
+  {
+    "start": "katar",
+    "target": "pazar",
+    "path": [
+      "katar",
+      "batar",
+      "yatar",
+      "yazar",
+      "nazar",
+      "pazar"
+    ],
+    "clues": {
+      "batar": "Batmak fiilinin geniş zamanı.",
+      "yatar": "Yatmak fiilinin geniş zamanı.",
+      "yazar": "Yazan kişi.",
+      "nazar": "Bakış ya da kem göz.",
+      "pazar": "Alışveriş yapılan yer ya da haftanın günü."
+    }
+  }
+]

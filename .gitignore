@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.playwright-profile/
+apps/wordgames/analytics.sqlite3
+apps/wordgames/server.out.log
+apps/wordgames/server.err.log

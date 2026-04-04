@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: wordgames
+    runtime: python
+    plan: free
+    buildCommand: pip install -r apps/wordgames/requirements-render.txt
+    startCommand: gunicorn apps.wordgames.render_wsgi:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.3

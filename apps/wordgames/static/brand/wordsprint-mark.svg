@@ -1,0 +1,9 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">WordSprint mark</title>
+  <desc id="desc">A stepped tile mark for WordSprint.</desc>
+  <rect width="128" height="128" rx="32" fill="#FBF6ED"/>
+  <rect x="20" y="52" width="34" height="34" rx="10" fill="#1F7A6B"/>
+  <rect x="47" y="24" width="34" height="34" rx="10" fill="#E06C43"/>
+  <rect x="74" y="52" width="34" height="34" rx="10" fill="#3557FF"/>
+  <path d="M33 69L48 44L62 66L77 36L91 52" stroke="#FFFDF9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,154 @@
+[
+  {
+    "start": "kamer",
+    "target": "laser",
+    "path": [
+      "kamer",
+      "kaper",
+      "koper",
+      "loper",
+      "loser",
+      "laser"
+    ],
+    "clues": {
+      "kaper": "Iemand die een schip of toestel kaapt.",
+      "koper": "Een koper of het metaal koper.",
+      "loper": "Een hardloper of lange mat.",
+      "loser": "Iemand die verliest.",
+      "laser": "Een sterke gerichte lichtbundel."
+    }
+  },
+  {
+    "start": "wagen",
+    "target": "baken",
+    "path": [
+      "wagen",
+      "waken",
+      "taken",
+      "talen",
+      "balen",
+      "baken"
+    ],
+    "clues": {
+      "waken": "Niet slapen en ergens op letten.",
+      "taken": "Werkjes of opdrachten.",
+      "talen": "Meervoud van taal.",
+      "balen": "Er flink van balen of grote pakken.",
+      "baken": "Een herkenningspunt of vuurbaken."
+    }
+  },
+  {
+    "start": "kat",
+    "target": "pan",
+    "path": [
+      "kat",
+      "mat",
+      "met",
+      "men",
+      "pen",
+      "pan"
+    ],
+    "clues": {
+      "mat": "Een vloerkleed of dof.",
+      "met": "Samen met of voorzien van.",
+      "men": "Algemeen voornaamwoord.",
+      "pen": "Schrijfgerei.",
+      "pan": "Kookgerei."
+    }
+  },
+  {
+    "start": "heer",
+    "target": "peer",
+    "path": [
+      "heer",
+      "beer",
+      "weer",
+      "meer",
+      "neer",
+      "peer"
+    ],
+    "clues": {
+      "beer": "Een groot dier of schuim op drank.",
+      "weer": "Het weer of opnieuw.",
+      "meer": "Een groot binnenwater of meer.",
+      "neer": "Omlaag of neer.",
+      "peer": "Een vrucht."
+    }
+  },
+  {
+    "start": "bakken",
+    "target": "doeken",
+    "path": [
+      "bakken",
+      "pakken",
+      "pikken",
+      "dikken",
+      "dokken",
+      "doeken"
+    ],
+    "clues": {
+      "pakken": "Vastgrijpen of kledingstukken.",
+      "pikken": "Stelen of prikken.",
+      "dikken": "Dikker maken.",
+      "dokken": "Betalen, informeel.",
+      "doeken": "Lappen stof of afdekken."
+    }
+  },
+  {
+    "start": "zaken",
+    "target": "talen",
+    "path": [
+      "zaken",
+      "zagen",
+      "dagen",
+      "daken",
+      "taken",
+      "talen"
+    ],
+    "clues": {
+      "zagen": "Met een zaag werken of meervoud van zaag.",
+      "dagen": "Meervoud van dag.",
+      "daken": "Meervoud van dak.",
+      "taken": "Werkjes of opdrachten.",
+      "talen": "Meervoud van taal."
+    }
+  },
+  {
+    "start": "maker",
+    "target": "loper",
+    "path": [
+      "maker",
+      "mager",
+      "lager",
+      "laser",
+      "loser",
+      "loper"
+    ],
+    "clues": {
+      "mager": "Dun of schraal.",
+      "lager": "Niet zo hoog of een soort bier.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat."
+    }
+  },
+  {
+    "start": "kater",
+    "target": "loper",
+    "path": [
+      "kater",
+      "water",
+      "later",
+      "laser",
+      "loser",
+      "loper"
+    ],
+    "clues": {
+      "water": "Vloeistof om te drinken.",
+      "later": "Niet nu maar daarna.",
+      "laser": "Een sterke gerichte lichtbundel.",
+      "loser": "Iemand die verliest.",
+      "loper": "Een hardloper of lange mat."
+    }
+  }
+]

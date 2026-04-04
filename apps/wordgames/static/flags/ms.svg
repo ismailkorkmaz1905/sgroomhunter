@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" role="img" aria-label="Malay">
+  <rect width="60" height="40" rx="6" fill="#FFF"/>
+  <g fill="#CC0001">
+    <rect y="0" width="60" height="4"/>
+    <rect y="8" width="60" height="4"/>
+    <rect y="16" width="60" height="4"/>
+    <rect y="24" width="60" height="4"/>
+    <rect y="32" width="60" height="4"/>
+  </g>
+  <rect width="28" height="22" rx="6" fill="#010066"/>
+  <circle cx="12" cy="11" r="6" fill="#FFCC00"/>
+  <circle cx="14" cy="11" r="5" fill="#010066"/>
+  <polygon points="20,11 22.8,12 21,9.5 23.8,8.5 20.5,8.4 20,5.3 19,8.3 15.9,7.3 18.2,9.7 16.1,12 19.2,11.7 19.8,14.8" fill="#FFCC00"/>
+</svg>

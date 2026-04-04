@@ -1,0 +1,1812 @@
+[
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "muat",
+        "clue": "Cukup ruang untuk masuk"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "masa",
+        "clue": "Periode waktu"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "tren",
+        "clue": "Hal yang sedang populer"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "aman",
+        "clue": "Tidak berbahaya"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kabar",
+        "clue": "Berita atau keadaan terbaru"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kelas",
+        "clue": "Tempat belajar di sekolah"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "radio",
+        "clue": "Alat untuk mendengar siaran"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "saldo",
+        "clue": "Sisa uang dalam rekening"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "bubur",
+        "clue": "Makanan lembut dari nasi"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "botol",
+        "clue": "Wadah minuman"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "rumah",
+        "clue": "Tempat tinggal"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "lelah",
+        "clue": "Kondisi capek"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "buku",
+        "clue": "Kumpulan halaman untuk dibaca"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "batu",
+        "clue": "Benda keras dari alam"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ular",
+        "clue": "Hewan melata tanpa kaki"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "ukur",
+        "clue": "Menentukan panjang atau besar"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kopi",
+        "clue": "Minuman hitam yang sering diminum pagi hari"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kota",
+        "clue": "Wilayah perkotaan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "ikan",
+        "clue": "Hewan yang hidup di air"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "awan",
+        "clue": "Gumpalan putih di langit"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "mata",
+        "clue": "Organ untuk melihat"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "muda",
+        "clue": "Belum tua"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "apel",
+        "clue": "Buah merah atau hijau"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "asal",
+        "clue": "Tempat atau sumber awal"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "desa",
+        "clue": "Wilayah kecil di luar kota"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "duka",
+        "clue": "Sedih karena kehilangan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "apel",
+        "clue": "Buah merah atau hijau"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "awal",
+        "clue": "Bagian paling mula"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "laut",
+        "clue": "Hamparan air asin yang luas"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "lari",
+        "clue": "Bergerak cepat dengan kaki"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "topi",
+        "clue": "Penutup kepala"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "inti",
+        "clue": "Bagian paling pokok"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "panas",
+        "clue": "Lawan dari dingin"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "pisau",
+        "clue": "Alat tajam untuk memotong"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "salat",
+        "clue": "Ibadah utama umat Muslim"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "umpat",
+        "clue": "Ucapan kasar saat memaki"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "bakar",
+        "clue": "Memanaskan hingga hangus atau matang"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "bibir",
+        "clue": "Bagian mulut"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "raden",
+        "clue": "Gelar bangsawan Jawa"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "rawan",
+        "clue": "Mudah terkena risiko"
+      }
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "lab",
+        "clue": "Laboratorium"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "lot",
+        "clue": "Bagian atau undian"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "bar",
+        "clue": "Batang logam"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "ter",
+        "clue": "Imbuhan kata"
+      }
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "lab",
+        "clue": "Laboratorium"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "las",
+        "clue": "Menyambung logam"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "bot",
+        "clue": "Sepatu bot"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "set",
+        "clue": "Kumpulan"
+      }
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "mai",
+        "clue": "Nama bulan Mei"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "mad",
+        "clue": "Marah"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "iya",
+        "clue": "Kata setuju"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "doa",
+        "clue": "Permohonan"
+      }
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "kal",
+        "clue": "Kalori singkat"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "kas",
+        "clue": "Uang tunai"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "lot",
+        "clue": "Bagian atau undian"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "set",
+        "clue": "Kumpulan"
+      }
+    ]
+  },
+  {
+    "size": 3,
+    "blocks": [
+      [
+        1,
+        1
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "ban",
+        "clue": "Lintasan karet"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "buk",
+        "clue": "Buku (singkat)"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 2,
+        "answer": "nas",
+        "clue": "Teks Al-Quran"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 2,
+        "col": 0,
+        "answer": "kas",
+        "clue": "Uang tunai"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jauh",
+        "clue": "Berjauhan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "asli",
+        "clue": "Genuina"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "hari",
+        "clue": "24 jam"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jauh",
+        "clue": "Berjauhan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "asli",
+        "clue": "Genuina"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "hati",
+        "clue": "Organ atau perasaan"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jauh",
+        "clue": "Berjauhan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "abdi",
+        "clue": "Hamba setia"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "hari",
+        "clue": "24 jam"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jauh",
+        "clue": "Berjauhan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "abdi",
+        "clue": "Hamba setia"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "hati",
+        "clue": "Organ atau perasaan"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jual",
+        "clue": "Menjual"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "alat",
+        "clue": "Perangkat"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "laut",
+        "clue": "Air asin besar"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jaga",
+        "clue": "Berjaga"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "asli",
+        "clue": "Genuina"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "abdi",
+        "clue": "Hamba setia"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "juga",
+        "clue": "Selain itu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "jaga",
+        "clue": "Berjaga"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "abdi",
+        "clue": "Hamba setia"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "asli",
+        "clue": "Genuina"
+      }
+    ]
+  },
+  {
+    "size": 4,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "bisa",
+        "clue": "Mampu"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "buka",
+        "clue": "Membuka"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 3,
+        "answer": "asli",
+        "clue": "Genuina"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 3,
+        "col": 0,
+        "answer": "abdi",
+        "clue": "Hamba setia"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tidak",
+        "clue": "Negasi"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "mahal",
+        "clue": "Harga tinggi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "kapal",
+        "clue": "Kendaraan laut"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tidak",
+        "clue": "Negasi"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "mahal",
+        "clue": "Harga tinggi"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "kecil",
+        "clue": "Tida"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tugas",
+        "clue": "Kewajiban"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "malam",
+        "clue": "Waktu setelah senja"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "salam",
+        "clue": "Ungkapan hormat"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "terus",
+        "clue": "Berlanjut"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "malam",
+        "clue": "Waktu setelah senja"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "salam",
+        "clue": "Ungkapan hormat"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tidur",
+        "clue": "Istirahat tidur"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "malam",
+        "clue": "Waktu setelah senja"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "ragam",
+        "clue": "Variasi"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tidur",
+        "clue": "Istirahat tidur"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "mulai",
+        "clue": "Dimulai"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "ramai",
+        "clue": "Banyak orang"
+      }
+    ]
+  },
+  {
+    "size": 5,
+    "blocks": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "entries": [
+      {
+        "number": 1,
+        "direction": "across",
+        "row": 0,
+        "col": 0,
+        "answer": "tanam",
+        "clue": "Menanam"
+      },
+      {
+        "number": 2,
+        "direction": "down",
+        "row": 0,
+        "col": 0,
+        "answer": "tahan",
+        "clue": "Bertahan"
+      },
+      {
+        "number": 3,
+        "direction": "down",
+        "row": 0,
+        "col": 4,
+        "answer": "mulai",
+        "clue": "Dimulai"
+      },
+      {
+        "number": 4,
+        "direction": "across",
+        "row": 4,
+        "col": 0,
+        "answer": "negri",
+        "clue": "Negeri"
+      }
+    ]
+  }
+]
