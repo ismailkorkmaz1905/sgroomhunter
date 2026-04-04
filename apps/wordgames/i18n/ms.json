@@ -216,5 +216,12 @@
     "clear": "Kosongkan tekaan",
     "complete": "Papan selesai. Memang kemas.",
     "progress": "Diisi"
+  },
+  "prompts": {
+    "daily": "{name}, ambil selangkah demi selangkah. Yang ini boleh lepas.",
+    "scramble": "Jom {name}, kekalkan rentak dan terus laju.",
+    "typo": "{name}, percaya mata anda dan pilih yang nampak janggal.",
+    "celebrate": "Bagus, {name}.",
+    "hint": "{name}, petunjuk ini patut buat langkah seterusnya lebih jelas."
   }
 }

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hmac
 import json
 import os
 import sqlite3
@@ -9,7 +10,7 @@ from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
 
-from flask import Flask, Response, jsonify, redirect, render_template, render_template_string, request, send_from_directory, url_for
+from flask import Flask, Response, jsonify, redirect, render_template, request, send_from_directory, url_for
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -130,7 +131,6 @@ def should_log_request(path: str, status_code: int, method: str) -> bool:
 
 
 def log_visit_event(path: str, lang: str | None, page: str | None, status_code: int) -> None:
-    ensure_analytics_db()
     user_agent = request.headers.get("User-Agent", "")
     with sqlite3.connect(ANALYTICS_DB) as connection:
         connection.execute(
@@ -159,7 +159,6 @@ def log_visit_event(path: str, lang: str | None, page: str | None, status_code: 
 
 
 def get_analytics_summary(days: int = 7) -> dict:
-    ensure_analytics_db()
     with sqlite3.connect(ANALYTICS_DB) as connection:
         connection.row_factory = sqlite3.Row
         totals = connection.execute(
@@ -263,7 +262,6 @@ def normalize_display_name(value: str) -> str:
 
 
 def upsert_player_profile(client_id: str, display_name: str, lang: str | None) -> None:
-    ensure_analytics_db()
     with sqlite3.connect(ANALYTICS_DB) as connection:
         connection.execute(
             """
@@ -295,9 +293,8 @@ def check_basic_auth(auth_header: str | None) -> bool:
     username, separator, password = decoded.partition(":")
     if not separator:
         return False
-    return (
-        username == os.environ.get("ANALYTICS_USERNAME")
-        and password == os.environ.get("ANALYTICS_PASSWORD")
+    return hmac.compare_digest(username, os.environ.get("ANALYTICS_USERNAME", "")) and hmac.compare_digest(
+        password, os.environ.get("ANALYTICS_PASSWORD", "")
     )
 
 
@@ -310,189 +307,33 @@ def analytics_unauthorized_response() -> Response:
 
 
 def render_analytics_dashboard(summary: dict) -> str:
-    template = """
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>WordGames Analytics</title>
-      <style>
-        :root {
-          --bg: #f6f2ea;
-          --ink: #1d2433;
-          --muted: #5e6677;
-          --surface: #fffdf9;
-          --line: rgba(30, 36, 51, 0.12);
-          --accent: #1f7a6b;
-        }
-        * { box-sizing: border-box; }
-        body {
-          margin: 0;
-          font-family: "Segoe UI", sans-serif;
-          color: var(--ink);
-          background: linear-gradient(180deg, #faf6ef 0%, #edf1f7 100%);
-        }
-        .wrap {
-          width: min(1120px, calc(100% - 24px));
-          margin: 0 auto;
-          padding: 24px 0 48px;
-        }
-        .hero, .panel {
-          background: rgba(255,255,255,0.86);
-          border: 1px solid var(--line);
-          border-radius: 24px;
-          padding: 22px;
-          box-shadow: 0 18px 45px rgba(33, 36, 48, 0.08);
-          backdrop-filter: blur(6px);
-        }
-        .hero { margin-bottom: 16px; }
-        .eyebrow {
-          margin: 0 0 8px;
-          color: var(--accent);
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-        }
-        h1, h2 { margin: 0; }
-        .hero p, .panel p, li {
-          color: var(--muted);
-          line-height: 1.6;
-        }
-        .metrics {
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 12px;
-          margin-top: 18px;
-        }
-        .metric {
-          background: var(--surface);
-          border: 1px solid var(--line);
-          border-radius: 18px;
-          padding: 16px;
-        }
-        .metric span {
-          display: block;
-          margin-bottom: 8px;
-          color: var(--muted);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          font-size: 12px;
-          font-weight: 700;
-        }
-        .metric strong { font-size: 28px; }
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 16px;
-          margin-top: 16px;
-        }
-        ul {
-          margin: 16px 0 0;
-          padding-left: 18px;
-        }
-        li + li { margin-top: 10px; }
-        .hint {
-          margin-top: 16px;
-          font-size: 14px;
-        }
-        @media (max-width: 820px) {
-          .metrics, .grid { grid-template-columns: 1fr; }
-        }
-      </style>
-    </head>
-    <body>
-      <div class="wrap">
-        <section class="hero">
-          <p class="eyebrow">Private analytics</p>
-          <h1>WordGames dashboard</h1>
-          <p>This page shows privacy-friendly aggregate usage only. No raw IP addresses, no analytics cookies, and no fingerprinting.</p>
-          <div class="metrics">
-            <div class="metric"><span>Visits</span><strong>{{ summary.totals.visits }}</strong></div>
-            <div class="metric"><span>Window</span><strong>{{ summary.days }}d</strong></div>
-            <div class="metric"><span>Privacy</span><strong>{{ summary.privacy_mode }}</strong></div>
-            <div class="metric"><span>Top route</span><strong>{{ summary.by_path[0].path if summary.by_path else "-" }}</strong></div>
-          </div>
-        </section>
-        <section class="grid">
-          <article class="panel">
-            <h2>Top routes</h2>
-            <ul>
-              {% for row in summary.by_path %}
-              <li><strong>{{ row.path }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Languages</h2>
-            <ul>
-              {% for row in summary.by_language %}
-              <li><strong>{{ row.lang }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Pages</h2>
-            <ul>
-              {% for row in summary.by_page %}
-              <li><strong>{{ row.page }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Devices</h2>
-            <ul>
-              {% for row in summary.by_device %}
-              <li><strong>{{ row.device_type }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Browsers</h2>
-            <ul>
-              {% for row in summary.by_browser %}
-              <li><strong>{{ row.browser_family }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Recent days</h2>
-            <ul>
-              {% for row in summary.daily_visits %}
-              <li><strong>{{ row.day }}</strong> - {{ row.visits }} visits</li>
-              {% else %}
-              <li>No data yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-          <article class="panel">
-            <h2>Recent names</h2>
-            <ul>
-              {% for row in summary.recent_names %}
-              <li><strong>{{ row.display_name }}</strong> - {{ row.lang or "unknown" }}</li>
-              {% else %}
-              <li>No names submitted yet.</li>
-              {% endfor %}
-            </ul>
-          </article>
-        </section>
-        <p class="hint">If you still want the raw aggregate JSON for debugging, use <code>/analytics-summary</code>.</p>
-      </div>
-    </body>
-    </html>
-    """
-    return render_template_string(template, summary=summary)
+    return render_template("analytics.html", summary=summary)
+
+
+_PAGE_GAME_DATA: dict[str, list[str]] = {
+    "home": [],
+    "daily-ladder": ["ladders"],
+    "word-scramble": ["words"],
+    "typo-hunt": ["typos"],
+    "word-chain": ["chains"],
+    "category-blitz": ["categories"],
+    "mini-crossword": ["crosswords"],
+    "mini-sudoku": ["sudokus"],
+    "history": [],
+    "privacy": [],
+    "about": [],
+    "terms": [],
+}
+
+_DATA_SOURCES = {
+    "words": WORDS,
+    "typos": TYPOS,
+    "ladders": LADDERS,
+    "chains": CHAINS,
+    "categories": CATEGORIES,
+    "crosswords": CROSSWORDS,
+    "sudokus": SUDOKUS,
+}
 
 
 def render_localized_page(lang: str, page: str = "home"):
@@ -520,6 +361,8 @@ def render_localized_page(lang: str, page: str = "home"):
     }
     title_key, description_key = seo_map[normalized_page]
 
+    game_data = {key: _DATA_SOURCES[key][lang] for key in _PAGE_GAME_DATA.get(normalized_page, [])}
+
     return render_template(
         "wordgames.html",
         lang=lang,
@@ -532,19 +375,15 @@ def render_localized_page(lang: str, page: str = "home"):
             "page": normalized_page,
             "availableLanguages": list(DICTIONARIES.keys()),
             "dictionary": dictionary,
-            "words": WORDS[lang],
-            "typos": TYPOS[lang],
-            "ladders": LADDERS[lang],
-            "chains": CHAINS[lang],
-            "categories": CATEGORIES[lang],
-            "crosswords": CROSSWORDS[lang],
-            "sudokus": SUDOKUS[lang],
             "version": APP_VERSION,
+            **game_data,
         },
     )
 
 
 def create_app() -> Flask:
+    ensure_analytics_db()
+
     app = Flask(
         "wordgames",
         template_folder=str(BASE_DIR / "templates"),

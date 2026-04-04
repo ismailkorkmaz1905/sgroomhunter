@@ -216,5 +216,12 @@
     "clear": "Tahminleri temizle",
     "complete": "Tahta tamam. Temiz çözdün.",
     "progress": "Dolu"
+  },
+  "prompts": {
+    "daily": "Hadi {name}, bunu adım adım çözebilirsin.",
+    "scramble": "Hadi {name}, ritmi koru ve hızlı git.",
+    "typo": "{name}, gözüne güven ve farklı olanı seç.",
+    "celebrate": "Tebrikler {name}.",
+    "hint": "{name}, bu ipucu sıradaki adımı biraz açacak."
   }
 }

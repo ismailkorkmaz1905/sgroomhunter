@@ -216,5 +216,12 @@
     "clear": "Clear guesses",
     "complete": "Board complete. Smooth solve.",
     "progress": "Filled"
+  },
+  "prompts": {
+    "daily": "{name}, you can take this one step by step.",
+    "scramble": "Let's go, {name}. Keep the pace light and fast.",
+    "typo": "{name}, trust your eye and pick the odd one out.",
+    "celebrate": "Nice work, {name}.",
+    "hint": "{name}, this clue should make the next step clearer."
   }
 }

@@ -53,7 +53,7 @@
   function getActiveLadder(language) {
     const pool = payload.ladders;
     const baseIndex = getDailyIndex(new Date(), pool.length);
-    const bonusOffset = Number(sessionStorage.getItem(getSessionKey("word-game-daily-ladder-bonus", language)) || "0");
+    const bonusOffset = Number(localStorage.getItem(getSessionKey("word-game-daily-ladder-bonus", language)) || "0");
     const activeIndex = (baseIndex + bonusOffset) % pool.length;
     return {
       puzzle: pool[activeIndex],
@@ -65,8 +65,8 @@
 
   function unlockNextBonus(language) {
     const key = getSessionKey("word-game-daily-ladder-bonus", language);
-    const currentOffset = Number(sessionStorage.getItem(key) || "0");
-    sessionStorage.setItem(key, String(currentOffset + 1));
+    const currentOffset = Number(localStorage.getItem(key) || "0");
+    localStorage.setItem(key, String(currentOffset + 1));
   }
 
   function switchActiveLadder(language) {
@@ -80,7 +80,7 @@
     });
     const pool = filteredPool.length ? filteredPool : crosswordPuzzles;
     const baseIndex = getDailyIndex(new Date(), pool.length);
-    const offset = Number(sessionStorage.getItem(getSessionKey(`word-game-crossword-offset-${difficulty}`, language)) || "0");
+    const offset = Number(localStorage.getItem(getSessionKey(`word-game-crossword-offset-${difficulty}`, language)) || "0");
     const activeIndex = (baseIndex + offset) % pool.length;
     return {
       puzzle: pool[activeIndex],
@@ -93,8 +93,8 @@
   function switchActiveCrossword(language) {
     const difficulty = getCrosswordDifficultySetting(language);
     const key = getSessionKey(`word-game-crossword-offset-${difficulty}`, language);
-    const currentOffset = Number(sessionStorage.getItem(key) || "0");
-    sessionStorage.setItem(key, String(currentOffset + 1));
+    const currentOffset = Number(localStorage.getItem(key) || "0");
+    localStorage.setItem(key, String(currentOffset + 1));
   }
 
   function getCrosswordDifficulty(puzzle) {
@@ -111,11 +111,11 @@
   }
 
   function getCrosswordDifficultySetting(language) {
-    return sessionStorage.getItem(getScopedKey("word-game-crossword-difficulty", language)) || "medium";
+    return localStorage.getItem(getScopedKey("word-game-crossword-difficulty", language)) || "medium";
   }
 
   function setCrosswordDifficultySetting(language, difficulty) {
-    sessionStorage.setItem(getScopedKey("word-game-crossword-difficulty", language), difficulty);
+    localStorage.setItem(getScopedKey("word-game-crossword-difficulty", language), difficulty);
   }
 
   function getActiveSudoku(language) {
@@ -125,7 +125,7 @@
     });
     const pool = filteredPool.length ? filteredPool : sudokuPuzzles;
     const baseIndex = getDailyIndex(new Date(), pool.length);
-    const offset = Number(sessionStorage.getItem(getSessionKey(`word-game-sudoku-offset-${difficulty}`, language)) || "0");
+    const offset = Number(localStorage.getItem(getSessionKey(`word-game-sudoku-offset-${difficulty}`, language)) || "0");
     const activeIndex = (baseIndex + offset) % pool.length;
     return {
       puzzle: pool[activeIndex],
@@ -138,16 +138,16 @@
   function switchActiveSudoku(language) {
     const difficulty = getSudokuDifficultySetting(language);
     const key = getSessionKey(`word-game-sudoku-offset-${difficulty}`, language);
-    const currentOffset = Number(sessionStorage.getItem(key) || "0");
-    sessionStorage.setItem(key, String(currentOffset + 1));
+    const currentOffset = Number(localStorage.getItem(key) || "0");
+    localStorage.setItem(key, String(currentOffset + 1));
   }
 
   function getSudokuDifficultySetting(language) {
-    return sessionStorage.getItem(getScopedKey("word-game-sudoku-difficulty", language)) || "medium";
+    return localStorage.getItem(getScopedKey("word-game-sudoku-difficulty", language)) || "medium";
   }
 
   function setSudokuDifficultySetting(language, difficulty) {
-    sessionStorage.setItem(getScopedKey("word-game-sudoku-difficulty", language), difficulty);
+    localStorage.setItem(getScopedKey("word-game-sudoku-difficulty", language), difficulty);
   }
 
   function shuffleWord(word) {
@@ -169,14 +169,23 @@
     return shuffled;
   }
 
-  function buildTypoOptions(entry) {
-    const distractors = typoEntries
-      .map((item) => item.correct)
-      .filter((word) => word !== entry.correct)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 4);
+  function fisherYatesShuffle(array) {
+    const result = array.slice();
+    for (let index = result.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      const temp = result[index];
+      result[index] = result[swapIndex];
+      result[swapIndex] = temp;
+    }
+    return result;
+  }
 
-    return [...distractors, entry.typo].sort(() => Math.random() - 0.5);
+  function buildTypoOptions(entry) {
+    const pool = fisherYatesShuffle(
+      typoEntries.map((item) => item.correct).filter((word) => word !== entry.correct),
+    ).slice(0, 4);
+
+    return fisherYatesShuffle([...pool, entry.typo]);
   }
 
   function buildCrosswordPuzzle(puzzle) {
@@ -303,50 +312,14 @@
   }
 
   function getPlayerPrompt(name, context) {
-    if (!name) {
+    if (!name || !dictionary.prompts) {
       return "";
     }
-
-    const prompts = {
-      en: {
-        daily: `${name}, you can take this one step by step.`,
-        scramble: `Let's go, ${name}. Keep the pace light and fast.`,
-        typo: `${name}, trust your eye and pick the odd one out.`,
-        celebrate: `Nice work, ${name}.`,
-        hint: `${name}, this clue should make the next step clearer.`,
-      },
-      tr: {
-        daily: `Hadi ${name}, bunu adım adım çözebilirsin.`,
-        scramble: `Hadi ${name}, ritmi koru ve hızlı git.`,
-        typo: `${name}, gözüne güven ve farklı olanı seç.`,
-        celebrate: `Tebrikler ${name}.`,
-        hint: `${name}, bu ipucu sıradaki adımı biraz açacak.`,
-      },
-      nl: {
-        daily: `${name}, rustig aan. Deze kun je stap voor stap oplossen.`,
-        scramble: `Kom op, ${name}. Hou het tempo hoog.`,
-        typo: `${name}, vertrouw op je oog en pak de vreemde eruit.`,
-        celebrate: `Lekker bezig, ${name}.`,
-        hint: `${name}, deze hint maakt de volgende trede hopelijk duidelijker.`,
-      },
-      id: {
-        daily: `${name}, pelan saja. Ini bisa kamu pecahkan selangkah demi selangkah.`,
-        scramble: `Ayo ${name}, jaga ritmenya dan tetap cepat.`,
-        typo: `${name}, percaya sama matamu dan pilih yang paling janggal.`,
-        celebrate: `Mantap, ${name}.`,
-        hint: `${name}, hint ini semoga bikin langkah berikutnya lebih kebayang.`,
-      },
-      ms: {
-        daily: `${name}, ambil selangkah demi selangkah. Yang ini boleh lepas.`,
-        scramble: `Jom ${name}, kekalkan rentak dan terus laju.`,
-        typo: `${name}, percaya mata anda dan pilih yang nampak janggal.`,
-        celebrate: `Bagus, ${name}.`,
-        hint: `${name}, petunjuk ini patut buat langkah seterusnya lebih jelas.`,
-      },
-    };
-
-    const languagePrompts = prompts[currentLanguage] || prompts.en;
-    return languagePrompts[context] || "";
+    const template = dictionary.prompts[context];
+    if (!template) {
+      return "";
+    }
+    return template.replace("{name}", name);
   }
 
   function getLanguageFlag(language) {

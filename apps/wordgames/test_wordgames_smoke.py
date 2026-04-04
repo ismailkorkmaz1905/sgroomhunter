@@ -55,8 +55,17 @@ class WordGamesSmokeTests(unittest.TestCase):
         self.assertIn("dictionary", payload)
         self.assertNotIn("dictionaries", payload)
         self.assertEqual(payload["lang"], "en")
-        self.assertEqual(len(payload["words"]), 50)
+        self.assertNotIn("words", payload)
+        self.assertNotIn("ladders", payload)
         self.assertEqual(len(payload["availableLanguages"]), 5)
+
+        scramble_response = self.client.get("/en/word-scramble")
+        scramble_html = scramble_response.get_data(as_text=True)
+        scramble_match = re.search(r'<script id="app-data" type="application/json">(.*?)</script>', scramble_html)
+        self.assertIsNotNone(scramble_match)
+        scramble_payload = json.loads(scramble_match.group(1))
+        self.assertIn("words", scramble_payload)
+        self.assertNotIn("ladders", scramble_payload)
 
     def test_turkish_payload_keeps_real_unicode(self):
         response = self.client.get("/tr")

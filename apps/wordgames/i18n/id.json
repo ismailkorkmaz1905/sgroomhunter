@@ -216,5 +216,12 @@
     "clear": "Bersihkan tebakan",
     "complete": "Papan selesai. Rapi sekali.",
     "progress": "Terisi"
+  },
+  "prompts": {
+    "daily": "{name}, pelan saja. Ini bisa kamu pecahkan selangkah demi selangkah.",
+    "scramble": "Ayo {name}, jaga ritmenya dan tetap cepat.",
+    "typo": "{name}, percaya sama matamu dan pilih yang paling janggal.",
+    "celebrate": "Mantap, {name}.",
+    "hint": "{name}, hint ini semoga bikin langkah berikutnya lebih kebayang."
   }
 }

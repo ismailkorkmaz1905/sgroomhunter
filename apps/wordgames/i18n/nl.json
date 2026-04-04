@@ -216,5 +216,12 @@
     "clear": "Gissingen wissen",
     "complete": "Bord compleet. Strakke solve.",
     "progress": "Gevuld"
+  },
+  "prompts": {
+    "daily": "{name}, rustig aan. Deze kun je stap voor stap oplossen.",
+    "scramble": "Kom op, {name}. Hou het tempo hoog.",
+    "typo": "{name}, vertrouw op je oog en pak de vreemde eruit.",
+    "celebrate": "Lekker bezig, {name}.",
+    "hint": "{name}, deze hint maakt de volgende trede hopelijk duidelijker."
   }
 }
