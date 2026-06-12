@@ -1,5 +1,6 @@
 const CACHE_NAME = "wordsprint-v5";
-const APP_SHELL = [
+const BASE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
+const ROUTES = [
   "/",
   "/en",
   "/tr",
@@ -9,6 +10,12 @@ const APP_SHELL = [
   "/en/history",
   "/en/mini-sudoku",
 ];
+const APP_SHELL = ROUTES.map((route) => {
+  if (!BASE_PATH) {
+    return route;
+  }
+  return route === "/" ? `${BASE_PATH}/` : `${BASE_PATH}${route}/`;
+});
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -44,7 +51,7 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(() =>
-        caches.match(event.request).then((cached) => cached || (event.request.mode === "navigate" ? caches.match("/en") : undefined)),
+        caches.match(event.request).then((cached) => cached || (event.request.mode === "navigate" ? caches.match(BASE_PATH ? `${BASE_PATH}/en/` : "/en") : undefined)),
       ),
   );
 });
