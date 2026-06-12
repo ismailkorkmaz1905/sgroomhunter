@@ -10,21 +10,21 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="WordSprint" />
-  <link rel="manifest" href="/manifest.webmanifest?v={{ app_version }}" />
-  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='brand/wordsprint-mark.svg') }}?v={{ app_version }}" />
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='icons/icon-192.png') }}?v={{ app_version }}" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}?v={{ app_version }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='wordgames.css') }}?v={{ app_version }}" />
+  <link rel="manifest" href="{{ manifest_url }}?v={{ app_version }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ asset_url('brand/wordsprint-mark.svg') }}?v={{ app_version }}" />
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset_url('icons/icon-192.png') }}?v={{ app_version }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset_url('icons/apple-touch-icon.png') }}?v={{ app_version }}" />
+  <link rel="stylesheet" href="{{ asset_url('wordgames.css') }}?v={{ app_version }}" />
 </head>
   <body>
     <div id="app"></div>
     <script id="app-data" type="application/json">{{ app_data|tojson }}</script>
-    <script src="{{ url_for('static', filename='wordgames-engagement.js') }}?v={{ app_version }}"></script>
-    <script src="{{ url_for('static', filename='wordgames.js') }}?v={{ app_version }}"></script>
+    <script src="{{ asset_url('wordgames-engagement.js') }}?v={{ app_version }}"></script>
+    <script src="{{ asset_url('wordgames.js') }}?v={{ app_version }}"></script>
     <script>
       if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("/service-worker.js?v={{ app_version }}").catch(function () {});
+        navigator.serviceWorker.register("{{ service_worker_url }}?v={{ app_version }}").catch(function () {});
       });
     }
   </script>
