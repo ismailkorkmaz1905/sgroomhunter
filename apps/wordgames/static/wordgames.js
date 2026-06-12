@@ -12,12 +12,21 @@
   const appVersion = payload.version || "local";
   const app = document.getElementById("app");
   const availableLanguages = payload.availableLanguages || [currentLanguage];
-  const brandMarkUrl = "/static/brand/wordsprint-mark.svg";
+  const basePath = (payload.basePath || "").replace(/\/$/, "");
+  const staticBuild = payload.staticBuild === true;
+  const brandMarkUrl = withBasePath("/static/brand/wordsprint-mark.svg");
   const engagement = window.WordSprintEngagement;
 
   const DAILY_EPOCH = Date.UTC(2026, 0, 1);
   const TYPO_QUESTIONS = 10;
   const SUDOKU_SYMBOLS = ["1", "2", "3", "4", "5", "6"];
+
+  function withBasePath(path) {
+    if (!basePath) {
+      return path;
+    }
+    return `${basePath}${path.startsWith("/") ? path : `/${path}`}`;
+  }
 
   function getScopedKey(base, language) {
     return `${base}-${language}`;
@@ -329,7 +338,7 @@
         markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#012169"/><path d="M0 0l60 40M60 0L0 40" stroke="#FFF" stroke-width="8"/><path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" stroke-width="4"/><path d="M30 0v40M0 20h60" stroke="#FFF" stroke-width="14"/><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"/></svg>',
       },
       tr: {
-        label: "Türkçe",
+        label: "TÃ¼rkÃ§e",
         markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#E30A17"/><circle cx="24" cy="20" r="10" fill="#FFF"/><circle cx="27" cy="20" r="8" fill="#E30A17"/><polygon points="35,20 43,17 43,23" fill="#FFF"/></svg>',
       },
       nl: {
@@ -349,8 +358,11 @@
   }
 
   function submitProfileName(displayName) {
+    if (staticBuild) {
+      return Promise.resolve();
+    }
     const clientId = ensureClientId();
-    return fetch("/profile-name", {
+    return fetch(withBasePath("/profile-name"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -435,7 +447,8 @@
   }
 
   function pathFor(language, page) {
-    return page === "home" ? `/${language}` : `/${language}/${page}`;
+    const path = page === "home" ? `/${language}` : `/${language}/${page}`;
+    return basePath ? withBasePath(`${path}/`) : path;
   }
 
   function card(title, body, href, toneClass) {
@@ -2032,8 +2045,8 @@
       ? summary.recent
           .map(function (entry) {
             const gameLabel = labels[entry.game] || entry.game;
-            const scoreMarkup = typeof entry.score === "number" ? ` • ${dictionary.common.score}: ${entry.score}` : "";
-            return `<li><strong>${gameLabel}</strong> • ${formatHistoryDate(entry.playedAt)}${scoreMarkup}</li>`;
+            const scoreMarkup = typeof entry.score === "number" ? ` â€¢ ${dictionary.common.score}: ${entry.score}` : "";
+            return `<li><strong>${gameLabel}</strong> â€¢ ${formatHistoryDate(entry.playedAt)}${scoreMarkup}</li>`;
           })
           .join("")
       : `<li>${dictionary.history.emptyRecent}</li>`;
@@ -2041,7 +2054,7 @@
       ? Object.entries(summary.byGame)
           .map(function ([game, stats]) {
             const gameLabel = labels[game] || game;
-            return `<li><strong>${gameLabel}</strong> • ${dictionary.history.sessions}: ${stats.sessions} • ${dictionary.common.best}: ${stats.bestScore}</li>`;
+            return `<li><strong>${gameLabel}</strong> â€¢ ${dictionary.history.sessions}: ${stats.sessions} â€¢ ${dictionary.common.best}: ${stats.bestScore}</li>`;
           })
           .join("")
       : `<li>${dictionary.history.emptySummary}</li>`;
