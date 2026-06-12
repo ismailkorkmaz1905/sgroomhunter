@@ -13,7 +13,6 @@
   const app = document.getElementById("app");
   const availableLanguages = payload.availableLanguages || [currentLanguage];
   const basePath = (payload.basePath || "").replace(/\/$/, "");
-  const staticBuild = payload.staticBuild === true;
   const brandMarkUrl = withBasePath("/static/brand/wordsprint-mark.svg");
   const engagement = window.WordSprintEngagement;
 
@@ -338,7 +337,7 @@
         markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#012169"/><path d="M0 0l60 40M60 0L0 40" stroke="#FFF" stroke-width="8"/><path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" stroke-width="4"/><path d="M30 0v40M0 20h60" stroke="#FFF" stroke-width="14"/><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="8"/></svg>',
       },
       tr: {
-        label: "TÃ¼rkÃ§e",
+        label: "Türkçe",
         markup: '<svg class="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" rx="6" fill="#E30A17"/><circle cx="24" cy="20" r="10" fill="#FFF"/><circle cx="27" cy="20" r="8" fill="#E30A17"/><polygon points="35,20 43,17 43,23" fill="#FFF"/></svg>',
       },
       nl: {
@@ -355,24 +354,6 @@
       },
     };
     return flags[language] || null;
-  }
-
-  function submitProfileName(displayName) {
-    if (staticBuild) {
-      return Promise.resolve();
-    }
-    const clientId = ensureClientId();
-    return fetch(withBasePath("/profile-name"), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        clientId,
-        displayName,
-        lang: currentLanguage,
-      }),
-    }).catch(function () {});
   }
 
   function pulseDevice(pattern) {
@@ -2045,8 +2026,8 @@
       ? summary.recent
           .map(function (entry) {
             const gameLabel = labels[entry.game] || entry.game;
-            const scoreMarkup = typeof entry.score === "number" ? ` â€¢ ${dictionary.common.score}: ${entry.score}` : "";
-            return `<li><strong>${gameLabel}</strong> â€¢ ${formatHistoryDate(entry.playedAt)}${scoreMarkup}</li>`;
+            const scoreMarkup = typeof entry.score === "number" ? ` • ${dictionary.common.score}: ${entry.score}` : "";
+            return `<li><strong>${gameLabel}</strong> • ${formatHistoryDate(entry.playedAt)}${scoreMarkup}</li>`;
           })
           .join("")
       : `<li>${dictionary.history.emptyRecent}</li>`;
@@ -2054,7 +2035,7 @@
       ? Object.entries(summary.byGame)
           .map(function ([game, stats]) {
             const gameLabel = labels[game] || game;
-            return `<li><strong>${gameLabel}</strong> â€¢ ${dictionary.history.sessions}: ${stats.sessions} â€¢ ${dictionary.common.best}: ${stats.bestScore}</li>`;
+            return `<li><strong>${gameLabel}</strong> • ${dictionary.history.sessions}: ${stats.sessions} • ${dictionary.common.best}: ${stats.bestScore}</li>`;
           })
           .join("")
       : `<li>${dictionary.history.emptySummary}</li>`;
@@ -2178,7 +2159,6 @@
       }
       const nextProfile = { ...profile, clientId: ensureClientId(), displayName };
       savePlayerProfile(nextProfile);
-      submitProfileName(displayName);
       overlay.remove();
       enhanceProfileUX();
     });

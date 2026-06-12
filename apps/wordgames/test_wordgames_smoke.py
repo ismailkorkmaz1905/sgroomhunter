@@ -2,12 +2,16 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
 
 APP_PATH = Path(__file__).with_name("app.py")
+REPO_ROOT = APP_PATH.parent.parent.parent
 
 
 def load_app_module():
@@ -76,11 +80,57 @@ class WordGamesSmokeTests(unittest.TestCase):
         self.assertEqual(payload["dictionary"]["seo"]["dailyTitle"], "Günlük Merdiven | WordSprint")
         self.assertEqual(payload["dictionary"]["profile"]["promptTitle"], "Sana nasıl hitap edeyim?")
 
-    def test_analytics_summary_has_richer_breakdowns(self):
-        response = self.client.get("/analytics-summary")
-        summary = response.get_json()
-        self.assertIn("by_page", summary)
-        self.assertIn("daily_visits", summary)
+    def test_backend_only_routes_are_removed(self):
+        for route in ("/profile-name", "/analytics", "/analytics-summary"):
+            with self.subTest(route=route):
+                response = self.client.get(route)
+                self.assertEqual(response.status_code, 404)
+        response = self.client.post("/profile-name", json={"displayName": "Test"})
+        self.assertEqual(response.status_code, 404)
+
+    def test_static_export_has_no_backend_references(self):
+        env = os.environ.copy()
+        env["WORDSPRINT_BASE_PATH"] = "/wordsprint"
+        subprocess.run(
+            [sys.executable, "apps/wordgames/export_static.py"],
+            cwd=REPO_ROOT,
+            env=env,
+            check=True,
+            stdout=subprocess.DEVNULL,
+        )
+        dist = REPO_ROOT / "dist"
+        for path in (
+            "index.html",
+            "en/index.html",
+            "tr/index.html",
+            "nl/index.html",
+            "id/index.html",
+            "ms/index.html",
+            "en/daily-ladder/index.html",
+            "static/wordgames.js",
+            "manifest.webmanifest",
+            "service-worker.js",
+        ):
+            with self.subTest(path=path):
+                self.assertTrue((dist / path).exists())
+
+        forbidden = (
+            "/profile-name",
+            "analytics.sqlite3",
+            "/analytics",
+            "/analytics-summary",
+            "sqlite3",
+            "visit_events",
+            "player_profiles",
+            "ANALYTICS_USERNAME",
+            "ANALYTICS_PASSWORD",
+        )
+        for file_path in dist.rglob("*"):
+            if file_path.is_file():
+                content = file_path.read_text(encoding="utf-8", errors="ignore")
+                for token in forbidden:
+                    with self.subTest(file=str(file_path), token=token):
+                        self.assertNotIn(token, content)
 
     def test_crossword_difficulty_has_variety_per_locale(self):
         for lang, puzzles in self.module.CROSSWORDS.items():

@@ -20,7 +20,7 @@
     "historyTitle": "History | WordSprint",
     "historyDescription": "See your recent rounds and best local results across WordSprint games.",
     "privacyTitle": "Privacy | WordSprint",
-    "privacyDescription": "How WordSprint handles limited anonymous usage analytics.",
+    "privacyDescription": "How WordSprint stores progress locally in your browser.",
     "aboutTitle": "About | WordSprint",
     "aboutDescription": "About WordSprint and how to contact the creator.",
     "termsTitle": "Terms | WordSprint",
@@ -117,13 +117,13 @@
   },
   "privacy": {
     "title": "Privacy",
-    "intro": "WordSprint uses minimal, anonymous server-side analytics to understand which routes are used and what device types are visiting.",
+    "intro": "WordSprint runs as a static site and stores your game data in your browser.",
     "point1": "We do not store raw IP addresses.",
-    "point2": "We do not use cookies for analytics.",
+    "point2": "We do not use tracking cookies.",
     "point3": "We do not build advertising profiles or fingerprints.",
-    "point4": "We only keep route, language, status code, device type, browser family, and referrer domain.",
-    "point5": "The analytics summary is aggregated and intended for lightweight product insight only.",
-    "point6": "If you choose to share a display name, it can appear in the private analytics dashboard for the site owner."
+    "point4": "Your name, progress, and history stay in localStorage on your device.",
+    "point5": "No game progress is sent to a server.",
+    "point6": "Clearing browser site data may remove your saved progress."
   },
   "terms": {
     "title": "Terms",

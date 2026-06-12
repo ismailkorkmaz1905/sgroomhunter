@@ -117,13 +117,13 @@
   },
   "privacy": {
     "title": "Privacy",
-    "intro": "WordSprint gebruikt minimale, anonieme serveranalyses om te begrijpen welke routes worden gebruikt en welk type apparaat langskomt.",
+    "intro": "WordSprint draait als statische site en bewaart spelgegevens in je browser.",
     "point1": "We slaan geen ruwe IP-adressen op.",
-    "point2": "We gebruiken geen cookies voor analytics.",
+    "point2": "We gebruiken geen trackingcookies.",
     "point3": "We bouwen geen advertentieprofielen of device fingerprints.",
-    "point4": "We bewaren alleen route, taal, statuscode, apparaattype, browserfamilie en verwijzend domein.",
-    "point5": "De analytics-samenvatting is geaggregeerd en alleen bedoeld voor lichte productinzichten.",
-    "point6": "Als je vrijwillig een naam deelt, kan die zichtbaar zijn in het private analytics-dashboard van de eigenaar."
+    "point4": "Je naam, voortgang en geschiedenis blijven in localStorage op je apparaat.",
+    "point5": "Spelvoortgang wordt niet naar een server gestuurd.",
+    "point6": "Als je browsergegevens voor deze site wist, kan je opgeslagen voortgang verdwijnen."
   },
   "terms": {
     "title": "Voorwaarden",
