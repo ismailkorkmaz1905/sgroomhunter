@@ -10,7 +10,7 @@ from base64 import b64decode
 from pathlib import Path
 from urllib.parse import urlparse
 
-from flask import Flask, Response, jsonify, redirect, render_template, request, send_from_directory, url_for
+from flask import Flask, Response, jsonify, redirect, render_template, render_template_string, request, send_from_directory, url_for
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -62,6 +62,51 @@ def detect_app_version() -> str:
 APP_VERSION = detect_app_version()
 
 validate_all_datasets(WORDS, TYPOS, LADDERS, CHAINS, CATEGORIES, CROSSWORDS, SUDOKUS)
+
+
+def get_base_path() -> str:
+    value = os.environ.get("WORDSPRINT_BASE_PATH", "").strip()
+    if not value or value == "/":
+        return ""
+    return "/" + value.strip("/")
+
+
+def prefixed_path(path: str) -> str:
+    base_path = get_base_path()
+    normalized_path = "/" + path.lstrip("/")
+    return f"{base_path}{normalized_path}"
+
+
+def static_asset_url(filename: str) -> str:
+    return prefixed_path(f"/static/{filename}")
+
+
+def manifest_payload() -> dict:
+    base_path = get_base_path()
+    start_url = f"{base_path}/en/" if base_path else "/en"
+    scope = f"{base_path}/" if base_path else "/"
+    return {
+        "name": "WordSprint",
+        "short_name": "WordSprint",
+        "description": "Fast multilingual word games with Daily Ladder, Word Scramble, and Typo Hunt.",
+        "start_url": start_url,
+        "scope": scope,
+        "display": "standalone",
+        "orientation": "portrait",
+        "background_color": "#fbf6ed",
+        "theme_color": "#1e2433",
+        "lang": "en",
+        "icons": [
+            {"src": static_asset_url("icons/icon-192.png"), "sizes": "192x192", "type": "image/png"},
+            {"src": static_asset_url("icons/icon-512.png"), "sizes": "512x512", "type": "image/png"},
+            {
+                "src": static_asset_url("icons/icon-512-maskable.png"),
+                "sizes": "512x512",
+                "type": "image/png",
+                "purpose": "maskable",
+            },
+        ],
+    }
 
 
 def ensure_analytics_db() -> None:
@@ -370,12 +415,18 @@ def render_localized_page(lang: str, page: str = "home"):
         title=dictionary["seo"][title_key],
         description=dictionary["seo"][description_key],
         app_version=APP_VERSION,
+        base_path=get_base_path(),
+        asset_url=static_asset_url,
+        manifest_url=prefixed_path("/manifest.webmanifest"),
+        service_worker_url=prefixed_path("/service-worker.js"),
         app_data={
             "lang": lang,
             "page": normalized_page,
             "availableLanguages": list(DICTIONARIES.keys()),
             "dictionary": dictionary,
             "version": APP_VERSION,
+            "basePath": get_base_path(),
+            "staticBuild": os.environ.get("WORDSPRINT_STATIC_EXPORT") == "1",
             **game_data,
         },
     )
@@ -447,12 +498,15 @@ def create_app() -> Flask:
 
     @app.route("/manifest.webmanifest")
     def manifest():
-        return send_from_directory(app.static_folder, "manifest.webmanifest", mimetype="application/manifest+json")
+        return Response(
+            json.dumps(manifest_payload(), ensure_ascii=False, indent=2),
+            mimetype="application/manifest+json",
+        )
 
     @app.route("/service-worker.js")
     def service_worker():
         response = send_from_directory(app.static_folder, "service-worker.js", mimetype="application/javascript")
-        response.headers["Service-Worker-Allowed"] = "/"
+        response.headers["Service-Worker-Allowed"] = f"{get_base_path()}/" if get_base_path() else "/"
         response.headers["Cache-Control"] = "no-cache"
         return response
 
