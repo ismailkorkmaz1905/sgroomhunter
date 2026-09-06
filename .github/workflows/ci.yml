@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [wordgames]
+  pull_request:
+    branches: [wordgames]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest apps.wordgames.test_wordgames_smoke
+
+      - name: Export static site
+        env:
+          WORDSPRINT_BASE_PATH: /wordsprint
+        run: python apps/wordgames/export_static.py
